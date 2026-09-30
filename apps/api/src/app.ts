@@ -4,6 +4,8 @@ import helmet from '@fastify/helmet';
 import { loadEnv, type Env } from './config/env.js';
 import { requestIdPlugin } from './plugins/requestId.js';
 import { errorHandlerPlugin } from './plugins/errorHandler.js';
+import { idempotencyPlugin } from './plugins/idempotency.js';
+import { rateLimitPlugin } from './plugins/rateLimit.js';
 import { REDACTED_PATHS } from './plugins/logging.js';
 
 export async function buildApp(envOverride?: Partial<Env>): Promise<FastifyInstance> {
@@ -42,6 +44,8 @@ export async function buildApp(envOverride?: Partial<Env>): Promise<FastifyInsta
   // Core Plugins
   await app.register(requestIdPlugin);
   await app.register(errorHandlerPlugin);
+  await app.register(idempotencyPlugin);
+  await app.register(rateLimitPlugin, { maxRequests: 500, windowMs: 60000 });
 
   // Health and Readiness probes
   app.get('/healthz', async () => {

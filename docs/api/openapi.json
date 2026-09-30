@@ -1,0 +1,136 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Bansal Foods E-Commerce REST API",
+    "version": "1.0.0",
+    "description": "Production-oriented REST API for Bansal Foods, Fatehpuri, Delhi (110006). All prices and monetary amounts are in integer paise (INR).",
+    "contact": {
+      "name": "Bansal Foods Engineering",
+      "email": "tech@bansalfoods.example.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "/api/v1",
+      "description": "API v1 Root"
+    }
+  ],
+  "paths": {
+    "/healthz": {
+      "get": {
+        "summary": "Liveness probe",
+        "responses": {
+          "200": {
+            "description": "API container is live",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "ok"
+                    },
+                    "timestamp": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/readyz": {
+      "get": {
+        "summary": "Readiness probe (verifies DB & Redis connections)",
+        "responses": {
+          "200": {
+            "description": "Dependencies healthy and ready for traffic"
+          },
+          "503": {
+            "description": "Dependencies unready"
+          }
+        }
+      }
+    },
+    "/ping": {
+      "get": {
+        "summary": "API availability ping",
+        "responses": {
+          "200": {
+            "description": "Operational"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "bf_access_token"
+      },
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "ErrorDetail": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string"
+          },
+          "issue": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": ["issue"]
+      },
+      "ApiErrorEnvelope": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "example": "VALIDATION_ERROR"
+              },
+              "message": {
+                "type": "string",
+                "example": "Request payload validation failed"
+              },
+              "details": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ErrorDetail"
+                }
+              },
+              "requestId": {
+                "type": "string",
+                "example": "018f3a2b-8a9d-7000-8000-123456789abc"
+              }
+            },
+            "required": ["code", "message", "requestId"]
+          }
+        },
+        "required": ["error"]
+      },
+      "MoneyPaise": {
+        "type": "integer",
+        "description": "Monetary value in Indian paise (100 paise = 1 INR)",
+        "example": 79900
+      }
+    }
+  }
+}
