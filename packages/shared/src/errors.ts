@@ -6,6 +6,9 @@ export const ERROR_CODES = {
   VALIDATION_ERROR: 'VALIDATION_ERROR',
   BAD_REQUEST: 'BAD_REQUEST',
   UNAUTHENTICATED: 'UNAUTHENTICATED',
+  UNAUTHORIZED: 'UNAUTHORIZED',
+  INVALID_CREDENTIALS: 'INVALID_CREDENTIALS',
+  ACCOUNT_LOCKED: 'ACCOUNT_LOCKED',
   TOKEN_EXPIRED: 'TOKEN_EXPIRED',
   FORBIDDEN: 'FORBIDDEN',
   NOT_FOUND: 'NOT_FOUND',
@@ -65,14 +68,25 @@ export class AppError extends Error {
 
   constructor(
     code: StandardErrorCode,
-    statusCode: number,
-    message: string,
+    arg2: number | string,
+    arg3?: string | number,
     details?: ErrorDetail[],
   ) {
-    super(message);
+    let msg: string;
+    let status: number;
+
+    if (typeof arg2 === 'number') {
+      status = arg2;
+      msg = typeof arg3 === 'string' ? arg3 : '';
+    } else {
+      msg = arg2;
+      status = typeof arg3 === 'number' ? arg3 : 400;
+    }
+
+    super(msg);
     this.name = 'AppError';
     this.code = code;
-    this.statusCode = statusCode;
+    this.statusCode = status;
     this.details = details;
     Object.setPrototypeOf(this, new.target.prototype);
   }

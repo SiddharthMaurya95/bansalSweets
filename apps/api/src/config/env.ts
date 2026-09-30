@@ -39,6 +39,9 @@ const envSchema = z.object({
 
   // Observability
   LOG_LEVEL: z.enum(['fatal', 'error', 'warn', 'info', 'debug', 'trace']).default('info'),
+
+  // Feature Flags
+  ENABLE_PHONE_OTP: z.coerce.boolean().default(false),
 });
 
 export type Env = z.infer<typeof envSchema>;

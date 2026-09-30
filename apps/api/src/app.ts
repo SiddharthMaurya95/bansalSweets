@@ -1,11 +1,14 @@
 import fastify, { type FastifyInstance } from 'fastify';
 import cors from '@fastify/cors';
 import helmet from '@fastify/helmet';
+import cookie from '@fastify/cookie';
 import { loadEnv, type Env } from './config/env.js';
 import { requestIdPlugin } from './plugins/requestId.js';
 import { errorHandlerPlugin } from './plugins/errorHandler.js';
 import { idempotencyPlugin } from './plugins/idempotency.js';
 import { rateLimitPlugin } from './plugins/rateLimit.js';
+import { authPlugin } from './plugins/auth.js';
+import { authRoutes } from './modules/auth/authRoutes.js';
 import { REDACTED_PATHS } from './plugins/logging.js';
 
 export async function buildApp(envOverride?: Partial<Env>): Promise<FastifyInstance> {
@@ -23,6 +26,11 @@ export async function buildApp(envOverride?: Partial<Env>): Promise<FastifyInsta
   await app.register(helmet, {
     contentSecurityPolicy: false, // APIs are JSON-only
     crossOriginEmbedderPolicy: false,
+  });
+
+  // Cookies
+  await app.register(cookie, {
+    secret: env.COOKIE_SECRET,
   });
 
   // CORS
@@ -46,6 +54,10 @@ export async function buildApp(envOverride?: Partial<Env>): Promise<FastifyInsta
   await app.register(errorHandlerPlugin);
   await app.register(idempotencyPlugin);
   await app.register(rateLimitPlugin, { maxRequests: 500, windowMs: 60000 });
+  await app.register(authPlugin);
+
+  // Authentication & Session Routes
+  await app.register(authRoutes, { prefix: '/api/v1/auth' });
 
   // Health and Readiness probes
   app.get('/healthz', async () => {

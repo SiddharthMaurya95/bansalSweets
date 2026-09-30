@@ -65,6 +65,159 @@ export const OPENAPI_SPEC = {
         },
       },
     },
+    '/auth/register': {
+      post: {
+        summary: 'Customer registration',
+        description: 'Creates a new customer account with Argon2id password hashing',
+        requestBody: {
+          required: true,
+          content: {
+            'application/json': {
+              schema: {
+                type: 'object',
+                required: ['name', 'password'],
+                properties: {
+                  name: { type: 'string', minLength: 2 },
+                  email: { type: 'string', format: 'email' },
+                  phone: { type: 'string' },
+                  password: { type: 'string', minLength: 8 },
+                  customerType: {
+                    type: 'string',
+                    enum: ['RETAIL', 'WHOLESALE'],
+                    default: 'RETAIL',
+                  },
+                  marketingOptIn: { type: 'boolean', default: false },
+                },
+              },
+            },
+          },
+        },
+        responses: {
+          '201': { description: 'Registration successful' },
+          '409': { description: 'Email or mobile number already exists' },
+          '422': { description: 'Validation error' },
+        },
+      },
+    },
+    '/auth/login': {
+      post: {
+        summary: 'User login',
+        description:
+          'Authenticates credentials, returns short-lived JWT and sets rotating refresh cookie',
+        requestBody: {
+          required: true,
+          content: {
+            'application/json': {
+              schema: {
+                type: 'object',
+                required: ['identifier', 'password'],
+                properties: {
+                  identifier: { type: 'string' },
+                  password: { type: 'string' },
+                  audience: { type: 'string', enum: ['CUSTOMER', 'ADMIN'], default: 'CUSTOMER' },
+                },
+              },
+            },
+          },
+        },
+        responses: {
+          '200': { description: 'Login successful' },
+          '401': { description: 'Invalid credentials' },
+          '423': { description: 'Account locked due to excessive failed attempts' },
+        },
+      },
+    },
+    '/auth/refresh': {
+      post: {
+        summary: 'Rotate refresh token',
+        description:
+          'Rotates refresh token cookie and issues new access token with family reuse detection',
+        responses: {
+          '200': { description: 'Token rotated successfully' },
+          '401': { description: 'Invalid or replayed refresh token' },
+        },
+      },
+    },
+    '/auth/logout': {
+      post: {
+        summary: 'Logout current session',
+        description: 'Revokes current refresh token and clears cookie',
+        responses: {
+          '200': { description: 'Logged out successfully' },
+        },
+      },
+    },
+    '/auth/logout-all': {
+      post: {
+        summary: 'Logout all sessions',
+        security: [{ bearerAuth: [] }],
+        description: 'Terminates all active sessions for the user across all devices',
+        responses: {
+          '200': { description: 'All sessions terminated' },
+          '401': { description: 'Unauthorized' },
+        },
+      },
+    },
+    '/auth/me': {
+      get: {
+        summary: 'Get current user profile',
+        security: [{ bearerAuth: [] }],
+        description: 'Returns authenticated user identity, role, and permissions',
+        responses: {
+          '200': { description: 'User profile' },
+          '401': { description: 'Unauthorized' },
+        },
+      },
+    },
+    '/auth/otp/send': {
+      post: {
+        summary: 'Dispatch phone OTP challenge',
+        requestBody: {
+          required: true,
+          content: {
+            'application/json': {
+              schema: {
+                type: 'object',
+                required: ['phone', 'purpose'],
+                properties: {
+                  phone: { type: 'string' },
+                  purpose: { type: 'string', enum: ['LOGIN', 'CHECKOUT', 'PHONE_VERIFY'] },
+                },
+              },
+            },
+          },
+        },
+        responses: {
+          '200': { description: 'OTP challenge dispatched' },
+          '429': { description: 'Rate limit exceeded' },
+        },
+      },
+    },
+    '/auth/otp/verify': {
+      post: {
+        summary: 'Verify phone OTP code',
+        requestBody: {
+          required: true,
+          content: {
+            'application/json': {
+              schema: {
+                type: 'object',
+                required: ['phone', 'purpose', 'code'],
+                properties: {
+                  phone: { type: 'string' },
+                  purpose: { type: 'string', enum: ['LOGIN', 'CHECKOUT', 'PHONE_VERIFY'] },
+                  code: { type: 'string', minLength: 6, maxLength: 6 },
+                },
+              },
+            },
+          },
+        },
+        responses: {
+          '200': { description: 'OTP verified' },
+          '400': { description: 'Invalid or expired OTP' },
+        },
+      },
+    },
   },
   components: {
     securitySchemes: {

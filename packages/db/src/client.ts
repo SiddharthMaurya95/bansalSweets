@@ -15,6 +15,10 @@ export interface TransactionOptions {
 let dbInstance: Database | null = null;
 let sqlClient: ReturnType<typeof postgres> | null = null;
 
+export function setDb(customDb: Database | null): void {
+  dbInstance = customDb;
+}
+
 export function getDb(connectionString?: string): Database {
   if (dbInstance) return dbInstance;
 

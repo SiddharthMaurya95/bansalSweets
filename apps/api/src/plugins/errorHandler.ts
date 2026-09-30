@@ -28,16 +28,21 @@ const errorHandlerPluginAsync: FastifyPluginAsync = async (fastify: FastifyInsta
     const requestId = request.requestId || (request.headers['x-request-id'] as string) || 'unknown';
 
     // 1. AppError (Domain typed errors)
-    if (error instanceof AppError) {
+    const errObj = error as unknown as Record<string, unknown>;
+    if (
+      error instanceof AppError ||
+      (errObj && typeof errObj['statusCode'] === 'number' && typeof errObj['code'] === 'string')
+    ) {
+      const appErr = error as unknown as AppError;
       const response: ApiErrorEnvelope = {
         error: {
-          code: error.code,
-          message: error.message,
-          details: error.details,
+          code: appErr.code,
+          message: appErr.message,
+          details: appErr.details,
           requestId,
         },
       };
-      return reply.status(error.statusCode).send(response);
+      return reply.status(appErr.statusCode).send(response);
     }
 
     // 2. Zod Validation Errors
