@@ -1,0 +1,24 @@
+name: Deploy Production
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Gated Production Deployment
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Deploy Production Application
+        run: |
+          echo "Deploying Production Release ${{ github.sha }}"
+          # Step 1: Pre-flight synthetic placeholder check
+          # Step 2: Database backup verification
+          # Step 3: Run forward-only DB migration
+          # Step 4: Zero-downtime rolling container deploy
+          # Step 5: Post-deployment smoke check (healthz, readyz, home, catalog)

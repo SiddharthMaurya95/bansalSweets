@@ -1,0 +1,22 @@
+name: Deploy Staging
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    name: Build & Deploy to Staging
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Deploy Staging Application
+        run: |
+          echo "Deploying Staging Release ${{ github.sha }}"
+          # Step 1: Run forward-only DB migration container
+          # Step 2: Rolling update of API and Worker containers
+          # Step 3: Deploy Web & Admin containers behind CDN
+          # Step 4: Run smoke test suite

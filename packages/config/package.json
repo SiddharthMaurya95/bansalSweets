@@ -1,0 +1,16 @@
+{
+  "name": "@bansal/config",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./tailwind.preset": "./tailwind.preset.js",
+    "./tsconfig.base.json": "./tsconfig.base.json",
+    "./tsconfig.react.json": "./tsconfig.react.json"
+  },
+  "files": [
+    "tsconfig.base.json",
+    "tsconfig.react.json",
+    "tailwind.preset.js"
+  ]
+}

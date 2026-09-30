@@ -1,0 +1,98 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: bansal-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: bansal_foods
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d bansal_foods']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: bansal-redis-cache
+    restart: unless-stopped
+    command: redis-server --maxmemory 256mb --maxmemory-policy allkeys-lru --appendonly no
+    ports:
+      - '6379:6379'
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  redis-queue:
+    image: redis:7-alpine
+    container_name: bansal-redis-queue
+    restart: unless-stopped
+    command: redis-server --maxmemory-policy noeviction --appendonly yes
+    ports:
+      - '6380:6379'
+    volumes:
+      - redis-queue-data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: bansal-mailpit
+    restart: unless-stopped
+    ports:
+      - '1025:1025' # SMTP
+      - '8025:8025' # Web UI
+    healthcheck:
+      test: ['CMD', 'nc', '-z', 'localhost', '1025']
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  minio:
+    image: minio/minio:latest
+    container_name: bansal-minio
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    ports:
+      - '9000:9000' # S3 API
+      - '9001:9001' # Web Console
+    volumes:
+      - minio-data:/data
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:9000/minio/health/live']
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  createbuckets:
+    image: minio/mc:latest
+    container_name: bansal-minio-init
+    depends_on:
+      minio:
+        condition: service_healthy
+    entrypoint: >
+      /bin/sh -c "
+      /usr/bin/mc alias set myminio http://minio:9000 minioadmin minioadmin;
+      /usr/bin/mc mb myminio/bansal-foods-media || true;
+      /usr/bin/mc anonymous set download myminio/bansal-foods-media;
+      exit 0;
+      "
+
+volumes:
+  postgres-data:
+  redis-queue-data:
+  minio-data:

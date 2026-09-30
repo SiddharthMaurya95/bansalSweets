@@ -1,0 +1,20 @@
+:root {
+  /* Brand Tokens - Section 42.1 */
+  --brand-blue-900: #0b2a6b;
+  --brand-blue-700: #1e4ba8;
+  --brand-red-600: #c8102e;
+  --brand-gold-500: #d9a521;
+  --brand-gold-300: #f2d27a;
+  --surface: #ffffff;
+  --surface-warm: #fff9ee;
+  --ink-900: #1b1f2a;
+  --ink-600: #4a5163;
+  --success: #15803d;
+  --warning: #b45309;
+  --danger: #b91c1c;
+
+  /* Layout and radii */
+  --radius-card: 14px;
+  --radius-button: 8px;
+  --radius-chip: 20px;
+}
