@@ -412,6 +412,19 @@ export const authApi = {
       cache: 'no-store',
     });
   },
+
+  googleAuth(data: {
+    credential?: string;
+    email?: string;
+    name?: string;
+    googleId?: string;
+  }): Promise<LoginResponse> {
+    return apiFetch('/api/v1/auth/google', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      cache: 'no-store',
+    });
+  },
 };
 
 // ─── Order & Checkout Types ───────────────────────────────────────────────────

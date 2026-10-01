@@ -30,10 +30,10 @@ const CATEGORIES = [
 const QUICK_LINKS = [
   { label: 'About Us', href: '/about' },
   { label: 'Track Order', href: '/orders/track' },
+  { label: 'Help & Support', href: '/contact' },
   { label: 'Shipping Policy', href: '/shipping-policy' },
   { label: 'Return & Refund', href: '/returns' },
   { label: 'Contact Us', href: '/contact' },
-  { label: 'Blog', href: '/blog' },
 ];
 
 export function Footer() {
@@ -176,7 +176,7 @@ export function Footer() {
             </p>
             <p className="flex items-center gap-2 pt-1 text-white/60">
               <ClockIcon size={14} className="text-[#C88C3C] flex-shrink-0" />
-              <span>Mon - Sat: 9:00 AM - 8:00 PM</span>
+              <span>Mon - Sat: 9:00 AM - 6:00 PM</span>
             </p>
             <p className="flex items-center gap-2 text-white/60 pl-6">
               <span>Sunday: 10:00 AM - 6:00 PM</span>

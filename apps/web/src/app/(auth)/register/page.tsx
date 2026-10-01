@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 import { ApiRequestError } from '@/lib/api';
+import { redirectToGoogle, getGoogleClientId } from '@/lib/googleAuth';
+import { GoogleRedirectModal } from '@/components/GoogleRedirectModal';
 
 // ── 3 Golden Almond Leaves Brand Icon ──
 function BansalAlmondLogo({ className = 'w-10 h-10 text-[#A86E2B]' }: { className?: string }) {
@@ -53,7 +55,7 @@ function BansalAlmondLogo({ className = 'w-10 h-10 text-[#A86E2B]' }: { classNam
   );
 }
 
-// ── Delicate Botanical Flourish SVG (Top Right & Corner Art) ──
+// ── Delicate Botanical Flourish SVG (Corner Art) ──
 function BotanicalWatermark() {
   return (
     <svg
@@ -85,6 +87,7 @@ function RegisterFormContent() {
   const [agreeTerms, setAgreeTerms] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [googleModalOpen, setGoogleModalOpen] = useState(false);
 
   const { register } = useAuth();
   const router = useRouter();
@@ -127,7 +130,6 @@ function RegisterFormContent() {
       if (err instanceof ApiRequestError) {
         setError(err.message || 'Registration failed. Please verify your details.');
       } else {
-        // Fallback for simulation / mock demo
         try {
           router.push(redirectPath);
         } catch {
@@ -140,179 +142,196 @@ function RegisterFormContent() {
   };
 
   const handleGoogleSignup = () => {
-    alert('Google Single Sign-On simulation. Setting up account and redirecting to shop...');
-    router.push(redirectPath);
+    const configuredId = getGoogleClientId();
+    if (configuredId) {
+      redirectToGoogle(redirectPath);
+    } else {
+      setGoogleModalOpen(true);
+    }
   };
 
   return (
-    <div className="w-full max-w-sm sm:max-w-md mx-auto relative z-10 flex flex-col justify-between py-2 sm:py-6">
+    <div className="w-full max-w-sm sm:max-w-md mx-auto relative z-10 flex flex-col justify-center my-auto">
       {/* ── Top Brand Header ── */}
       <div className="text-center">
         <Link href="/" className="inline-flex flex-col items-center group">
-          <div className="w-12 h-10 text-[#8C4A18] flex items-center justify-center mb-1 group-hover:scale-105 transition-transform">
-            <BansalAlmondLogo className="w-11 h-9 text-[#A86E2B]" />
+          <div className="w-9 h-8 text-[#8C4A18] flex items-center justify-center mb-0.5 group-hover:scale-105 transition-transform">
+            <BansalAlmondLogo className="w-8 h-7 text-[#A86E2B]" />
           </div>
-          <span className="font-serif font-bold text-xl sm:text-2xl text-[#24130A] tracking-tight block leading-tight">
+          <span className="font-serif font-bold text-lg sm:text-xl text-[#24130A] tracking-tight block leading-tight">
             BANSAL FOODS
           </span>
-          <span className="text-[7.5px] font-semibold text-[#8C5D17] tracking-widest block uppercase mt-0.5">
+          <span className="text-[7px] font-semibold text-[#8C5D17] tracking-widest block uppercase mt-0.5">
             DRY FRUITS • WHOLESALE • RETAIL
           </span>
-          <span className="text-[7.5px] font-semibold text-[#8C5D17] tracking-widest block uppercase">
+          <span className="text-[7px] font-semibold text-[#8C5D17] tracking-widest block uppercase">
             FATEHPURI, DELHI
           </span>
         </Link>
 
         {/* Headline */}
-        <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#1F140D] mt-3 sm:mt-4 tracking-tight">
+        <h1 className="text-lg sm:text-xl font-serif font-bold text-[#1F140D] mt-2 tracking-tight">
           Create Your Account
         </h1>
-        <p className="text-xs text-gray-500 mt-1.5 max-w-xs mx-auto leading-relaxed">
-          Join Bansal Foods and enjoy a better shopping experience with exclusive benefits.
+        <p className="text-[11px] text-gray-500 mt-0.5 max-w-xs mx-auto leading-tight">
+          Join Bansal Foods and enjoy exclusive wholesale &amp; retail benefits.
         </p>
+      </div>
+
+      {/* ── Tab Switcher (Sign In vs Create Account) ── */}
+      <div className="grid grid-cols-2 gap-1.5 mt-2.5">
+        <Link
+          href={`/login${redirectPath !== '/shop' ? `?redirect=${encodeURIComponent(redirectPath)}` : ''}`}
+          className="py-1.5 rounded-lg font-semibold text-xs bg-white border border-gray-200 text-gray-700 hover:text-black hover:border-gray-300 text-center transition-all shadow-2xs cursor-pointer"
+        >
+          Sign In
+        </Link>
+        <button
+          type="button"
+          className="py-1.5 rounded-lg font-semibold text-xs bg-[#8C4A18] text-white shadow-2xs transition-all text-center cursor-default"
+        >
+          Create Account
+        </button>
       </div>
 
       {/* Error Alert */}
       {error && (
-        <div className="mt-4 p-3 bg-red-50 border border-red-200 text-red-700 text-xs rounded-lg flex items-center gap-2">
+        <div className="mt-2 p-2 bg-red-50 border border-red-200 text-red-700 text-xs rounded-lg flex items-center gap-2">
           <span>⚠️</span>
           <span>{error}</span>
         </div>
       )}
 
       {/* ── Registration Form ── */}
-      <form onSubmit={handleSubmit} className="mt-5 space-y-3.5">
-        {/* Full Name */}
-        <div>
-          <label className="block text-xs font-semibold text-gray-800 mb-1">
-            Full Name <span className="text-red-500">*</span>
-          </label>
-          <div className="relative flex items-center">
-            <div className="absolute left-3.5 text-gray-400 pointer-events-none">
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
-            </div>
-            <input
-              type="text"
-              required
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Enter your full name"
-              className="w-full pl-10 pr-3.5 py-2.5 text-xs sm:text-sm rounded-lg border border-gray-200 focus:outline-none focus:border-[#8C4A18] focus:ring-1 focus:ring-[#8C4A18] bg-white text-gray-900 placeholder:text-gray-400 transition-colors"
-            />
-          </div>
-        </div>
-
-        {/* Mobile Number */}
-        <div>
-          <label className="block text-xs font-semibold text-gray-800 mb-1">
-            Mobile Number <span className="text-red-500">*</span>
-          </label>
-          <div className="relative flex items-center">
-            {/* Country code prefix with phone icon */}
-            <div className="absolute left-3 flex items-center gap-1.5 text-gray-500 pr-2 border-r border-gray-200 pointer-events-none">
-              <svg className="w-3.5 h-3.5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-              </svg>
-              <span className="text-xs font-medium text-gray-700">+91</span>
-              <span className="text-[10px] text-gray-400">⌵</span>
-            </div>
-            <input
-              type="tel"
-              required
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              placeholder="Enter your mobile number"
-              className="w-full pl-20 pr-3.5 py-2.5 text-xs sm:text-sm rounded-lg border border-gray-200 focus:outline-none focus:border-[#8C4A18] focus:ring-1 focus:ring-[#8C4A18] bg-white text-gray-900 placeholder:text-gray-400 transition-colors"
-            />
-          </div>
-        </div>
-
-        {/* Email Address (Optional) */}
-        <div>
-          <label className="block text-xs font-semibold text-gray-800 mb-1">
-            Email Address <span className="text-gray-400 font-normal">(Optional)</span>
-          </label>
-          <div className="relative flex items-center">
-            <div className="absolute left-3.5 text-gray-400 pointer-events-none">
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                <polyline points="22,6 12,13 2,6" />
-              </svg>
-            </div>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email address"
-              className="w-full pl-10 pr-3.5 py-2.5 text-xs sm:text-sm rounded-lg border border-gray-200 focus:outline-none focus:border-[#8C4A18] focus:ring-1 focus:ring-[#8C4A18] bg-white text-gray-900 placeholder:text-gray-400 transition-colors"
-            />
-          </div>
-        </div>
-
-        {/* Password */}
-        <div>
-          <label className="block text-xs font-semibold text-gray-800 mb-1">
-            Password <span className="text-red-500">*</span>
-          </label>
-          <div className="relative flex items-center">
-            <div className="absolute left-3.5 text-gray-400 pointer-events-none">
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-              </svg>
-            </div>
-            <input
-              type={showPassword ? 'text' : 'password'}
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Create a password"
-              className="w-full pl-10 pr-10 py-2.5 text-xs sm:text-sm rounded-lg border border-gray-200 focus:outline-none focus:border-[#8C4A18] focus:ring-1 focus:ring-[#8C4A18] bg-white text-gray-900 placeholder:text-gray-400 transition-colors"
-            />
-            {/* Toggle show/hide password */}
-            <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 text-gray-400 hover:text-gray-600 focus:outline-none p-1"
-              aria-label={showPassword ? 'Hide password' : 'Show password'}
-            >
-              {showPassword ? (
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                  <circle cx="12" cy="12" r="3" />
+      <form onSubmit={handleSubmit} className="mt-2.5 space-y-2">
+        {/* Row 1: Full Name & Mobile Number */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          {/* Full Name */}
+          <div>
+            <label className="block text-[11px] font-semibold text-gray-800 mb-0.5">
+              Full Name <span className="text-red-500">*</span>
+            </label>
+            <div className="relative flex items-center">
+              <div className="absolute left-2.5 text-gray-400 pointer-events-none">
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
                 </svg>
-              ) : (
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
-                  <line x1="1" y1="1" x2="23" y2="23" />
-                </svg>
-              )}
-            </button>
+              </div>
+              <input
+                type="text"
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Full name"
+                className="w-full pl-8 pr-2.5 py-1.5 text-xs rounded-lg border border-gray-200 focus:outline-none focus:border-[#8C4A18] focus:ring-1 focus:ring-[#8C4A18] bg-white text-gray-900 placeholder:text-gray-400 transition-colors"
+              />
+            </div>
           </div>
-          <p className="text-[10px] text-gray-500 mt-1 leading-normal">
-            Use at least 8 characters with a mix of letters, numbers and symbols.
-          </p>
+
+          {/* Mobile Number */}
+          <div>
+            <label className="block text-[11px] font-semibold text-gray-800 mb-0.5">
+              Mobile Number <span className="text-red-500">*</span>
+            </label>
+            <div className="relative flex items-center">
+              <div className="absolute left-2.5 flex items-center gap-1 text-gray-500 pr-1.5 border-r border-gray-200 pointer-events-none">
+                <span className="text-[11px] font-medium text-gray-700">+91</span>
+              </div>
+              <input
+                type="tel"
+                required
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder="Mobile number"
+                className="w-full pl-13 pr-2.5 py-1.5 text-xs rounded-lg border border-gray-200 focus:outline-none focus:border-[#8C4A18] focus:ring-1 focus:ring-[#8C4A18] bg-white text-gray-900 placeholder:text-gray-400 transition-colors"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Row 2: Email & Password */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          {/* Email Address */}
+          <div>
+            <label className="block text-[11px] font-semibold text-gray-800 mb-0.5">
+              Email <span className="text-gray-400 font-normal text-[10px]">(Optional)</span>
+            </label>
+            <div className="relative flex items-center">
+              <div className="absolute left-2.5 text-gray-400 pointer-events-none">
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email address"
+                className="w-full pl-8 pr-2.5 py-1.5 text-xs rounded-lg border border-gray-200 focus:outline-none focus:border-[#8C4A18] focus:ring-1 focus:ring-[#8C4A18] bg-white text-gray-900 placeholder:text-gray-400 transition-colors"
+              />
+            </div>
+          </div>
+
+          {/* Password */}
+          <div>
+            <label className="block text-[11px] font-semibold text-gray-800 mb-0.5">
+              Password <span className="text-red-500">*</span>
+            </label>
+            <div className="relative flex items-center">
+              <div className="absolute left-2.5 text-gray-400 pointer-events-none">
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
+              </div>
+              <input
+                type={showPassword ? 'text' : 'password'}
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Min. 8 characters"
+                className="w-full pl-8 pr-7 py-1.5 text-xs rounded-lg border border-gray-200 focus:outline-none focus:border-[#8C4A18] focus:ring-1 focus:ring-[#8C4A18] bg-white text-gray-900 placeholder:text-gray-400 transition-colors"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-2 text-gray-400 hover:text-gray-600 focus:outline-none p-0.5 cursor-pointer"
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+              >
+                {showPassword ? (
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                ) : (
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
+                    <line x1="1" y1="1" x2="23" y2="23" />
+                  </svg>
+                )}
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* Agreement Checkbox */}
         <div className="pt-0.5">
-          <label className="flex items-start gap-2 cursor-pointer select-none">
+          <label className="flex items-center gap-1.5 cursor-pointer select-none">
             <input
               type="checkbox"
               checked={agreeTerms}
               onChange={(e) => setAgreeTerms(e.target.checked)}
-              className="mt-0.5 w-4 h-4 rounded border-gray-300 text-[#8C4A18] focus:ring-[#8C4A18] accent-[#8C4A18] cursor-pointer"
+              className="w-3.5 h-3.5 rounded border-gray-300 text-[#8C4A18] focus:ring-[#8C4A18] accent-[#8C4A18] cursor-pointer"
             />
-            <span className="text-[11px] text-gray-600 leading-tight">
+            <span className="text-[10.5px] text-gray-600 leading-tight">
               I agree to the{' '}
-              <Link href="/terms" className="text-[#8C4A18] font-medium underline hover:text-[#703A12]">
-                Terms of Service
+              <Link href="/terms" className="text-[#8C4A18] font-medium underline hover:text-[#703A12] cursor-pointer">
+                Terms
               </Link>{' '}
-              and{' '}
-              <Link href="/privacy" className="text-[#8C4A18] font-medium underline hover:text-[#703A12]">
+              &amp;{' '}
+              <Link href="/privacy" className="text-[#8C4A18] font-medium underline hover:text-[#703A12] cursor-pointer">
                 Privacy Policy
               </Link>
             </span>
@@ -323,20 +342,20 @@ function RegisterFormContent() {
         <button
           type="submit"
           disabled={submitting}
-          className="w-full py-3 px-4 bg-[#8C4A18] hover:bg-[#733B12] text-white font-semibold text-sm rounded-lg shadow-sm hover:shadow transition-all flex items-center justify-center gap-2 mt-2 active:scale-[0.99] disabled:opacity-50"
+          className="w-full py-2.5 px-4 bg-[#8C4A18] hover:bg-[#733B12] text-white font-semibold text-xs sm:text-sm rounded-lg shadow-xs hover:shadow transition-all flex items-center justify-center gap-2 mt-1 active:scale-[0.99] disabled:opacity-50 cursor-pointer"
         >
           <span>{submitting ? 'Creating Account...' : 'Create Account'}</span>
-          <span className="text-base leading-none">→</span>
+          <span className="text-sm leading-none">→</span>
         </button>
       </form>
 
       {/* OR Divider */}
-      <div className="relative my-4">
+      <div className="relative my-2 sm:my-2.5">
         <div className="absolute inset-0 flex items-center">
           <div className="w-full border-t border-gray-200" />
         </div>
-        <div className="relative flex justify-center text-xs uppercase">
-          <span className="bg-[#FAF7F2] px-3 text-gray-400 font-semibold tracking-wider">OR</span>
+        <div className="relative flex justify-center text-[10px] uppercase">
+          <span className="bg-[#FAF7F2] px-2.5 text-gray-400 font-semibold tracking-wider">OR</span>
         </div>
       </div>
 
@@ -344,7 +363,7 @@ function RegisterFormContent() {
       <button
         type="button"
         onClick={handleGoogleSignup}
-        className="w-full py-2.5 px-4 bg-white border border-gray-200 hover:border-gray-300 rounded-lg shadow-2xs text-xs sm:text-sm font-semibold text-gray-700 flex items-center justify-center gap-2.5 transition-all hover:bg-gray-50/80"
+        className="w-full py-2 px-4 bg-white border border-gray-200 hover:border-gray-300 rounded-lg shadow-2xs text-xs font-semibold text-gray-700 flex items-center justify-center gap-2.5 transition-all hover:bg-gray-50/80 cursor-pointer"
       >
         <svg className="w-4 h-4" viewBox="0 0 24 24">
           <path
@@ -368,11 +387,11 @@ function RegisterFormContent() {
       </button>
 
       {/* Already have an account link */}
-      <p className="text-center text-xs text-gray-600 mt-4">
+      <p className="text-center text-[11px] text-gray-600 mt-2">
         Already have an account?{' '}
         <Link
           href={`/login${redirectPath !== '/shop' ? `?redirect=${encodeURIComponent(redirectPath)}` : ''}`}
-          className="font-bold text-[#8C4A18] hover:underline inline-flex items-center gap-1"
+          className="font-bold text-[#8C4A18] hover:underline inline-flex items-center gap-0.5 cursor-pointer"
         >
           <span>Sign In</span>
           <span>→</span>
@@ -380,61 +399,68 @@ function RegisterFormContent() {
       </p>
 
       {/* ── Bottom Trust Badges (4 icons matching theme) ── */}
-      <div className="grid grid-cols-4 gap-2 pt-5 mt-5 border-t border-gray-200/60 text-center">
+      <div className="grid grid-cols-4 gap-1.5 pt-2.5 mt-2.5 border-t border-gray-200/60 text-center">
         {/* Secure Payments */}
         <div className="flex flex-col items-center">
-          <div className="w-8 h-8 rounded-full bg-[#F4EDE2] text-[#8C4A18] flex items-center justify-center mb-1">
-            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+          <div className="w-6 h-6 rounded-full bg-[#F4EDE2] text-[#8C4A18] flex items-center justify-center mb-0.5">
+            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
               <path d="M9 12l2 2 4-4" />
             </svg>
           </div>
-          <span className="text-[10px] font-medium text-gray-700 leading-tight">Secure<br />Payments</span>
+          <span className="text-[9px] font-medium text-gray-700 leading-tight">Secure Payments</span>
         </div>
 
         {/* Fast Delivery */}
         <div className="flex flex-col items-center">
-          <div className="w-8 h-8 rounded-full bg-[#F4EDE2] text-[#8C4A18] flex items-center justify-center mb-1">
-            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+          <div className="w-6 h-6 rounded-full bg-[#F4EDE2] text-[#8C4A18] flex items-center justify-center mb-0.5">
+            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
               <rect x="1" y="3" width="15" height="13" />
               <polygon points="16 8 20 8 23 11 23 16 16 16 8" />
               <circle cx="5.5" cy="18.5" r="2.5" />
               <circle cx="18.5" cy="18.5" r="2.5" />
             </svg>
           </div>
-          <span className="text-[10px] font-medium text-gray-700 leading-tight">Fast<br />Delivery</span>
+          <span className="text-[9px] font-medium text-gray-700 leading-tight">Fast Delivery</span>
         </div>
 
         {/* Premium Quality */}
         <div className="flex flex-col items-center">
-          <div className="w-8 h-8 rounded-full bg-[#F4EDE2] text-[#8C4A18] flex items-center justify-center mb-1">
-            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+          <div className="w-6 h-6 rounded-full bg-[#F4EDE2] text-[#8C4A18] flex items-center justify-center mb-0.5">
+            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
             </svg>
           </div>
-          <span className="text-[10px] font-medium text-gray-700 leading-tight">Premium<br />Quality</span>
+          <span className="text-[9px] font-medium text-gray-700 leading-tight">Premium Quality</span>
         </div>
 
         {/* Wide Variety */}
         <div className="flex flex-col items-center">
-          <div className="w-8 h-8 rounded-full bg-[#F4EDE2] text-[#8C4A18] flex items-center justify-center mb-1">
-            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+          <div className="w-6 h-6 rounded-full bg-[#F4EDE2] text-[#8C4A18] flex items-center justify-center mb-0.5">
+            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
               <path d="M12 3C7 3 3 8 3 13C3 17 6 20 10 20C12 20 14 19 15 17C16 19 18 20 20 20C22 20 23 19 23 17C23 12 18 3 12 3Z" />
               <path d="M12 3V17" />
             </svg>
           </div>
-          <span className="text-[10px] font-medium text-gray-700 leading-tight">Wide<br />Variety</span>
+          <span className="text-[9px] font-medium text-gray-700 leading-tight">100+ Variety</span>
         </div>
       </div>
+
+      {/* Google Authentication Redirect Modal */}
+      <GoogleRedirectModal
+        isOpen={googleModalOpen}
+        onClose={() => setGoogleModalOpen(false)}
+        redirectPath={redirectPath}
+      />
     </div>
   );
 }
 
 export default function RegisterPage() {
   return (
-    <div className="min-h-screen w-full flex flex-col lg:flex-row bg-[#FAF7F2]">
+    <div className="h-screen max-h-screen w-full flex flex-col lg:flex-row bg-[#FAF7F2] overflow-hidden">
       {/* ════════ LEFT COLUMN: PANORAMIC MANDI VISUAL & NARRATIVE (58%) ════════ */}
-      <div className="relative hidden lg:flex lg:w-7/12 xl:w-3/5 min-h-screen flex-col justify-between overflow-hidden bg-[#160C07] text-white">
+      <div className="relative hidden lg:flex lg:w-7/12 xl:w-3/5 h-full max-h-screen flex-col justify-between overflow-hidden bg-[#160C07] text-white">
         {/* Background Image: Fatehpuri Mandi Scene */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -450,42 +476,42 @@ export default function RegisterPage() {
         </div>
 
         {/* Top Branding on left image */}
-        <div className="relative z-10 p-8 xl:p-12">
+        <div className="relative z-10 p-5 xl:p-8">
           <Link href="/" className="inline-flex flex-col items-start group">
-            <div className="w-10 h-9 text-[#E5A93C] mb-1">
-              <BansalAlmondLogo className="w-9 h-8 text-[#E5A93C]" />
+            <div className="w-9 h-8 text-[#E5A93C] mb-1">
+              <BansalAlmondLogo className="w-8 h-7 text-[#E5A93C]" />
             </div>
-            <span className="font-serif font-extrabold text-xl text-white tracking-tight block leading-tight">
+            <span className="font-serif font-extrabold text-lg xl:text-xl text-white tracking-tight block leading-tight">
               BANSAL FOODS
             </span>
-            <span className="text-[7.5px] font-semibold text-[#E5A93C] tracking-widest block uppercase mt-0.5">
+            <span className="text-[7px] font-semibold text-[#E5A93C] tracking-widest block uppercase mt-0.5">
               DRY FRUITS • WHOLESALE • RETAIL
             </span>
-            <span className="text-[7.5px] font-semibold text-[#E5A93C] tracking-widest block uppercase">
+            <span className="text-[7px] font-semibold text-[#E5A93C] tracking-widest block uppercase">
               FATEHPURI, DELHI
             </span>
           </Link>
         </div>
 
         {/* Middle Main Narrative & Badges */}
-        <div className="relative z-10 p-8 xl:p-12 space-y-6 max-w-xl">
+        <div className="relative z-10 p-5 xl:p-8 space-y-4 max-w-xl">
           <div>
-            <h2 className="text-4xl xl:text-5xl font-serif font-bold text-white tracking-tight leading-[1.15]">
+            <h2 className="text-3xl xl:text-4xl font-serif font-bold text-white tracking-tight leading-[1.15]">
               Start Your <br />
               <span className="font-serif italic font-normal text-[#E8B150]">Bansal Foods</span> <br />
               Journey
             </h2>
-            <p className="text-sm xl:text-base text-gray-200/90 leading-relaxed mt-4 max-w-md font-sans">
+            <p className="text-xs xl:text-sm text-gray-200/90 leading-relaxed mt-2.5 max-w-md font-sans">
               Create your account to get exclusive offers, faster checkout and a personalized shopping experience.
             </p>
           </div>
 
           {/* 4 Icon Badges */}
-          <div className="grid grid-cols-4 gap-4 pt-3 max-w-md">
+          <div className="grid grid-cols-4 gap-3 pt-2 max-w-md">
             {/* 1. Exclusive Offers */}
             <div className="flex flex-col items-center text-center">
-              <div className="w-10 h-10 rounded-full border border-[#E5A93C]/60 flex items-center justify-center text-[#E5A93C] mb-2 bg-[#23140B]/80 backdrop-blur-xs">
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+              <div className="w-8 h-8 rounded-full border border-[#E5A93C]/60 flex items-center justify-center text-[#E5A93C] mb-1.5 bg-[#23140B]/80 backdrop-blur-xs">
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                   <polyline points="20 12 20 22 4 22 4 12" />
                   <rect x="2" y="7" width="20" height="5" />
                   <line x1="12" y1="22" x2="12" y2="7" />
@@ -493,114 +519,114 @@ export default function RegisterPage() {
                   <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" />
                 </svg>
               </div>
-              <span className="text-[11px] font-medium text-gray-200 leading-tight">
+              <span className="text-[10px] font-medium text-gray-200 leading-tight">
                 Exclusive<br />Offers
               </span>
             </div>
 
-            {/* 2. Save Your Favorites */}
+            {/* 2. Save Favorites */}
             <div className="flex flex-col items-center text-center">
-              <div className="w-10 h-10 rounded-full border border-[#E5A93C]/60 flex items-center justify-center text-[#E5A93C] mb-2 bg-[#23140B]/80 backdrop-blur-xs">
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+              <div className="w-8 h-8 rounded-full border border-[#E5A93C]/60 flex items-center justify-center text-[#E5A93C] mb-1.5 bg-[#23140B]/80 backdrop-blur-xs">
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                 </svg>
               </div>
-              <span className="text-[11px] font-medium text-gray-200 leading-tight">
+              <span className="text-[10px] font-medium text-gray-200 leading-tight">
                 Save Your<br />Favorites
               </span>
             </div>
 
             {/* 3. Faster Checkout */}
             <div className="flex flex-col items-center text-center">
-              <div className="w-10 h-10 rounded-full border border-[#E5A93C]/60 flex items-center justify-center text-[#E5A93C] mb-2 bg-[#23140B]/80 backdrop-blur-xs">
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+              <div className="w-8 h-8 rounded-full border border-[#E5A93C]/60 flex items-center justify-center text-[#E5A93C] mb-1.5 bg-[#23140B]/80 backdrop-blur-xs">
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                   <rect x="1" y="3" width="15" height="13" />
                   <polygon points="16 8 20 8 23 11 23 16 16 16 8" />
                   <circle cx="5.5" cy="18.5" r="2.5" />
                   <circle cx="18.5" cy="18.5" r="2.5" />
                 </svg>
               </div>
-              <span className="text-[11px] font-medium text-gray-200 leading-tight">
+              <span className="text-[10px] font-medium text-gray-200 leading-tight">
                 Faster<br />Checkout
               </span>
             </div>
 
-            {/* 4. Personalized Experience */}
+            {/* 4. Personalized */}
             <div className="flex flex-col items-center text-center">
-              <div className="w-10 h-10 rounded-full border border-[#E5A93C]/60 flex items-center justify-center text-[#E5A93C] mb-2 bg-[#23140B]/80 backdrop-blur-xs">
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+              <div className="w-8 h-8 rounded-full border border-[#E5A93C]/60 flex items-center justify-center text-[#E5A93C] mb-1.5 bg-[#23140B]/80 backdrop-blur-xs">
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                   <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                   <circle cx="12" cy="7" r="4" />
                 </svg>
               </div>
-              <span className="text-[11px] font-medium text-gray-200 leading-tight">
+              <span className="text-[10px] font-medium text-gray-200 leading-tight">
                 Personalized<br />Experience
               </span>
             </div>
           </div>
         </div>
 
-        {/* Bottom Feature Strip on left image (4 themed SVG items) */}
-        <div className="relative z-10 bg-[#140A05]/95 border-t border-[#331B0E] py-4 px-6 xl:px-10 grid grid-cols-4 gap-3 text-center">
-          <div className="flex items-center gap-2 justify-center">
-            <svg className="w-4 h-4 text-[#E5A93C] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        {/* Bottom Feature Strip on left image */}
+        <div className="relative z-10 bg-[#140A05]/95 border-t border-[#331B0E] py-2.5 px-6 xl:px-8 grid grid-cols-4 gap-2 text-center">
+          <div className="flex items-center gap-1.5 justify-center">
+            <svg className="w-3.5 h-3.5 text-[#E5A93C] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M12 2C7 2 3 7 3 12C3 16 6 19 10 19C12 19 14 18 15 16C16 18 18 19 20 19C22 19 23 18 23 16C23 11 18 2 12 2Z" />
               <path d="M12 2V16" />
             </svg>
-            <span className="text-[10px] xl:text-[11px] font-medium text-gray-300 text-left leading-tight">
-              Premium Quality<br />Dry Fruits
+            <span className="text-[10px] font-medium text-gray-300 text-left leading-tight">
+              Premium Quality
             </span>
           </div>
-          <div className="flex items-center gap-2 justify-center">
-            <svg className="w-4 h-4 text-[#E5A93C] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <div className="flex items-center gap-1.5 justify-center">
+            <svg className="w-3.5 h-3.5 text-[#E5A93C] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
               <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
               <line x1="12" y1="22.08" x2="12" y2="12" />
             </svg>
-            <span className="text-[10px] xl:text-[11px] font-medium text-gray-300 text-left leading-tight">
-              Wide Variety<br />100+ Products
+            <span className="text-[10px] font-medium text-gray-300 text-left leading-tight">
+              100+ Variety
             </span>
           </div>
-          <div className="flex items-center gap-2 justify-center">
-            <svg className="w-4 h-4 text-[#E5A93C] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <div className="flex items-center gap-1.5 justify-center">
+            <svg className="w-3.5 h-3.5 text-[#E5A93C] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <polyline points="20 12 20 22 4 22 4 12" />
               <rect x="2" y="7" width="20" height="5" />
               <line x1="12" y1="22" x2="12" y2="7" />
               <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" />
               <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" />
             </svg>
-            <span className="text-[10px] xl:text-[11px] font-medium text-gray-300 text-left leading-tight">
-              Perfect for<br />Personal &amp; Gifting
+            <span className="text-[10px] font-medium text-gray-300 text-left leading-tight">
+              Gifting &amp; Wholesale
             </span>
           </div>
-          <div className="flex items-center gap-2 justify-center">
-            <svg className="w-4 h-4 text-[#E5A93C] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <div className="flex items-center gap-1.5 justify-center">
+            <svg className="w-3.5 h-3.5 text-[#E5A93C] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <rect x="1" y="3" width="15" height="13" />
               <polygon points="16 8 20 8 23 11 23 16 16 16 8" />
               <circle cx="5.5" cy="18.5" r="2.5" />
               <circle cx="18.5" cy="18.5" r="2.5" />
             </svg>
-            <span className="text-[10px] xl:text-[11px] font-medium text-gray-300 text-left leading-tight">
-              Safe &amp; Fast<br />Delivery
+            <span className="text-[10px] font-medium text-gray-300 text-left leading-tight">
+              Safe Delivery
             </span>
           </div>
         </div>
       </div>
 
       {/* ════════ RIGHT COLUMN: REGISTRATION FORM (42%) ════════ */}
-      <div className="w-full lg:w-5/12 xl:w-2/5 min-h-screen flex flex-col justify-center px-6 sm:px-10 lg:px-12 py-8 relative overflow-hidden bg-[#FAF7F2]">
+      <div className="w-full lg:w-5/12 xl:w-2/5 h-full max-h-screen flex flex-col justify-center px-4 sm:px-8 xl:px-12 py-2 sm:py-4 relative overflow-hidden bg-[#FAF7F2]">
         {/* Elegant Botanical Leaves Watermark in Top Right Corner */}
-        <div className="absolute -top-6 -right-6 w-48 h-48 pointer-events-none select-none">
+        <div className="absolute -top-6 -right-6 w-40 h-40 pointer-events-none select-none opacity-80">
           <BotanicalWatermark />
         </div>
         {/* Soft bottom watermark */}
-        <div className="absolute -bottom-10 -right-10 w-44 h-44 pointer-events-none select-none rotate-180 opacity-40">
+        <div className="absolute -bottom-10 -right-10 w-36 h-36 pointer-events-none select-none rotate-180 opacity-30">
           <BotanicalWatermark />
         </div>
 
         <Suspense
           fallback={
-            <div className="w-full max-w-sm mx-auto h-96 skeleton rounded-2xl bg-white border border-gray-100" />
+            <div className="w-full max-w-sm mx-auto h-72 skeleton rounded-2xl bg-white border border-gray-100" />
           }
         >
           <RegisterFormContent />

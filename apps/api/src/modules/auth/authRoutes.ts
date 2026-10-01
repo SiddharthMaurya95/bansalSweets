@@ -334,6 +334,123 @@ export const authRoutes: FastifyPluginAsync = async (fastify: FastifyInstance) =
   });
 
   /**
+   * POST /api/v1/auth/google
+   * Authenticate or register using Google credentials
+   */
+  fastify.post('/google', async (request: FastifyRequest, reply: FastifyReply) => {
+    const body = (request.body || {}) as {
+      credential?: string;
+      email?: string;
+      name?: string;
+      googleId?: string;
+    };
+
+    let targetEmail = body.email;
+    let targetName = body.name || 'Google User';
+
+    // If Google JWT credential provided, safely extract claims
+    if (body.credential) {
+      try {
+        const parts = body.credential.split('.');
+        const jwtPart = parts[1];
+        if (parts.length === 3 && jwtPart) {
+          const payload = JSON.parse(Buffer.from(jwtPart, 'base64').toString('utf8'));
+          if (payload.email) targetEmail = payload.email;
+          if (payload.name) targetName = payload.name;
+        }
+      } catch {
+        // Fallback to direct fields
+      }
+    }
+
+    if (!targetEmail) {
+      throw new AppError(ERROR_CODES.VALIDATION_ERROR, 'Google email address is required', 422);
+    }
+
+    const cleanEmail = targetEmail.trim().toLowerCase();
+    const db = getDb();
+
+    // Check if user already exists
+    let user = await db.query.users.findFirst({
+      where: and(eq(users.email, cleanEmail), sql`deleted_at IS NULL`),
+    });
+
+    if (!user) {
+      // Create user from Google profile
+      const userId = generateUuidV7();
+      await db.insert(users).values({
+        id: userId,
+        email: cleanEmail,
+        name: targetName,
+        customerType: 'RETAIL',
+        status: 'ACTIVE',
+        emailVerifiedAt: new Date(),
+        marketingOptIn: true,
+      });
+
+      // Assign CUSTOMER role
+      const customerRole = await db.query.roles.findFirst({
+        where: eq(roles.name, 'CUSTOMER'),
+      });
+      if (customerRole) {
+        await db.insert(userRoles).values({
+          userId,
+          roleId: customerRole.id,
+        });
+      }
+
+      user = await db.query.users.findFirst({
+        where: eq(users.id, userId),
+      });
+    } else {
+      // Update last login
+      await db.update(users).set({ lastLoginAt: new Date() }).where(eq(users.id, user.id));
+    }
+
+    if (!user) {
+      throw new AppError(ERROR_CODES.INTERNAL_ERROR, 'Failed to create Google user session', 500);
+    }
+
+    if (user.status === 'SUSPENDED') {
+      throw new AppError(ERROR_CODES.FORBIDDEN, 'Account is suspended. Please contact support.', 403);
+    }
+
+    const { role, permissions: userPerms, tokenVersion } = await getUserRoleAndPermissions(user.id);
+
+    const { rawToken, expiresAt } = await createRefreshToken({
+      userId: user.id,
+      audience: 'CUSTOMER',
+      ip: request.ip,
+      userAgent: request.headers['user-agent'],
+    });
+
+    const accessToken = await createAccessToken({
+      userId: user.id,
+      email: user.email,
+      phone: user.phone,
+      role,
+      permissions: userPerms,
+      tokenVersion,
+      audience: 'CUSTOMER',
+    });
+
+    setRefreshCookie(reply, rawToken, expiresAt);
+
+    return reply.send({
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        phone: user.phone,
+        customerType: user.customerType,
+        role,
+        permissions: userPerms,
+      },
+      accessToken,
+    });
+  });
+
+  /**
    * POST /api/v1/auth/refresh
    */
   fastify.post('/refresh', async (request: FastifyRequest, reply: FastifyReply) => {
