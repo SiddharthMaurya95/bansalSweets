@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { AdminShell } from '@/components/AdminShell';
+
 export default function AdminRootLayout({
   children,
 }: Readonly<{
@@ -20,7 +22,9 @@ export default function AdminRootLayout({
       <head>
         <meta name="robots" content="noindex, nofollow" />
       </head>
-      <body className="antialiased min-h-screen bg-slate-50">{children}</body>
+      <body className="antialiased min-h-screen bg-slate-50">
+        <AdminShell>{children}</AdminShell>
+      </body>
     </html>
   );
 }

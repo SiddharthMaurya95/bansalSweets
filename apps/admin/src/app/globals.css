@@ -9,7 +9,7 @@
 }
 
 body {
-  color: var(--ink-900);
+  color: #1b1f2a;
   background-color: #f8fafc;
   font-family:
     system-ui,
@@ -18,4 +18,31 @@ body {
     'Segoe UI',
     Roboto,
     sans-serif;
+}
+
+.admin-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+}
+
+.admin-header {
+  background: #0b2a6b;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }

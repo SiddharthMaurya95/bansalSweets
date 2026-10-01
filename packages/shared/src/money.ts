@@ -218,3 +218,11 @@ export function calculateGstBreakup(
     igstPaise: 0,
   };
 }
+
+export function formatInr(paise: number | bigint): string {
+  return Money.fromPaise(paise).format();
+}
+
+export function calculateUnitPricePer100g(pricePaise: number, weightGrams: number): number {
+  return Money.fromPaise(pricePaise).unitPricePer100g(weightGrams).toPaiseNumber();
+}

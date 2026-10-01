@@ -1,8 +1,10 @@
 {
-  "extends": "@bansal/config/tsconfig.base.json",
+  "extends": "@bansal/config/tsconfig.react.json",
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "dist"
+    "outDir": "dist",
+    "jsx": "react-jsx",
+    "types": ["node"]
   },
   "include": ["src/**/*"]
 }

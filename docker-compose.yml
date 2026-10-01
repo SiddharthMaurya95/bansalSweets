@@ -1,0 +1,155 @@
+services:
+  # ── Core Databases ──────────────────────────────────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    container_name: bansal-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: bansal_foods
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./infra/init-db.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d bansal_foods']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: bansal-redis-cache
+    restart: unless-stopped
+    command: redis-server --maxmemory 256mb --maxmemory-policy allkeys-lru --appendonly no
+    ports:
+      - '6379:6379'
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  redis-queue:
+    image: redis:7-alpine
+    container_name: bansal-redis-queue
+    restart: unless-stopped
+    command: redis-server --maxmemory-policy noeviction --appendonly yes
+    ports:
+      - '6380:6379'
+    volumes:
+      - redis-queue-data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  # ── Backend Fastify API ─────────────────────────────────────────────────────
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    container_name: bansal-api
+    restart: unless-stopped
+    ports:
+      - '4000:4000'
+    environment:
+      NODE_ENV: production
+      PORT: 4000
+      HOST: '0.0.0.0'
+      DATABASE_URL: 'postgres://postgres:postgrespassword@postgres:5432/bansal_foods'
+      REDIS_CACHE_URL: 'redis://redis-cache:6379'
+      REDIS_QUEUE_URL: 'redis://redis-queue:6379'
+      JWT_ACCESS_SECRET: 'production_access_jwt_secret_min_32_characters_length!'
+      JWT_REFRESH_SECRET: 'production_refresh_jwt_secret_min_32_characters_length!'
+      COOKIE_SECRET: 'production_cookie_secret_min_32_characters_length!'
+      CSRF_SECRET: 'production_csrf_secret_min_32_characters_length!'
+      CORS_ORIGIN: 'http://localhost:3000,http://localhost:3001'
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis-cache:
+        condition: service_healthy
+      redis-queue:
+        condition: service_healthy
+
+  # ── Background Outbox & Scheduler Worker ─────────────────────────────────────
+  worker:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    container_name: bansal-worker
+    restart: unless-stopped
+    command: ['node', 'apps/api/dist/worker.js']
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: 'postgres://postgres:postgrespassword@postgres:5432/bansal_foods'
+      REDIS_CACHE_URL: 'redis://redis-cache:6379'
+      REDIS_QUEUE_URL: 'redis://redis-queue:6379'
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis-queue:
+        condition: service_healthy
+
+  # ── Next.js 15 Storefront ───────────────────────────────────────────────────
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    container_name: bansal-web
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+    environment:
+      NODE_ENV: production
+      NEXT_PUBLIC_API_URL: 'http://localhost:4000'
+    depends_on:
+      - api
+
+  # ── Next.js 15 Merchant Operations Admin ────────────────────────────────────
+  admin:
+    build:
+      context: .
+      dockerfile: apps/admin/Dockerfile
+    container_name: bansal-admin
+    restart: unless-stopped
+    ports:
+      - '3001:3001'
+    environment:
+      NODE_ENV: production
+      NEXT_PUBLIC_API_URL: 'http://localhost:4000'
+    depends_on:
+      - api
+
+  # ── Object Storage (MinIO S3) ───────────────────────────────────────────────
+  minio:
+    image: minio/minio:latest
+    container_name: bansal-minio
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+    volumes:
+      - minio-data:/data
+
+  # ── Mailpit (Dev SMTP) ──────────────────────────────────────────────────────
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: bansal-mailpit
+    restart: unless-stopped
+    ports:
+      - '1025:1025'
+      - '8025:8025'
+
+volumes:
+  postgres-data:
+  redis-queue-data:
+  minio-data:

@@ -412,12 +412,15 @@ export const authRoutes: FastifyPluginAsync = async (fastify: FastifyInstance) =
         throw new AppError(ERROR_CODES.NOT_FOUND, 'User profile not found', 404);
       }
 
+      const userData = {
+        ...profile,
+        role: user.role,
+        permissions: user.permissions,
+      };
+
       return reply.send({
-        user: {
-          ...profile,
-          role: user.role,
-          permissions: user.permissions,
-        },
+        user: userData,
+        data: userData,
       });
     },
   );
@@ -567,4 +570,63 @@ export const authRoutes: FastifyPluginAsync = async (fastify: FastifyInstance) =
       message: 'Password has been reset successfully. Please log in with your new password.',
     });
   });
+
+  // ── DELETE /auth/me (DPDP Act 2023 Right to Erasure) ────────────────────────
+
+  fastify.delete(
+    '/me',
+    {
+      preHandler: [fastify.authenticate],
+      schema: {
+        description: 'DPDP 2023: Right to Erasure - delete account and anonymize PII',
+        tags: ['Authentication', 'Compliance'],
+        security: [{ bearerAuth: [] }],
+      } as any,
+    },
+    async (request, reply) => {
+      const authUser = request.user!;
+      const db = getDb();
+
+      await db.transaction(async (tx) => {
+        // 1. Revoke all active sessions and refresh token families
+        await revokeAllUserSessions(authUser.userId);
+
+        // 2. Soft-delete and anonymize PII in users table
+        const anonId = authUser.userId.slice(0, 8);
+        await tx
+          .update(users)
+          .set({
+            name: 'Anonymized Patron',
+            email: `deleted_${anonId}@anonymized.bansalfoods.in`,
+            phone: `+9100000${anonId}`,
+            status: 'DELETED',
+            deletedAt: new Date(),
+            marketingOptIn: false,
+            updatedAt: new Date(),
+          })
+          .where(eq(users.id, authUser.userId));
+
+        // 3. Withdraw all recorded consent records
+        await tx
+          .update(consents)
+          .set({
+            granted: false,
+            occurredAt: new Date(),
+          })
+          .where(eq(consents.userId, authUser.userId));
+      });
+
+      // Clear refresh token cookie
+      reply.clearCookie('bf_refresh_token', {
+        path: '/api/v1/auth',
+        httpOnly: true,
+        sameSite: 'lax',
+      });
+
+      return reply.send({
+        success: true,
+        message: 'Account and associated personal data erased in compliance with DPDP Act 2023.',
+      });
+    },
+  );
 };

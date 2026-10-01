@@ -131,3 +131,37 @@ export const inventoryReservations = pgTable(
     check('inventory_reservations_qty_check', sql`${table.quantity} > 0`),
   ],
 );
+
+export const inventoryBatches = pgTable(
+  'inventory_batches',
+  {
+    id: uuid('id')
+      .primaryKey()
+      .default(sql`gen_random_uuid()`),
+    inventoryItemId: uuid('inventory_item_id')
+      .references(() => inventoryItems.id, { onDelete: 'cascade' })
+      .notNull(),
+    batchNumber: text('batch_number').notNull().unique(), // e.g. 'BATCH-2026-KM-01'
+    supplierName: text('supplier_name').notNull(),
+    originCountry: text('origin_country').default('India').notNull(),
+    grade: text('grade'), // e.g. 'W240 Jumbo', 'Kashmiri Mamra 1st Choice'
+    initialQty: bigint('initial_qty', { mode: 'number' }).notNull(),
+    remainingQty: bigint('remaining_qty', { mode: 'number' }).notNull(),
+    costPerUnitPaise: bigint('cost_per_unit_paise', { mode: 'number' }).notNull(),
+    harvestDate: timestamp('harvest_date', { withTimezone: true }),
+    packagedDate: timestamp('packaged_date', { withTimezone: true }).defaultNow().notNull(),
+    bestBeforeDate: timestamp('best_before_date', { withTimezone: true }).notNull(),
+    fssaiBatchCert: text('fssai_batch_cert'),
+    status: text('status', { enum: ['ACTIVE', 'EXHAUSTED', 'EXPIRED', 'QUARANTINED'] })
+      .default('ACTIVE')
+      .notNull(),
+    createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
+    updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow().notNull(),
+  },
+  (table) => [
+    index('inventory_batches_item_idx').on(table.inventoryItemId),
+    index('inventory_batches_expiry_idx').on(table.bestBeforeDate),
+    check('inventory_batches_remaining_qty_check', sql`${table.remainingQty} >= 0`),
+    check('inventory_batches_qty_check', sql`${table.remainingQty} <= ${table.initialQty}`),
+  ],
+);
