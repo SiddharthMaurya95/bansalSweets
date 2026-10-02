@@ -519,22 +519,28 @@ export const Header: React.FC = () => {
         </div>
 
         {/* ── Mobile Search Bar ── */}
-        <div className="block md:hidden px-4 pb-3">
-          <div className="flex items-stretch h-9.5 w-full shadow-2xs">
-            <div className="flex-1 flex items-center bg-white border border-gray-300 border-r-0 rounded-l-md focus-within:border-[#C88C3C] transition-colors overflow-hidden">
+        <div className="block md:hidden w-full px-2 sm:px-3 pb-3 pt-0.5">
+          <div className="flex items-stretch h-10 w-full shadow-2xs">
+            <div className="flex-1 min-w-0 flex items-center bg-white border border-gray-300 border-r-0 rounded-l-md focus-within:border-[#C88C3C] transition-colors overflow-hidden">
+              <div className="pl-3 pr-1.5 text-gray-400 pointer-events-none flex items-center justify-center shrink-0">
+                <svg className="w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="11" cy="11" r="8"/>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+              </div>
               <input
                 type="search"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Search almonds, cashews, dates..."
-                className="w-full h-full pl-3 pr-2 text-xs text-gray-800 bg-transparent outline-none placeholder:text-gray-400"
+                placeholder="Search for almonds, cashews, dates, pista..."
+                className="w-full h-full pr-2 text-xs sm:text-sm text-gray-800 bg-transparent outline-none placeholder:text-gray-400"
               />
             </div>
             <button
               type="button"
               onClick={handleSearch}
-              className="bg-[#C88C3C] hover:bg-[#B57C30] text-white px-3.5 rounded-r-md border border-[#C88C3C] transition-colors flex items-center justify-center shrink-0 cursor-pointer"
+              className="bg-[#C88C3C] hover:bg-[#B57C30] text-white px-4 rounded-r-md border border-[#C88C3C] transition-colors flex items-center justify-center shrink-0 cursor-pointer"
               aria-label="Submit search"
             >
               <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
