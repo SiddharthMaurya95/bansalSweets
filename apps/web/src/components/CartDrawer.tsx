@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useCart, CartItem } from '@/context/CartContext';
+import { useAuth } from '@/context/AuthContext';
 import { formatInr } from '@bansal/shared/client';
 import {
   ShoppingCartIcon,
@@ -78,6 +79,7 @@ function CartLineItem({ item }: { item: CartItem }) {
 
 export function CartDrawer() {
   const { isOpen, closeCart, items, totalPaise, totalItems, clearCart } = useCart();
+  const { isAuthenticated } = useAuth();
 
   // Lock body scroll when open and handle Escape key
   useEffect(() => {
@@ -220,6 +222,11 @@ export function CartDrawer() {
                 <span>Proceed to Checkout</span>
                 <ArrowRightIcon size={14} className="text-white" />
               </Link>
+              {!isAuthenticated && (
+                <p className="text-[11px] text-center text-amber-700 bg-amber-50 py-1.5 px-2 rounded-lg border border-amber-200/80 font-medium">
+                  🔒 Sign in or create an account at checkout to complete order
+                </p>
+              )}
               <button
                 onClick={clearCart}
                 className="block w-full text-center text-xs text-gray-400 hover:text-red-500 transition-colors mt-1 cursor-pointer"

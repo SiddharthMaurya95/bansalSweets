@@ -141,6 +141,9 @@ export default function AccountPage() {
   const [dob, setDob] = useState('');
   const [isEditingProfile, setIsEditingProfile] = useState(false);
 
+  // Orders state
+  const [ordersList, setOrdersList] = useState<OrderItem[]>(DEFAULT_ORDERS);
+
   // Address state
   const [addresses, setAddresses] = useState<Address[]>(DEFAULT_ADDRESSES);
   const [editingAddress, setEditingAddress] = useState<Address | null>(null);
@@ -154,7 +157,7 @@ export default function AccountPage() {
   // Toast state
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
-  // Sync profile details from current authenticated user if available
+  // Sync profile details and orders from current authenticated user if available
   useEffect(() => {
     if (user?.name && user.name !== 'Google User' && user.name !== 'Google') {
       setFullName(user.name);
@@ -182,6 +185,57 @@ export default function AccountPage() {
       const savedAddr = localStorage.getItem('bf_account_addresses');
       if (savedAddr) {
         setAddresses(JSON.parse(savedAddr));
+      }
+
+      // Load dynamically placed orders for this account
+      const userOrders = user?.id
+        ? JSON.parse(localStorage.getItem(`bansal_user_orders_${user.id}`) || '[]')
+        : [];
+      const recentOrders = JSON.parse(localStorage.getItem('bansal_recent_orders') || '[]');
+      const combined = [
+        ...userOrders,
+        ...recentOrders.filter(
+          (ro: { id: string }) => !userOrders.some((uo: { id: string }) => uo.id === ro.id),
+        ),
+      ];
+
+      if (combined.length > 0) {
+        const mapped: OrderItem[] = combined.map(
+          (
+            po: {
+              id?: string;
+              orderNumber?: string;
+              items?: Array<{ name: string; variant?: string; quantity: number }>;
+              placedAt?: string;
+              totalPaise?: number;
+              totalAmount?: number;
+              status?: string;
+            },
+            idx: number,
+          ) => {
+            const itemsStr = Array.isArray(po.items)
+              ? po.items
+                  .map((i) => `${i.name} (${i.variant || '1kg'}) × ${i.quantity}`)
+                  .join(', ')
+              : 'Assorted Premium Dry Fruits';
+            const dateStr = po.placedAt
+              ? new Date(po.placedAt).toLocaleDateString('en-IN', {
+                  day: 'numeric',
+                  month: 'short',
+                  year: 'numeric',
+                })
+              : 'Today';
+            return {
+              id: po.id || `placed-${idx}`,
+              orderNumber: po.orderNumber || po.id || `BF-2026-${8000 + idx}`,
+              date: dateStr,
+              items: itemsStr,
+              total: Math.round((po.totalPaise || 0) / 100) || po.totalAmount || 2150,
+              status: po.status === 'CONFIRMED' || po.status === 'Processing' ? 'Processing' : 'Delivered',
+            };
+          },
+        );
+        setOrdersList([...mapped, ...DEFAULT_ORDERS]);
       }
     } catch {
       // Ignore storage errors
@@ -747,7 +801,7 @@ export default function AccountPage() {
                     My Orders
                   </span>
                   <span className="text-2xl sm:text-3xl font-extrabold text-[#1F140D] block mt-0.5 leading-tight">
-                    6
+                    {ordersList.length}
                   </span>
                   <span className="text-[11px] text-gray-500 font-medium block">
                     Total Orders
@@ -1202,7 +1256,7 @@ export default function AccountPage() {
               <div className="bg-white rounded-2xl border border-gray-200/80 p-6 sm:p-7 shadow-2xs space-y-4">
                 <div className="flex items-center justify-between pb-4 border-b border-gray-100">
                   <h2 className="text-lg font-serif font-bold text-[#1F140D]">
-                    My Orders ({DEFAULT_ORDERS.length})
+                    My Orders ({ordersList.length})
                   </h2>
                   <Link
                     href="/shop"
@@ -1213,7 +1267,7 @@ export default function AccountPage() {
                 </div>
 
                 <div className="divide-y divide-gray-100">
-                  {DEFAULT_ORDERS.map((order) => (
+                  {ordersList.map((order) => (
                     <div key={order.id} className="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                       <div>
                         <div className="flex items-center gap-2">
