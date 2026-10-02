@@ -53,9 +53,9 @@ const ALL_SEARCH_PRODUCTS: SearchProduct[] = [
     almondType: 'Kashmiri Mamra',
     isBestseller: true,
     variants: [
-      { weight: '250g', price: 899, mrp: 1099, discountPct: 18, unitPriceText: '₹179.80 / 100g' },
-      { weight: '500g', price: 1749, mrp: 2150, discountPct: 19, unitPriceText: '₹174.90 / 100g' },
-      { weight: '1kg', price: 3399, mrp: 4200, discountPct: 19, unitPriceText: '₹169.95 / 100g' },
+      { weight: '250g', price: 1250, mrp: 1550, discountPct: 19, unitPriceText: '₹500.00 / 100g' },
+      { weight: '500g', price: 2450, mrp: 3000, discountPct: 18, unitPriceText: '₹490.00 / 100g' },
+      { weight: '1kg', price: 4800, mrp: 5800, discountPct: 17, unitPriceText: '₹480.00 / 100g' },
     ],
   },
   {
@@ -69,9 +69,9 @@ const ALL_SEARCH_PRODUCTS: SearchProduct[] = [
     category: 'California Almonds',
     almondType: 'California',
     variants: [
-      { weight: '250g', price: 780, mrp: 980, discountPct: 20, unitPriceText: '₹156.00 / 100g' },
-      { weight: '500g', price: 1499, mrp: 1900, discountPct: 21, unitPriceText: '₹149.90 / 100g' },
-      { weight: '1kg', price: 2899, mrp: 3700, discountPct: 22, unitPriceText: '₹144.95 / 100g' },
+      { weight: '250g', price: 295, mrp: 370, discountPct: 20, unitPriceText: '₹118.00 / 100g' },
+      { weight: '500g', price: 570, mrp: 700, discountPct: 19, unitPriceText: '₹114.00 / 100g' },
+      { weight: '1kg', price: 1100, mrp: 1350, discountPct: 18, unitPriceText: '₹110.00 / 100g' },
     ],
   },
   {

@@ -31,6 +31,108 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   }
 }
 
+function getProductPricing(slug: string) {
+  const s = slug.toLowerCase();
+  if (s.includes('mamra')) {
+    return {
+      name: 'Kashmiri Mamra Almonds',
+      skuPrefix: 'BF-ALM-MAMRA',
+      v100g: { price: 52000, mrp: 65000 },
+      v250g: { price: 125000, mrp: 155000 },
+      v500g: { price: 245000, mrp: 300000 },
+      v1kg: { price: 480000, mrp: 580000 },
+    };
+  }
+  if (s.includes('california') && s.includes('almond')) {
+    return {
+      name: 'California Almonds',
+      skuPrefix: 'BF-ALM-CAL',
+      v100g: { price: 12500, mrp: 16000 },
+      v250g: { price: 29500, mrp: 37000 },
+      v500g: { price: 57000, mrp: 70000 },
+      v1kg: { price: 110000, mrp: 135000 },
+    };
+  }
+  if (s.includes('cashew') || s.includes('kaju')) {
+    return {
+      name: 'W320 Premium Cashews (Kaju)',
+      skuPrefix: 'BF-CSH-W320',
+      v100g: { price: 13500, mrp: 17000 },
+      v250g: { price: 32000, mrp: 40000 },
+      v500g: { price: 62000, mrp: 78000 },
+      v1kg: { price: 120000, mrp: 150000 },
+    };
+  }
+  if (s.includes('premium') && s.includes('pista')) {
+    return {
+      name: 'Premium Pistachios (Pista)',
+      skuPrefix: 'BF-PIS-PREM',
+      v100g: { price: 46000, mrp: 56000 },
+      v250g: { price: 110000, mrp: 135000 },
+      v500g: { price: 215000, mrp: 260000 },
+      v1kg: { price: 420000, mrp: 510000 },
+    };
+  }
+  if (s.includes('pista')) {
+    return {
+      name: 'Iranian Green Pistachios (Pista)',
+      skuPrefix: 'BF-PIS-IRN',
+      v100g: { price: 21000, mrp: 26000 },
+      v250g: { price: 50000, mrp: 62000 },
+      v500g: { price: 98000, mrp: 120000 },
+      v1kg: { price: 190000, mrp: 235000 },
+    };
+  }
+  if (s.includes('walnut') || s.includes('akhrot')) {
+    return {
+      name: 'California Walnuts (Akhrot)',
+      skuPrefix: 'BF-WAL-CAL',
+      v100g: { price: 14500, mrp: 18000 },
+      v250g: { price: 34500, mrp: 43000 },
+      v500g: { price: 67000, mrp: 83000 },
+      v1kg: { price: 130000, mrp: 160000 },
+    };
+  }
+  if (s.includes('raisin') || s.includes('kishmish')) {
+    return {
+      name: 'Premium Raisins (Kishmish)',
+      skuPrefix: 'BF-RAI-PREM',
+      v100g: { price: 8000, mrp: 10000 },
+      v250g: { price: 19000, mrp: 24000 },
+      v500g: { price: 36000, mrp: 45000 },
+      v1kg: { price: 70000, mrp: 88000 },
+    };
+  }
+  if (s.includes('fig') || s.includes('anjeer')) {
+    return {
+      name: 'Premium Figs (Anjeer)',
+      skuPrefix: 'BF-FIG-ANJ',
+      v100g: { price: 15500, mrp: 19500 },
+      v250g: { price: 37000, mrp: 46000 },
+      v500g: { price: 72000, mrp: 90000 },
+      v1kg: { price: 140000, mrp: 175000 },
+    };
+  }
+  if (s.includes('date') || s.includes('khajur') || s.includes('khajoor')) {
+    return {
+      name: 'Medjool Dates (Khajur Matjol)',
+      skuPrefix: 'BF-DAT-MEDJ',
+      v100g: { price: 15500, mrp: 19500 },
+      v250g: { price: 37000, mrp: 46000 },
+      v500g: { price: 72000, mrp: 90000 },
+      v1kg: { price: 140000, mrp: 175000 },
+    };
+  }
+  return {
+    name: 'Kashmiri Mamra Almonds',
+    skuPrefix: 'BF-DRY-FRT',
+    v100g: { price: 52000, mrp: 65000 },
+    v250g: { price: 125000, mrp: 155000 },
+    v500g: { price: 245000, mrp: 300000 },
+    v1kg: { price: 480000, mrp: 580000 },
+  };
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default async function ProductPage({ params }: { params: Promise<Params> }) {
@@ -56,10 +158,12 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
     else if (slug.includes('fig')) defaultImg = '/product-figs.jpg';
     else if (slug.includes('mix')) defaultImg = '/product-mix.jpg';
 
+    const pricing = getProductPricing(slug);
+
     product = {
       id: `prod-${slug}`,
       slug,
-      name: slug === 'kashmiri-mamra-almonds' ? 'Kashmiri Mamra Almonds' : formattedName,
+      name: pricing.name || formattedName,
       status: 'PUBLISHED',
       isFeatured: true,
       isBestseller: true,
@@ -77,23 +181,23 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
       variants: [
         {
           id: 'v-100g',
-          sku: 'BF-ALM-MAMRA-100G',
+          sku: `${pricing.skuPrefix}-100G`,
           label: '100g',
           weightGrams: 100,
-          pricePaise: 12000,
-          mrpPaise: 15000,
+          pricePaise: pricing.v100g.price,
+          mrpPaise: pricing.v100g.mrp,
           isActive: true,
           qtyStep: 1,
-          isDefault: true,
+          isDefault: false,
           sortRank: 1,
         },
         {
           id: 'v-250g',
-          sku: 'BF-ALM-MAMRA-250G',
+          sku: `${pricing.skuPrefix}-250G`,
           label: '250g',
           weightGrams: 250,
-          pricePaise: 28000,
-          mrpPaise: 32000,
+          pricePaise: pricing.v250g.price,
+          mrpPaise: pricing.v250g.mrp,
           isActive: true,
           qtyStep: 1,
           isDefault: false,
@@ -101,11 +205,11 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
         },
         {
           id: 'v-500g',
-          sku: 'BF-ALM-MAMRA-500G',
+          sku: `${pricing.skuPrefix}-500G`,
           label: '500g',
           weightGrams: 500,
-          pricePaise: 55000,
-          mrpPaise: 60000,
+          pricePaise: pricing.v500g.price,
+          mrpPaise: pricing.v500g.mrp,
           isActive: true,
           qtyStep: 1,
           isDefault: false,
@@ -113,14 +217,14 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
         },
         {
           id: 'v-1kg',
-          sku: 'BF-ALM-MAMRA-1KG',
+          sku: `${pricing.skuPrefix}-1KG`,
           label: '1kg',
           weightGrams: 1000,
-          pricePaise: 105000,
-          mrpPaise: 120000,
+          pricePaise: pricing.v1kg.price,
+          mrpPaise: pricing.v1kg.mrp,
           isActive: true,
           qtyStep: 1,
-          isDefault: false,
+          isDefault: true,
           sortRank: 4,
         },
       ],

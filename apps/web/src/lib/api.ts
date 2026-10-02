@@ -592,20 +592,20 @@ function getFallbackProductList(params: ListProductsParams = {}): ProductSummary
       isFeatured: true,
       isBestseller: true,
       isNewArrival: false,
-      minPricePaise: 89900,
-      maxPricePaise: 109900,
-      maxDiscountPct: 18,
+      minPricePaise: 52000,
+      maxPricePaise: 480000,
+      maxDiscountPct: 17,
       ratingAvg: 4.8,
       ratingCount: 1243,
       inStock: true,
       countryOfOrigin: 'India',
       defaultVariant: {
         id: 'v-001',
-        sku: 'MAMRA-500G',
-        label: '500g',
-        weightGrams: 500,
-        pricePaise: 89900,
-        mrpPaise: 109900,
+        sku: 'MAMRA-1KG',
+        label: '1kg',
+        weightGrams: 1000,
+        pricePaise: 480000,
+        mrpPaise: 580000,
         isActive: true,
       },
       primaryImage: {
@@ -626,20 +626,20 @@ function getFallbackProductList(params: ListProductsParams = {}): ProductSummary
       isFeatured: true,
       isBestseller: true,
       isNewArrival: false,
-      minPricePaise: 74900,
-      maxPricePaise: 94900,
-      maxDiscountPct: 21,
+      minPricePaise: 13500,
+      maxPricePaise: 120000,
+      maxDiscountPct: 20,
       ratingAvg: 4.7,
       ratingCount: 876,
       inStock: true,
       countryOfOrigin: 'India',
       defaultVariant: {
         id: 'v-002',
-        sku: 'CASHEW-W240-500G',
-        label: '500g',
-        weightGrams: 500,
-        pricePaise: 74900,
-        mrpPaise: 94900,
+        sku: 'CASHEW-W320-1KG',
+        label: '1kg',
+        weightGrams: 1000,
+        pricePaise: 120000,
+        mrpPaise: 150000,
         isActive: true,
       },
       primaryImage: {
@@ -660,8 +660,8 @@ function getFallbackProductList(params: ListProductsParams = {}): ProductSummary
       isFeatured: true,
       isBestseller: false,
       isNewArrival: true,
-      minPricePaise: 56900,
-      maxPricePaise: 69900,
+      minPricePaise: 21000,
+      maxPricePaise: 190000,
       maxDiscountPct: 19,
       ratingAvg: 4.9,
       ratingCount: 654,
@@ -669,11 +669,11 @@ function getFallbackProductList(params: ListProductsParams = {}): ProductSummary
       countryOfOrigin: 'Iran',
       defaultVariant: {
         id: 'v-003',
-        sku: 'PISTA-IRN-250G',
-        label: '250g',
-        weightGrams: 250,
-        pricePaise: 56900,
-        mrpPaise: 69900,
+        sku: 'PISTA-IRN-1KG',
+        label: '1kg',
+        weightGrams: 1000,
+        pricePaise: 190000,
+        mrpPaise: 235000,
         isActive: true,
       },
       primaryImage: {
@@ -694,8 +694,8 @@ function getFallbackProductList(params: ListProductsParams = {}): ProductSummary
       isFeatured: false,
       isBestseller: true,
       isNewArrival: false,
-      minPricePaise: 64900,
-      maxPricePaise: 79900,
+      minPricePaise: 14500,
+      maxPricePaise: 130000,
       maxDiscountPct: 19,
       ratingAvg: 4.75,
       ratingCount: 521,
@@ -703,11 +703,11 @@ function getFallbackProductList(params: ListProductsParams = {}): ProductSummary
       countryOfOrigin: 'India',
       defaultVariant: {
         id: 'v-004',
-        sku: 'WALNUT-KASH-500G',
-        label: '500g',
-        weightGrams: 500,
-        pricePaise: 64900,
-        mrpPaise: 79900,
+        sku: 'WALNUT-CAL-1KG',
+        label: '1kg',
+        weightGrams: 1000,
+        pricePaise: 130000,
+        mrpPaise: 160000,
         isActive: true,
       },
       primaryImage: {
@@ -733,15 +733,58 @@ function getFallbackProductDetail(slug: string): ProductDetail {
     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
     .join(' ');
 
-  const titleName = slug.includes('almond')
-    ? 'Kashmiri Mamra Almonds'
-    : slug.includes('cashew')
-      ? 'W240 Premium Cashews'
-      : slug.includes('pista')
-        ? 'Iranian Green Pistachios'
-        : slug.includes('walnut')
-          ? 'Kashmiri Walnut Kernels'
-          : name;
+  const s = slug.toLowerCase();
+  let v250 = { price: 125000, mrp: 155000 };
+  let v500 = { price: 245000, mrp: 300000 };
+  let v1kg = { price: 480000, mrp: 580000 };
+  let titleName = name;
+
+  if (s.includes('mamra')) {
+    titleName = 'Kashmiri Mamra Almonds';
+    v250 = { price: 125000, mrp: 155000 };
+    v500 = { price: 245000, mrp: 300000 };
+    v1kg = { price: 480000, mrp: 580000 };
+  } else if (s.includes('california') && s.includes('almond')) {
+    titleName = 'California Almonds';
+    v250 = { price: 29500, mrp: 37000 };
+    v500 = { price: 57000, mrp: 70000 };
+    v1kg = { price: 110000, mrp: 135000 };
+  } else if (s.includes('cashew') || s.includes('kaju')) {
+    titleName = 'W320 Premium Cashews (Kaju)';
+    v250 = { price: 32000, mrp: 40000 };
+    v500 = { price: 62000, mrp: 78000 };
+    v1kg = { price: 120000, mrp: 150000 };
+  } else if (s.includes('premium') && s.includes('pista')) {
+    titleName = 'Premium Pistachios (Pista)';
+    v250 = { price: 110000, mrp: 135000 };
+    v500 = { price: 215000, mrp: 260000 };
+    v1kg = { price: 420000, mrp: 510000 };
+  } else if (s.includes('pista')) {
+    titleName = 'Iranian Green Pistachios (Pista)';
+    v250 = { price: 50000, mrp: 62000 };
+    v500 = { price: 98000, mrp: 120000 };
+    v1kg = { price: 190000, mrp: 235000 };
+  } else if (s.includes('walnut') || s.includes('akhrot')) {
+    titleName = 'California Walnuts (Akhrot)';
+    v250 = { price: 34500, mrp: 43000 };
+    v500 = { price: 67000, mrp: 83000 };
+    v1kg = { price: 130000, mrp: 160000 };
+  } else if (s.includes('raisin') || s.includes('kishmish')) {
+    titleName = 'Premium Raisins (Kishmish)';
+    v250 = { price: 19000, mrp: 24000 };
+    v500 = { price: 36000, mrp: 45000 };
+    v1kg = { price: 70000, mrp: 88000 };
+  } else if (s.includes('fig') || s.includes('anjeer')) {
+    titleName = 'Premium Figs (Anjeer)';
+    v250 = { price: 37000, mrp: 46000 };
+    v500 = { price: 72000, mrp: 90000 };
+    v1kg = { price: 140000, mrp: 175000 };
+  } else if (s.includes('date') || s.includes('khajur') || s.includes('khajoor')) {
+    titleName = 'Medjool Dates (Khajur Matjol)';
+    v250 = { price: 37000, mrp: 46000 };
+    v500 = { price: 72000, mrp: 90000 };
+    v1kg = { price: 140000, mrp: 175000 };
+  }
 
   return {
     id: `prod-${slug}`,
@@ -756,8 +799,8 @@ function getFallbackProductDetail(slug: string): ProductDetail {
     isFeatured: true,
     isBestseller: true,
     isNewArrival: false,
-    minPricePaise: 49900,
-    maxPricePaise: 189900,
+    minPricePaise: v250.price,
+    maxPricePaise: v1kg.price,
     maxDiscountPct: 18,
     taxRateBps: 500,
     taxInclusive: true,
@@ -788,8 +831,8 @@ function getFallbackProductDetail(slug: string): ProductDetail {
         sku: `${slug.toUpperCase().slice(0, 6)}-250G`,
         label: '250g Pack',
         weightGrams: 250,
-        pricePaise: 49900,
-        mrpPaise: 59900,
+        pricePaise: v250.price,
+        mrpPaise: v250.mrp,
         isActive: true,
         qtyStep: 1,
         isDefault: false,
@@ -800,11 +843,11 @@ function getFallbackProductDetail(slug: string): ProductDetail {
         sku: `${slug.toUpperCase().slice(0, 6)}-500G`,
         label: '500g Value Pack',
         weightGrams: 500,
-        pricePaise: 89900,
-        mrpPaise: 109900,
+        pricePaise: v500.price,
+        mrpPaise: v500.mrp,
         isActive: true,
         qtyStep: 1,
-        isDefault: true,
+        isDefault: false,
         sortRank: 2,
       },
       {
@@ -812,11 +855,11 @@ function getFallbackProductDetail(slug: string): ProductDetail {
         sku: `${slug.toUpperCase().slice(0, 6)}-1KG`,
         label: '1kg Mega Saver',
         weightGrams: 1000,
-        pricePaise: 169900,
-        mrpPaise: 209900,
+        pricePaise: v1kg.price,
+        mrpPaise: v1kg.mrp,
         isActive: true,
         qtyStep: 1,
-        isDefault: false,
+        isDefault: true,
         sortRank: 3,
       },
     ],

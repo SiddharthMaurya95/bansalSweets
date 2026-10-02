@@ -84,13 +84,30 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
 
   // ─── 2. Weight Variants (Matching Mockup 100%) ─────────────────────────────
   const weightOptions: WeightVariantCard[] = useMemo(() => {
+    if (product?.variants && product.variants.length > 0) {
+      return product.variants.map((v) => {
+        const price = Math.round(v.pricePaise / 100);
+        const mrp = Math.round(v.mrpPaise / 100);
+        const savePct = mrp > price ? Math.round(((mrp - price) / mrp) * 100) : 0;
+        const weightGrams = v.weightGrams || (v.label.includes('1kg') ? 1000 : v.label.includes('500g') ? 500 : v.label.includes('250g') ? 250 : 100);
+        const perKg = Math.round((price / weightGrams) * 1000);
+        return {
+          weight: v.label,
+          price,
+          mrp,
+          savePct,
+          sku: v.sku,
+          perKg,
+        };
+      });
+    }
     return [
-      { weight: '100g', price: 120, mrp: 150, savePct: 20, sku: 'BF-ALM-MAMRA-100G', perKg: 1200 },
-      { weight: '250g', price: 280, mrp: 300, savePct: 7, sku: 'BF-ALM-MAMRA-250G', perKg: 1120 },
-      { weight: '500g', price: 550, mrp: 600, savePct: 8, sku: 'BF-ALM-MAMRA-500G', perKg: 1100 },
-      { weight: '1kg', price: 1050, mrp: 1200, savePct: 12, sku: 'BF-ALM-MAMRA-1KG', perKg: 1050 },
+      { weight: '100g', price: 520, mrp: 650, savePct: 20, sku: 'BF-ALM-MAMRA-100G', perKg: 5200 },
+      { weight: '250g', price: 1250, mrp: 1550, savePct: 19, sku: 'BF-ALM-MAMRA-250G', perKg: 5000 },
+      { weight: '500g', price: 2450, mrp: 3000, savePct: 18, sku: 'BF-ALM-MAMRA-500G', perKg: 4900 },
+      { weight: '1kg', price: 4800, mrp: 5800, savePct: 17, sku: 'BF-ALM-MAMRA-1KG', perKg: 4800 },
     ];
-  }, []);
+  }, [product]);
 
   const [selectedWeightIndex, setSelectedWeightIndex] = useState(0);
   const currentVariant: WeightVariantCard = weightOptions[selectedWeightIndex] ?? weightOptions[0] ?? {
@@ -179,16 +196,16 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
     let total = 0;
     let mrp = 0;
     if (bundleAlmonds) {
-      total += 550;
+      total += 570;
       mrp += 700;
     }
     if (bundleCashews) {
-      total += 780;
-      mrp += 980;
+      total += 620;
+      mrp += 780;
     }
     if (bundlePistachios) {
-      total += 1550;
-      mrp += 1900;
+      total += 980;
+      mrp += 1200;
     }
     const savings = mrp - total;
     const savePct = mrp > 0 ? Math.round((savings / mrp) * 100) : 0;
@@ -201,22 +218,22 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
     if (bundleAlmonds) {
       addItem({
         id: 'bundle-almonds-500g',
-        name: 'Kashmiri Mamra Almonds',
+        name: 'California Almonds',
         variantLabel: '500g',
-        pricePaise: 55000,
+        pricePaise: 57000,
         mrpPaise: 70000,
         imageUrl: '/product-almonds.jpg',
-        slug: 'kashmiri-mamra-almonds',
+        slug: 'california-almonds',
       });
       count++;
     }
     if (bundleCashews) {
       addItem({
         id: 'bundle-cashews-500g',
-        name: 'Premium Cashews',
+        name: 'W320 Premium Cashews (Kaju)',
         variantLabel: '500g',
-        pricePaise: 78000,
-        mrpPaise: 98000,
+        pricePaise: 62000,
+        mrpPaise: 78000,
         imageUrl: '/product-cashews.jpg',
         slug: 'w320-premium-cashews',
       });
@@ -225,10 +242,10 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
     if (bundlePistachios) {
       addItem({
         id: 'bundle-pista-500g',
-        name: 'Iranian Pistachios',
+        name: 'Iranian Green Pistachios (Pista)',
         variantLabel: '500g',
-        pricePaise: 155000,
-        mrpPaise: 190000,
+        pricePaise: 98000,
+        mrpPaise: 120000,
         imageUrl: '/product-pistachios.jpg',
         slug: 'iranian-green-pistachios',
       });
@@ -977,10 +994,10 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                     />
                   </div>
                   <span className="text-[10px] font-bold text-gray-800 line-clamp-1 mt-1">
-                    Kashmiri Mamra Almonds (500g)
+                    California Almonds (500g)
                   </span>
                   <div className="flex items-baseline gap-1 mt-0.5">
-                    <span className="text-[11px] font-black text-gray-900">₹550</span>
+                    <span className="text-[11px] font-black text-gray-900">₹570</span>
                     <span className="text-[9px] text-gray-400 line-through">₹700</span>
                   </div>
                 </div>
@@ -1009,8 +1026,8 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                     Premium Cashews (500g)
                   </span>
                   <div className="flex items-baseline gap-1 mt-0.5">
-                    <span className="text-[11px] font-black text-gray-900">₹780</span>
-                    <span className="text-[9px] text-gray-400 line-through">₹980</span>
+                    <span className="text-[11px] font-black text-gray-900">₹620</span>
+                    <span className="text-[9px] text-gray-400 line-through">₹780</span>
                   </div>
                 </div>
 
@@ -1038,8 +1055,8 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                     Iranian Pistachios (500g)
                   </span>
                   <div className="flex items-baseline gap-1 mt-0.5">
-                    <span className="text-[11px] font-black text-gray-900">₹1,550</span>
-                    <span className="text-[9px] text-gray-400 line-through">₹1,900</span>
+                    <span className="text-[11px] font-black text-gray-900">₹980</span>
+                    <span className="text-[9px] text-gray-400 line-through">₹1,200</span>
                   </div>
                 </div>
 
@@ -1109,8 +1126,8 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                   California Walnuts
                 </h4>
                 <div className="flex items-baseline justify-center gap-1 mt-0.5">
-                  <span className="text-xs font-black text-gray-900">₹900</span>
-                  <span className="text-[10px] text-gray-400 line-through">₹1,100</span>
+                  <span className="text-xs font-black text-gray-900">₹1,300</span>
+                  <span className="text-[10px] text-gray-400 line-through">₹1,600</span>
                 </div>
                 <div className="flex items-center justify-center gap-0.5 text-[#E5A93C] text-[10px] mt-0.5">
                   <StarIcon size={10} filled={true} className="text-[#E5A93C]" />
@@ -1133,11 +1150,11 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                   />
                 </div>
                 <h4 className="text-[11px] font-bold text-gray-900 line-clamp-1 group-hover:text-[#B5712E]">
-                  Premium Raisins
+                  Premium Raisins (Kishmish)
                 </h4>
                 <div className="flex items-baseline justify-center gap-1 mt-0.5">
-                  <span className="text-xs font-black text-gray-900">₹400</span>
-                  <span className="text-[10px] text-gray-400 line-through">₹500</span>
+                  <span className="text-xs font-black text-gray-900">₹700</span>
+                  <span className="text-[10px] text-gray-400 line-through">₹880</span>
                 </div>
                 <div className="flex items-center justify-center gap-0.5 text-[#E5A93C] text-[10px] mt-0.5">
                   <StarIcon size={10} filled={true} className="text-[#E5A93C]" />
@@ -1148,23 +1165,23 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
 
               {/* Product 3: Dates */}
               <Link
-                href="/products/ajwa-premium-dates"
+                href="/products/medjool-dates-khajur"
                 className="group flex flex-col text-center p-2 rounded-xl hover:bg-[#FAF8F5] transition-colors"
               >
                 <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-[#FAF8F5] border border-gray-100 mb-1.5">
                   <Image
                     src="/product-dates.jpg"
-                    alt="Ajwa Dates"
+                    alt="Medjool Dates"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform"
                   />
                 </div>
                 <h4 className="text-[11px] font-bold text-gray-900 line-clamp-1 group-hover:text-[#B5712E]">
-                  Ajwa Dates
+                  Medjool Dates (Khajur)
                 </h4>
                 <div className="flex items-baseline justify-center gap-1 mt-0.5">
-                  <span className="text-xs font-black text-gray-900">₹850</span>
-                  <span className="text-[10px] text-gray-400 line-through">₹1,000</span>
+                  <span className="text-xs font-black text-gray-900">₹1,400</span>
+                  <span className="text-[10px] text-gray-400 line-through">₹1,750</span>
                 </div>
                 <div className="flex items-center justify-center gap-0.5 text-[#E5A93C] text-[10px] mt-0.5">
                   <StarIcon size={10} filled={true} className="text-[#E5A93C]" />

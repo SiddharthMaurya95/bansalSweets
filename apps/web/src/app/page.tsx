@@ -39,12 +39,15 @@ const CIRCULAR_CATEGORIES = [
 ];
 
 const BESTSELLER_PRODUCTS: HomeProductItem[] = [
-  { id: 'p-001', slug: 'kashmiri-mamra-almonds-500g', name: 'Kashmiri Mamra Almonds', imageUrl: '/product-almonds.jpg', variantLabel: '1 kg', pricePaise: 120000, mrpPaise: 150000, discountBadge: '10% OFF', rating: 4.8, reviewCount: 320, unitText: '(per kg)' },
-  { id: 'p-002', slug: 'w240-cashews-500g', name: 'W320 Premium Cashews', imageUrl: '/product-cashews.jpg', variantLabel: '1 kg', pricePaise: 78000, mrpPaise: 98000, discountBadge: '20% OFF', rating: 4.7, reviewCount: 280, unitText: '(per kg)' },
-  { id: 'p-003', slug: 'iranian-pistachios-250g', name: 'Iranian Green Pistachios', imageUrl: '/product-pistachios.jpg', variantLabel: '1 kg', pricePaise: 155000, mrpPaise: 190000, discountBadge: '18% OFF', rating: 4.8, reviewCount: 210, unitText: '(per kg)' },
-  { id: 'p-004', slug: 'california-walnuts-1kg', name: 'California Walnuts', imageUrl: '/product-walnuts.jpg', variantLabel: '1 kg', pricePaise: 90000, mrpPaise: 110000, discountBadge: '18% OFF', rating: 4.6, reviewCount: 150, unitText: '(per kg)' },
-  { id: 'p-005', slug: 'premium-raisins-1kg', name: 'Premium Raisins (Kishmish)', imageUrl: '/product-raisins.jpg', variantLabel: '1 kg', pricePaise: 40000, mrpPaise: 50000, discountBadge: '20% OFF', rating: 4.5, reviewCount: 180, unitText: '(per kg)' },
-  { id: 'p-006', slug: 'ajwa-dates-1kg', name: 'Ajwa Premium Dates', imageUrl: '/product-dates.jpg', variantLabel: '1 kg', pricePaise: 85000, mrpPaise: 100000, discountBadge: '15% OFF', rating: 4.7, reviewCount: 120, unitText: '(per kg)' },
+  { id: 'p-001', slug: 'kashmiri-mamra-almonds', name: 'Kashmiri Mamra Almonds', imageUrl: '/product-almonds.jpg', variantLabel: '1 kg', pricePaise: 480000, mrpPaise: 580000, discountBadge: '17% OFF', rating: 4.8, reviewCount: 320, unitText: '(per kg)' },
+  { id: 'p-002', slug: 'w320-premium-cashews', name: 'W320 Premium Cashews (Kaju)', imageUrl: '/product-cashews.jpg', variantLabel: '1 kg', pricePaise: 120000, mrpPaise: 150000, discountBadge: '20% OFF', rating: 4.7, reviewCount: 280, unitText: '(per kg)' },
+  { id: 'p-003', slug: 'iranian-green-pistachios', name: 'Iranian Green Pistachios (Pista)', imageUrl: '/product-pistachios.jpg', variantLabel: '1 kg', pricePaise: 190000, mrpPaise: 235000, discountBadge: '19% OFF', rating: 4.8, reviewCount: 210, unitText: '(per kg)' },
+  { id: 'p-004', slug: 'california-walnuts', name: 'California Walnuts (Akhrot)', imageUrl: '/product-walnuts.jpg', variantLabel: '1 kg', pricePaise: 130000, mrpPaise: 160000, discountBadge: '19% OFF', rating: 4.6, reviewCount: 150, unitText: '(per kg)' },
+  { id: 'p-005', slug: 'premium-raisins-kishmish', name: 'Premium Raisins (Kishmish)', imageUrl: '/product-raisins.jpg', variantLabel: '1 kg', pricePaise: 70000, mrpPaise: 88000, discountBadge: '20% OFF', rating: 4.5, reviewCount: 180, unitText: '(per kg)' },
+  { id: 'p-006', slug: 'medjool-dates-khajur', name: 'Medjool Dates (Khajur Matjol)', imageUrl: '/product-dates.jpg', variantLabel: '1 kg', pricePaise: 140000, mrpPaise: 175000, discountBadge: '20% OFF', rating: 4.7, reviewCount: 120, unitText: '(per kg)' },
+  { id: 'p-007', slug: 'premium-figs-anjeer', name: 'Premium Figs (Anjeer)', imageUrl: '/product-figs.jpg', variantLabel: '1 kg', pricePaise: 140000, mrpPaise: 175000, discountBadge: '20% OFF', rating: 4.6, reviewCount: 140, unitText: '(per kg)' },
+  { id: 'p-008', slug: 'california-almonds', name: 'California Almonds', imageUrl: '/product-almonds.jpg', variantLabel: '1 kg', pricePaise: 110000, mrpPaise: 135000, discountBadge: '18% OFF', rating: 4.7, reviewCount: 260, unitText: '(per kg)' },
+  { id: 'p-009', slug: 'premium-pistachios', name: 'Premium Pistachios (Pista)', imageUrl: '/product-pistachios.jpg', variantLabel: '1 kg', pricePaise: 420000, mrpPaise: 510000, discountBadge: '18% OFF', rating: 4.9, reviewCount: 190, unitText: '(per kg)' },
 ];
 
 const WHY_CHOOSE_ITEMS = [
