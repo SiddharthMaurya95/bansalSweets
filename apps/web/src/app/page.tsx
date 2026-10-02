@@ -182,7 +182,7 @@ function DualPromoBanners() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {/* Festive Hampers */}
-          <div className="rounded-2xl bg-[#F7EFE4] border border-[#EADBCA] p-5 sm:p-8 flex flex-row items-center justify-between gap-4 shadow-2xs overflow-hidden">
+          <div className="rounded-2xl bg-[#F7EFE4] border border-[#EADBCA] hover:border-[#C88C3C]/50 hover:shadow-md hover:-translate-y-1 p-5 sm:p-8 flex flex-row items-center justify-between gap-4 shadow-2xs overflow-hidden transition-all duration-300 group">
             <div className="space-y-2 sm:space-y-3 flex-1 min-w-0">
               <h2 className="font-serif text-xl sm:text-2xl font-black text-[#2A1810] leading-tight">
                 Festive &amp; Gift Hampers
@@ -190,18 +190,18 @@ function DualPromoBanners() {
               <p className="text-xs text-[#5D4E42] leading-relaxed hidden sm:block">
                 Beautifully packed dry fruit hampers for your loved ones
               </p>
-              <Link href="/category/gift-boxes" className="bg-[#9E1B24] hover:bg-[#85141C] text-white text-xs font-bold px-4 py-2 sm:px-5 sm:py-2.5 rounded-md inline-flex items-center gap-1.5 transition-colors shadow-2xs">
+              <Link href="/category/gift-boxes" className="bg-[#9E1B24] hover:bg-[#85141C] hover:shadow-xs active:scale-[0.98] text-white text-xs font-bold px-4 py-2 sm:px-5 sm:py-2.5 rounded-md inline-flex items-center gap-1.5 transition-all shadow-2xs">
                 <span>View Gift Hampers</span>
                 <ArrowRightIcon size={13} />
               </Link>
             </div>
             <div className="relative w-28 h-28 sm:w-48 sm:h-40 rounded-xl overflow-hidden shadow-xs flex-shrink-0 bg-white">
-              <Image src="/banner-festive.jpg" alt="Festive dry fruits gift hamper" fill sizes="(max-width: 640px) 112px, 200px" className="object-cover" />
+              <Image src="/banner-festive.jpg" alt="Festive dry fruits gift hamper" fill sizes="(max-width: 640px) 112px, 200px" className="object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
           </div>
 
           {/* Wholesale */}
-          <div className="rounded-2xl bg-[#EDE7DD] border border-[#DDD4C5] p-5 sm:p-8 flex flex-row items-center justify-between gap-4 shadow-2xs overflow-hidden">
+          <div className="rounded-2xl bg-[#EDE7DD] border border-[#DDD4C5] hover:border-[#C88C3C]/50 hover:shadow-md hover:-translate-y-1 p-5 sm:p-8 flex flex-row items-center justify-between gap-4 shadow-2xs overflow-hidden transition-all duration-300 group">
             <div className="space-y-2 sm:space-y-3 flex-1 min-w-0">
               <h2 className="font-serif text-xl sm:text-2xl font-black text-[#1C202A] leading-tight">
                 Wholesale Rates for Businesses
@@ -209,13 +209,13 @@ function DualPromoBanners() {
               <p className="text-xs text-[#525763] leading-relaxed hidden sm:block">
                 Special pricing for retailers, caterers, corporate gifting and bulk orders.
               </p>
-              <Link href="/wholesale" className="bg-[#0E1D3B] hover:bg-[#1A2E56] text-white text-xs font-bold px-4 py-2 sm:px-5 sm:py-2.5 rounded-md inline-flex items-center gap-1.5 transition-colors shadow-2xs">
+              <Link href="/wholesale" className="bg-[#0E1D3B] hover:bg-[#1A2E56] hover:shadow-xs active:scale-[0.98] text-white text-xs font-bold px-4 py-2 sm:px-5 sm:py-2.5 rounded-md inline-flex items-center gap-1.5 transition-all shadow-2xs">
                 <span>Get Wholesale Quote</span>
                 <ArrowRightIcon size={13} />
               </Link>
             </div>
             <div className="relative w-28 h-28 sm:w-48 sm:h-40 rounded-xl overflow-hidden shadow-xs flex-shrink-0 bg-white">
-              <Image src="/banner-wholesale.jpg" alt="Bulk dry fruit wholesale sacks" fill sizes="(max-width: 640px) 112px, 200px" className="object-cover" />
+              <Image src="/banner-wholesale.jpg" alt="Bulk dry fruit wholesale sacks" fill sizes="(max-width: 640px) 112px, 200px" className="object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
           </div>
         </div>
@@ -347,7 +347,7 @@ function LatestBlogSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
           {BLOG_POSTS.map((post) => (
             <Link key={post.href} href={post.href}
-              className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-2xs hover:shadow-sm transition-shadow group flex flex-col sm:flex-row">
+              className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-2xs hover:shadow-md hover:-translate-y-1 hover:border-[#D4A359]/50 transition-all duration-300 group flex flex-col sm:flex-row">
               <div className="relative w-full sm:w-40 h-40 sm:h-auto flex-shrink-0 bg-[#FAF7F2]">
                 <Image src={post.image} alt={post.title} fill sizes="(max-width: 640px) 100vw, 160px" className="object-cover group-hover:scale-105 transition-transform duration-300" />
                 <span className="absolute top-2 left-2 bg-[#E5A93C] text-[#1B1F2A] text-[9px] font-bold px-2 py-0.5 rounded-full">

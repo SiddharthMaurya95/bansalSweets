@@ -44,7 +44,7 @@ export function HomeProductCard({ product }: { product: HomeProductItem }) {
   const stars = Math.floor(product.rating);
 
   return (
-    <div className="bg-white rounded-2xl border border-[#ECE5DA] overflow-hidden shadow-2xs hover:shadow-md transition-all group flex flex-col justify-between">
+    <div className="bg-white rounded-2xl border border-[#ECE5DA] overflow-hidden shadow-2xs hover:shadow-lg hover:-translate-y-1 hover:border-[#D4B584] transition-all duration-300 group flex flex-col justify-between">
       <div>
         {/* Image Container with Discount Badge */}
         <div className="relative aspect-square w-full bg-[#FAF8F5] p-3 flex items-center justify-center overflow-hidden">
@@ -105,7 +105,7 @@ export function HomeProductCard({ product }: { product: HomeProductItem }) {
       <div className="p-3 pt-0">
         <button
           onClick={handleAdd}
-          className="w-full bg-[#F2DCAE] hover:bg-[#E5CB97] text-[#2C2114] font-bold text-xs py-2 px-3 rounded-md flex items-center justify-center gap-1.5 transition-colors cursor-pointer active:scale-[0.98]"
+          className="w-full bg-[#F2DCAE] hover:bg-[#E5CB97] hover:shadow-xs text-[#2C2114] font-bold text-xs py-2 px-3 rounded-md flex items-center justify-center gap-1.5 transition-all duration-200 cursor-pointer active:scale-[0.97]"
           aria-label={`Add ${product.name} to cart`}
         >
           <ShoppingCartIcon size={14} className="text-[#2C2114]" />

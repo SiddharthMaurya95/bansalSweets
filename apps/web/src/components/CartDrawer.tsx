@@ -39,7 +39,7 @@ function CartLineItem({ item }: { item: CartItem }) {
           <div className="flex items-center gap-1.5 bg-gray-50 rounded-full px-1 py-0.5">
             <button
               onClick={() => updateQty(item.id, item.quantity - 1)}
-              className="w-6 h-6 flex items-center justify-center rounded-full hover:bg-white hover:shadow-sm text-gray-600 transition-all text-sm font-bold"
+              className="w-6 h-6 flex items-center justify-center rounded-full hover:bg-white hover:shadow-sm active:scale-90 text-gray-600 transition-all text-sm font-bold"
               aria-label="Decrease quantity"
             >
               −
@@ -49,7 +49,7 @@ function CartLineItem({ item }: { item: CartItem }) {
             </span>
             <button
               onClick={() => updateQty(item.id, item.quantity + 1)}
-              className="w-6 h-6 flex items-center justify-center rounded-full hover:bg-white hover:shadow-sm text-gray-600 transition-all text-sm font-bold"
+              className="w-6 h-6 flex items-center justify-center rounded-full hover:bg-white hover:shadow-sm active:scale-90 text-gray-600 transition-all text-sm font-bold"
               aria-label="Increase quantity"
             >
               +
@@ -152,7 +152,7 @@ export function CartDrawer() {
             </div>
             <button
               onClick={closeCart}
-              className="mt-2 px-6 py-2.5 bg-[#0B2A6B] text-white text-sm font-semibold rounded-full hover:bg-[#1E4BA8] transition-colors cursor-pointer"
+              className="mt-2 px-6 py-2.5 bg-[#0B2A6B] text-white text-sm font-semibold rounded-full hover:bg-[#1E4BA8] hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200 cursor-pointer"
             >
               Explore Products
             </button>
@@ -217,10 +217,10 @@ export function CartDrawer() {
               <Link
                 href="/checkout"
                 onClick={closeCart}
-                className="w-full text-center bg-[#0B2A6B] hover:bg-[#1E4BA8] text-white font-semibold py-3.5 rounded-xl text-sm transition-colors shadow-sm inline-flex items-center justify-center gap-2"
+                className="w-full text-center bg-[#0B2A6B] hover:bg-[#1E4BA8] text-white font-semibold py-3.5 rounded-xl text-sm transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] inline-flex items-center justify-center gap-2 group cursor-pointer"
               >
                 <span>Proceed to Checkout</span>
-                <ArrowRightIcon size={14} className="text-white" />
+                <ArrowRightIcon size={14} className="text-white group-hover:translate-x-1 transition-transform duration-200" />
               </Link>
               {!isAuthenticated && (
                 <p className="text-[11px] text-center text-amber-700 bg-amber-50 py-1.5 px-2 rounded-lg border border-amber-200/80 font-medium">

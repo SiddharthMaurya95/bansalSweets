@@ -131,7 +131,7 @@ function LoginFormContent() {
   };
 
   return (
-    <div className="w-full max-w-sm sm:max-w-md mx-auto relative z-10 flex flex-col justify-center my-auto">
+    <div className="w-full max-w-sm sm:max-w-md mx-auto relative z-10 flex flex-col justify-center my-auto animate-scale-in">
       {/* ── Top Brand Header ── */}
       <div className="text-center">
         <Link href="/" className="inline-flex flex-col items-center group">
@@ -202,7 +202,7 @@ function LoginFormContent() {
               value={identifier}
               onChange={(e) => setIdentifier(e.target.value)}
               placeholder="Enter mobile number or email"
-              className="w-full pl-9 pr-3 py-1.5 sm:py-2 text-xs rounded-lg border border-gray-200 focus:outline-none focus:border-[#8C4A18] focus:ring-1 focus:ring-[#8C4A18] bg-white text-gray-900 placeholder:text-gray-400 transition-colors"
+              className="w-full pl-9 pr-3 py-1.5 sm:py-2 text-xs rounded-lg border border-gray-200 focus:outline-none focus:border-[#8C4A18] focus:ring-2 focus:ring-[#8C4A18]/20 bg-white text-gray-900 placeholder:text-gray-400 transition-all"
             />
           </div>
         </div>
@@ -225,7 +225,7 @@ function LoginFormContent() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your password"
-              className="w-full pl-9 pr-9 py-1.5 sm:py-2 text-xs rounded-lg border border-gray-200 focus:outline-none focus:border-[#8C4A18] focus:ring-1 focus:ring-[#8C4A18] bg-white text-gray-900 placeholder:text-gray-400 transition-colors"
+              className="w-full pl-9 pr-9 py-1.5 sm:py-2 text-xs rounded-lg border border-gray-200 focus:outline-none focus:border-[#8C4A18] focus:ring-2 focus:ring-[#8C4A18]/20 bg-white text-gray-900 placeholder:text-gray-400 transition-all"
             />
             {/* Toggle show/hide password */}
             <button
@@ -272,7 +272,7 @@ function LoginFormContent() {
         <button
           type="submit"
           disabled={submitting}
-          className="w-full py-2.5 px-4 bg-[#8C4A18] hover:bg-[#733B12] text-white font-semibold text-xs sm:text-sm rounded-lg shadow-xs hover:shadow transition-all flex items-center justify-center gap-2 mt-1 active:scale-[0.99] disabled:opacity-50 cursor-pointer"
+          className="w-full py-2.5 px-4 bg-[#8C4A18] hover:bg-[#733B12] text-white font-semibold text-xs sm:text-sm rounded-lg shadow-xs hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] transition-all duration-200 flex items-center justify-center gap-2 mt-1 disabled:opacity-50 cursor-pointer"
         >
           <span>{submitting ? 'Signing in...' : 'Sign In'}</span>
           <span className="text-sm leading-none">→</span>
@@ -293,7 +293,7 @@ function LoginFormContent() {
       <button
         type="button"
         onClick={handleGoogleLogin}
-        className="w-full py-2 px-4 bg-white border border-gray-200 hover:border-gray-300 rounded-lg shadow-2xs text-xs font-semibold text-gray-700 flex items-center justify-center gap-2.5 transition-all hover:bg-gray-50/80 cursor-pointer"
+        className="w-full py-2 px-4 bg-white border border-gray-200 hover:border-gray-300 rounded-lg shadow-2xs hover:shadow-xs hover:-translate-y-0.5 active:translate-y-0 text-xs font-semibold text-gray-700 flex items-center justify-center gap-2.5 transition-all duration-200 hover:bg-gray-50/80 cursor-pointer"
       >
         <svg className="w-4 h-4" viewBox="0 0 24 24">
           <path
@@ -331,8 +331,8 @@ function LoginFormContent() {
       {/* ── Bottom Trust Badges (4 icons matching theme) ── */}
       <div className="grid grid-cols-4 gap-1.5 pt-2.5 mt-2.5 border-t border-gray-200/60 text-center">
         {/* Secure Payments */}
-        <div className="flex flex-col items-center">
-          <div className="w-6 h-6 rounded-full bg-[#F4EDE2] text-[#8C4A18] flex items-center justify-center mb-0.5">
+        <div className="flex flex-col items-center group/trust hover:-translate-y-0.5 transition-transform duration-200">
+          <div className="w-6 h-6 rounded-full bg-[#F4EDE2] group-hover/trust:bg-[#EBDDC8] text-[#8C4A18] flex items-center justify-center mb-0.5 transition-colors">
             <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
               <path d="M9 12l2 2 4-4" />
@@ -342,8 +342,8 @@ function LoginFormContent() {
         </div>
 
         {/* Fast Delivery */}
-        <div className="flex flex-col items-center">
-          <div className="w-6 h-6 rounded-full bg-[#F4EDE2] text-[#8C4A18] flex items-center justify-center mb-0.5">
+        <div className="flex flex-col items-center group/trust hover:-translate-y-0.5 transition-transform duration-200">
+          <div className="w-6 h-6 rounded-full bg-[#F4EDE2] group-hover/trust:bg-[#EBDDC8] text-[#8C4A18] flex items-center justify-center mb-0.5 transition-colors">
             <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
               <rect x="1" y="3" width="15" height="13" />
               <polygon points="16 8 20 8 23 11 23 16 16 16 8" />
@@ -355,8 +355,8 @@ function LoginFormContent() {
         </div>
 
         {/* Premium Quality */}
-        <div className="flex flex-col items-center">
-          <div className="w-6 h-6 rounded-full bg-[#F4EDE2] text-[#8C4A18] flex items-center justify-center mb-0.5">
+        <div className="flex flex-col items-center group/trust hover:-translate-y-0.5 transition-transform duration-200">
+          <div className="w-6 h-6 rounded-full bg-[#F4EDE2] group-hover/trust:bg-[#EBDDC8] text-[#8C4A18] flex items-center justify-center mb-0.5 transition-colors">
             <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
             </svg>
@@ -365,8 +365,8 @@ function LoginFormContent() {
         </div>
 
         {/* Wide Variety */}
-        <div className="flex flex-col items-center">
-          <div className="w-6 h-6 rounded-full bg-[#F4EDE2] text-[#8C4A18] flex items-center justify-center mb-0.5">
+        <div className="flex flex-col items-center group/trust hover:-translate-y-0.5 transition-transform duration-200">
+          <div className="w-6 h-6 rounded-full bg-[#F4EDE2] group-hover/trust:bg-[#EBDDC8] text-[#8C4A18] flex items-center justify-center mb-0.5 transition-colors">
             <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
               <path d="M12 3C7 3 3 8 3 13C3 17 6 20 10 20C12 20 14 19 15 17C16 19 18 20 20 20C22 20 23 19 23 17C23 12 18 3 12 3Z" />
               <path d="M12 3V17" />

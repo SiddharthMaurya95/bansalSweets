@@ -1485,7 +1485,7 @@ export default function CheckoutPage() {
                         <div
                           key={addr.id}
                           onClick={() => setSelectedAddressId(addr.id)}
-                          className={`cursor-pointer rounded-xl p-4 transition-all border ${
+                          className={`cursor-pointer rounded-xl p-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xs border ${
                             isSelected
                               ? 'border-[#D4A359] bg-[#FFFBF4] ring-1 ring-[#D4A359]'
                               : 'border-gray-200 bg-white hover:border-gray-300'
@@ -1534,7 +1534,7 @@ export default function CheckoutPage() {
                                     e.stopPropagation();
                                     handleContinue();
                                   }}
-                                  className="bg-[#E29B38] hover:bg-[#D48924] text-[#1F140D] font-extrabold text-xs px-4 py-2 rounded-lg shadow-xs uppercase tracking-wider"
+                                  className="bg-[#E29B38] hover:bg-[#D48924] hover:shadow-sm active:scale-[0.98] transition-all duration-200 text-[#1F140D] font-extrabold text-xs px-4 py-2 rounded-lg shadow-xs uppercase tracking-wider cursor-pointer"
                                 >
                                   Deliver Here
                                 </button>
@@ -1772,7 +1772,7 @@ export default function CheckoutPage() {
                     {/* 1. UPI */}
                     <div
                       onClick={() => setSelectedPayment('UPI')}
-                      className={`cursor-pointer rounded-xl p-4 transition-all border ${
+                      className={`cursor-pointer rounded-xl p-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xs border ${
                         selectedPayment === 'UPI'
                           ? 'border-[#D4A359] bg-[#FFFBF4] ring-1 ring-[#D4A359]'
                           : 'border-gray-200 bg-white hover:border-gray-300'
@@ -1831,7 +1831,7 @@ export default function CheckoutPage() {
                     {/* 2. Card */}
                     <div
                       onClick={() => setSelectedPayment('CARD')}
-                      className={`cursor-pointer rounded-xl p-4 transition-all border ${
+                      className={`cursor-pointer rounded-xl p-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xs border ${
                         selectedPayment === 'CARD'
                           ? 'border-[#D4A359] bg-[#FFFBF4] ring-1 ring-[#D4A359]'
                           : 'border-gray-200 bg-white hover:border-gray-300'
@@ -1969,7 +1969,7 @@ export default function CheckoutPage() {
                     {/* 4. Cash on Delivery */}
                     <div
                       onClick={() => setSelectedPayment('COD')}
-                      className={`cursor-pointer rounded-xl p-4 transition-all border ${
+                      className={`cursor-pointer rounded-xl p-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xs border ${
                         selectedPayment === 'COD'
                           ? 'border-[#D4A359] bg-[#FFFBF4] ring-1 ring-[#D4A359]'
                           : 'border-gray-200 bg-white hover:border-gray-300'
@@ -2004,7 +2004,7 @@ export default function CheckoutPage() {
                       type="button"
                       disabled={loading}
                       onClick={handleContinue}
-                      className="w-full py-4 px-6 bg-[#7A4116] hover:bg-[#66340F] text-white font-bold text-base sm:text-lg rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 active:scale-[0.99] disabled:opacity-50"
+                      className="w-full py-4 px-6 bg-[#7A4116] hover:bg-[#66340F] text-white font-bold text-base sm:text-lg rounded-xl shadow-md hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer"
                     >
                       {loading ? (
                         <>

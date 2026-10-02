@@ -342,7 +342,7 @@ export const Header: React.FC = () => {
           {/* 2. Desktop Center Search Bar */}
           <div className="flex-1 max-w-xl hidden md:block">
             <div className="flex items-stretch h-10 w-full shadow-2xs">
-              <div className="flex-1 flex items-center bg-white border border-gray-300 border-r-0 rounded-l-md focus-within:border-[#C88C3C] transition-colors overflow-hidden">
+              <div className="flex-1 flex items-center bg-white border border-gray-300 border-r-0 rounded-l-md focus-within:border-[#C88C3C] focus-within:ring-2 focus-within:ring-[#C88C3C]/20 transition-all overflow-hidden">
                 <div className="pl-3.5 pr-2 text-gray-400 pointer-events-none flex items-center justify-center shrink-0">
                   <svg className="w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <circle cx="11" cy="11" r="8"/>
@@ -362,7 +362,7 @@ export const Header: React.FC = () => {
               <button
                 id="search-submit-btn"
                 onClick={handleSearch}
-                className="bg-[#C88C3C] hover:bg-[#B57C30] text-white px-4.5 rounded-r-md border border-[#C88C3C] transition-colors flex items-center justify-center cursor-pointer shrink-0"
+                className="bg-[#C88C3C] hover:bg-[#B57C30] active:scale-[0.97] text-white px-4.5 rounded-r-md border border-[#C88C3C] transition-all flex items-center justify-center cursor-pointer shrink-0 shadow-2xs hover:shadow-xs"
                 aria-label="Submit search"
               >
                 <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -379,10 +379,10 @@ export const Header: React.FC = () => {
             {/* 1. Track Order */}
             <Link
               href="/orders/track"
-              className="flex flex-col items-center group text-gray-700 hover:text-[#C88C3C] transition-colors"
+              className="flex flex-col items-center group text-gray-700 hover:text-[#C88C3C] transition-all duration-200 hover:-translate-y-0.5"
               aria-label="Track Order"
             >
-              <svg className="w-5 h-5 text-gray-700 group-hover:text-[#C88C3C] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <svg className="w-5 h-5 text-gray-700 group-hover:text-[#C88C3C] group-hover:scale-110 transition-all duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
                 <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
                 <line x1="12" y1="22.08" x2="12" y2="12"/>
@@ -393,10 +393,10 @@ export const Header: React.FC = () => {
             {/* 2. Help & Support */}
             <Link
               href="/contact"
-              className="flex flex-col items-center group text-gray-700 hover:text-[#C88C3C] transition-colors"
+              className="flex flex-col items-center group text-gray-700 hover:text-[#C88C3C] transition-all duration-200 hover:-translate-y-0.5"
               aria-label="Help & Support"
             >
-              <svg className="w-5 h-5 text-gray-700 group-hover:text-[#C88C3C] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <svg className="w-5 h-5 text-gray-700 group-hover:text-[#C88C3C] group-hover:scale-110 transition-all duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
                 <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
               </svg>
@@ -406,11 +406,11 @@ export const Header: React.FC = () => {
             {/* 3. Sign In / Register & Profile Picture */}
             <Link
               href={isAuthenticated ? '/account' : '/login'}
-              className="flex flex-col items-center group text-gray-700 hover:text-[#C88C3C] transition-colors"
+              className="flex flex-col items-center group text-gray-700 hover:text-[#C88C3C] transition-all duration-200 hover:-translate-y-0.5"
               aria-label={isAuthenticated ? 'My Account' : 'Sign In or Register'}
             >
               {isAuthenticated ? (
-                <div className="relative w-5 h-5 rounded-full overflow-hidden ring-1.5 ring-[#C88C3C]/50 group-hover:ring-[#C88C3C] transition-all shadow-2xs flex items-center justify-center bg-[#1a73e8] shrink-0">
+                <div className="relative w-5 h-5 rounded-full overflow-hidden ring-1.5 ring-[#C88C3C]/50 group-hover:ring-[#C88C3C] group-hover:scale-110 transition-all duration-200 shadow-2xs flex items-center justify-center bg-[#1a73e8] shrink-0">
                   <img
                     src={
                       user?.avatarUrl ||
@@ -433,7 +433,7 @@ export const Header: React.FC = () => {
                   />
                 </div>
               ) : (
-                <svg className="w-5 h-5 text-gray-700 group-hover:text-[#C88C3C] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <svg className="w-5 h-5 text-gray-700 group-hover:text-[#C88C3C] group-hover:scale-110 transition-all duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
                   <circle cx="12" cy="7" r="4"/>
                 </svg>
@@ -446,15 +446,15 @@ export const Header: React.FC = () => {
             {/* 4. Wishlist */}
             <Link
               href="/wishlist"
-              className="flex flex-col items-center group text-gray-700 hover:text-[#C88C3C] transition-colors relative"
+              className="flex flex-col items-center group text-gray-700 hover:text-[#C88C3C] transition-all duration-200 hover:-translate-y-0.5 relative"
               aria-label="Wishlist"
             >
               <div className="relative">
-                <svg className="w-5 h-5 text-gray-700 group-hover:text-[#C88C3C] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <svg className="w-5 h-5 text-gray-700 group-hover:text-[#C88C3C] group-hover:scale-110 transition-all duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                 </svg>
                 {totalWishlistCount > 0 && (
-                  <span className="absolute -top-1 -right-2 bg-[#8C4A18] text-white text-[9px] font-bold rounded-full w-3.5 h-3.5 flex items-center justify-center leading-none">
+                  <span className="absolute -top-1 -right-2 bg-[#8C4A18] text-white text-[9px] font-bold rounded-full w-3.5 h-3.5 flex items-center justify-center leading-none animate-scale-in">
                     {totalWishlistCount}
                   </span>
                 )}
@@ -466,16 +466,16 @@ export const Header: React.FC = () => {
             <button
               id="cart-trigger-btn"
               onClick={openCart}
-              className="flex flex-col items-center group text-gray-700 hover:text-[#C88C3C] transition-colors relative cursor-pointer"
+              className="flex flex-col items-center group text-gray-700 hover:text-[#C88C3C] transition-all duration-200 hover:-translate-y-0.5 relative cursor-pointer"
               aria-label={`Open Cart – ${totalItems} items`}
             >
               <div className="relative">
-                <svg className="w-5 h-5 text-gray-700 group-hover:text-[#C88C3C] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <svg className="w-5 h-5 text-gray-700 group-hover:text-[#C88C3C] group-hover:scale-110 transition-all duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="9" cy="21" r="1"/>
                   <circle cx="20" cy="21" r="1"/>
                   <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
                 </svg>
-                <span className="absolute -top-1.5 -right-2.5 bg-[#C23B22] text-white text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center leading-none shadow-xs">
+                <span className="absolute -top-1.5 -right-2.5 bg-[#C23B22] text-white text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center leading-none shadow-xs animate-scale-in">
                   {totalItems}
                 </span>
               </div>
@@ -614,7 +614,7 @@ export const Header: React.FC = () => {
                 <Link
                   key={cat.href}
                   href={cat.href}
-                  className="hover:text-[#C88C3C] text-xs sm:text-[13px] py-1 transition-colors"
+                  className="link-hover-underline hover:text-[#C88C3C] text-xs sm:text-[13px] py-1 transition-colors"
                 >
                   {cat.label}
                 </Link>
@@ -624,9 +624,9 @@ export const Header: React.FC = () => {
             {/* 3. Festive Offers Button */}
             <Link
               href="/category/gift-boxes"
-              className="bg-[#B91C1C] hover:bg-[#991B1B] text-white font-bold text-xs sm:text-[13px] px-4 py-2 rounded-lg flex items-center gap-1.5 transition-colors flex-shrink-0 shadow-xs whitespace-nowrap"
+              className="bg-[#B91C1C] hover:bg-[#991B1B] hover:shadow-sm active:scale-[0.98] text-white font-bold text-xs sm:text-[13px] px-4 py-2 rounded-lg flex items-center gap-1.5 transition-all flex-shrink-0 shadow-xs whitespace-nowrap"
             >
-              <span>🎁</span>
+              <span className="animate-bounce inline-block">🎁</span>
               <span>Festive Offers</span>
             </Link>
 
