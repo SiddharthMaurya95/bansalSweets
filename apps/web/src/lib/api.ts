@@ -739,51 +739,130 @@ function getFallbackProductDetail(slug: string): ProductDetail {
   let v1kg = { price: 480000, mrp: 580000 };
   let titleName = name;
 
-  if (s.includes('mamra')) {
-    titleName = 'Kashmiri Mamra Almonds';
-    v250 = { price: 125000, mrp: 155000 };
-    v500 = { price: 245000, mrp: 300000 };
-    v1kg = { price: 480000, mrp: 580000 };
-  } else if (s.includes('california') && s.includes('almond')) {
-    titleName = 'California Almonds';
-    v250 = { price: 29500, mrp: 37000 };
-    v500 = { price: 57000, mrp: 70000 };
-    v1kg = { price: 110000, mrp: 135000 };
-  } else if (s.includes('cashew') || s.includes('kaju')) {
+  let catSlug = 'almonds';
+  let catName = 'Almonds (Badam)';
+  let gallery: { url: string; altText: string }[] = [];
+
+  if (s.includes('cashew') || s.includes('kaju')) {
     titleName = 'W320 Premium Cashews (Kaju)';
+    catSlug = 'cashews';
+    catName = 'Cashews (Kaju)';
     v250 = { price: 32000, mrp: 40000 };
     v500 = { price: 62000, mrp: 78000 };
     v1kg = { price: 120000, mrp: 150000 };
+    gallery = [
+      { url: '/product-cashews.jpg', altText: `${titleName} - Whole Premium Grade` },
+    ];
   } else if (s.includes('premium') && s.includes('pista')) {
     titleName = 'Premium Pistachios (Pista)';
+    catSlug = 'pistachios';
+    catName = 'Pistachios (Pista)';
     v250 = { price: 110000, mrp: 135000 };
     v500 = { price: 215000, mrp: 260000 };
     v1kg = { price: 420000, mrp: 510000 };
+    gallery = [
+      { url: '/product-pistachios.jpg', altText: `${titleName} - Jumbo Green Pistachios` },
+    ];
   } else if (s.includes('pista')) {
     titleName = 'Iranian Green Pistachios (Pista)';
+    catSlug = 'pistachios';
+    catName = 'Pistachios (Pista)';
     v250 = { price: 50000, mrp: 62000 };
     v500 = { price: 98000, mrp: 120000 };
     v1kg = { price: 190000, mrp: 235000 };
+    gallery = [
+      { url: '/product-pistachios.jpg', altText: `${titleName} - Iranian Green Pistachios` },
+    ];
   } else if (s.includes('walnut') || s.includes('akhrot')) {
     titleName = 'California Walnuts (Akhrot)';
+    catSlug = 'walnuts';
+    catName = 'Walnuts (Akhrot)';
     v250 = { price: 34500, mrp: 43000 };
     v500 = { price: 67000, mrp: 83000 };
     v1kg = { price: 130000, mrp: 160000 };
+    gallery = [
+      { url: '/product-walnuts.jpg', altText: `${titleName} - California Halves & Quarters` },
+    ];
   } else if (s.includes('raisin') || s.includes('kishmish')) {
     titleName = 'Premium Raisins (Kishmish)';
+    catSlug = 'raisins';
+    catName = 'Raisins (Kishmish)';
     v250 = { price: 19000, mrp: 24000 };
     v500 = { price: 36000, mrp: 45000 };
     v1kg = { price: 70000, mrp: 88000 };
+    gallery = [
+      { url: '/product-raisins.jpg', altText: `${titleName} - Golden Raisins` },
+    ];
   } else if (s.includes('fig') || s.includes('anjeer')) {
     titleName = 'Premium Figs (Anjeer)';
+    catSlug = 'figs';
+    catName = 'Figs (Anjeer)';
     v250 = { price: 37000, mrp: 46000 };
     v500 = { price: 72000, mrp: 90000 };
     v1kg = { price: 140000, mrp: 175000 };
+    gallery = [
+      { url: '/product-figs.jpg', altText: `${titleName} - Dried Afghan Figs` },
+    ];
   } else if (s.includes('date') || s.includes('khajur') || s.includes('khajoor')) {
     titleName = 'Medjool Dates (Khajur Matjol)';
+    catSlug = 'dates';
+    catName = 'Dates (Khajoor)';
     v250 = { price: 37000, mrp: 46000 };
     v500 = { price: 72000, mrp: 90000 };
     v1kg = { price: 140000, mrp: 175000 };
+    gallery = [
+      { url: '/product-dates.jpg', altText: `${titleName} - Medjool Dates` },
+    ];
+  } else if (s.includes('seed')) {
+    titleName = 'Super Seeds Mix';
+    catSlug = 'seeds';
+    catName = 'Healthy Seeds';
+    gallery = [
+      { url: '/product-seeds.jpg', altText: `${titleName} - Healthy Seeds` },
+    ];
+  } else if (s.includes('mix')) {
+    titleName = 'Assorted Dry Fruit Mix';
+    catSlug = 'dry-fruit-mix';
+    catName = 'Dry Fruit Mix';
+    gallery = [
+      { url: '/product-mix.jpg', altText: `${titleName} - Premium Assortment` },
+    ];
+  } else if (s.includes('gift') || s.includes('hamper') || s.includes('box')) {
+    titleName = 'Royal Festive Gift Hamper';
+    catSlug = 'gift-boxes';
+    catName = 'Gift Hampers';
+    gallery = [
+      { url: '/product-gift-hamper.jpg', altText: `${titleName} - Festive Royal Hamper` },
+    ];
+  } else if (s.includes('california') && s.includes('almond')) {
+    titleName = 'California Almonds';
+    catSlug = 'almonds';
+    catName = 'Almonds (Badam)';
+    v250 = { price: 29500, mrp: 37000 };
+    v500 = { price: 57000, mrp: 70000 };
+    v1kg = { price: 110000, mrp: 135000 };
+    gallery = [
+      { url: '/product-almonds.jpg', altText: `${titleName} - Sorted California Harvest` },
+      { url: '/almonds-macro.jpg', altText: `${titleName} - Closeup Kernel Texture` },
+      { url: '/almonds-split.jpg', altText: `${titleName} - Split Kernel View` },
+      { url: '/almonds-roasted.jpg', altText: `${titleName} - Grade A Quality` },
+      { url: '/almonds-pouch.jpg', altText: `${titleName} - Air-Tight Sealed Packaging` },
+    ];
+  } else {
+    // Default: Kashmiri Mamra Almonds
+    titleName = 'Kashmiri Mamra Almonds';
+    catSlug = 'almonds';
+    catName = 'Almonds (Badam)';
+    v250 = { price: 125000, mrp: 155000 };
+    v500 = { price: 245000, mrp: 300000 };
+    v1kg = { price: 480000, mrp: 580000 };
+    gallery = [
+      { url: '/product-almonds.jpg', altText: `${titleName} - Kashmiri Mamra Almonds` },
+      { url: '/almonds-macro.jpg', altText: `${titleName} - Closeup Kernel Texture` },
+      { url: '/almonds-split.jpg', altText: `${titleName} - Split Kernel View` },
+      { url: '/almonds-roasted.jpg', altText: `${titleName} - Golden Sorted Harvest` },
+      { url: '/almonds-pouch.jpg', altText: `${titleName} - Sealed Air-Tight Packaging` },
+    ];
   }
 
   return {
@@ -863,43 +942,19 @@ function getFallbackProductDetail(slug: string): ProductDetail {
         sortRank: 3,
       },
     ],
-    images: [
-      {
-        id: 'img-1',
-        url: '/product-almonds.jpg',
-        altText: `${titleName} - Primary Grade View`,
-        isPrimary: true,
-        sortRank: 1,
-      },
-      {
-        id: 'img-2',
-        url: '/product-cashews.jpg',
-        altText: `${titleName} - Hand-Inspected Texture`,
-        isPrimary: false,
-        sortRank: 2,
-      },
-      {
-        id: 'img-3',
-        url: '/product-pistachios.jpg',
-        altText: `${titleName} - Packaging Quality`,
-        isPrimary: false,
-        sortRank: 3,
-      },
-    ],
+    images: gallery.map((item, idx) => ({
+      id: `img-${idx + 1}`,
+      url: item.url,
+      altText: item.altText,
+      isPrimary: idx === 0,
+      sortRank: idx + 1,
+    })),
     categories: [
       {
-        id: 'cat-almonds',
-        slug: 'almonds',
-        name: 'Almonds (Badam)',
+        id: `cat-${catSlug}`,
+        slug: catSlug,
+        name: catName,
         sortRank: 1,
-        depth: 0,
-        isActive: true,
-      },
-      {
-        id: 'cat-premium',
-        slug: 'premium-dry-fruits',
-        name: 'Premium Dry Fruits',
-        sortRank: 2,
         depth: 0,
         isActive: true,
       },

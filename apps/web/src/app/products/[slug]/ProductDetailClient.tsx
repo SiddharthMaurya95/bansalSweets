@@ -22,7 +22,6 @@ import {
   SparklesIcon,
   HeartPulseIcon,
   EditIcon,
-  ArrowRightIcon,
   CloseIcon,
 } from '@/components/ThemeIcons';
 
@@ -63,20 +62,96 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
 
   // ─── 1. Gallery Items (Vertical Strip on the left) ─────────────────────────
   const galleryImages: GalleryItem[] = useMemo(() => {
-    return [
-      { url: '/product-almonds.jpg', altText: 'Kashmiri Mamra Almonds in wooden bowl' },
-      { url: '/almonds-macro.jpg', altText: 'Raw Kashmiri Mamra almonds closeup' },
-      { url: '/product-almonds.jpg', altText: 'Mamra almonds spread on burlap' },
-      { url: '/almonds-split.jpg', altText: 'Split Mamra almond kernel' },
-      { url: '/almonds-macro.jpg', altText: 'Fresh Mamra almonds texture' },
-      { url: '/almonds-pouch.jpg', altText: 'Bansal Foods packaging pouch video', isVideo: true },
-    ];
-  }, []);
+    const slug = product?.slug?.toLowerCase() || '';
+    const name = product?.name || 'Dry Fruit';
+
+    const isAlmond = slug.includes('almond') || slug.includes('mamra') || slug.includes('badam');
+    const isCashew = slug.includes('cashew') || slug.includes('kaju');
+    const isPista = slug.includes('pista') || slug.includes('pistachio');
+    const isWalnut = slug.includes('walnut') || slug.includes('akhrot');
+    const isRaisin = slug.includes('raisin') || slug.includes('kishmish');
+    const isDate = slug.includes('date') || slug.includes('khajur') || slug.includes('khajoor');
+    const isFig = slug.includes('fig') || slug.includes('anjeer');
+    const isSeed = slug.includes('seed');
+    const isGift = slug.includes('gift') || slug.includes('hamper') || slug.includes('box');
+    const isMix = !isSeed && slug.includes('mix');
+
+    const matchesProduct = (url: string) => {
+      const u = url.toLowerCase();
+      if (isAlmond) return u.includes('almond');
+      if (isCashew) return u.includes('cashew');
+      if (isPista) return u.includes('pista') || u.includes('pistachio');
+      if (isWalnut) return u.includes('walnut');
+      if (isRaisin) return u.includes('raisin');
+      if (isDate) return u.includes('date');
+      if (isFig) return u.includes('fig');
+      if (isSeed) return u.includes('seed');
+      if (isGift) return u.includes('gift') || u.includes('hamper');
+      if (isMix) return u.includes('mix');
+      return true;
+    };
+
+    // If product has valid images specified that belong to this product, use them
+    if (product?.images && product.images.length > 0) {
+      const filtered = product.images.filter((img) => matchesProduct(img.url));
+      if (filtered.length > 0) {
+        return filtered.map((img) => ({
+          url: img.url,
+          altText: img.altText || name,
+        }));
+      }
+    }
+
+    // Fallbacks strictly for this product only
+    if (isCashew) {
+      return [{ url: '/product-cashews.jpg', altText: `${name} - Whole Premium Grade` }];
+    }
+    if (isPista) {
+      return [{ url: '/product-pistachios.jpg', altText: `${name} - Iranian Green Pistachios` }];
+    }
+    if (isWalnut) {
+      return [{ url: '/product-walnuts.jpg', altText: `${name} - California Walnuts` }];
+    }
+    if (isRaisin) {
+      return [{ url: '/product-raisins.jpg', altText: `${name} - Premium Raisins` }];
+    }
+    if (isDate) {
+      return [{ url: '/product-dates.jpg', altText: `${name} - Medjool Dates` }];
+    }
+    if (isFig) {
+      return [{ url: '/product-figs.jpg', altText: `${name} - Dried Afghan Figs` }];
+    }
+    if (isSeed) {
+      return [{ url: '/product-seeds.jpg', altText: `${name} - Natural Seeds` }];
+    }
+    if (isGift) {
+      return [{ url: '/product-gift-hamper.jpg', altText: `${name} - Gift Hamper` }];
+    }
+    if (isMix) {
+      return [{ url: '/product-mix.jpg', altText: `${name} - Assorted Mix` }];
+    }
+
+    if (isAlmond) {
+      return [
+        { url: '/product-almonds.jpg', altText: `${name} in wooden bowl` },
+        { url: '/almonds-macro.jpg', altText: `${name} closeup texture` },
+        { url: '/almonds-split.jpg', altText: `${name} split kernel` },
+        { url: '/almonds-roasted.jpg', altText: `${name} sorted grade` },
+        { url: '/almonds-pouch.jpg', altText: `${name} packaging pouch`, isVideo: true },
+      ];
+    }
+
+    if (product?.images?.[0]?.url) {
+      return [{ url: product.images[0].url, altText: name }];
+    }
+
+    return [{ url: '/product-almonds.jpg', altText: name }];
+  }, [product]);
 
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const activeImage: GalleryItem = galleryImages[selectedImageIndex] ?? galleryImages[0] ?? {
-    url: '/product-almonds.jpg',
-    altText: 'Kashmiri Mamra Almonds',
+    url: product?.images?.[0]?.url || '/product-almonds.jpg',
+    altText: product?.name || 'Product Image',
   };
   const [isZoomModalOpen, setIsZoomModalOpen] = useState(false);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
@@ -186,77 +261,6 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
     router.push('/checkout');
   };
 
-  // ─── 5. Frequently Bought Together State ───────────────────────────────────
-  const [bundleAlmonds, setBundleAlmonds] = useState(true);
-  const [bundleCashews, setBundleCashews] = useState(true);
-  const [bundlePistachios, setBundlePistachios] = useState(true);
-  const [bundleAdded, setBundleAdded] = useState(false);
-
-  const bundleTotal = useMemo(() => {
-    let total = 0;
-    let mrp = 0;
-    if (bundleAlmonds) {
-      total += 570;
-      mrp += 700;
-    }
-    if (bundleCashews) {
-      total += 620;
-      mrp += 780;
-    }
-    if (bundlePistachios) {
-      total += 980;
-      mrp += 1200;
-    }
-    const savings = mrp - total;
-    const savePct = mrp > 0 ? Math.round((savings / mrp) * 100) : 0;
-    return { total, mrp, savings, savePct };
-  }, [bundleAlmonds, bundleCashews, bundlePistachios]);
-
-  const handleAddBundleToCart = () => {
-    setBundleAdded(true);
-    let count = 0;
-    if (bundleAlmonds) {
-      addItem({
-        id: 'bundle-almonds-500g',
-        name: 'California Almonds',
-        variantLabel: '500g',
-        pricePaise: 57000,
-        mrpPaise: 70000,
-        imageUrl: '/product-almonds.jpg',
-        slug: 'california-almonds',
-      });
-      count++;
-    }
-    if (bundleCashews) {
-      addItem({
-        id: 'bundle-cashews-500g',
-        name: 'W320 Premium Cashews (Kaju)',
-        variantLabel: '500g',
-        pricePaise: 62000,
-        mrpPaise: 78000,
-        imageUrl: '/product-cashews.jpg',
-        slug: 'w320-premium-cashews',
-      });
-      count++;
-    }
-    if (bundlePistachios) {
-      addItem({
-        id: 'bundle-pista-500g',
-        name: 'Iranian Green Pistachios (Pista)',
-        variantLabel: '500g',
-        pricePaise: 98000,
-        mrpPaise: 120000,
-        imageUrl: '/product-pistachios.jpg',
-        slug: 'iranian-green-pistachios',
-      });
-      count++;
-    }
-    showToast(`Added ${count} bundle items to cart!`);
-    setTimeout(() => {
-      setBundleAdded(false);
-      openCart();
-    }, 450);
-  };
 
   // ─── 6. Reviews State ─────────────────────────────────────────────────────
   const [reviewsList, setReviewsList] = useState<CustomerReviewItem[]>([
@@ -332,11 +336,18 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
             Home
           </Link>
           <span className="text-gray-400">&gt;</span>
-          <Link href="/category/almonds" className="hover:text-[#B5712E] transition-colors">
-            Almonds
+          <Link
+            href={
+              product.categories?.[0]
+                ? `/category/${product.categories[0].slug}`
+                : '/shop'
+            }
+            className="hover:text-[#B5712E] transition-colors"
+          >
+            {product.categories?.[0]?.name || 'Products'}
           </Link>
           <span className="text-gray-400">&gt;</span>
-          <span className="text-[#1B1F2A] font-bold">Kashmiri Mamra Almonds</span>
+          <span className="text-[#1B1F2A] font-bold">{product.name}</span>
         </nav>
       </div>
 
@@ -347,44 +358,46 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
           {/* ── Left Column: Vertical Thumbnails + Main Image Container (7 cols) ── */}
           <div className="lg:col-span-7 flex flex-col-reverse sm:flex-row gap-3.5 items-start">
             
-            {/* 6 Vertical Thumbnails */}
-            <div className="flex sm:flex-col gap-2 overflow-x-auto sm:overflow-visible w-full sm:w-[68px] shrink-0 pb-1 sm:pb-0">
-              {galleryImages.map((img, idx) => {
-                const isSelected = selectedImageIndex === idx;
-                return (
-                  <button
-                    key={idx}
-                    type="button"
-                    onClick={() => {
-                      setSelectedImageIndex(idx);
-                      if (img.isVideo) {
-                        setIsVideoModalOpen(true);
-                      }
-                    }}
-                    className={`relative w-14 h-14 sm:w-[64px] sm:h-[64px] rounded-lg overflow-hidden border-2 transition-all cursor-pointer bg-[#FAF8F5] shrink-0 ${
-                      isSelected
-                        ? 'border-[#B5712E] ring-1 ring-[#B5712E] shadow-2xs scale-[1.02]'
-                        : 'border-gray-200 hover:border-gray-300'
-                    }`}
-                  >
-                    <Image
-                      src={img.url}
-                      alt={img.altText}
-                      fill
-                      sizes="64px"
-                      className="object-cover"
-                    />
-                    {img.isVideo && (
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <div className="w-5 h-5 rounded-full bg-white/95 flex items-center justify-center shadow-xs">
-                          <PlayIcon size={8} className="ml-0.5 text-gray-900" />
+            {/* Vertical Thumbnails (Shown when multiple images exist for this product) */}
+            {galleryImages.length > 1 && (
+              <div className="flex sm:flex-col gap-2 overflow-x-auto sm:overflow-visible w-full sm:w-[68px] shrink-0 pb-1 sm:pb-0">
+                {galleryImages.map((img, idx) => {
+                  const isSelected = selectedImageIndex === idx;
+                  return (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => {
+                        setSelectedImageIndex(idx);
+                        if (img.isVideo) {
+                          setIsVideoModalOpen(true);
+                        }
+                      }}
+                      className={`relative w-14 h-14 sm:w-[64px] sm:h-[64px] rounded-lg overflow-hidden border-2 transition-all cursor-pointer bg-[#FAF8F5] shrink-0 ${
+                        isSelected
+                          ? 'border-[#B5712E] ring-1 ring-[#B5712E] shadow-2xs scale-[1.02]'
+                          : 'border-gray-200 hover:border-gray-300'
+                      }`}
+                    >
+                      <Image
+                        src={img.url}
+                        alt={img.altText}
+                        fill
+                        sizes="64px"
+                        className="object-cover"
+                      />
+                      {img.isVideo && (
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <div className="w-5 h-5 rounded-full bg-white/95 flex items-center justify-center shadow-xs">
+                            <PlayIcon size={8} className="ml-0.5 text-gray-900" />
+                          </div>
                         </div>
-                      </div>
-                    )}
-                  </button>
-                );
-              })}
-            </div>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
 
             {/* Main Featured Image Box */}
             <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden border border-gray-200/90 bg-[#FBF9F5] shadow-xs group">
@@ -452,13 +465,13 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
 
             {/* Product Title */}
             <h1 className="font-serif text-2xl sm:text-[28px] font-black text-[#1B1F2A] tracking-tight leading-snug mt-2">
-              Kashmiri Mamra Almonds
+              {product.name}
             </h1>
 
             {/* Short Subtitle */}
             <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed mt-2 font-normal">
-              Premium quality, hand-picked Mamra almonds from Kashmir. Naturally rich in
-              nutrients, crisp, sweet and full of authentic taste.
+              {product.shortDescription ||
+                `Premium quality, hand-picked ${product.name} sourced directly from historic Fatehpuri Mandi, Delhi.`}
             </p>
 
             {/* Ratings & Social Proof */}
@@ -513,18 +526,20 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
               </span>
             </div>
 
-            {/* Pricing Section (Matching screenshot values) */}
+            {/* Pricing Section */}
             <div className="mt-4 pt-1">
               <div className="flex items-baseline gap-2.5">
                 <span className="font-serif font-black text-3xl sm:text-[32px] text-[#1B1F2A]">
-                  ₹{selectedWeightIndex === 0 ? '1,200' : currentVariant.price.toLocaleString('en-IN')}
+                  ₹{currentVariant.price.toLocaleString('en-IN')}
                 </span>
                 <span className="text-base sm:text-lg text-gray-400 line-through">
-                  ₹{selectedWeightIndex === 0 ? '1,500' : currentVariant.mrp.toLocaleString('en-IN')}
+                  ₹{currentVariant.mrp.toLocaleString('en-IN')}
                 </span>
-                <span className="bg-[#D92D20] text-white text-[11px] font-black px-2 py-0.5 rounded-sm">
-                  {selectedWeightIndex === 0 ? '20%' : `${currentVariant.savePct}%`} OFF
-                </span>
+                {currentVariant.savePct && currentVariant.savePct > 0 ? (
+                  <span className="bg-[#D92D20] text-white text-[11px] font-black px-2 py-0.5 rounded-sm">
+                    {currentVariant.savePct}% OFF
+                  </span>
+                ) : null}
               </div>
               <div className="flex items-center gap-2 text-xs text-gray-500 mt-1 font-medium">
                 <span>(₹{currentVariant.perKg.toLocaleString('en-IN')} per kg)</span>
@@ -646,11 +661,8 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
           {/* Left Text & 3 Feature Badges (7 cols) */}
           <div className="lg:col-span-7 space-y-4">
             <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed font-normal">
-              Our Kashmiri Mamra almonds are sourced directly from the lush valleys of Kashmir, known
-              for producing the finest quality almonds in India. Mamra almonds are premium grade
-              almonds with a distinct long shape, rich taste, natural sweetness and high oil content.
-              These almonds are carefully hand-picked, cleaned and packed to ensure you get the best
-              quality and freshness.
+              {product.description ||
+                `Our ${product.name} is sourced directly from generational farmers and sorted at our shop in Khari Baoli, Fatehpuri, Delhi. Each batch is carefully hand-inspected for uniform size, moisture content, authentic aroma, and premium quality.`}
             </p>
 
             {/* 3 Badges Box */}
@@ -686,12 +698,12 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
             </div>
           </div>
 
-          {/* Right Almond Bowl Cutout Image (5 cols) */}
+          {/* Right Product Image (5 cols) */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <div className="relative w-full max-w-sm aspect-[16/10] rounded-2xl overflow-hidden shadow-xs border border-gray-100">
               <Image
-                src="/product-almonds.jpg"
-                alt="Mamra Almonds in wooden bowl"
+                src={galleryImages[0]?.url || '/product-almonds.jpg'}
+                alt={`${product.name} detail view`}
                 fill
                 className="object-cover"
               />
@@ -958,242 +970,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
         </div>
       </div>
 
-      {/* ── Section 7: Frequently Bought Together & Related Products ── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-8 pb-6 border-t border-gray-100">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
-          {/* Left Column: Frequently Bought Together (7 cols) */}
-          <div className="lg:col-span-7 bg-white rounded-2xl border border-gray-200 p-5 shadow-2xs">
-            <div className="flex items-center gap-2">
-              <ShoppingCartIcon size={18} className="text-[#8E4A18]" />
-              <h2 className="font-serif font-black text-base text-[#1B1F2A]">
-                Frequently Bought Together
-              </h2>
-            </div>
-            <p className="text-xs text-gray-500 mb-4 ml-6">Complete your dry fruit collection</p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-              {/* 3 Bundle Items */}
-              <div className="flex items-center gap-3 overflow-x-auto max-w-full pb-2 sm:pb-0 scrollbar-none justify-center sm:justify-start">
-                
-                {/* Item 1: Kashmiri Mamra Almonds */}
-                <div className="flex flex-col items-center text-center w-24">
-                  <div className="relative aspect-square w-20 rounded-xl overflow-hidden border border-gray-200 bg-[#FAF8F5] p-1">
-                    <input
-                      type="checkbox"
-                      checked={bundleAlmonds}
-                      onChange={(e) => setBundleAlmonds(e.target.checked)}
-                      className="absolute top-1.5 left-1.5 z-10 w-4 h-4 accent-[#8E4A18] cursor-pointer"
-                      aria-label="Select Kashmiri Mamra Almonds"
-                    />
-                    <Image
-                      src="/product-almonds.jpg"
-                      alt="Kashmiri Mamra Almonds"
-                      fill
-                      className="object-cover rounded-lg"
-                    />
-                  </div>
-                  <span className="text-[10px] font-bold text-gray-800 line-clamp-1 mt-1">
-                    California Almonds (500g)
-                  </span>
-                  <div className="flex items-baseline gap-1 mt-0.5">
-                    <span className="text-[11px] font-black text-gray-900">₹570</span>
-                    <span className="text-[9px] text-gray-400 line-through">₹700</span>
-                  </div>
-                </div>
-
-                {/* Plus 1 */}
-                <span className="text-gray-400 font-bold text-lg">+</span>
-
-                {/* Item 2: Premium Cashews */}
-                <div className="flex flex-col items-center text-center w-24">
-                  <div className="relative aspect-square w-20 rounded-xl overflow-hidden border border-gray-200 bg-[#FAF8F5] p-1">
-                    <input
-                      type="checkbox"
-                      checked={bundleCashews}
-                      onChange={(e) => setBundleCashews(e.target.checked)}
-                      className="absolute top-1.5 left-1.5 z-10 w-4 h-4 accent-[#8E4A18] cursor-pointer"
-                      aria-label="Select Premium Cashews"
-                    />
-                    <Image
-                      src="/product-cashews.jpg"
-                      alt="Premium Cashews"
-                      fill
-                      className="object-cover rounded-lg"
-                    />
-                  </div>
-                  <span className="text-[10px] font-bold text-gray-800 line-clamp-1 mt-1">
-                    Premium Cashews (500g)
-                  </span>
-                  <div className="flex items-baseline gap-1 mt-0.5">
-                    <span className="text-[11px] font-black text-gray-900">₹620</span>
-                    <span className="text-[9px] text-gray-400 line-through">₹780</span>
-                  </div>
-                </div>
-
-                {/* Plus 2 */}
-                <span className="text-gray-400 font-bold text-lg">+</span>
-
-                {/* Item 3: Iranian Pistachios */}
-                <div className="flex flex-col items-center text-center w-24">
-                  <div className="relative aspect-square w-20 rounded-xl overflow-hidden border border-gray-200 bg-[#FAF8F5] p-1">
-                    <input
-                      type="checkbox"
-                      checked={bundlePistachios}
-                      onChange={(e) => setBundlePistachios(e.target.checked)}
-                      className="absolute top-1.5 left-1.5 z-10 w-4 h-4 accent-[#8E4A18] cursor-pointer"
-                      aria-label="Select Iranian Pistachios"
-                    />
-                    <Image
-                      src="/product-pistachios.jpg"
-                      alt="Iranian Pistachios"
-                      fill
-                      className="object-cover rounded-lg"
-                    />
-                  </div>
-                  <span className="text-[10px] font-bold text-gray-800 line-clamp-1 mt-1">
-                    Iranian Pistachios (500g)
-                  </span>
-                  <div className="flex items-baseline gap-1 mt-0.5">
-                    <span className="text-[11px] font-black text-gray-900">₹980</span>
-                    <span className="text-[9px] text-gray-400 line-through">₹1,200</span>
-                  </div>
-                </div>
-
-              </div>
-
-              {/* Bundle Price & Add All to Cart */}
-              <div className="flex flex-col items-center sm:items-end justify-center border-t sm:border-t-0 sm:border-l border-gray-100 pt-3 sm:pt-0 sm:pl-5">
-                <div className="text-center sm:text-right">
-                  <div className="flex items-baseline gap-1.5">
-                    <span className="text-xs text-gray-500 font-medium">Total Price:</span>
-                    <span className="font-serif font-black text-base text-[#1B1F2A]">
-                      ₹{bundleTotal.total.toLocaleString('en-IN')}
-                    </span>
-                    <span className="text-xs text-gray-400 line-through">
-                      ₹{bundleTotal.mrp.toLocaleString('en-IN')}
-                    </span>
-                  </div>
-                  <span className="text-[11px] font-bold text-[#16A34A] block mt-0.5">
-                    Save ₹{bundleTotal.savings.toLocaleString('en-IN')} ({bundleTotal.savePct}%)
-                  </span>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={handleAddBundleToCart}
-                  disabled={bundleTotal.total === 0}
-                  className="mt-3 bg-[#8E4A18] hover:bg-[#783D12] text-white text-xs font-bold py-2.5 px-4 rounded-lg flex items-center justify-center gap-2 shadow-2xs transition-colors cursor-pointer disabled:opacity-50"
-                >
-                  <ShoppingCartIcon size={14} />
-                  <span>{bundleAdded ? 'Added All to Cart!' : 'Add All to Cart'}</span>
-                </button>
-              </div>
-
-            </div>
-          </div>
-
-          {/* Right Column: Related Products (5 cols) */}
-          <div className="lg:col-span-5 bg-white rounded-2xl border border-gray-200 p-5 shadow-2xs">
-            <div className="flex items-center justify-between mb-3">
-              <h2 className="font-serif font-black text-base text-[#1B1F2A]">
-                Related Products
-              </h2>
-              <Link
-                href="/shop"
-                className="text-xs font-bold text-[#8E4A18] hover:underline flex items-center gap-1"
-              >
-                <span>View All</span>
-                <ArrowRightIcon size={12} />
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-3 gap-3">
-              {/* Product 1: Walnuts */}
-              <Link
-                href="/products/california-walnuts"
-                className="group flex flex-col text-center p-2 rounded-xl hover:bg-[#FAF8F5] transition-colors"
-              >
-                <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-[#FAF8F5] border border-gray-100 mb-1.5">
-                  <Image
-                    src="/product-walnuts.jpg"
-                    alt="California Walnuts"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform"
-                  />
-                </div>
-                <h4 className="text-[11px] font-bold text-gray-900 line-clamp-1 group-hover:text-[#B5712E]">
-                  California Walnuts
-                </h4>
-                <div className="flex items-baseline justify-center gap-1 mt-0.5">
-                  <span className="text-xs font-black text-gray-900">₹1,300</span>
-                  <span className="text-[10px] text-gray-400 line-through">₹1,600</span>
-                </div>
-                <div className="flex items-center justify-center gap-0.5 text-[#E5A93C] text-[10px] mt-0.5">
-                  <StarIcon size={10} filled={true} className="text-[#E5A93C]" />
-                  <span className="font-bold text-gray-700">4.8</span>
-                  <span className="text-gray-400">(150)</span>
-                </div>
-              </Link>
-
-              {/* Product 2: Raisins */}
-              <Link
-                href="/products/premium-raisins-kishmish"
-                className="group flex flex-col text-center p-2 rounded-xl hover:bg-[#FAF8F5] transition-colors"
-              >
-                <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-[#FAF8F5] border border-gray-100 mb-1.5">
-                  <Image
-                    src="/product-raisins.jpg"
-                    alt="Premium Raisins"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform"
-                  />
-                </div>
-                <h4 className="text-[11px] font-bold text-gray-900 line-clamp-1 group-hover:text-[#B5712E]">
-                  Premium Raisins (Kishmish)
-                </h4>
-                <div className="flex items-baseline justify-center gap-1 mt-0.5">
-                  <span className="text-xs font-black text-gray-900">₹700</span>
-                  <span className="text-[10px] text-gray-400 line-through">₹880</span>
-                </div>
-                <div className="flex items-center justify-center gap-0.5 text-[#E5A93C] text-[10px] mt-0.5">
-                  <StarIcon size={10} filled={true} className="text-[#E5A93C]" />
-                  <span className="font-bold text-gray-700">4.5</span>
-                  <span className="text-gray-400">(180)</span>
-                </div>
-              </Link>
-
-              {/* Product 3: Dates */}
-              <Link
-                href="/products/medjool-dates-khajur"
-                className="group flex flex-col text-center p-2 rounded-xl hover:bg-[#FAF8F5] transition-colors"
-              >
-                <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-[#FAF8F5] border border-gray-100 mb-1.5">
-                  <Image
-                    src="/product-dates.jpg"
-                    alt="Medjool Dates"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform"
-                  />
-                </div>
-                <h4 className="text-[11px] font-bold text-gray-900 line-clamp-1 group-hover:text-[#B5712E]">
-                  Medjool Dates (Khajur)
-                </h4>
-                <div className="flex items-baseline justify-center gap-1 mt-0.5">
-                  <span className="text-xs font-black text-gray-900">₹1,400</span>
-                  <span className="text-[10px] text-gray-400 line-through">₹1,750</span>
-                </div>
-                <div className="flex items-center justify-center gap-0.5 text-[#E5A93C] text-[10px] mt-0.5">
-                  <StarIcon size={10} filled={true} className="text-[#E5A93C]" />
-                  <span className="font-bold text-gray-700">4.7</span>
-                  <span className="text-gray-400">(120)</span>
-                </div>
-              </Link>
-            </div>
-          </div>
-
-        </div>
-      </div>
 
       {/* ── Zoom Modal Overlay ── */}
       {isZoomModalOpen && (
@@ -1268,8 +1045,8 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
             </h3>
             <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-black flex items-center justify-center">
               <Image
-                src="/almonds-pouch.jpg"
-                alt="Product packaging preview"
+                src={galleryImages[0]?.url || activeImage.url}
+                alt={`${product.name} packaging preview`}
                 fill
                 className="object-cover opacity-80"
               />

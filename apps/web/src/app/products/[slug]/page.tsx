@@ -149,21 +149,62 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
       .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
       .join(' ');
 
-    let defaultImg = '/product-almonds.jpg';
-    if (slug.includes('cashew')) defaultImg = '/product-cashews.jpg';
-    else if (slug.includes('pista')) defaultImg = '/product-pistachios.jpg';
-    else if (slug.includes('walnut')) defaultImg = '/product-walnuts.jpg';
-    else if (slug.includes('raisin')) defaultImg = '/product-raisins.jpg';
-    else if (slug.includes('date')) defaultImg = '/product-dates.jpg';
-    else if (slug.includes('fig')) defaultImg = '/product-figs.jpg';
-    else if (slug.includes('mix')) defaultImg = '/product-mix.jpg';
-
+    const s = slug.toLowerCase();
     const pricing = getProductPricing(slug);
+    const productName = pricing.name || formattedName;
+
+    let productImages = [
+      { id: 'img-1', url: '/product-almonds.jpg', altText: productName, isPrimary: true, sortRank: 1 },
+      { id: 'img-2', url: '/almonds-macro.jpg', altText: `${productName} Closeup`, isPrimary: false, sortRank: 2 },
+      { id: 'img-3', url: '/almonds-split.jpg', altText: `${productName} Kernel`, isPrimary: false, sortRank: 3 },
+      { id: 'img-4', url: '/almonds-roasted.jpg', altText: `${productName} Grade`, isPrimary: false, sortRank: 4 },
+      { id: 'img-5', url: '/almonds-pouch.jpg', altText: `${productName} Packaging`, isPrimary: false, sortRank: 5 },
+    ];
+    let catSlug = 'almonds';
+    let catName = 'Almonds';
+
+    if (s.includes('cashew') || s.includes('kaju')) {
+      productImages = [{ id: 'img-1', url: '/product-cashews.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+      catSlug = 'cashews';
+      catName = 'Cashews (Kaju)';
+    } else if (s.includes('pista') || s.includes('pistachio')) {
+      productImages = [{ id: 'img-1', url: '/product-pistachios.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+      catSlug = 'pistachios';
+      catName = 'Pistachios (Pista)';
+    } else if (s.includes('walnut') || s.includes('akhrot')) {
+      productImages = [{ id: 'img-1', url: '/product-walnuts.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+      catSlug = 'walnuts';
+      catName = 'Walnuts (Akhrot)';
+    } else if (s.includes('raisin') || s.includes('kishmish')) {
+      productImages = [{ id: 'img-1', url: '/product-raisins.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+      catSlug = 'raisins';
+      catName = 'Raisins (Kishmish)';
+    } else if (s.includes('date') || s.includes('khajur') || s.includes('khajoor')) {
+      productImages = [{ id: 'img-1', url: '/product-dates.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+      catSlug = 'dates';
+      catName = 'Dates (Khajoor)';
+    } else if (s.includes('fig') || s.includes('anjeer')) {
+      productImages = [{ id: 'img-1', url: '/product-figs.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+      catSlug = 'figs';
+      catName = 'Figs (Anjeer)';
+    } else if (s.includes('mix')) {
+      productImages = [{ id: 'img-1', url: '/product-mix.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+      catSlug = 'dry-fruit-mix';
+      catName = 'Dry Fruit Mix';
+    } else if (s.includes('seed')) {
+      productImages = [{ id: 'img-1', url: '/product-seeds.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+      catSlug = 'seeds';
+      catName = 'Seeds';
+    } else if (s.includes('gift') || s.includes('hamper') || s.includes('box')) {
+      productImages = [{ id: 'img-1', url: '/product-gift-hamper.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+      catSlug = 'gift-boxes';
+      catName = 'Gift Hampers';
+    }
 
     product = {
       id: `prod-${slug}`,
       slug,
-      name: pricing.name || formattedName,
+      name: productName,
       status: 'PUBLISHED',
       isFeatured: true,
       isBestseller: true,
@@ -228,20 +269,12 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
           sortRank: 4,
         },
       ],
-      images: [
-        {
-          id: 'img-1',
-          url: defaultImg,
-          altText: formattedName,
-          isPrimary: true,
-          sortRank: 1,
-        },
-      ],
+      images: productImages,
       categories: [
         {
-          id: 'cat-almonds',
-          slug: 'almonds',
-          name: 'Almonds',
+          id: `cat-${catSlug}`,
+          slug: catSlug,
+          name: catName,
           sortRank: 1,
           depth: 0,
           isActive: true,
