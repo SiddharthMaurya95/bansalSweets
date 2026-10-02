@@ -104,6 +104,15 @@ function RegisterFormContent() {
       setError('Please enter your mobile number.');
       return;
     }
+    if (!email.trim()) {
+      setError('Please enter your email address.');
+      return;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.trim())) {
+      setError('Please enter a valid email address.');
+      return;
+    }
     if (password.length < 8) {
       setError('Password must be at least 8 characters long.');
       return;
@@ -120,7 +129,7 @@ function RegisterFormContent() {
       await register({
         name: name.trim(),
         phone: phone.trim(),
-        email: email.trim() ? email.trim().toLowerCase() : undefined,
+        email: email.trim().toLowerCase(),
         password,
         customerType: 'RETAIL',
         marketingOptIn: true,
@@ -256,7 +265,7 @@ function RegisterFormContent() {
           {/* Email Address */}
           <div>
             <label className="block text-[11px] font-semibold text-gray-800 mb-0.5">
-              Email <span className="text-gray-400 font-normal text-[10px]">(Optional)</span>
+              Email <span className="text-red-500">*</span>
             </label>
             <div className="relative flex items-center">
               <div className="absolute left-2.5 text-gray-400 pointer-events-none">
@@ -267,9 +276,10 @@ function RegisterFormContent() {
               </div>
               <input
                 type="email"
+                required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email address"
+                placeholder="name@example.com"
                 className="w-full pl-8 pr-2.5 py-1.5 text-xs rounded-lg border border-gray-200 focus:outline-none focus:border-[#8C4A18] focus:ring-2 focus:ring-[#8C4A18]/20 bg-white text-gray-900 placeholder:text-gray-400 transition-all"
               />
             </div>
