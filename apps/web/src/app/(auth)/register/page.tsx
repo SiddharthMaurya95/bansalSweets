@@ -235,16 +235,17 @@ function RegisterFormContent() {
               Mobile Number <span className="text-red-500">*</span>
             </label>
             <div className="relative flex items-center">
-              <div className="absolute left-2.5 flex items-center gap-1 text-gray-500 pr-1.5 border-r border-gray-200 pointer-events-none">
-                <span className="text-[11px] font-medium text-gray-700">+91</span>
+              <div className="absolute left-2.5 flex items-center gap-1 text-gray-500 pr-2 border-r border-gray-200 pointer-events-none">
+                <span className="text-[11px] font-semibold text-gray-700">+91</span>
               </div>
               <input
                 type="tel"
                 required
+                maxLength={10}
                 value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+                onChange={(e) => setPhone(e.target.value.replace(/\D/g, ''))}
                 placeholder="Mobile number"
-                className="w-full pl-13 pr-2.5 py-1.5 text-xs rounded-lg border border-gray-200 focus:outline-none focus:border-[#8C4A18] focus:ring-1 focus:ring-[#8C4A18] bg-white text-gray-900 placeholder:text-gray-400 transition-colors"
+                className="w-full pl-12 pr-2.5 py-1.5 text-xs rounded-lg border border-gray-200 focus:outline-none focus:border-[#8C4A18] focus:ring-1 focus:ring-[#8C4A18] bg-white text-gray-900 placeholder:text-gray-400 transition-colors"
               />
             </div>
           </div>
