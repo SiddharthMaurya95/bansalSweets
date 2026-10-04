@@ -86,9 +86,12 @@ export async function runProductionSeed(): Promise<void> {
     { name: 'Figs', slug: 'figs', sortRank: 70 },
     { name: 'Apricots', slug: 'apricots', sortRank: 80 },
     { name: 'Seeds', slug: 'seeds', sortRank: 90 },
+    { name: 'Dry Fruit Mix', slug: 'dry-fruit-mix', sortRank: 95 },
     { name: 'Mixed Dry Fruits', slug: 'mixed-dry-fruits', sortRank: 100 },
     { name: 'Premium Dry Fruits', slug: 'premium-dry-fruits', sortRank: 110 },
     { name: 'Gift Packs', slug: 'gift-packs', sortRank: 120 },
+    { name: 'Gift Hampers', slug: 'gift-boxes', sortRank: 121 },
+    { name: 'Festive Offers', slug: 'festive-offers', sortRank: 122 },
     { name: 'Combos', slug: 'combos', sortRank: 130 },
     { name: 'Seasonal Products', slug: 'seasonal-products', sortRank: 140 },
   ];
@@ -111,7 +114,7 @@ export async function runProductionSeed(): Promise<void> {
     }
   }
 
-  // 4. Seed Default Central Inventory Location (Fatehpuri)
+  // 4. Seed Default Central Inventory Location (Khari Baoli)
   console.log('  -> Seeding default inventory location...');
   const [defaultLoc] = await db
     .select({ id: inventoryLocations.id })
@@ -121,10 +124,10 @@ export async function runProductionSeed(): Promise<void> {
 
   if (!defaultLoc) {
     await db.insert(inventoryLocations).values({
-      name: 'Fatehpuri Central Warehouse',
+      name: 'Khari Baoli Central Warehouse',
       code: 'FATEHPURI_MAIN',
       isDefault: true,
-      address: 'Fatehpuri, Chandni Chowk, Delhi - 110006',
+      address: 'Khari Baoli, Chandni Chowk, Delhi - 110006',
     });
   }
 
@@ -141,7 +144,7 @@ export async function runProductionSeed(): Promise<void> {
         contactPhones: ['9313321535'],
         whatsappNumber: '9313321535',
         supportEmail: 'care@bansalfoods.example.com',
-        address: 'Fatehpuri, Delhi - 110006',
+        address: 'Khari Baoli, Delhi - 110006',
         reservationTtlMinutes: 15,
         currency: 'INR',
       },

@@ -99,7 +99,7 @@ export default function OrderSuccessPage({ params }: PageProps) {
                 phone: saved.shippingAddress?.phone || saved.customerPhone || '+91 9876543210',
                 line1: saved.shippingAddress?.line1 || 'A-302, Green Park Apartments',
                 pincode: saved.shippingAddress?.pincode || '110006',
-                city: saved.shippingAddress?.city || 'Fatehpuri, Delhi',
+                city: saved.shippingAddress?.city || 'Khari Baoli, Delhi',
                 state: saved.shippingAddress?.state || 'Delhi',
                 stateCode: saved.shippingAddress?.stateCode || '07',
               },
@@ -165,7 +165,7 @@ export default function OrderSuccessPage({ params }: PageProps) {
             phone: '+91 9876543210',
             line1: 'A-302, Green Park Apartments',
             pincode: '110006',
-            city: 'Fatehpuri, Delhi',
+            city: 'Khari Baoli, Delhi',
             state: 'Delhi',
             stateCode: '07',
           },
@@ -177,13 +177,13 @@ export default function OrderSuccessPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-[#FAF7F2]">
-      {/* ════════ 1. TOP HERO BANNER (FATEHPURI MANDI SPREAD + CELEBRATION) ════════ */}
+      {/* ════════ 1. TOP HERO BANNER (KHARI BAOLI MANDI SPREAD + CELEBRATION) ════════ */}
       <div className="relative w-full overflow-hidden bg-[#FBF8F2] border-b border-[#EFE7D8] pt-10 pb-16 sm:pt-14 sm:pb-20">
         {/* Mandi Dry Fruit Background Visuals (prominent side bowls & sacks) */}
         <div className="absolute inset-0 pointer-events-none select-none opacity-75">
           <Image
             src="/hero-mandi-dark.jpg"
-            alt="Fatehpuri Mandi Dry Fruits"
+            alt="Khari Baoli Mandi Dry Fruits"
             fill
             priority
             className="object-cover object-center"
@@ -348,7 +348,7 @@ export default function OrderSuccessPage({ params }: PageProps) {
                   {order?.shippingAddress?.line1 || 'A-302, Green Park Apartments'}
                 </p>
                 <p className="text-xs text-gray-600 leading-relaxed">
-                  {order?.shippingAddress?.city || 'Fatehpuri, Delhi'} - {order?.shippingAddress?.pincode || '110006'}
+                  {order?.shippingAddress?.city || 'Khari Baoli, Delhi'} - {order?.shippingAddress?.pincode || '110006'}
                 </p>
                 <p className="text-xs text-gray-600 mt-2 font-medium">
                   {order?.shippingAddress?.phone || '+91 9876543210'}
@@ -392,7 +392,7 @@ export default function OrderSuccessPage({ params }: PageProps) {
               </p>
               <p className="text-[11px] text-gray-500 mt-1 flex items-center justify-center sm:justify-start gap-1">
                 <span>🕒</span>
-                <span>Mon - Sat: 9:00 AM - 6:00 PM</span>
+                <span>Mon - Sat: 9:30 AM - 7:30 PM | Sun: 9:30 AM - 4:00 PM</span>
               </p>
             </div>
           </div>

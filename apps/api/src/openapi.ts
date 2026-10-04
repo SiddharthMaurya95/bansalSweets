@@ -8,7 +8,7 @@ export const OPENAPI_SPEC = {
     title: 'Bansal Foods E-Commerce REST API',
     version: '1.0.0',
     description:
-      'Production-oriented REST API for Bansal Foods, Fatehpuri, Delhi (110006). All prices and monetary amounts are in integer paise (INR).',
+      'Production-oriented REST API for Bansal Foods, Khari Baoli, Delhi (110006). All prices and monetary amounts are in integer paise (INR).',
     contact: {
       name: 'Bansal Foods Engineering',
       email: 'tech@bansalfoods.example.com',

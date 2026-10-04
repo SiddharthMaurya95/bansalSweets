@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useCallback, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { useCart } from '@/context/CartContext';
@@ -107,19 +108,20 @@ export const Header: React.FC = () => {
             <div>
               {/* Drawer Header */}
               <div className="p-4 border-b border-gray-100 flex items-center justify-between bg-[#FAF7F2]">
-                <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2">
-                  <svg className="w-8 h-8 text-[#C88C3C]" viewBox="0 0 40 40" fill="currentColor">
-                    <path
-                      d="M20 2C15 6 12 12 12 18C12 24 16 28 20 30C24 28 28 24 28 18C28 12 25 6 20 2ZM10 14C6 17 4 22 5 26C6 30 10 33 14 33C14 27 12 20 10 14ZM30 14C28 20 26 27 26 33C30 33 34 30 35 26C36 22 34 17 30 14Z"
-                      opacity="0.95"
-                    />
-                  </svg>
+                <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2.5">
+                  <Image
+                    src="/logo.png"
+                    alt="Company Logo"
+                    width={36}
+                    height={36}
+                    className="w-9 h-9 rounded-full object-cover shrink-0 shadow-xs"
+                  />
                   <div className="flex flex-col">
                     <span className="font-serif font-black text-lg text-[#0F2244] leading-tight">
                       BANSAL FOODS
                     </span>
                     <span className="text-[7.5px] uppercase font-bold tracking-[0.2em] text-[#C88C3C]">
-                      FATEHPURI, DELHI
+                      KHARI BAOLI, DELHI
                     </span>
                   </div>
                 </Link>
@@ -316,16 +318,14 @@ export const Header: React.FC = () => {
 
           {/* 1. Brand Logo */}
           <Link href="/" className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0 group">
-            <svg
-              className="w-9 h-9 sm:w-11 sm:h-11 text-[#C88C3C] flex-shrink-0 transition-transform group-hover:scale-105"
-              viewBox="0 0 40 40"
-              fill="currentColor"
-            >
-              <path
-                d="M20 2C15 6 12 12 12 18C12 24 16 28 20 30C24 28 28 24 28 18C28 12 25 6 20 2ZM10 14C6 17 4 22 5 26C6 30 10 33 14 33C14 27 12 20 10 14ZM30 14C28 20 26 27 26 33C30 33 34 30 35 26C36 22 34 17 30 14Z"
-                opacity="0.95"
-              />
-            </svg>
+            <Image
+              src="/logo.png"
+              alt="Company Logo"
+              width={48}
+              height={48}
+              priority
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover flex-shrink-0 transition-transform group-hover:scale-105 shadow-xs"
+            />
             <div className="flex flex-col">
               <span className="font-serif font-black text-xl sm:text-2xl tracking-tight text-[#1F140D] leading-none">
                 BANSAL FOODS
@@ -334,7 +334,7 @@ export const Header: React.FC = () => {
                 DRY FRUITS • WHOLESALE • RETAIL
               </span>
               <span className="text-[7px] sm:text-[8px] uppercase tracking-[0.22em] text-gray-500 font-medium hidden sm:block">
-                FATEHPURI, DELHI
+                KHARI BAOLI, DELHI
               </span>
             </div>
           </Link>

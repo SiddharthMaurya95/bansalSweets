@@ -2,7 +2,7 @@
 
 ## 1. System Overview
 
-Bansal Foods is an e-commerce platform modernising an established retail and wholesale dry-fruit business located in Fatehpuri, Delhi (110006).
+Bansal Foods is an e-commerce platform modernising an established retail and wholesale dry-fruit business located in Khari Baoli, Delhi (110006).
 
 ### Priority Order (Section 0.1)
 

@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy & DPDP Act 2023 Compliance | Bansal Foods Fatehpuri',
+  title: 'Privacy Policy & DPDP Act 2023 Compliance | Bansal Foods Khari Baoli',
   description:
     'Our commitment to privacy, personal data security, and rights under the Digital Personal Data Protection Act 2023.',
 };
@@ -13,7 +13,7 @@ export default function PrivacyPolicyPage() {
     <div className="max-w-4xl mx-auto px-4 py-8 sm:py-12 space-y-8">
       <div>
         <span className="text-xs font-bold uppercase tracking-widest text-[#D9A521] block mb-1">
-          Legal &amp; Compliance • Bansal Foods Fatehpuri
+          Legal &amp; Compliance • Bansal Foods Khari Baoli
         </span>
         <h1 className="text-2xl sm:text-4xl font-black text-[#0B2A6B] tracking-tight">
           Privacy Policy &amp; Data Protection
@@ -31,7 +31,7 @@ export default function PrivacyPolicyPage() {
           </h2>
           <p>
             <strong>BANSAL FOODS</strong> (&quot;we&quot;, &quot;our&quot;, &quot;us&quot;),
-            operating from Khari Baoli, Fatehpuri, Delhi 110006, acts as the Data Fiduciary under
+            operating from Khari Baoli, Delhi 110006, acts as the Data Fiduciary under
             the Digital Personal Data Protection Act 2023 (DPDP Act). We are dedicated to
             maintaining the highest degree of confidentiality, security, and integrity regarding the
             personal and transactional data of our retail patrons and wholesale buyers.
@@ -76,7 +76,7 @@ export default function PrivacyPolicyPage() {
           <ul className="list-disc pl-5 space-y-1">
             <li>
               Weighing, vacuum packaging, and courier dispatch of dry-fruit consignments from our
-              Fatehpuri warehouse.
+              Khari Baoli warehouse.
             </li>
             <li>
               Issuing statutory GST Tax Invoices (Form GST INV-1) in compliance with CBIC and Delhi
@@ -116,7 +116,7 @@ export default function PrivacyPolicyPage() {
             <div className="p-3 rounded-xl bg-gray-50 border border-gray-100">
               <p className="font-bold text-[#0B2A6B]">Right to Grievance Redressal</p>
               <p className="text-xs text-gray-500 mt-1">
-                Direct escalation to our resident Fatehpuri Data Protection &amp; Grievance Officer.
+                Direct escalation to our resident Khari Baoli Data Protection &amp; Grievance Officer.
               </p>
             </div>
           </div>
@@ -152,7 +152,7 @@ export default function PrivacyPolicyPage() {
               <strong>Designation:</strong> Compliance &amp; Operations Head, Bansal Foods
             </p>
             <p>
-              <strong>Registered Address:</strong> Khari Baoli, Fatehpuri, Chandni Chowk, Delhi
+              <strong>Registered Address:</strong> Khari Baoli, Chandni Chowk, Delhi
               110006
             </p>
             <p>

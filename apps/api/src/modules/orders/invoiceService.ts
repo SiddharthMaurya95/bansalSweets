@@ -27,8 +27,8 @@ export interface BuyerSnapshot {
 
 export const BANSAL_FOODS_SELLER_SNAPSHOT = {
   legalName: 'Bansal Foods',
-  tradeName: 'Bansal Foods Fatehpuri Mandi',
-  address: 'Shop 42, Katra Ishwar Bhawan, Khari Baoli, Fatehpuri, Old Delhi, Delhi 110006',
+  tradeName: 'Bansal Foods Khari Baoli Mandi',
+  address: 'Shop 42, Katra Ishwar Bhawan, Khari Baoli, Old Delhi, Delhi 110006',
   gstin: '07AAAAA0000A1Z5',
   state: 'Delhi',
   stateCode: '07',
@@ -226,7 +226,7 @@ export const invoiceService = {
     <div class="header">
       <div>
         <div class="brand-title">BANSAL FOODS</div>
-        <div class="brand-subtitle">Fatehpuri Mandi • Delhi 110006</div>
+        <div class="brand-subtitle">Khari Baoli Mandi • Delhi 110006</div>
         <div style="font-size: 11px; color: #4b5563; margin-top: 4px;">FSSAI Lic: ${seller.fssaiNumber} | GSTIN: ${seller.gstin}</div>
       </div>
       <div>

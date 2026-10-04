@@ -5,7 +5,7 @@ import { ChevronLeftIcon, ChevronRightIcon, StarIcon } from '@/components/ThemeI
 
 const TESTIMONIALS = [
   { name: 'Ravi Sharma', role: 'Delhi', initial: 'R', text: 'The quality of almonds and cashews is excellent. Fresh and genuine products at the best prices. Highly recommended!', rating: 5 },
-  { name: 'Priya Mehta', role: 'Noida', initial: 'P', text: 'Best dry fruits shop in Fatehpuri! Authentic products and very supportive staff. I have been ordering for 3 years now.', rating: 5 },
+  { name: 'Priya Mehta', role: 'Noida', initial: 'P', text: 'Best dry fruits shop in Khari Baoli! Authentic products and very supportive staff. I have been ordering for 3 years now.', rating: 5 },
   { name: 'Anil Gupta', role: 'Restaurant Owner, Delhi', initial: 'A', text: 'Great wholesale rates and timely delivery. Quality is always consistent. Trusted supplier for our business.', rating: 5 },
 ];
 

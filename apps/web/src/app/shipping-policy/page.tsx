@@ -259,7 +259,7 @@ export default function ShippingPolicyPage() {
     },
     {
       q: 'Can I track my order?',
-      a: 'Yes! As soon as your order is dispatched from our Fatehpuri central mandi warehouse, a tracking number and tracking link are sent via SMS and email. You can also enter your Order ID directly in the tracking box above.',
+      a: 'Yes! As soon as your order is dispatched from our Khari Baoli central mandi warehouse, a tracking number and tracking link are sent via SMS and email. You can also enter your Order ID directly in the tracking box above.',
     },
     {
       q: 'Can I change my delivery address?',
@@ -271,7 +271,7 @@ export default function ShippingPolicyPage() {
     },
     {
       q: 'What if my order arrives damaged?',
-      a: 'We pack all dry fruits in tamper-evident food-grade vacuum pouches. If you notice any carton damage or seal tampering upon arrival, please take photos/unboxing video and contact us within 24 hours at info@bansalfoods.in or WhatsApp. We will promptly arrange a replacement.',
+      a: 'We pack all dry fruits in tamper-evident food-grade vacuum pouches. If you notice any carton damage or seal tampering upon arrival, please take photos/unboxing video and contact us within 24 hours at shashwatbansal2610@gmail.com or WhatsApp. We will promptly arrange a replacement.',
     },
   ];
 
@@ -357,7 +357,7 @@ export default function ShippingPolicyPage() {
             Our Shipping Process
           </h2>
           <p className="text-xs sm:text-sm text-[#6B635B] mt-1">
-            From our store in Fatehpuri to your doorstep, we ensure your dry fruits are packed with care and delivered safely.
+            From our store in Khari Baoli to your doorstep, we ensure your dry fruits are packed with care and delivered safely.
           </p>
         </div>
 

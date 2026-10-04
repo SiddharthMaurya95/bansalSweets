@@ -66,7 +66,7 @@ const DEMO_ORDER: OrderData = {
   shippingAddress: {
     name: 'Siddharth Kumar',
     line1: 'A-302, Green Park Apartments',
-    city: 'Fatehpuri, Delhi',
+    city: 'Khari Baoli, Delhi',
     pincode: '110006',
     phone: '+91 9876543210',
   },
@@ -185,7 +185,7 @@ const FAQS = [
   },
   {
     q: "I haven't received my order. What can I do?",
-    a: 'If your tracking status shows "Delivered" but you have not received your package, please check with family members or building security. If still not found, contact us immediately at 9313321535 or email info@bansalfoods.in. We resolve delivery discrepancies within 24 hours.',
+    a: 'If your tracking status shows "Delivered" but you have not received your package, please check with family members or building security. If still not found, contact us immediately at 9313321535 or email shashwatbansal2610@gmail.com. We resolve delivery discrepancies within 24 hours.',
   },
 ];
 
@@ -414,7 +414,7 @@ function TrackOrderContent() {
                     DRY FRUITS • WHOLESALE • RETAIL
                   </p>
                   <p className="text-[7px] text-[#5A2C0D]/80 tracking-wider uppercase font-semibold">
-                    FATEHPURI, DELHI
+                    KHARI BAOLI, DELHI
                   </p>
                 </div>
 
@@ -809,7 +809,7 @@ function TrackOrderContent() {
                   </p>
                   <p className="text-xs text-gray-600 mt-1 leading-relaxed">
                     {order.shippingAddress?.line1 || 'A-302, Green Park Apartments'}<br />
-                    {order.shippingAddress?.city || 'Fatehpuri, Delhi'} - {order.shippingAddress?.pincode || '110006'}
+                    {order.shippingAddress?.city || 'Khari Baoli, Delhi'} - {order.shippingAddress?.pincode || '110006'}
                   </p>
                   <p className="text-xs text-gray-500 mt-2 font-mono">
                     {order.shippingAddress?.phone || '+91 9876543210'}

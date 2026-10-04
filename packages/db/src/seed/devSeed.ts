@@ -81,8 +81,8 @@ export async function runDevSeed(): Promise<void> {
       ],
     },
     {
-      name: 'Fatehpuri Royal Festive 4-in-1 Dry Fruit Gift Box',
-      slug: 'fatehpuri-royal-festive-gift-box',
+      name: 'Khari Baoli Royal Festive 4-in-1 Dry Fruit Gift Box',
+      slug: 'khari-baoli-royal-festive-gift-box',
       categorySlug: 'gift-packs',
       hsnCode: '08029000',
       taxRateBps: 1200, // 12% for gift pack combo
@@ -97,6 +97,70 @@ export async function runDevSeed(): Promise<void> {
           price: 149900,
           stock: 20,
         },
+      ],
+    },
+    {
+      name: 'Royaal Uphaar Festive Velvet Corporate Box',
+      slug: 'royaal-uphaar-festive-box',
+      categorySlug: 'gift-packs',
+      hsnCode: '08029000',
+      taxRateBps: 1200,
+      shortDescription:
+        'Velvet lined royal wooden treasure box filled with California Almonds, W240 Cashews, Afghan Figs, and Pistachios.',
+      variants: [
+        { label: '500 g', sku: 'GFT-VELVET-500G', weight: 500, mrp: 125000, price: 98000, stock: 25 },
+        { label: '1 kg', sku: 'GFT-VELVET-1KG', weight: 1000, mrp: 230000, price: 179900, stock: 30 },
+      ],
+    },
+    {
+      name: 'Shubh Utsav Emerald Gold Dry Fruit Box',
+      slug: 'shubh-utsav-emerald-gold-box',
+      categorySlug: 'gift-packs',
+      hsnCode: '08029000',
+      taxRateBps: 1200,
+      shortDescription:
+        'Luxury emerald green magnetic box with gold embossing containing 4 air-sealed compartments of premium dry fruits.',
+      variants: [
+        { label: '500 g', sku: 'GFT-EMERALD-500G', weight: 500, mrp: 115000, price: 88000, stock: 35 },
+        { label: '1 kg', sku: 'GFT-EMERALD-1KG', weight: 1000, mrp: 210000, price: 159900, stock: 40 },
+      ],
+    },
+    {
+      name: 'Shubh Deepawali Celebration Brass Platter Hamper',
+      slug: 'shubh-deepawali-brass-platter-hamper',
+      categorySlug: 'gift-packs',
+      hsnCode: '08029000',
+      taxRateBps: 1200,
+      shortDescription:
+        'Antique brass-finished ceremonial platter with handcrafted brass diya and 4 bowls of Mamra almonds, cashews, pistachios, and raisins.',
+      variants: [
+        { label: '1 kg', sku: 'GFT-BRASS-1KG', weight: 1000, mrp: 278000, price: 219900, stock: 15 },
+      ],
+    },
+    {
+      name: 'Bansal Heritage Grand Festive Wicker Basket',
+      slug: 'bansal-heritage-grand-festive-basket',
+      categorySlug: 'gift-packs',
+      hsnCode: '08029000',
+      taxRateBps: 1200,
+      shortDescription:
+        'Grand handcrafted wicker basket with satin bow, 5 hexagonal glass jars of nuts, figs, and a bottle of pure Kashmiri saffron.',
+      variants: [
+        { label: '1.5 kg', sku: 'GFT-BASKET-1.5KG', weight: 1500, mrp: 375000, price: 289900, stock: 12 },
+      ],
+    },
+    {
+      name: 'Assorted Royal Dry Fruit Mix (Panchmeva)',
+      slug: 'assorted-royal-dry-fruit-mix',
+      categorySlug: 'mixed-dry-fruits',
+      hsnCode: '08029000',
+      taxRateBps: 500,
+      shortDescription:
+        'Traditional Panchmeva combination of premium California Almonds, Cashews, Pistachios, Kishmish, and Walnut Kernels.',
+      variants: [
+        { label: '250 g', sku: 'MIX-ROYAL-250G', weight: 250, mrp: 48000, price: 38000, stock: 50 },
+        { label: '500 g', sku: 'MIX-ROYAL-500G', weight: 500, mrp: 95000, price: 74000, stock: 40 },
+        { label: '1 kg', sku: 'MIX-ROYAL-1KG', weight: 1000, mrp: 185000, price: 145000, stock: 25 },
       ],
     },
   ];
@@ -117,7 +181,7 @@ export async function runDevSeed(): Promise<void> {
         name: item.name,
         slug: item.slug,
         shortDescription: item.shortDescription,
-        description: `${item.name} - Hand-sorted and traditionally graded at Fatehpuri, Old Delhi.`,
+        description: `${item.name} - Hand-sorted and traditionally graded at Khari Baoli, Old Delhi.`,
         status: 'ACTIVE',
         isFeatured: true,
         hsnCode: item.hsnCode,

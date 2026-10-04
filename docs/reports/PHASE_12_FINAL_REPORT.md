@@ -2,7 +2,7 @@
 
 **Date:** 30 September 2026  
 **Architect:** Principal Full-Stack Engineer & Software Architect  
-**Project:** BANSAL FOODS E-Commerce & Wholesale Operations Platform (Fatehpuri, Khari Baoli, Delhi)  
+**Project:** BANSAL FOODS E-Commerce & Wholesale Operations Platform (Khari Baoli, Delhi)  
 **Overall Status:** 🏁 **100% COMPLETE & PRODUCTION READY**
 
 ---
@@ -11,7 +11,7 @@
 
 Over the course of 12 meticulously structured and independently verified phases, the enterprise e-commerce platform for **Bansal Foods** has been designed, built, hardened, and verified to production standards.
 
-The platform bridges Asia&apos;s historic dry fruit hub (Khari Baoli / Fatehpuri, Delhi) with an ultra-modern, high-performance web experience that serves both direct-to-consumer retail buyers and high-volume B2B wholesale traders across India.
+The platform bridges Asia&apos;s historic dry fruit hub (Khari Baoli, Delhi) with an ultra-modern, high-performance web experience that serves both direct-to-consumer retail buyers and high-volume B2B wholesale traders across India.
 
 ---
 
@@ -22,7 +22,7 @@ The platform bridges Asia&apos;s historic dry fruit hub (Khari Baoli / Fatehpuri
 | **Phase 1**  | **Foundation & Architecture**     | Monorepo structure, pnpm workspaces, Turborepo pipeline, `@bansal/shared`, `@bansal/config`, `@bansal/ui`.                        | ✅ Verified (Clean builds)             |
 | **Phase 2**  | **Database & Core Services**      | 74 Drizzle PostgreSQL tables, transactional outbox worker, background job scheduler, OpenAPI Swagger specs.                       | ✅ Verified (Schema test suite)        |
 | **Phase 3**  | **Auth, RBAC & Security**         | Argon2id hashing (64MB memory cost), dual JWT + refresh rotation, family reuse breach revocation, OTP service.                    | ✅ Verified (Token & crypto tests)     |
-| **Phase 4**  | **Storefront UI Components**      | Fatehpuri brand system, responsive Header/Footer, interactive Cart Drawer, product cards, price tags.                             | ✅ Verified (UI unit tests)            |
+| **Phase 4**  | **Storefront UI Components**      | Khari Baoli brand system, responsive Header/Footer, interactive Cart Drawer, product cards, price tags.                           | ✅ Verified (UI unit tests)            |
 | **Phase 5**  | **Catalog & Customer Experience** | Dynamic product detail page with variant picker, pincode delivery estimator, search with URL sync, category filters.              | ✅ Verified (Client integration)       |
 | **Phase 6**  | **Checkout & Payments**           | Dual-identity cart, stateful checkout, Delhi CGST/SGST (2.5%+2.5%) vs IGST (5%), Razorpay HMAC signatures.                        | ✅ Verified (Order financial tests)    |
 | **Phase 7**  | **Inventory & Mandi Operations**  | 15-min stock reservation locks, batch/lot tracking (`LOT-KASH-2026-09`), FY2627 GST Tax Invoices with INR word conversion.        | ✅ Verified (Inventory math tests)     |
@@ -58,7 +58,7 @@ pnpm turbo build
 1. **Money in Integer Paise**: All calculations throughout Drizzle schemas, Fastify routes, and React components utilize integer paise without floating-point inaccuracies.
 2. **Security Audit at Startup**: Prohibits startup with development placeholders in production environments.
 3. **Browser Bundle Isolation**: Clean separation between server crypto and client code via `@bansal/shared/client`.
-4. **Mandi Identity**: Uncompromising brand integrity reflecting 60+ years of Fatehpuri heritage with Navy (`#0B2A6B`), Gold (`#D9A521`), and Cream (`#FAFAF8`).
+4. **Mandi Identity**: Uncompromising brand integrity reflecting 60+ years of Khari Baoli heritage with Navy (`#0B2A6B`), Gold (`#D9A521`), and Cream (`#FAFAF8`).
 
 ---
 

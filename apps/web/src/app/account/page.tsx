@@ -84,7 +84,7 @@ const DEFAULT_ADDRESSES: Address[] = [
     id: 'addr-1',
     tag: 'Home',
     name: 'Siddharth Kumar Maurya',
-    street: 'Fatehpuri',
+    street: 'Khari Baoli',
     city: 'Delhi',
     state: 'India',
     pincode: '110006',

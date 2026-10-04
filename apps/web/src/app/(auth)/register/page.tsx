@@ -9,49 +9,16 @@ import { ApiRequestError } from '@/lib/api';
 import { redirectToGoogle, getGoogleClientId } from '@/lib/googleAuth';
 import { GoogleRedirectModal } from '@/components/GoogleRedirectModal';
 
-// ── 3 Golden Almond Leaves Brand Icon ──
-function BansalAlmondLogo({ className = 'w-10 h-10 text-[#A86E2B]' }: { className?: string }) {
+// ── Company Logo ──
+function BansalAlmondLogo({ className = 'w-9 h-9' }: { className?: string }) {
   return (
-    <svg viewBox="0 0 64 54" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
-      {/* Center upright almond leaf */}
-      <path
-        d="M32 2C32 2 24.5 16 25 29C25.5 38 29.5 43 32 44C34.5 43 38.5 38 39 29C39.5 16 32 2 32 2Z"
-        fill="currentColor"
-      />
-      <path
-        d="M32 6C32 15 32 30 32 42"
-        stroke="#FFFFFF"
-        strokeWidth="0.8"
-        strokeOpacity="0.4"
-        strokeLinecap="round"
-      />
-      {/* Left angled almond leaf */}
-      <path
-        d="M13 18C13 18 19 28 27 34C31.5 37.5 34 38.5 33 42C30 44 24 43 17 38C9.5 32.5 8 23 13 18Z"
-        fill="currentColor"
-        opacity="0.92"
-      />
-      <path
-        d="M15 21C20 28 26 34 31 38"
-        stroke="#FFFFFF"
-        strokeWidth="0.8"
-        strokeOpacity="0.35"
-        strokeLinecap="round"
-      />
-      {/* Right angled almond leaf */}
-      <path
-        d="M51 18C51 18 45 28 37 34C32.5 37.5 30 38.5 31 42C34 44 40 43 47 38C54.5 32.5 56 23 51 18Z"
-        fill="currentColor"
-        opacity="0.92"
-      />
-      <path
-        d="M49 21C44 28 38 34 33 38"
-        stroke="#FFFFFF"
-        strokeWidth="0.8"
-        strokeOpacity="0.35"
-        strokeLinecap="round"
-      />
-    </svg>
+    <Image
+      src="/logo.png"
+      alt="Company Logo"
+      width={48}
+      height={48}
+      className={`rounded-full object-cover shrink-0 shadow-xs ${className}`}
+    />
   );
 }
 
@@ -164,8 +131,8 @@ function RegisterFormContent() {
       {/* ── Top Brand Header ── */}
       <div className="text-center">
         <Link href="/" className="inline-flex flex-col items-center group">
-          <div className="w-9 h-8 text-[#8C4A18] flex items-center justify-center mb-0.5 group-hover:scale-105 transition-transform">
-            <BansalAlmondLogo className="w-8 h-7 text-[#A86E2B]" />
+          <div className="w-10 h-10 flex items-center justify-center mb-1 group-hover:scale-105 transition-transform">
+            <BansalAlmondLogo className="w-10 h-10" />
           </div>
           <span className="font-serif font-bold text-lg sm:text-xl text-[#24130A] tracking-tight block leading-tight">
             BANSAL FOODS
@@ -174,7 +141,7 @@ function RegisterFormContent() {
             DRY FRUITS • WHOLESALE • RETAIL
           </span>
           <span className="text-[7px] font-semibold text-[#8C5D17] tracking-widest block uppercase">
-            FATEHPURI, DELHI
+            KHARI BAOLI, DELHI
           </span>
         </Link>
 
@@ -472,11 +439,11 @@ export default function RegisterPage() {
     <div className="h-screen max-h-screen w-full flex flex-col lg:flex-row bg-[#FAF7F2] overflow-hidden">
       {/* ════════ LEFT COLUMN: PANORAMIC MANDI VISUAL & NARRATIVE (58%) ════════ */}
       <div className="relative hidden lg:flex lg:w-7/12 xl:w-3/5 h-full max-h-screen flex-col justify-between overflow-hidden bg-[#160C07] text-white">
-        {/* Background Image: Fatehpuri Mandi Scene */}
+        {/* Background Image: Khari Baoli Mandi Scene */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/hero-mandi-dark.jpg"
-            alt="Fatehpuri Mandi Dry Fruits"
+            alt="Khari Baoli Mandi Dry Fruits"
             fill
             priority
             className="object-cover object-right opacity-95"
@@ -489,8 +456,8 @@ export default function RegisterPage() {
         {/* Top Branding on left image */}
         <div className="relative z-10 p-5 xl:p-8">
           <Link href="/" className="inline-flex flex-col items-start group">
-            <div className="w-9 h-8 text-[#E5A93C] mb-1">
-              <BansalAlmondLogo className="w-8 h-7 text-[#E5A93C]" />
+            <div className="w-10 h-10 mb-1 group-hover:scale-105 transition-transform">
+              <BansalAlmondLogo className="w-10 h-10" />
             </div>
             <span className="font-serif font-extrabold text-lg xl:text-xl text-white tracking-tight block leading-tight">
               BANSAL FOODS
@@ -499,7 +466,7 @@ export default function RegisterPage() {
               DRY FRUITS • WHOLESALE • RETAIL
             </span>
             <span className="text-[7px] font-semibold text-[#E5A93C] tracking-widest block uppercase">
-              FATEHPURI, DELHI
+              KHARI BAOLI, DELHI
             </span>
           </Link>
         </div>

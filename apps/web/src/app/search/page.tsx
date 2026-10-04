@@ -735,7 +735,7 @@ function SearchContent() {
                     <label className="flex items-center justify-between text-gray-700 cursor-pointer">
                       <div className="flex items-center gap-2">
                         <input type="checkbox" className="w-3.5 h-3.5 rounded accent-[#8E4A18]" />
-                        <span>Fatehpuri Mandi Special</span>
+                        <span>Khari Baoli Mandi Special</span>
                       </div>
                       <span className="text-gray-400 text-[11px]">(6)</span>
                     </label>

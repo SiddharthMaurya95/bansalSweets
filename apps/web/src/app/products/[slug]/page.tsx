@@ -123,6 +123,66 @@ function getProductPricing(slug: string) {
       v1kg: { price: 140000, mrp: 175000 },
     };
   }
+  if (s.includes('panchmeva-prasad') || s.includes('kashmiri-heritage')) {
+    return {
+      name: 'Kashmiri Heritage Panchmeva Prasad Mix',
+      skuPrefix: 'BF-MIX-PRASAD',
+      v100g: { price: 19000, mrp: 24000 },
+      v250g: { price: 45000, mrp: 57000 },
+      v500g: { price: 88000, mrp: 110000 },
+      v1kg: { price: 172000, mrp: 215000 },
+    };
+  }
+  if (s.includes('roasted-salted') || s.includes('trail-mix')) {
+    return {
+      name: 'Khari Baoli Roasted & Salted Trail Mix',
+      skuPrefix: 'BF-MIX-TRAIL',
+      v100g: { price: 17500, mrp: 21500 },
+      v250g: { price: 41000, mrp: 50000 },
+      v500g: { price: 79000, mrp: 98000 },
+      v1kg: { price: 155000, mrp: 190000 },
+    };
+  }
+  if (s.includes('daily-energy') || s.includes('nut-fruit-mix')) {
+    return {
+      name: 'Daily Healthy Energy Nut & Fruit Mix',
+      skuPrefix: 'BF-MIX-NRG',
+      v100g: { price: 14000, mrp: 17500 },
+      v250g: { price: 33000, mrp: 42000 },
+      v500g: { price: 64000, mrp: 80000 },
+      v1kg: { price: 125000, mrp: 155000 },
+    };
+  }
+  if (s.includes('omega') || s.includes('seed-fusion') || s.includes('fusion-mix')) {
+    return {
+      name: 'Omega-3 Power Nut & Seed Fusion Mix',
+      skuPrefix: 'BF-MIX-OMEGA',
+      v100g: { price: 15000, mrp: 18500 },
+      v250g: { price: 35000, mrp: 44000 },
+      v500g: { price: 68000, mrp: 85000 },
+      v1kg: { price: 132000, mrp: 165000 },
+    };
+  }
+  if (s.includes('party-snack') || s.includes('spiced')) {
+    return {
+      name: 'Royal Festive Party Snack Mix (Spiced)',
+      skuPrefix: 'BF-MIX-PARTY',
+      v100g: { price: 16500, mrp: 22000 },
+      v250g: { price: 39000, mrp: 52000 },
+      v500g: { price: 76000, mrp: 102000 },
+      v1kg: { price: 148000, mrp: 198000 },
+    };
+  }
+  if (s.includes('mix') || s.includes('panchmeva')) {
+    return {
+      name: 'Assorted Royal Dry Fruit Mix (Panchmeva)',
+      skuPrefix: 'BF-MIX-ROYAL',
+      v100g: { price: 16000, mrp: 20000 },
+      v250g: { price: 38000, mrp: 48000 },
+      v500g: { price: 74000, mrp: 95000 },
+      v1kg: { price: 145000, mrp: 185000 },
+    };
+  }
   return {
     name: 'Kashmiri Mamra Almonds',
     skuPrefix: 'BF-DRY-FRT',
@@ -195,8 +255,20 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
       productImages = [{ id: 'img-1', url: '/product-seeds.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
       catSlug = 'seeds';
       catName = 'Seeds';
-    } else if (s.includes('gift') || s.includes('hamper') || s.includes('box')) {
-      productImages = [{ id: 'img-1', url: '/product-gift-hamper.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+    } else if (s.includes('gift') || s.includes('hamper') || s.includes('box') || s.includes('festive') || s.includes('uphaar') || s.includes('potli') || s.includes('basket')) {
+      if (s.includes('brass') || s.includes('platter')) {
+        productImages = [{ id: 'img-1', url: '/hamper-brass-tray.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+      } else if (s.includes('potli')) {
+        productImages = [{ id: 'img-1', url: '/hamper-brocade-potlis.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+      } else if (s.includes('basket')) {
+        productImages = [{ id: 'img-1', url: '/hamper-grand-basket.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+      } else if (s.includes('emerald') || s.includes('corporate') || s.includes('utsav')) {
+        productImages = [{ id: 'img-1', url: '/hamper-corporate-box.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+      } else if (s.includes('royaal') || s.includes('velvet') || s.includes('saffron')) {
+        productImages = [{ id: 'img-1', url: '/banner-festive.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+      } else {
+        productImages = [{ id: 'img-1', url: '/product-gift-hamper.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+      }
       catSlug = 'gift-boxes';
       catName = 'Gift Hampers';
     }

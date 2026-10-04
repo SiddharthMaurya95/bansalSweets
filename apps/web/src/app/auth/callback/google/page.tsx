@@ -1,29 +1,21 @@
 'use client';
 
 import React, { useEffect, useState, Suspense } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 
 
-function BansalAlmondLogo({ className = 'w-10 h-10 text-[#A86E2B]' }: { className?: string }) {
+function BansalAlmondLogo({ className = 'w-7 h-7' }: { className?: string }) {
   return (
-    <svg viewBox="0 0 64 54" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M32 2C32 2 24.5 16 25 29C25.5 38 29.5 43 32 44C34.5 43 38.5 38 39 29C39.5 16 32 2 32 2Z"
-        fill="currentColor"
-      />
-      <path
-        d="M13 18C13 18 19 28 27 34C31.5 37.5 34 38.5 33 42C30 44 24 43 17 38C9.5 32.5 8 23 13 18Z"
-        fill="currentColor"
-        opacity="0.92"
-      />
-      <path
-        d="M51 18C51 18 45 28 37 34C32.5 37.5 30 38.5 31 42C34 44 40 43 47 38C54.5 32.5 56 23 51 18Z"
-        fill="currentColor"
-        opacity="0.92"
-      />
-    </svg>
+    <Image
+      src="/logo.png"
+      alt="Company Logo"
+      width={40}
+      height={40}
+      className={`rounded-full object-cover shrink-0 ${className}`}
+    />
   );
 }
 

@@ -22,7 +22,7 @@ export const inventoryLocations = pgTable('inventory_locations', {
     .primaryKey()
     .default(sql`gen_random_uuid()`),
   name: text('name').notNull(),
-  code: text('code').notNull().unique(), // e.g. 'FATEHPURI_MAIN'
+  code: text('code').notNull().unique(), // e.g. 'KHARI_BAOLI_MAIN'
   isDefault: boolean('is_default').default(true).notNull(),
   address: text('address'),
   createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),

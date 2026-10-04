@@ -563,7 +563,7 @@ export const orderService = {
     if (!cancellableStatuses.includes(order.status)) {
       throw new AppError(
         ERROR_CODES.CONFLICT,
-        `Orders in ${order.status} state cannot be cancelled online. Please contact Fatehpuri support.`,
+        `Orders in ${order.status} state cannot be cancelled online. Please contact Khari Baoli support.`,
         409,
       );
     }

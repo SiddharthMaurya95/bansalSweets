@@ -8,12 +8,16 @@ import { WishlistProvider } from '@/context/WishlistContext';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Bansal Foods | Premium Dry Fruits – Fatehpuri, Delhi',
+    default: 'Bansal Foods | Premium Dry Fruits – Khari Baoli, Delhi',
     template: '%s | Bansal Foods',
   },
   description:
-    'Buy premium Kashmiri almonds, W240 cashews, Afghan pistachios, walnuts, raisins, dates and festive gift hampers directly from Fatehpuri, Old Delhi. Fast delivery across India.',
+    'Buy premium Kashmiri almonds, W240 cashews, Afghan pistachios, walnuts, raisins, dates and festive gift hampers directly from Khari Baoli, Old Delhi. Fast delivery across India.',
   metadataBase: new URL('https://bansalfoods.in'),
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+  },
   openGraph: {
     siteName: 'Bansal Foods',
     locale: 'en_IN',

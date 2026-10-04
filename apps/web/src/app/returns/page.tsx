@@ -243,7 +243,7 @@ export default function ReturnsPage() {
   const faqs = [
     {
       q: 'Can I cancel my order?',
-      a: 'Orders can be cancelled before they are processed or dispatched from our Fatehpuri central mandi facility. Once an order is handed over to the courier partner, cancellation is not possible.',
+      a: 'Orders can be cancelled before they are processed or dispatched from our Khari Baoli central mandi facility. Once an order is handed over to the courier partner, cancellation is not possible.',
     },
     {
       q: 'How do I request a return?',
@@ -267,7 +267,7 @@ export default function ReturnsPage() {
     },
     {
       q: 'Who should I contact about a return?',
-      a: 'You can contact our dedicated support team via phone at 9313321535 or 701119609, via WhatsApp, or email us at info@bansalfoods.in. We are available Monday to Saturday (9 AM – 6 PM) and Sunday (10 AM – 6 PM).',
+      a: 'You can contact our dedicated support team via phone at 9313321535 or 701119609, via WhatsApp, or email us at shashwatbansal2610@gmail.com. We are available Monday to Saturday (9:30 AM – 7:30 PM) and Sunday (9:30 AM – 4:00 PM).',
     },
   ];
 
@@ -832,8 +832,8 @@ export default function ReturnsPage() {
                     </svg>
                   </div>
                   <div className="text-[11px] leading-tight">
-                    <p>Mon - Sat: 9:00 AM - 6:00 PM</p>
-                    <p>Sunday: 10:00 AM - 6:00 PM</p>
+                    <p>Mon - Sat: 9:30 AM - 7:30 PM</p>
+                    <p>Sunday: 9:30 AM - 4:00 PM</p>
                   </div>
                 </div>
               </div>

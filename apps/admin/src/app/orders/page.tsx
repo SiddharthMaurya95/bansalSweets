@@ -353,7 +353,7 @@ export default function AdminOrdersPage() {
                 <h3 className="text-base font-extrabold text-[#0B2A6B]">
                   GST Tax Invoice - {selectedOrder.orderNumber}
                 </h3>
-                <p className="text-[10px] text-slate-400">Bansal Foods • Fatehpuri Mandi</p>
+                <p className="text-[10px] text-slate-400">Bansal Foods • Khari Baoli Mandi</p>
               </div>
               <button
                 onClick={() => setSelectedOrder(null)}

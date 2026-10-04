@@ -5,7 +5,7 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
   className?: string;
 }
 
-/** 1. Map Pin / Fatehpuri Location */
+/** 1. Map Pin / Khari Baoli Location */
 export const MapPinIcon: React.FC<IconProps> = ({ size = 16, className = '', ...props }) => (
   <svg
     width={size}

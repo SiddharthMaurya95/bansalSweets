@@ -87,11 +87,11 @@ export default function ContactPage() {
   const faqsCol1 = [
     {
       q: 'Where is Bansal Foods located?',
-      a: 'We are located at Fatehpuri Chowk, Chandni Chowk, Delhi – 110006, right in the heart of Asia’s largest dry fruit and spice market.',
+      a: 'We are located at Khari Baoli, Chandni Chowk, Delhi – 110006, right in the heart of Asia’s largest dry fruit and spice market.',
     },
     {
       q: 'How can I contact the store?',
-      a: 'You can call us directly at 9313321535 or 701119609, email info@bansalfoods.in, or WhatsApp us at +91-9313321535 during store operating hours.',
+      a: 'You can call us directly at 9313321535 or 701119609, email shashwatbansal2610@gmail.com, or WhatsApp us at +91-9313321535 during store operating hours.',
     },
     {
       q: 'Do you accept wholesale orders?',
@@ -114,7 +114,7 @@ export default function ContactPage() {
     },
     {
       q: 'What are your store timings?',
-      a: 'Our physical Fatehpuri store is open Monday through Saturday from 9:00 AM to 6:00 PM, and Sunday from 10:00 AM to 6:00 PM.',
+      a: 'Our physical Khari Baoli store is open Monday through Saturday from 9:30 AM to 7:30 PM, and Sunday from 9:30 AM to 4:00 PM.',
     },
     {
       q: 'How can I get a wholesale quote?',
@@ -196,7 +196,7 @@ export default function ContactPage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/hero-market-scene.jpg"
-            alt="Bansal Foods Old Delhi Fatehpuri Market"
+            alt="Bansal Foods Old Delhi Khari Baoli Market"
             fill
             priority
             className="object-cover object-center opacity-45"
@@ -328,7 +328,7 @@ export default function ContactPage() {
                 <div>
                   <span className="text-[10px] font-bold text-[#8C5D17] uppercase tracking-wider block">EMAIL</span>
                   <p className="text-xs font-bold text-[#1F140D] leading-tight">Send us an email</p>
-                  <p className="text-[11px] font-semibold text-[#6E1A1A] leading-tight">info@bansalfoods.in</p>
+                  <p className="text-[11px] font-semibold text-[#6E1A1A] leading-tight">shashwatbansal2610@gmail.com</p>
                 </div>
               </div>
               <p className="text-[11px] text-[#6B635B] leading-tight">
@@ -336,7 +336,7 @@ export default function ContactPage() {
               </p>
               <div>
                 <a
-                  href="mailto:info@bansalfoods.in"
+                  href="mailto:shashwatbansal2610@gmail.com"
                   className="bg-[#8C5D24] hover:bg-[#734a17] text-white font-semibold text-[11px] px-3.5 py-1.5 rounded-lg inline-flex items-center gap-1 transition-colors cursor-pointer shadow-2xs"
                 >
                   <span>Email Us</span>
@@ -362,7 +362,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <span className="text-[10px] font-bold text-[#6E1A1A] uppercase tracking-wider block">VISIT US</span>
-                  <p className="text-xs font-bold text-[#1F140D] leading-tight">Fatehpuri, Delhi – 110006</p>
+                  <p className="text-xs font-bold text-[#1F140D] leading-tight">Khari Baoli, Delhi – 110006</p>
                 </div>
               </div>
               <p className="text-[11px] text-[#6B635B] leading-tight">
@@ -370,7 +370,7 @@ export default function ContactPage() {
               </p>
               <div>
                 <a
-                  href="https://maps.google.com/?q=Fatehpuri+Chandni+Chowk+Delhi+110006"
+                  href="https://maps.google.com/?q=Khari+Baoli+Chandni+Chowk+Delhi+110006"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-[#6E1A1A] hover:bg-[#581313] text-white font-semibold text-[11px] px-3.5 py-1.5 rounded-lg inline-flex items-center gap-1 transition-colors cursor-pointer shadow-2xs"
@@ -382,7 +382,7 @@ export default function ContactPage() {
             </div>
             {/* Storefront thumbnail */}
             <div className="relative w-16 h-16 rounded-xl overflow-hidden shrink-0 border border-[#EFE7DC]">
-              <Image src="/fatehpuri-storefront.jpg" alt="Visit Bansal Foods Store" fill className="object-cover" />
+              <Image src="/khari-baoli-storefront.jpg" alt="Visit Bansal Foods Store" fill className="object-cover" />
             </div>
           </div>
 
@@ -413,7 +413,7 @@ export default function ContactPage() {
                 </div>
                 <h3 className="font-serif font-bold text-xl text-[#2C1A14]">Thank You, {formData.fullName}!</h3>
                 <p className="text-xs sm:text-sm text-[#5C554E] max-w-md mx-auto leading-relaxed">
-                  Your message regarding <strong>&ldquo;{formData.subject}&rdquo;</strong> has been successfully received. Our Fatehpuri support team will contact you at <strong>{formData.email}</strong> or <strong>{formData.mobile}</strong> within 24 hours.
+                  Your message regarding <strong>&ldquo;{formData.subject}&rdquo;</strong> has been successfully received. Our Khari Baoli support team will contact you at <strong>{formData.email}</strong> or <strong>{formData.mobile}</strong> within 24 hours.
                 </p>
                 <div className="pt-2">
                   <button
@@ -690,7 +690,7 @@ export default function ContactPage() {
                     </svg>
                     <span className="font-semibold text-[#2C1A14]">Monday – Saturday</span>
                   </div>
-                  <span className="font-bold text-[#6E1A1A]">9:00 AM – 6:00 PM</span>
+                  <span className="font-bold text-[#6E1A1A]">9:30 AM – 7:30 PM</span>
                 </div>
 
                 {/* Sunday */}
@@ -704,7 +704,7 @@ export default function ContactPage() {
                     </svg>
                     <span className="font-semibold text-[#2C1A14]">Sunday</span>
                   </div>
-                  <span className="font-bold text-[#6E1A1A]">10:00 AM – 6:00 PM</span>
+                  <span className="font-bold text-[#6E1A1A]">9:30 AM – 4:00 PM</span>
                 </div>
               </div>
             </div>
@@ -723,7 +723,7 @@ export default function ContactPage() {
             Visit Bansal Foods
           </h2>
           <p className="text-xs sm:text-sm text-[#6B635B] mt-1">
-            We are located in the heart of Fatehpuri, Delhi, serving customers for generations with premium dry fruits and nuts.
+            We are located in the heart of Khari Baoli, Delhi, serving customers for generations with premium dry fruits and nuts.
           </p>
         </div>
 
@@ -741,18 +741,18 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="font-bold text-base text-[#2C1A14]">Bansal Foods</h3>
-                  <p className="text-xs text-[#6B635B]">Fatehpuri</p>
+                  <p className="text-xs text-[#6B635B]">Khari Baoli</p>
                   <p className="text-xs text-[#6B635B]">Delhi – 110006</p>
                 </div>
               </div>
               <p className="text-xs text-[#6B635B] leading-relaxed">
-                Visit our historic store near Fatehpuri Masjid to explore our extensive range of dry fruits, nuts, saffron, and festive gift boxes.
+                Visit our historic store in Khari Baoli to explore our extensive range of dry fruits, nuts, saffron, and festive gift boxes.
               </p>
             </div>
 
             <div className="flex flex-wrap items-center gap-3 pt-6">
               <a
-                href="https://maps.google.com/?q=Fatehpuri+Chandni+Chowk+Delhi+110006"
+                href="https://maps.google.com/?q=Khari+Baoli+Chandni+Chowk+Delhi+110006"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#6E1A1A] hover:bg-[#581313] text-white font-semibold text-xs px-4 py-2.5 rounded-lg transition-colors cursor-pointer shadow-xs inline-flex items-center gap-1"
@@ -774,14 +774,14 @@ export default function ContactPage() {
           {/* Card 2: Stylized Map Card (4 cols) */}
           <div className="lg:col-span-4 bg-white rounded-2xl border border-[#EFE7DC] overflow-hidden shadow-xs relative aspect-[4/3] lg:aspect-auto">
             <a
-              href="https://maps.google.com/?q=Fatehpuri+Chandni+Chowk+Delhi+110006"
+              href="https://maps.google.com/?q=Khari+Baoli+Chandni+Chowk+Delhi+110006"
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full h-full relative group cursor-pointer"
             >
               <Image
                 src="/contact-map.jpg"
-                alt="Map of Bansal Foods Fatehpuri Delhi"
+                alt="Map of Bansal Foods Khari Baoli Delhi"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
@@ -796,8 +796,8 @@ export default function ContactPage() {
           {/* Card 3: Storefront Photo (4 cols) */}
           <div className="lg:col-span-4 rounded-2xl border border-[#EFE7DC] overflow-hidden shadow-xs relative aspect-[4/3] lg:aspect-auto bg-[#1B0F08]">
             <Image
-              src="/fatehpuri-storefront.jpg"
-              alt="Bansal Foods Storefront in Fatehpuri Delhi"
+              src="/khari-baoli-storefront.jpg"
+              alt="Bansal Foods Storefront in Khari Baoli Delhi"
               fill
               className="object-cover"
             />

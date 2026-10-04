@@ -260,7 +260,7 @@ export class ReviewService {
         body: r.body,
         isVerifiedPurchase: r.isVerifiedPurchase,
         createdAt: r.createdAt.toISOString(),
-        reviewerName: r.reviewerName || 'Fatehpuri Patron',
+        reviewerName: r.reviewerName || 'Khari Baoli Patron',
       }),
     );
   }

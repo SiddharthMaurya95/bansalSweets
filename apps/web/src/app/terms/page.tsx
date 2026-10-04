@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | Bansal Foods Fatehpuri Mandi',
+  title: 'Terms of Service | Bansal Foods Khari Baoli Mandi',
   description:
     'Commercial terms, dry-fruit quality grades, natural weight tolerances, and return guidelines for retail and wholesale buyers.',
 };
@@ -13,7 +13,7 @@ export default function TermsOfServicePage() {
     <div className="max-w-4xl mx-auto px-4 py-8 sm:py-12 space-y-8">
       <div>
         <span className="text-xs font-bold uppercase tracking-widest text-[#D9A521] block mb-1">
-          Legal &amp; Mandi Regulations • Bansal Foods Fatehpuri
+          Legal &amp; Mandi Regulations • Bansal Foods Khari Baoli
         </span>
         <h1 className="text-2xl sm:text-4xl font-black text-[#0B2A6B] tracking-tight">
           Terms of Service &amp; Mandi Sale Guidelines
@@ -31,7 +31,7 @@ export default function TermsOfServicePage() {
           <p>
             These terms govern all transactions conducted on the <strong>Bansal Foods</strong>{' '}
             platform (bansalfoods.in) and at our physical wholesale desk located at Khari Baoli,
-            Fatehpuri, Chandni Chowk, Delhi 110006.
+            Chandni Chowk, Delhi 110006.
           </p>
           <div className="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs font-mono space-y-1">
             <p>
@@ -62,7 +62,7 @@ export default function TermsOfServicePage() {
             <li>
               <strong>Grading Integrity:</strong> All lot grades (e.g. W240 Whole Cashews, Grade A+
               Kashmiri Mamra, Afghan Natural-Open Pistachios) are physically inspected at our
-              Fatehpuri desk before vacuum packaging.
+              Khari Baoli desk before vacuum packaging.
             </li>
           </ul>
         </section>

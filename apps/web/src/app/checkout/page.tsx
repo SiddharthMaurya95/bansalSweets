@@ -129,11 +129,11 @@ export default function CheckoutPage() {
       phone: user?.phone?.replace(/\D/g, '').slice(-10) || '9313321535',
       pincode: '110006',
       flat: 'A-302, Green Park Apartments',
-      area: 'Fatehpuri',
-      landmark: 'Near Fatehpuri Masjid',
+      area: 'Khari Baoli',
+      landmark: 'Near Khari Baoli Chowk',
       city: 'Delhi',
       state: 'Delhi',
-      line1: 'A-302, Green Park Apartments, Fatehpuri',
+      line1: 'A-302, Green Park Apartments, Khari Baoli',
       areaCity: 'Delhi - 110006',
     },
     {
@@ -191,7 +191,7 @@ export default function CheckoutPage() {
             recipient: a.name || a.recipient || user?.name || 'Customer',
             phone: (a.phone || user?.phone || '9313321535').replace(/\D/g, '').slice(-10),
             pincode: a.pincode || '110006',
-            flat: a.street || a.flat || 'Fatehpuri',
+            flat: a.street || a.flat || 'Khari Baoli',
             area: a.area || a.city || 'Delhi',
             landmark: a.landmark || '',
             city: a.city || 'Delhi',
@@ -260,7 +260,7 @@ export default function CheckoutPage() {
     e.preventDefault();
     if (!couponCode.trim()) return;
     const clean = couponCode.trim().toUpperCase();
-    if (clean === 'BANSAL50' || clean === 'FATEHPURI' || clean === 'FESTIVE10') {
+    if (clean === 'BANSAL50' || clean === 'KHARIBOOLI' || clean === 'KHARIBOLI' || clean === 'FATEHPURI' || clean === 'FESTIVE10') {
       setAppliedCoupon(clean);
       setCouponMessage('Coupon applied! Extra ₹50 off.');
     } else {
@@ -556,25 +556,19 @@ export default function CheckoutPage() {
           <div className="hidden md:flex items-center justify-between">
             {/* Left: Bansal Foods Brand Logo */}
             <Link href="/" className="flex items-center gap-2.5">
-              <div className="w-8 h-8 relative flex items-center justify-center text-[#B87A24]">
-                <svg viewBox="0 0 32 32" className="w-8 h-8 fill-current">
-                  <path d="M16 3C16 3 11 10 11 16C11 19 13 22 16 22C19 22 21 19 21 16C21 10 16 3 16 3Z" />
-                  <path
-                    d="M6 16C6 16 11 12 16 16C18.5 18 19.5 21 18 24C16.5 26.5 13.5 26 11 24C7 20 6 16 6 16Z"
-                    opacity="0.85"
-                  />
-                  <path
-                    d="M26 16C26 16 21 12 16 16C13.5 18 12.5 21 14 24C15.5 26.5 18.5 26 21 24C25 20 26 16 26 16Z"
-                    opacity="0.85"
-                  />
-                </svg>
-              </div>
+              <Image
+                src="/logo.png"
+                alt="Company Logo"
+                width={36}
+                height={36}
+                className="w-9 h-9 rounded-full object-cover shrink-0 shadow-xs"
+              />
               <div>
                 <span className="font-serif font-extrabold text-lg sm:text-xl text-[#24130A] tracking-tight block leading-none">
                   BANSAL FOODS
                 </span>
                 <span className="text-[7.5px] sm:text-[8px] font-semibold text-[#8C5D17] tracking-widest block uppercase mt-0.5">
-                  DRY FRUITS • WHOLESALE • RETAIL | FATEHPURI, DELHI
+                  DRY FRUITS • WHOLESALE • RETAIL | KHARI BAOLI, DELHI
                 </span>
               </div>
             </Link>
@@ -623,25 +617,19 @@ export default function CheckoutPage() {
           <div className="flex md:hidden items-center justify-between">
             <Link href="/" className="flex flex-col items-start">
               <div className="flex items-center gap-1.5">
-                <div className="w-5 h-5 text-[#B87A24] flex items-center justify-center">
-                  <svg viewBox="0 0 32 32" className="w-5 h-5 fill-current">
-                    <path d="M16 3C16 3 11 10 11 16C11 19 13 22 16 22C19 22 21 19 21 16C21 10 16 3 16 3Z" />
-                    <path
-                      d="M6 16C6 16 11 12 16 16C18.5 18 19.5 21 18 24C16.5 26.5 13.5 26 11 24C7 20 6 16 6 16Z"
-                      opacity="0.85"
-                    />
-                    <path
-                      d="M26 16C26 16 21 12 16 16C13.5 18 12.5 21 14 24C15.5 26.5 18.5 26 21 24C25 20 26 16 26 16Z"
-                      opacity="0.85"
-                    />
-                  </svg>
-                </div>
+                <Image
+                  src="/logo.png"
+                  alt="Company Logo"
+                  width={24}
+                  height={24}
+                  className="w-6 h-6 rounded-full object-cover shrink-0 shadow-xs"
+                />
                 <span className="font-serif font-extrabold text-sm text-[#24130A] tracking-tight leading-none">
                   BANSAL FOODS
                 </span>
               </div>
               <span className="text-[6.5px] font-semibold text-[#8C5D17] tracking-wider uppercase mt-0.5">
-                FATEHPURI, DELHI
+                KHARI BAOLI, DELHI
               </span>
             </Link>
 
@@ -1208,7 +1196,7 @@ export default function CheckoutPage() {
                   <div className="mt-5 p-3.5 bg-[#FAF6EE] border border-[#E9DAC8] rounded-xl flex items-center gap-3">
                     <span className="text-xl">🌿</span>
                     <div className="text-xs text-[#52331C]">
-                      <strong className="block text-[#1F140D]">Genuine Fatehpuri Dry Fruits Guarantee</strong>
+                      <strong className="block text-[#1F140D]">Genuine Khari Baoli Dry Fruits Guarantee</strong>
                       Orders are safely recorded in your account with live order tracking &amp; instant GST invoices.
                     </div>
                   </div>
@@ -1388,7 +1376,7 @@ export default function CheckoutPage() {
                           <input
                             type="text"
                             required
-                            placeholder="e.g. Fatehpuri, Chandni Chowk"
+                            placeholder="e.g. Khari Baoli, Chandni Chowk"
                             value={newAddressForm.area}
                             onChange={(e) =>
                               setNewAddressForm({ ...newAddressForm, area: e.target.value })
@@ -2155,7 +2143,7 @@ export default function CheckoutPage() {
                     </svg>
                   </div>
                   <span className="text-[9.5px] font-medium text-gray-600 leading-tight">
-                    100% Original<br />Fatehpuri Quality
+                    100% Original<br />Khari Baoli Quality
                   </span>
                 </div>
 
@@ -2194,7 +2182,7 @@ export default function CheckoutPage() {
                 <div>
                   <h6 className="font-bold text-xs text-[#1F140D]">Need Help with Checkout?</h6>
                   <p className="text-xs font-bold text-[#7A4116]">9313321535 | 701119609</p>
-                  <p className="text-[10px] text-gray-500">Mandi Store: Fatehpuri, Delhi - 110006</p>
+                  <p className="text-[10px] text-gray-500">Mandi Store: Khari Baoli, Delhi - 110006</p>
                 </div>
               </div>
             </div>

@@ -414,7 +414,7 @@ export default function AdminWholesaleLeadsPage() {
                       )}
 
                       <a
-                        href={`https://wa.me/${lead.phone.replace(/[^0-9]/g, '')}?text=Namaste%20from%20Bansal%20Foods%20Fatehpuri.%20Regarding%20your%20inquiry%20${lead.inquiryNumber}...`}
+                        href={`https://wa.me/${lead.phone.replace(/[^0-9]/g, '')}?text=Namaste%20from%20Bansal%20Foods%20Khari%20Baoli.%20Regarding%20your%20inquiry%20${lead.inquiryNumber}...`}
                         target="_blank"
                         rel="noreferrer"
                         className="px-2 py-1.5 border border-slate-300 text-emerald-700 font-bold rounded-lg hover:bg-emerald-50 text-xs inline-block"
@@ -492,8 +492,8 @@ export default function AdminWholesaleLeadsPage() {
                   <option value="50% Advance + 50% Against Bilty (Transport Copy)">
                     50% Advance + 50% Against Bilty (Transport Copy)
                   </option>
-                  <option value="Fatehpuri Mandi Local Cash on Delivery">
-                    Fatehpuri Mandi Local Cash on Delivery
+                  <option value="Khari Baoli Mandi Local Cash on Delivery">
+                    Khari Baoli Mandi Local Cash on Delivery
                   </option>
                   <option value="7 Days Verified Trade Credit (Approved B2B)">
                     7 Days Verified Trade Credit (Approved B2B)
@@ -564,7 +564,7 @@ export default function AdminWholesaleLeadsPage() {
                 <h3 className="text-base font-extrabold text-[#0B2A6B]">
                   Record Walk-in Mandi Inquiry
                 </h3>
-                <p className="text-xs text-slate-500">Fatehpuri desk bulk buyer inquiry</p>
+                <p className="text-xs text-slate-500">Khari Baoli desk bulk buyer inquiry</p>
               </div>
               <button
                 onClick={() => setAddLeadModalOpen(false)}
@@ -710,7 +710,7 @@ export default function AdminWholesaleLeadsPage() {
                 </label>
                 <input
                   type="text"
-                  placeholder="e.g. Visited Fatehpuri shop #14, inspected Mamra Lot sample"
+                  placeholder="e.g. Visited Khari Baoli shop #14, inspected Mamra Lot sample"
                   value={newLeadForm.notes}
                   onChange={(e) => setNewLeadForm({ ...newLeadForm, notes: e.target.value })}
                   className="w-full px-3 py-2 border border-slate-300 rounded-xl outline-none"

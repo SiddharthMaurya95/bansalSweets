@@ -1,6 +1,6 @@
 # 🥜 Bansal Foods — Enterprise Mandi E-Commerce Platform
 
-> Production-grade, multi-tier e-commerce and wholesale operations platform engineered for **Bansal Foods**, operating from Fatehpuri, Khari Baoli, Delhi — Asia's largest dry fruit spice mandi.
+> Production-grade, multi-tier e-commerce and wholesale operations platform engineered for **Bansal Foods**, operating from Khari Baoli, Delhi — Asia's largest dry fruit spice mandi.
 
 ---
 
@@ -118,7 +118,7 @@ All currency calculations operate in integer **paise** (`bigint` in PostgreSQL /
 ### 3. Mandi Batch Traceability & Safety Buffers
 
 - **Harvest Lots**: Granular traceability of Kashmir and Goa consignments (`batchNumber`, `supplierName`, `grade`, `costPrice`, `bestBeforeDate`, and FSSAI certificate).
-- **Safety Buffers**: Protected stock threshold preventing online overselling during busy Fatehpuri market trading hours.
+- **Safety Buffers**: Protected stock threshold preventing online overselling during busy Khari Baoli market trading hours.
 - **Stock Reservation Locks**: 15-minute checkout holds with background worker automated release.
 
 ### 4. Digital Personal Data Protection (DPDP) Act 2023
@@ -147,4 +147,4 @@ All currency calculations operate in integer **paise** (`bigint` in PostgreSQL /
 
 ## 📜 License & Ownership
 
-Copyright © 2026 **Bansal Foods Pvt. Ltd.** Khari Baoli, Fatehpuri, Delhi 110006. All rights reserved.
+Copyright © 2026 **Bansal Foods Pvt. Ltd.** Khari Baoli, Delhi 110006. All rights reserved.

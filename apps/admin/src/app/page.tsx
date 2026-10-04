@@ -108,7 +108,7 @@ export default function AdminDashboardPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-black text-slate-900 tracking-tight">
-            Fatehpuri Mandi Operations Console
+            Khari Baoli Mandi Operations Console
           </h1>
           <p className="text-xs text-slate-500 mt-1">
             Real-time dry fruit fulfillment, batch shelf-life health, and wholesale order dispatch
@@ -275,7 +275,7 @@ export default function AdminDashboardPage() {
                 Harvest Lot &amp; Expiry Health Monitor
               </h2>
               <p className="text-xs text-slate-400">
-                Shelf life tracking for Fatehpuri warehouse lots and bulk packaging
+                Shelf life tracking for Khari Baoli warehouse lots and bulk packaging
               </p>
             </div>
             <Link href="/inventory" className="text-xs font-bold text-[#0B2A6B] hover:underline">

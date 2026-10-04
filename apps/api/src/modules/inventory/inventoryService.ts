@@ -29,9 +29,9 @@ async function getOrCreateLocation(db: ReturnType<typeof getDb>, code = DEFAULT_
     .values({
       id: generateUuidV7(),
       code,
-      name: 'Fatehpuri Mandi Warehouse',
+      name: 'Khari Baoli Mandi Warehouse',
       isDefault: true,
-      address: 'Shop 42, Katra Ishwar Bhawan, Khari Baoli, Fatehpuri, Delhi 110006',
+      address: 'Shop 42, Katra Ishwar Bhawan, Khari Baoli, Delhi 110006',
     })
     .returning();
 
@@ -292,7 +292,7 @@ export const inventoryService = {
     return releasedCount;
   },
 
-  /** Inward a new harvest lot/batch at Fatehpuri */
+  /** Inward a new harvest lot/batch at Khari Baoli */
   async inwardBatch(data: {
     variantId: string;
     batchNumber: string;

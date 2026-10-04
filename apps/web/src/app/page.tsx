@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { HomeProductCard, type HomeProductItem } from '@/components/HomeProductCard';
+import { BestsellersCarousel } from '@/components/BestsellersCarousel';
+import type { HomeProductItem } from '@/components/HomeProductCard';
 import { CustomerReviewsClient } from '@/components/CustomerReviewsClient';
 import { NewsletterClient } from '@/components/NewsletterClient';
 import {
@@ -18,9 +19,9 @@ import {
 } from '@/components/ThemeIcons';
 
 export const metadata: Metadata = {
-  title: 'Bansal Foods | Premium Dry Fruits & Nuts – Fatehpuri, Old Delhi',
+  title: 'Bansal Foods | Premium Dry Fruits & Nuts – Khari Baoli, Old Delhi',
   description:
-    'Buy authentic dry fruits, almonds, cashews, pistachios, walnuts, raisins, dates, seeds and festive gift hampers from Fatehpuri, Khari Baoli, Old Delhi. Wholesale and retail rates.',
+    'Buy authentic dry fruits, almonds, cashews, pistachios, walnuts, raisins, dates, seeds and festive gift hampers from Khari Baoli, Old Delhi. Wholesale and retail rates.',
 };
 
 // ─── Data ──────────────────────────────────────────────────────────────────────
@@ -40,18 +41,21 @@ const CIRCULAR_CATEGORIES = [
 
 const BESTSELLER_PRODUCTS: HomeProductItem[] = [
   { id: 'p-001', slug: 'kashmiri-mamra-almonds', name: 'Kashmiri Mamra Almonds', imageUrl: '/product-almonds.jpg', variantLabel: '1 kg', pricePaise: 480000, mrpPaise: 580000, discountBadge: '17% OFF', rating: 4.8, reviewCount: 320, unitText: '(per kg)' },
-  { id: 'p-002', slug: 'w320-premium-cashews', name: 'W320 Premium Cashews (Kaju)', imageUrl: '/product-cashews.jpg', variantLabel: '1 kg', pricePaise: 120000, mrpPaise: 150000, discountBadge: '20% OFF', rating: 4.7, reviewCount: 280, unitText: '(per kg)' },
-  { id: 'p-003', slug: 'iranian-green-pistachios', name: 'Iranian Green Pistachios (Pista)', imageUrl: '/product-pistachios.jpg', variantLabel: '1 kg', pricePaise: 190000, mrpPaise: 235000, discountBadge: '19% OFF', rating: 4.8, reviewCount: 210, unitText: '(per kg)' },
-  { id: 'p-004', slug: 'california-walnuts', name: 'California Walnuts (Akhrot)', imageUrl: '/product-walnuts.jpg', variantLabel: '1 kg', pricePaise: 130000, mrpPaise: 160000, discountBadge: '19% OFF', rating: 4.6, reviewCount: 150, unitText: '(per kg)' },
+  { id: 'p-002', slug: 'w320-premium-cashews', name: 'W320 Premium Cashews', imageUrl: '/product-cashews.jpg', variantLabel: '1 kg', pricePaise: 120000, mrpPaise: 150000, discountBadge: '20% OFF', rating: 4.7, reviewCount: 280, unitText: '(per kg)' },
+  { id: 'p-003', slug: 'iranian-green-pistachios', name: 'Iranian Green Pistachios', imageUrl: '/product-pistachios.jpg', variantLabel: '1 kg', pricePaise: 190000, mrpPaise: 235000, discountBadge: '19% OFF', rating: 4.8, reviewCount: 210, unitText: '(per kg)' },
+  { id: 'p-004', slug: 'california-walnuts', name: 'California Walnuts', imageUrl: '/product-walnuts.jpg', variantLabel: '1 kg', pricePaise: 130000, mrpPaise: 160000, discountBadge: '19% OFF', rating: 4.6, reviewCount: 150, unitText: '(per kg)' },
   { id: 'p-005', slug: 'premium-raisins-kishmish', name: 'Premium Raisins (Kishmish)', imageUrl: '/product-raisins.jpg', variantLabel: '1 kg', pricePaise: 70000, mrpPaise: 88000, discountBadge: '20% OFF', rating: 4.5, reviewCount: 180, unitText: '(per kg)' },
-  { id: 'p-006', slug: 'medjool-dates-khajur', name: 'Medjool Dates (Khajur Matjol)', imageUrl: '/product-dates.jpg', variantLabel: '1 kg', pricePaise: 140000, mrpPaise: 175000, discountBadge: '20% OFF', rating: 4.7, reviewCount: 120, unitText: '(per kg)' },
+  { id: 'p-006', slug: 'medjool-dates-khajur', name: 'Medjool Dates (Khajur)', imageUrl: '/product-dates.jpg', variantLabel: '1 kg', pricePaise: 140000, mrpPaise: 175000, discountBadge: '20% OFF', rating: 4.7, reviewCount: 120, unitText: '(per kg)' },
   { id: 'p-007', slug: 'premium-figs-anjeer', name: 'Premium Figs (Anjeer)', imageUrl: '/product-figs.jpg', variantLabel: '1 kg', pricePaise: 140000, mrpPaise: 175000, discountBadge: '20% OFF', rating: 4.6, reviewCount: 140, unitText: '(per kg)' },
   { id: 'p-008', slug: 'california-almonds', name: 'California Almonds', imageUrl: '/product-almonds.jpg', variantLabel: '1 kg', pricePaise: 110000, mrpPaise: 135000, discountBadge: '18% OFF', rating: 4.7, reviewCount: 260, unitText: '(per kg)' },
-  { id: 'p-009', slug: 'premium-pistachios', name: 'Premium Pistachios (Pista)', imageUrl: '/product-pistachios.jpg', variantLabel: '1 kg', pricePaise: 420000, mrpPaise: 510000, discountBadge: '18% OFF', rating: 4.9, reviewCount: 190, unitText: '(per kg)' },
+  { id: 'p-009', slug: 'premium-pistachios', name: 'Premium Pistachios', imageUrl: '/product-pistachios.jpg', variantLabel: '1 kg', pricePaise: 420000, mrpPaise: 510000, discountBadge: '18% OFF', rating: 4.9, reviewCount: 190, unitText: '(per kg)' },
+  { id: 'p-010', slug: 'royal-dry-fruit-mix', name: 'Royal Dry Fruit Mix', imageUrl: '/product-mix.jpg', variantLabel: '1 kg', pricePaise: 160000, mrpPaise: 200000, discountBadge: '20% OFF', rating: 4.8, reviewCount: 240, unitText: '(per kg)' },
+  { id: 'p-011', slug: 'super-healthy-seeds-mix', name: 'Roasted 5-in-1 Super Seeds', imageUrl: '/product-seeds.jpg', variantLabel: '1 kg', pricePaise: 65000, mrpPaise: 80000, discountBadge: '19% OFF', rating: 4.7, reviewCount: 160, unitText: '(per kg)' },
+  { id: 'p-012', slug: 'ajwa-dates-khajoor', name: 'Ajwa Dates (Khajur)', imageUrl: '/product-dates.jpg', variantLabel: '1 kg', pricePaise: 180000, mrpPaise: 220000, discountBadge: '18% OFF', rating: 4.9, reviewCount: 310, unitText: '(per kg)' },
 ];
 
 const WHY_CHOOSE_ITEMS = [
-  { icon: <MandiArchIcon size={24} className="text-[#E5A93C]" />, title: 'Direct from', sub: 'Fatehpuri Mandi' },
+  { icon: <MandiArchIcon size={24} className="text-[#E5A93C]" />, title: 'Direct from', sub: 'Khari Baoli Mandi' },
   { icon: <ShieldCheckIcon size={24} className="text-[#E5A93C]" />, title: 'Premium Quality', sub: 'Lab Tested' },
   { icon: <VarietyBoxesIcon size={24} className="text-[#E5A93C]" />, title: 'Wide Variety', sub: '100+ Products' },
   { icon: <WholesaleDiscountIcon size={24} className="text-[#E5A93C]" />, title: 'Wholesale Rates', sub: 'for Businesses' },
@@ -83,7 +87,7 @@ function HeroSection() {
       <div className="relative w-full min-h-[420px] sm:min-h-[520px] lg:min-h-[580px] flex items-center">
         <Image
           src="/hero-banner.jpg"
-          alt="Bansal Foods premium dry fruits at historic Fatehpuri Mandi marketplace"
+          alt="Bansal Foods premium dry fruits at historic Khari Baoli Mandi marketplace"
           fill priority sizes="100vw"
           className="object-cover object-center"
         />
@@ -224,34 +228,6 @@ function DualPromoBanners() {
   );
 }
 
-function FreshHarvestFavorites() {
-  return (
-    <section className="py-5 sm:py-8 bg-white" aria-labelledby="harvest-favorites-heading">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex flex-row items-end justify-between mb-5 gap-2">
-          <div>
-            <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#A05E28] mb-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#A05E28]" />
-              <span>BESTSELLERS</span>
-            </div>
-            <h2 id="harvest-favorites-heading" className="font-serif text-xl sm:text-3xl font-extrabold text-[#0B1B36]">
-              Fresh Harvest Favorites
-            </h2>
-            <p className="text-xs text-gray-500 mt-0.5 hidden sm:block">Hand-picked, premium quality dry fruits packed with nutrition</p>
-          </div>
-          <Link href="/shop" className="text-xs font-bold text-[#0B1B36] hover:text-[#C88C3C] flex items-center gap-1 transition-colors whitespace-nowrap">
-            View All <ArrowRightIcon size={13} />
-          </Link>
-        </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
-          {BESTSELLER_PRODUCTS.map((prod) => (
-            <HomeProductCard key={prod.id} product={prod} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function WhyChooseSection() {
   return (
@@ -306,10 +282,10 @@ function InstagramSection() {
             </div>
             <div>
               <h2 className="font-bold text-sm text-[#1B1F2A] leading-none">Follow Us on Instagram</h2>
-              <p className="text-[10px] text-gray-400">@bansalfoods</p>
+              <p className="text-[10px] text-gray-400">@bansal_dryfruits</p>
             </div>
           </div>
-          <a href="https://instagram.com/bansalfoods" target="_blank" rel="noopener noreferrer"
+          <a href="https://instagram.com/bansal_dryfruits" target="_blank" rel="noopener noreferrer"
             className="text-xs font-bold text-[#C88C3C] hover:underline flex items-center gap-1">
             See All <ArrowRightIcon size={11} />
           </a>
@@ -317,7 +293,7 @@ function InstagramSection() {
 
         <div className="grid grid-cols-4 lg:grid-cols-8 gap-1.5 sm:gap-2">
           {INSTAGRAM_POSTS.map((post, i) => (
-            <a key={i} href="https://instagram.com/bansalfoods" target="_blank" rel="noopener noreferrer"
+            <a key={i} href="https://instagram.com/bansal_dryfruits" target="_blank" rel="noopener noreferrer"
               className="relative aspect-square rounded-lg sm:rounded-xl overflow-hidden group">
               <Image src={post.image} alt={post.alt} fill sizes="(max-width: 640px) 25vw, 12.5vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-300" />
@@ -381,7 +357,7 @@ export default function HomePage() {
       <HeroSection />
       <CircularCategoryStrip />
       <DualPromoBanners />
-      <FreshHarvestFavorites />
+      <BestsellersCarousel products={BESTSELLER_PRODUCTS} />
       <WhyChooseSection />
       <CustomerReviewsClient />
       <InstagramSection />

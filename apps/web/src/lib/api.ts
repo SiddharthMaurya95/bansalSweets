@@ -718,6 +718,40 @@ function getFallbackProductList(params: ListProductsParams = {}): ProductSummary
       createdAt: '2026-09-01T00:00:00Z',
       updatedAt: '2026-09-30T00:00:00Z',
     },
+    {
+      id: 'p-013',
+      slug: 'assorted-royal-dry-fruit-mix',
+      name: 'Assorted Royal Dry Fruit Mix (Panchmeva)',
+      shortDescription: 'Traditional 5-in-1 royal assortment of hand-selected almonds, cashews, pista, kishmish & akhrot',
+      brand: { id: 'b-1', name: 'Bansal Foods', slug: 'bansal-foods' },
+      status: 'ACTIVE',
+      isFeatured: true,
+      isBestseller: true,
+      isNewArrival: false,
+      minPricePaise: 16000,
+      maxPricePaise: 145000,
+      maxDiscountPct: 22,
+      ratingAvg: 4.9,
+      ratingCount: 240,
+      inStock: true,
+      countryOfOrigin: 'India',
+      defaultVariant: {
+        id: 'v-013',
+        sku: 'MIX-ROYAL-1KG',
+        label: '1kg',
+        weightGrams: 1000,
+        pricePaise: 145000,
+        mrpPaise: 185000,
+        isActive: true,
+      },
+      primaryImage: {
+        url: '/product-mix.jpg',
+        altText: 'Assorted Royal Dry Fruit Mix',
+        blurhash: null,
+      },
+      createdAt: '2026-09-01T00:00:00Z',
+      updatedAt: '2026-09-30T00:00:00Z',
+    },
   ];
 
   if (params.search) {
@@ -820,20 +854,63 @@ function getFallbackProductDetail(slug: string): ProductDetail {
     gallery = [
       { url: '/product-seeds.jpg', altText: `${titleName} - Healthy Seeds` },
     ];
-  } else if (s.includes('mix')) {
-    titleName = 'Assorted Dry Fruit Mix';
+  } else if (s.includes('mix') || s.includes('panchmeva') || s.includes('trail')) {
+    titleName = 'Assorted Royal Dry Fruit Mix (Panchmeva)';
     catSlug = 'dry-fruit-mix';
     catName = 'Dry Fruit Mix';
+    v250 = { price: 38000, mrp: 48000 };
+    v500 = { price: 74000, mrp: 95000 };
+    v1kg = { price: 145000, mrp: 185000 };
     gallery = [
       { url: '/product-mix.jpg', altText: `${titleName} - Premium Assortment` },
     ];
-  } else if (s.includes('gift') || s.includes('hamper') || s.includes('box')) {
-    titleName = 'Royal Festive Gift Hamper';
+  } else if (s.includes('gift') || s.includes('hamper') || s.includes('box') || s.includes('festive') || s.includes('uphaar') || s.includes('potli') || s.includes('basket')) {
     catSlug = 'gift-boxes';
-    catName = 'Gift Hampers';
-    gallery = [
-      { url: '/product-gift-hamper.jpg', altText: `${titleName} - Festive Royal Hamper` },
-    ];
+    catName = 'Gift Hampers & Festive Offers';
+    v250 = { price: 42000, mrp: 51000 };
+    v500 = { price: 82000, mrp: 102500 };
+    v1kg = { price: 149900, mrp: 187500 };
+
+    if (s.includes('brass') || s.includes('platter')) {
+      titleName = 'Shubh Deepawali Celebration Brass Platter Hamper';
+      v500 = { price: 119900, mrp: 152000 };
+      v1kg = { price: 219900, mrp: 278000 };
+      gallery = [{ url: '/hamper-brass-tray.jpg', altText: `${titleName} - Brass Platter Hamper` }];
+    } else if (s.includes('potli')) {
+      titleName = 'Mughlai Panchmeva Shahi Brocade Potli Set';
+      v500 = { price: 65000, mrp: 87000 };
+      v1kg = { price: 119900, mrp: 160000 };
+      gallery = [{ url: '/hamper-brocade-potlis.jpg', altText: `${titleName} - Brocade Potli Set` }];
+    } else if (s.includes('basket')) {
+      titleName = 'Bansal Heritage Grand Festive Wicker Basket';
+      v500 = { price: 149900, mrp: 195000 };
+      v1kg = { price: 289900, mrp: 375000 };
+      gallery = [{ url: '/hamper-grand-basket.jpg', altText: `${titleName} - Grand Festive Basket` }];
+    } else if (s.includes('emerald') || s.includes('corporate') || s.includes('utsav')) {
+      titleName = 'Shubh Utsav Emerald Gold Dry Fruit Box';
+      v500 = { price: 88000, mrp: 115000 };
+      v1kg = { price: 159900, mrp: 210000 };
+      gallery = [{ url: '/hamper-corporate-box.jpg', altText: `${titleName} - Emerald Gold Box` }];
+    } else if (s.includes('royaal') || s.includes('velvet')) {
+      titleName = 'Royaal Uphaar Festive Velvet Corporate Box';
+      v500 = { price: 98000, mrp: 125000 };
+      v1kg = { price: 179900, mrp: 230000 };
+      gallery = [{ url: '/banner-festive.jpg', altText: `${titleName} - Velvet Corporate Box` }];
+    } else if (s.includes('saffron')) {
+      titleName = 'Imperial Saffron & Dry Fruit Delight Hamper';
+      v500 = { price: 108000, mrp: 135000 };
+      v1kg = { price: 199900, mrp: 250000 };
+      gallery = [{ url: '/banner-festive.jpg', altText: `${titleName} - Imperial Saffron Hamper` }];
+    } else if (s.includes('executive')) {
+      titleName = 'Executive Festive Treats Dry Fruit Pack';
+      v250 = { price: 42000, mrp: 51000 };
+      v500 = { price: 79900, mrp: 97500 };
+      v1kg = { price: 149000, mrp: 182000 };
+      gallery = [{ url: '/product-gift-hamper.jpg', altText: `${titleName} - Executive Gift Pack` }];
+    } else {
+      titleName = 'Khari Baoli Royal Festive 4-in-1 Wooden Gift Box';
+      gallery = [{ url: '/product-gift-hamper.jpg', altText: `${titleName} - Festive Royal Hamper` }];
+    }
   } else if (s.includes('california') && s.includes('almond')) {
     titleName = 'California Almonds';
     catSlug = 'almonds';
@@ -870,9 +947,9 @@ function getFallbackProductDetail(slug: string): ProductDetail {
     slug,
     name: titleName,
     shortDescription:
-      'Hand-picked, sun-dried premium dry fruits sourced directly from historic Fatehpuri Mandi, Delhi.',
+      'Hand-picked, sun-dried premium dry fruits sourced directly from historic Khari Baoli Mandi, Delhi.',
     description:
-      'Bansal Foods brings you the finest harvest sourced directly from generational farmers and sorted at our shop in Khari Baoli, Fatehpuri, Delhi. Each kernel is hand-inspected for uniform size, moisture content, and authentic aroma.',
+      'Bansal Foods brings you the finest harvest sourced directly from generational farmers and sorted at our shop in Khari Baoli, Delhi. Each kernel is hand-inspected for uniform size, moisture content, and authentic aroma.',
     brand: { id: 'brand-bf', name: 'Bansal Foods Heritage', slug: 'bansal-foods' },
     status: 'ACTIVE',
     isFeatured: true,
@@ -898,8 +975,8 @@ function getFallbackProductDetail(slug: string): ProductDetail {
       dietaryFiber: '12.5g',
       carbohydrates: '21.6g',
     },
-    seoTitle: `${titleName} | Buy Online | Bansal Foods Fatehpuri, Delhi`,
-    seoDescription: `Order fresh ${titleName} at wholesale mandi prices from Bansal Foods, Fatehpuri, Delhi. Fast delivery across India.`,
+    seoTitle: `${titleName} | Buy Online | Bansal Foods Khari Baoli, Delhi`,
+    seoDescription: `Order fresh ${titleName} at wholesale mandi prices from Bansal Foods, Khari Baoli, Delhi. Fast delivery across India.`,
     ratingAvg: 4.85,
     ratingCount: 1420,
     inStock: true,
@@ -974,7 +1051,7 @@ function getFallbackProductDetail(slug: string): ProductDetail {
         id: 'rev-02',
         userId: 'u-2',
         rating: 5,
-        title: 'Authentic Fatehpuri taste',
+        title: 'Authentic Khari Baoli taste',
         body: 'Very oil-rich and sweet. You can tell immediately that these are fresh harvest and not old warehouse stock. Will reorder for Diwali gifting.',
         verifiedPurchase: true,
         status: 'APPROVED',

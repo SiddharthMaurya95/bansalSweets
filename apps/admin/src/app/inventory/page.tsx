@@ -132,7 +132,7 @@ const INITIAL_BATCHES: BatchItem[] = [
     id: 'batch-003',
     batchNumber: 'LOT-AFG-2026-06',
     commodity: 'Afghan Salted Pistachios',
-    supplierName: 'Khyber Trading Agency, Fatehpuri Import',
+    supplierName: 'Khyber Trading Agency, Khari Baoli Import',
     grade: 'Jumbo Salted Natural Open',
     initialQty: 300,
     remainingQty: 35,
@@ -156,7 +156,7 @@ export default function AdminInventoryPage() {
   const [newBatch, setNewBatch] = useState({
     batchNumber: `LOT-DEL-${new Date().getFullYear()}-${Math.floor(100 + Math.random() * 900)}`,
     commodity: 'Kashmiri Mamra Almonds',
-    supplierName: 'Fatehpuri Wholesale Mandi Traders',
+    supplierName: 'Khari Baoli Wholesale Mandi Traders',
     grade: 'A+ Export Grade',
     quantity: 100,
     costPerUnitInr: 1800,
@@ -212,7 +212,7 @@ export default function AdminInventoryPage() {
     setBatches([createdBatch, ...batches]);
     setInwardModalOpen(false);
     showNotification(
-      `Successfully receipted harvest lot ${newBatch.batchNumber} into Fatehpuri warehouse.`,
+      `Successfully receipted harvest lot ${newBatch.batchNumber} into Khari Baoli warehouse.`,
     );
   };
 
@@ -530,7 +530,7 @@ export default function AdminInventoryPage() {
                         {lot.grade}
                       </span>
                       <span className="text-[10px] text-emerald-700 font-semibold mt-1 inline-block">
-                        ✓ QC Passed (Fatehpuri)
+                        ✓ QC Passed (Khari Baoli)
                       </span>
                     </td>
 
@@ -575,7 +575,7 @@ export default function AdminInventoryPage() {
                   Inward Fresh Mandi Harvest Lot
                 </h3>
                 <p className="text-xs text-slate-500">
-                  Record incoming shipment at Fatehpuri warehouse
+                  Record incoming shipment at Khari Baoli warehouse
                 </p>
               </div>
               <button
@@ -775,7 +775,7 @@ export default function AdminInventoryPage() {
                 <label className="block font-bold text-slate-700 uppercase mb-1">Audit Note</label>
                 <input
                   type="text"
-                  placeholder="e.g. Discrepancy verified by Fatehpuri godown manager"
+                  placeholder="e.g. Discrepancy verified by Khari Baoli godown manager"
                   value={adjustNote}
                   onChange={(e) => setAdjustNote(e.target.value)}
                   className="w-full px-3.5 py-2 border border-slate-300 rounded-xl outline-none"

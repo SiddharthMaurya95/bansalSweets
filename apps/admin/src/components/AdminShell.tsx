@@ -33,7 +33,7 @@ export function AdminShell({ children }: AdminShellProps) {
               BANSAL FOODS
             </h1>
             <p className="text-[10px] font-bold uppercase tracking-widest text-[#F2D27A] mt-1">
-              Ops Hub • Fatehpuri
+              Ops Hub • Khari Baoli
             </p>
           </div>
         </div>
@@ -63,7 +63,7 @@ export function AdminShell({ children }: AdminShellProps) {
         <div className="p-4 m-4 rounded-2xl bg-white/5 border border-white/10 text-xs space-y-2">
           <div className="flex items-center gap-2 text-[#15803D] font-bold text-[11px]">
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            <span className="text-white">Fatehpuri Mandi Online</span>
+            <span className="text-white">Khari Baoli Mandi Online</span>
           </div>
           <p className="text-[10px] text-white/60 leading-snug">
             Khari Baoli Lot Dispatch Desk connected. Standard GST rates (5%/12%) active.
@@ -98,7 +98,7 @@ export function AdminShell({ children }: AdminShellProps) {
               </span>
               <div className="hidden sm:block text-left">
                 <p className="font-bold text-slate-800 leading-tight">Admin Desk</p>
-                <p className="text-[10px] text-slate-400 leading-tight">Fatehpuri Main</p>
+                <p className="text-[10px] text-slate-400 leading-tight">Khari Baoli Main</p>
               </div>
             </div>
           </div>

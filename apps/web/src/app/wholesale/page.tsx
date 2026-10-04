@@ -42,7 +42,7 @@ const B2B_SECTORS = [
 const VALUE_PROPS = [
   {
     title: 'Direct from Mandi',
-    description: 'Sourced fresh from Fatehpuri, Delhi',
+    description: 'Sourced fresh from Khari Baoli, Delhi',
     icon: (
       <svg className="w-5 h-5 text-[#E5A93C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10V4a2 2 0 012-2h2a2 2 0 012 2v6" />
@@ -268,7 +268,7 @@ export default function WholesalePage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/hero-mandi-dark.jpg"
-            alt="Fatehpuri Mandi Dry Fruits Wholesale"
+            alt="Khari Baoli Mandi Dry Fruits Wholesale"
             fill
             priority
             className="object-cover object-center lg:object-right opacity-95"
@@ -282,7 +282,7 @@ export default function WholesalePage() {
           <div className="max-w-2xl text-white space-y-5">
             {/* Top gold tag */}
             <p className="text-xs sm:text-sm font-bold tracking-widest text-[#E5A93C] uppercase">
-              DIRECT FROM FATEHPURI MANDI
+              DIRECT FROM KHARI BAOLI MANDI
             </p>
 
             {/* Main Headline */}
@@ -293,7 +293,7 @@ export default function WholesalePage() {
 
             {/* Subtitle */}
             <p className="text-sm sm:text-base text-gray-200/90 leading-relaxed max-w-xl">
-              Premium quality dry fruits with competitive bulk pricing from Fatehpuri, Delhi.
+              Premium quality dry fruits with competitive bulk pricing from Khari Baoli, Delhi.
             </p>
 
             {/* 5 Circular Badges */}
@@ -450,7 +450,7 @@ export default function WholesalePage() {
 
               {/* Description */}
               <p className="text-xs sm:text-sm text-amber-100/80 leading-relaxed max-w-xl">
-                For generations, Bansal Foods has been a trusted source of premium dry fruits from the historic Fatehpuri Mandi, Delhi. We provide authentic quality, competitive pricing and reliable supply to businesses across India.
+                For generations, Bansal Foods has been a trusted source of premium dry fruits from the historic Khari Baoli Mandi, Delhi. We provide authentic quality, competitive pricing and reliable supply to businesses across India.
               </p>
 
               {/* 6 Value Points (2 columns x 3 rows) */}

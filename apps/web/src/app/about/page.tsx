@@ -20,9 +20,9 @@ export default function AboutUsPage() {
   };
 
   const handleGetDirections = () => {
-    showToast('Opening Google Maps directions for Fatehpuri store...');
+    showToast('Opening Google Maps directions for Khari Baoli store...');
     window.open(
-      'https://www.google.com/maps/search/?api=1&query=Fatehpuri+Delhi+110006',
+      'https://www.google.com/maps/search/?api=1&query=Khari+Baoli+Delhi+110006',
       '_blank',
       'noopener,noreferrer',
     );
@@ -38,13 +38,13 @@ export default function AboutUsPage() {
         </div>
       )}
 
-      {/* ════════════════ 1. HERO BANNER: ROOTED IN FATEHPURI ════════════════ */}
+      {/* ════════════════ 1. HERO BANNER: ROOTED IN KHARI BAOLI ════════════════ */}
       <section className="relative w-full min-h-[460px] sm:min-h-[500px] lg:min-h-[540px] flex items-center bg-[#150A05] overflow-hidden">
-        {/* Panoramic Fatehpuri Mandi Scene */}
+        {/* Panoramic Khari Baoli Mandi Scene */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/about-hero-fatehpuri.jpg"
-            alt="Historic Fatehpuri Mandi Dry Fruits Marketplace"
+            src="/about-hero-khari-baoli.jpg"
+            alt="Historic Khari Baoli Mandi Dry Fruits Marketplace"
             fill
             priority
             sizes="100vw"
@@ -68,7 +68,7 @@ export default function AboutUsPage() {
 
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-serif font-black tracking-tight text-white leading-tight">
-              Rooted in Fatehpuri. <br />
+              Rooted in Khari Baoli. <br />
               <span className="font-serif italic font-normal text-[#E5A93C]">
                 Made for Every Home.
               </span>
@@ -134,7 +134,7 @@ export default function AboutUsPage() {
             </div>
             <div>
               <h4 className="font-bold text-xs text-white leading-tight">Direct from Mandi</h4>
-              <p className="text-[11px] text-gray-400 mt-0.5 leading-tight">Fatehpuri, Delhi</p>
+              <p className="text-[11px] text-gray-400 mt-0.5 leading-tight">Khari Baoli, Delhi</p>
             </div>
           </div>
 
@@ -177,8 +177,8 @@ export default function AboutUsPage() {
             <div className="lg:col-span-5 relative">
               <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden border border-gray-200 shadow-md group">
                 <Image
-                  src="/fatehpuri-storefront.jpg"
-                  alt="Bansal Foods Traditional Dry Fruit Store in Fatehpuri, Delhi"
+                  src="/our-story-storefront.jpg"
+                  alt="Bansal Foods Traditional Dry Fruit Store in Khari Baoli, Delhi"
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 40vw"
@@ -198,7 +198,7 @@ export default function AboutUsPage() {
                       Serving
                     </span>
                     <strong className="text-xs font-bold text-[#1B1F2A] block leading-tight mt-0.5">
-                      Fatehpuri, Delhi
+                      Khari Baoli, Delhi
                     </strong>
                     <span className="text-[10px] text-gray-500 font-medium block leading-none mt-0.5">
                       for Generations
@@ -224,7 +224,7 @@ export default function AboutUsPage() {
 
               {/* Paragraph 1 */}
               <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed font-normal">
-                Bansal Foods brings the experience of Delhi’s historic Fatehpuri market to your home.
+                Bansal Foods brings the experience of Delhi’s historic Khari Baoli market to your home.
                 For generations, we have been a trusted name in dry fruits, serving customers with
                 premium quality almonds, cashews, pistachios, walnuts, raisins, dates and a wide range
                 of nuts and seeds.
@@ -232,7 +232,7 @@ export default function AboutUsPage() {
 
               {/* Paragraph 2 */}
               <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed font-normal">
-                What started as a traditional shop in the heart of Fatehpuri has grown into a trusted
+                What started as a traditional shop in the heart of Khari Baoli has grown into a trusted
                 brand for both retail customers and wholesale buyers across India. Our commitment has
                 always been the same — authentic products, honest pricing and lasting relationships.
               </p>
@@ -267,7 +267,7 @@ export default function AboutUsPage() {
                   </h5>
                 </div>
 
-                {/* Badge 3: From Fatehpuri Mandi, Delhi */}
+                {/* Badge 3: From Khari Baoli Mandi, Delhi */}
                 <div className="flex flex-col items-center text-center p-3 rounded-xl bg-white hover:bg-[#FAF7F2] transition-colors">
                   <div className="w-11 h-11 rounded-full bg-[#FAF5EB] text-[#8E4A18] flex items-center justify-center mb-2 shadow-2xs border border-[#F0E5D0]">
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -275,7 +275,7 @@ export default function AboutUsPage() {
                     </svg>
                   </div>
                   <h5 className="font-bold text-[11px] text-[#1B1F2A] leading-tight">
-                    From Fatehpuri<br />Mandi, Delhi
+                    From Khari Baoli<br />Mandi, Delhi
                   </h5>
                 </div>
 
@@ -457,7 +457,7 @@ export default function AboutUsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
             
-            {/* ── Left Card: "From Our Shop in Fatehpuri to Your Home" (7 cols) ── */}
+            {/* ── Left Card: "From Our Shop in Khari Baoli to Your Home" (7 cols) ── */}
             <div className="lg:col-span-7 rounded-2xl overflow-hidden bg-[#2D0B0B] text-white border border-[#4A1515] shadow-md flex flex-col sm:flex-row">
               {/* Dry Fruits Imagery (Left side of card) */}
               <div className="relative w-full sm:w-5/12 min-h-[200px] sm:min-h-full">
@@ -474,7 +474,7 @@ export default function AboutUsPage() {
                 <div>
                   <h3 className="text-lg sm:text-xl font-serif font-bold text-white leading-snug">
                     From Our Shop <br />
-                    in Fatehpuri to Your Home
+                    in Khari Baoli to Your Home
                   </h3>
                   <p className="text-xs text-gray-300 mt-2.5 leading-relaxed font-normal">
                     Experience the same quality and warmth that our customers have trusted for years,
@@ -504,7 +504,7 @@ export default function AboutUsPage() {
               <div className="absolute right-0 top-0 bottom-0 w-2/5 opacity-15 pointer-events-none select-none">
                 <Image
                   src="/hero-market-scene.jpg"
-                  alt="Fatehpuri Mandi Arch Silhouette"
+                  alt="Khari Baoli Mandi Arch Silhouette"
                   fill
                   className="object-cover object-right"
                 />
@@ -522,7 +522,7 @@ export default function AboutUsPage() {
                   <div>
                     <h4 className="font-bold text-xs text-[#1B1F2A]">Visit Our Store</h4>
                     <p className="text-[11px] text-gray-600 mt-0.5 leading-snug">
-                      Fatehpuri, Delhi – 110006<br />India
+                      Khari Baoli, Delhi – 110006<br />India
                     </p>
                   </div>
                 </div>

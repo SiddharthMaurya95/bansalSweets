@@ -471,7 +471,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
             {/* Short Subtitle */}
             <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed mt-2 font-normal">
               {product.shortDescription ||
-                `Premium quality, hand-picked ${product.name} sourced directly from historic Fatehpuri Mandi, Delhi.`}
+                `Premium quality, hand-picked ${product.name} sourced directly from historic Khari Baoli Mandi, Delhi.`}
             </p>
 
             {/* Ratings & Social Proof */}
@@ -497,7 +497,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
               SKU: <span className="text-gray-800 font-semibold">{currentVariant.sku}</span>
             </div>
 
-            {/* In Stock & Free Pan India Delivery & Fatehpuri Mandi Strip */}
+            {/* In Stock & Free Pan India Delivery & Khari Baoli Mandi Strip */}
             <div className="flex flex-wrap items-center gap-3 sm:gap-4 mt-3 text-xs">
               <span className="flex items-center gap-1 text-[#16A34A] font-bold">
                 <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
@@ -522,7 +522,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                 <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 </svg>
-                <span>Direct from Fatehpuri Mandi</span>
+                <span>Direct from Khari Baoli Mandi</span>
               </span>
             </div>
 
@@ -662,7 +662,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
           <div className="lg:col-span-7 space-y-4">
             <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed font-normal">
               {product.description ||
-                `Our ${product.name} is sourced directly from generational farmers and sorted at our shop in Khari Baoli, Fatehpuri, Delhi. Each batch is carefully hand-inspected for uniform size, moisture content, authentic aroma, and premium quality.`}
+                `Our ${product.name} is sourced directly from generational farmers and sorted at our shop in Khari Baoli, Delhi. Each batch is carefully hand-inspected for uniform size, moisture content, authentic aroma, and premium quality.`}
             </p>
 
             {/* 3 Badges Box */}

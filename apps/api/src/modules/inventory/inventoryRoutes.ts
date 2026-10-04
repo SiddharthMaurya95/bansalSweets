@@ -67,7 +67,7 @@ export const inventoryRoutes: FastifyPluginAsync = async (fastify: FastifyInstan
     {
       preHandler: [fastify.authenticate],
       schema: {
-        description: 'Inward a new dry-fruit harvest lot/batch at Fatehpuri warehouse',
+        description: 'Inward a new dry-fruit harvest lot/batch at Khari Baoli warehouse',
         tags: ['Inventory'],
         security: [{ bearerAuth: [] }],
       } as any,

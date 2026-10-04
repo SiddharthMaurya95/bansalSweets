@@ -25,7 +25,7 @@ const INITIAL_REVIEWS: AdminReview[] = [
     reviewerName: 'Rajesh K. Bansal',
     reviewerPhone: '+91 98110 12345',
     rating: 5,
-    title: 'Authentic Fatehpuri quality! High oil content and unmatched crunch',
+    title: 'Authentic Khari Baoli quality! High oil content and unmatched crunch',
     body: 'We have been buying dry fruits from Khari Baoli for 20 years. These Mamra almonds are genuinely high oil content, no polish, natural sweetness. Ordering online is just as authentic as the shop.',
     isVerifiedPurchase: true,
     status: 'APPROVED',
@@ -362,7 +362,7 @@ export default function AdminReviewsPage() {
                       <a
                         href={`https://wa.me/${rev.reviewerPhone.replace(/[^0-9]/g, '')}?text=Namaste%20${encodeURIComponent(
                           rev.reviewerName,
-                        )},%20thank%20you%20for%20your%20feedback%20on%20Bansal%20Foods%20Fatehpuri...`}
+                        )},%20thank%20you%20for%20your%20feedback%20on%20Bansal%20Foods%20Khari%20Baoli...`}
                         target="_blank"
                         rel="noreferrer"
                         className="px-2 py-1.5 border border-slate-300 text-emerald-700 font-bold rounded-lg hover:bg-emerald-50 text-xs inline-block"

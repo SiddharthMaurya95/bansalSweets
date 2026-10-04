@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 import { ShopClient } from './ShopClient';
 
 export const metadata: Metadata = {
-  title: 'Shop Dry Fruits & Nuts | Bansal Foods – Fatehpuri, Old Delhi',
+  title: 'Shop Dry Fruits & Nuts | Bansal Foods – Khari Baoli, Old Delhi',
   description:
     'Browse our full range of authentic dry fruits from Old Delhi historic mandi: Mamra almonds, W320 cashews, Iranian pistachios, California walnuts, raisins, dates, figs, seeds and festive gift hampers.',
 };

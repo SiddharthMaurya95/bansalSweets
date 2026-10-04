@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
     : 'Shop Dry Fruits | Bansal Foods';
   return {
     title,
-    description: `Buy premium quality ${slug.replace(/-/g, ' ')} directly from Old Delhi Fatehpuri Mandi at wholesale and retail rates.`,
+    description: `Buy premium quality ${slug.replace(/-/g, ' ')} directly from Old Delhi Khari Baoli Mandi at wholesale and retail rates.`,
   };
 }
 

@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
@@ -50,16 +51,13 @@ export function Footer() {
         {/* Column 1: Brand & Bio */}
         <div className="space-y-4">
           <Link href="/" className="flex items-center gap-3 group">
-            <svg
-              className="w-9 h-9 text-[#C88C3C] flex-shrink-0"
-              viewBox="0 0 40 40"
-              fill="currentColor"
-            >
-              <path
-                d="M20 2C15 6 12 12 12 18C12 24 16 28 20 30C24 28 28 24 28 18C28 12 25 6 20 2ZM10 14C6 17 4 22 5 26C6 30 10 33 14 33C14 27 12 20 10 14ZM30 14C28 20 26 27 26 33C30 33 34 30 35 26C36 22 34 17 30 14Z"
-                opacity="0.95"
-              />
-            </svg>
+            <Image
+              src="/logo.png"
+              alt="Company Logo"
+              width={40}
+              height={40}
+              className="w-9 h-9 rounded-full object-cover flex-shrink-0 transition-transform group-hover:scale-105 shadow-xs"
+            />
             <div className="flex flex-col">
               <span className="font-serif font-black text-xl tracking-tight text-white leading-none">
                 BANSAL FOODS
@@ -68,12 +66,12 @@ export function Footer() {
                 DRY FRUITS • WHOLESALE • RETAIL
               </span>
               <span className="text-[7.5px] uppercase tracking-[0.25em] text-white/50 font-medium">
-                FATEHPURI, DELHI
+                KHARI BAOLI, DELHI
               </span>
             </div>
           </Link>
           <p className="text-xs text-white/70 leading-relaxed max-w-sm">
-            Your trusted source for premium dry fruits and nuts from Fatehpuri, Delhi. Authentic
+            Your trusted source for premium dry fruits and nuts from Khari Baoli, Delhi. Authentic
             quality, best prices and unmatched variety.
           </p>
 
@@ -90,7 +88,7 @@ export function Footer() {
                 icon: <InstagramIcon size={14} className="text-white" />,
                 label: 'Instagram',
                 bg: 'bg-[#E4405F]',
-                href: '#',
+                href: 'https://instagram.com/bansal_dryfruits',
               },
               {
                 icon: <YouTubeIcon size={14} className="text-white" />,
@@ -102,12 +100,14 @@ export function Footer() {
                 icon: <WhatsAppIcon size={14} className="text-white" />,
                 label: 'WhatsApp',
                 bg: 'bg-[#25D366]',
-                href: '#',
+                href: 'https://wa.me/919313321535',
               },
             ].map((s) => (
               <a
                 key={s.label}
                 href={s.href}
+                target={s.href.startsWith('http') ? '_blank' : undefined}
+                rel={s.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 aria-label={s.label}
                 className={`w-7 h-7 flex items-center justify-center rounded-full ${s.bg} text-white shadow-xs hover:opacity-90 transition-opacity`}
               >
@@ -140,7 +140,7 @@ export function Footer() {
           </h4>
           <ul className="space-y-2 text-xs text-white/70">
             {QUICK_LINKS.map((lnk) => (
-              <li key={lnk.href}>
+              <li key={lnk.label}>
                 <Link href={lnk.href} className="hover:text-[#C88C3C] transition-colors">
                   {lnk.label}
                 </Link>
@@ -157,7 +157,7 @@ export function Footer() {
           <div className="space-y-2.5 text-xs text-white/70">
             <p className="flex items-center gap-2">
               <MapPinIcon size={14} className="text-[#C88C3C] flex-shrink-0" />
-              <span>Fatehpuri, Delhi 110006</span>
+              <span>Khari Baoli, Delhi 110006</span>
             </p>
             <p className="flex items-center gap-2">
               <PhoneIcon size={14} className="text-[#C88C3C] flex-shrink-0" />
@@ -168,18 +168,18 @@ export function Footer() {
             <p className="flex items-center gap-2">
               <MailIcon size={14} className="text-[#C88C3C] flex-shrink-0" />
               <a
-                href="mailto:info@bansalfoods.in"
+                href="mailto:shashwatbansal2610@gmail.com"
                 className="hover:text-[#C88C3C] transition-colors"
               >
-                info@bansalfoods.in
+                shashwatbansal2610@gmail.com
               </a>
             </p>
             <p className="flex items-center gap-2 pt-1 text-white/60">
               <ClockIcon size={14} className="text-[#C88C3C] flex-shrink-0" />
-              <span>Mon - Sat: 9:00 AM - 6:00 PM</span>
+              <span>Mon - Sat: 9:30 AM - 7:30 PM</span>
             </p>
             <p className="flex items-center gap-2 text-white/60 pl-6">
-              <span>Sunday: 10:00 AM - 6:00 PM</span>
+              <span>Sunday: 9:30 AM - 4:00 PM</span>
             </p>
           </div>
         </div>
