@@ -2,7 +2,7 @@ name: Deploy Staging
 
 on:
   push:
-    branches: [main]
+    branches: [main, master]
 
 jobs:
   deploy:
@@ -11,7 +11,7 @@ jobs:
     environment: staging
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Deploy Staging Application
         run: |
