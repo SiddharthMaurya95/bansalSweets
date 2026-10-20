@@ -31,10 +31,10 @@ export default function PrivacyPolicyPage() {
           </h2>
           <p>
             <strong>BANSAL FOODS</strong> (&quot;we&quot;, &quot;our&quot;, &quot;us&quot;),
-            operating from Khari Baoli, Delhi 110006, acts as the Data Fiduciary under
-            the Digital Personal Data Protection Act 2023 (DPDP Act). We are dedicated to
-            maintaining the highest degree of confidentiality, security, and integrity regarding the
-            personal and transactional data of our retail patrons and wholesale buyers.
+            operating from Khari Baoli, Delhi 110006, acts as the Data Fiduciary under the Digital
+            Personal Data Protection Act 2023 (DPDP Act). We are dedicated to maintaining the
+            highest degree of confidentiality, security, and integrity regarding the personal and
+            transactional data of our retail patrons and wholesale buyers.
           </p>
         </section>
 
@@ -116,7 +116,8 @@ export default function PrivacyPolicyPage() {
             <div className="p-3 rounded-xl bg-gray-50 border border-gray-100">
               <p className="font-bold text-[#0B2A6B]">Right to Grievance Redressal</p>
               <p className="text-xs text-gray-500 mt-1">
-                Direct escalation to our resident Khari Baoli Data Protection &amp; Grievance Officer.
+                Direct escalation to our resident Khari Baoli Data Protection &amp; Grievance
+                Officer.
               </p>
             </div>
           </div>
@@ -152,8 +153,7 @@ export default function PrivacyPolicyPage() {
               <strong>Designation:</strong> Compliance &amp; Operations Head, Bansal Foods
             </p>
             <p>
-              <strong>Registered Address:</strong> Khari Baoli, Chandni Chowk, Delhi
-              110006
+              <strong>Registered Address:</strong> Khari Baoli, Chandni Chowk, Delhi 110006
             </p>
             <p>
               <strong>Email:</strong> privacy@bansalfoods.in • <strong>Phone:</strong> +91 (011)

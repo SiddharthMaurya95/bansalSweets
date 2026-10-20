@@ -99,7 +99,7 @@ function loadSession(): { user: AuthUser; accessToken: string } | null {
       const parsedUser = JSON.parse(userJson) as AuthUser;
       if (!parsedUser.avatarUrl && (parsedUser.email || parsedUser.name)) {
         parsedUser.avatarUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(
-          parsedUser.name || 'User'
+          parsedUser.name || 'User',
         )}&background=1a73e8&color=ffffff&size=128&bold=true&rounded=true`;
       }
       return { user: parsedUser, accessToken: token };
@@ -167,9 +167,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         const users = JSON.parse(localStorage.getItem('bf_registered_users') || '[]');
         const cleanIdent = identifier.trim().toLowerCase();
         const found = users.find(
-          (u: { email?: string; phone?: string; id: string; name: string; role?: string; avatarUrl?: string }) =>
+          (u: {
+            email?: string;
+            phone?: string;
+            id: string;
+            name: string;
+            role?: string;
+            avatarUrl?: string;
+          }) =>
             (u.email && u.email.toLowerCase() === cleanIdent) ||
-            (u.phone && (u.phone === cleanIdent || u.phone.endsWith(cleanIdent.slice(-10))))
+            (u.phone && (u.phone === cleanIdent || u.phone.endsWith(cleanIdent.slice(-10)))),
         );
         if (found) {
           const user: AuthUser = {
@@ -194,7 +201,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const cleanIdent = identifier.trim();
       const isEmail = cleanIdent.includes('@');
       const emailPrefix = cleanIdent.split('@')[0];
-      const fallbackName = (isEmail && emailPrefix) ? emailPrefix : 'Bansal Customer';
+      const fallbackName = isEmail && emailPrefix ? emailPrefix : 'Bansal Customer';
       const capitalizedName = fallbackName.charAt(0).toUpperCase() + fallbackName.slice(1);
       const user: AuthUser = {
         id: `usr_${Date.now()}`,
@@ -203,7 +210,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         phone: isEmail ? null : cleanIdent,
         role: 'CUSTOMER',
         avatarUrl: `https://ui-avatars.com/api/?name=${encodeURIComponent(
-          capitalizedName
+          capitalizedName,
         )}&background=8C4A18&color=ffffff&size=128&bold=true&rounded=true`,
       };
       const token = `bf_token_${Date.now()}`;
@@ -240,7 +247,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         phone: data.phone || null,
         role: 'CUSTOMER',
         avatarUrl: `https://ui-avatars.com/api/?name=${encodeURIComponent(
-          data.name
+          data.name,
         )}&background=8C4A18&color=ffffff&size=128&bold=true&rounded=true`,
       };
       const token = `bf_token_${Date.now()}_${Math.random().toString(36).substring(2)}`;
@@ -252,7 +259,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         const existingUsers = JSON.parse(localStorage.getItem('bf_registered_users') || '[]');
         localStorage.setItem(
           'bf_registered_users',
-          JSON.stringify([...existingUsers, { ...user, password: data.password }])
+          JSON.stringify([...existingUsers, { ...user, password: data.password }]),
         );
       } catch {
         /* ignore */
@@ -287,7 +294,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         }
         if (!resolvedAvatar) {
           resolvedAvatar = `https://ui-avatars.com/api/?name=${encodeURIComponent(
-            googleUser.name || 'User'
+            googleUser.name || 'User',
           )}&background=1a73e8&color=ffffff&size=128&bold=true&rounded=true`;
         }
 

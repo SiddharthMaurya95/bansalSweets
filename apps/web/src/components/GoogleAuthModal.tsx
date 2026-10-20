@@ -26,11 +26,7 @@ const DEFAULT_ACCOUNTS: MockGoogleAccount[] = [
   },
 ];
 
-export const GoogleAuthModal: React.FC<GoogleAuthModalProps> = ({
-  isOpen,
-  onClose,
-  onSuccess,
-}) => {
+export const GoogleAuthModal: React.FC<GoogleAuthModalProps> = ({ isOpen, onClose, onSuccess }) => {
   const { loginWithGoogle } = useAuth();
   const [loading, setLoading] = useState(false);
   const [selectedEmail, setSelectedEmail] = useState<string | null>(null);
@@ -72,7 +68,9 @@ export const GoogleAuthModal: React.FC<GoogleAuthModalProps> = ({
       await loginWithGoogle({
         name: account.name,
         email: account.email,
-        googleId: 'g_' + Math.abs(account.email.split('').reduce((a, b) => ((a << 5) - a) + b.charCodeAt(0), 0)),
+        googleId:
+          'g_' +
+          Math.abs(account.email.split('').reduce((a, b) => (a << 5) - a + b.charCodeAt(0), 0)),
       });
 
       if (onSuccess) {
@@ -114,7 +112,6 @@ export const GoogleAuthModal: React.FC<GoogleAuthModalProps> = ({
 
       {/* Modal Card */}
       <div className="relative w-full max-w-[420px] bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden z-10 animate-scaleUp">
-        
         {/* Top Header */}
         <div className="pt-7 pb-4 px-6 text-center border-b border-gray-100 relative">
           <button
@@ -123,9 +120,15 @@ export const GoogleAuthModal: React.FC<GoogleAuthModalProps> = ({
             className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 p-1.5 rounded-full hover:bg-gray-100 transition-colors cursor-pointer"
             aria-label="Close"
           >
-            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <line x1="18" y1="6" x2="6" y2="18"/>
-              <line x1="6" y1="6" x2="18" y2="18"/>
+            <svg
+              className="w-5 h-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           </button>
 
@@ -151,9 +154,7 @@ export const GoogleAuthModal: React.FC<GoogleAuthModalProps> = ({
             </svg>
           </div>
 
-          <h2 className="text-xl font-medium text-gray-800 tracking-tight">
-            Sign in with Google
-          </h2>
+          <h2 className="text-xl font-medium text-gray-800 tracking-tight">Sign in with Google</h2>
           <p className="text-xs text-gray-500 mt-1">
             to continue to <strong className="text-gray-700 font-semibold">Bansal Foods</strong>
           </p>
@@ -173,9 +174,7 @@ export const GoogleAuthModal: React.FC<GoogleAuthModalProps> = ({
             /* Custom Account Form */
             <form onSubmit={handleCustomSubmit} className="space-y-4 animate-fadeIn">
               <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1">
-                  Full Name
-                </label>
+                <label className="block text-xs font-semibold text-gray-700 mb-1">Full Name</label>
                 <input
                   type="text"
                   autoFocus
@@ -199,9 +198,7 @@ export const GoogleAuthModal: React.FC<GoogleAuthModalProps> = ({
                 />
               </div>
 
-              {customError && (
-                <p className="text-xs text-red-600 font-medium">{customError}</p>
-              )}
+              {customError && <p className="text-xs text-red-600 font-medium">{customError}</p>}
 
               <div className="flex items-center justify-between pt-2">
                 <button
@@ -239,9 +236,7 @@ export const GoogleAuthModal: React.FC<GoogleAuthModalProps> = ({
                     <p className="text-xs sm:text-sm font-semibold text-gray-800 truncate group-hover:text-blue-700">
                       {acc.name}
                     </p>
-                    <p className="text-[11px] text-gray-500 truncate">
-                      {acc.email}
-                    </p>
+                    <p className="text-[11px] text-gray-500 truncate">{acc.email}</p>
                   </div>
                   <span className="text-gray-300 group-hover:text-blue-600 text-sm">›</span>
                 </button>
@@ -254,9 +249,15 @@ export const GoogleAuthModal: React.FC<GoogleAuthModalProps> = ({
                 className="w-full p-3 rounded-xl border border-dashed border-gray-300 hover:border-gray-400 hover:bg-gray-50 flex items-center gap-3.5 text-left transition-colors cursor-pointer"
               >
                 <div className="w-10 h-10 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center shrink-0">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                    <circle cx="12" cy="7" r="4"/>
+                  <svg
+                    className="w-5 h-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
                   </svg>
                 </div>
                 <div className="flex-1">
@@ -272,12 +273,18 @@ export const GoogleAuthModal: React.FC<GoogleAuthModalProps> = ({
         {/* Footer info & privacy */}
         <div className="p-4 bg-gray-50 border-t border-gray-100 text-center">
           <p className="text-[10px] text-gray-500 leading-tight">
-            To continue, Google will share your name, email address, and profile picture with Bansal Foods. See our{' '}
-            <a href="/privacy" className="text-blue-600 hover:underline">Privacy Policy</a> and{' '}
-            <a href="/terms" className="text-blue-600 hover:underline">Terms of Service</a>.
+            To continue, Google will share your name, email address, and profile picture with Bansal
+            Foods. See our{' '}
+            <a href="/privacy" className="text-blue-600 hover:underline">
+              Privacy Policy
+            </a>{' '}
+            and{' '}
+            <a href="/terms" className="text-blue-600 hover:underline">
+              Terms of Service
+            </a>
+            .
           </p>
         </div>
-
       </div>
     </div>
   );

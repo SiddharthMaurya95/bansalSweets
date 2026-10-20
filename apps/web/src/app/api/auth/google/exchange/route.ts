@@ -16,22 +16,17 @@ export async function POST(request: NextRequest) {
     const { code, redirectUri } = body;
 
     if (!code) {
-      return NextResponse.json(
-        { error: 'Authorization code is required' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'Authorization code is required' }, { status: 400 });
     }
 
-    const clientId =
-      process.env.GOOGLE_CLIENT_ID ||
-      process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
+    const clientId = process.env.GOOGLE_CLIENT_ID || process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
 
     const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
 
     if (!clientId || !clientSecret) {
       return NextResponse.json(
         { error: 'Google OAuth credentials not configured' },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -82,7 +77,7 @@ export async function POST(request: NextRequest) {
           error: errMsg,
           details: tokenData,
         },
-        { status: tokenRes.status || 400 }
+        { status: tokenRes.status || 400 },
       );
     }
 
@@ -97,7 +92,7 @@ export async function POST(request: NextRequest) {
     if (!userRes.ok) {
       return NextResponse.json(
         { error: 'Failed to fetch user profile from Google' },
-        { status: userRes.status || 400 }
+        { status: userRes.status || 400 },
       );
     }
 
@@ -129,7 +124,7 @@ export async function POST(request: NextRequest) {
             ? error.message
             : 'Internal server error during Google OAuth exchange',
       },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

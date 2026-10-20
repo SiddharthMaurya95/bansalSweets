@@ -191,7 +191,10 @@ export function BestsellersCarousel({ products }: { products: HomeProductItem[] 
   };
 
   return (
-    <section className="py-7 sm:py-10 bg-[#FAF6F0] relative overflow-hidden" aria-labelledby="bestsellers-carousel-heading">
+    <section
+      className="py-7 sm:py-10 bg-[#FAF6F0] relative overflow-hidden"
+      aria-labelledby="bestsellers-carousel-heading"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
         {/* Header container with blended panoramic nuts banner */}
         <div className="relative flex items-center justify-between gap-4 mb-4 sm:mb-6 min-h-[95px] sm:min-h-[110px]">

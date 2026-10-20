@@ -32,7 +32,7 @@ export function GoogleRedirectModal({
   const handleTestCallback = () => {
     const origin = window.location.origin;
     const targetUrl = `${origin}/auth/callback/google?code=google_auth_demo_code_${Date.now()}&state=${encodeURIComponent(
-      JSON.stringify({ redirect: redirectPath })
+      JSON.stringify({ redirect: redirectPath }),
     )}`;
     window.location.href = targetUrl;
   };

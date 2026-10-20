@@ -220,7 +220,10 @@ export function CartDrawer() {
                 className="w-full text-center bg-[#0B2A6B] hover:bg-[#1E4BA8] text-white font-semibold py-3.5 rounded-xl text-sm transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] inline-flex items-center justify-center gap-2 group cursor-pointer"
               >
                 <span>Proceed to Checkout</span>
-                <ArrowRightIcon size={14} className="text-white group-hover:translate-x-1 transition-transform duration-200" />
+                <ArrowRightIcon
+                  size={14}
+                  className="text-white group-hover:translate-x-1 transition-transform duration-200"
+                />
               </Link>
               {!isAuthenticated && (
                 <p className="text-[11px] text-center text-amber-700 bg-amber-50 py-1.5 px-2 rounded-lg border border-amber-200/80 font-medium">

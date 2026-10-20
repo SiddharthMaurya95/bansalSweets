@@ -214,60 +214,210 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
     const productName = pricing.name || formattedName;
 
     let productImages = [
-      { id: 'img-1', url: '/product-almonds.jpg', altText: productName, isPrimary: true, sortRank: 1 },
-      { id: 'img-2', url: '/almonds-macro.jpg', altText: `${productName} Closeup`, isPrimary: false, sortRank: 2 },
-      { id: 'img-3', url: '/almonds-split.jpg', altText: `${productName} Kernel`, isPrimary: false, sortRank: 3 },
-      { id: 'img-4', url: '/almonds-roasted.jpg', altText: `${productName} Grade`, isPrimary: false, sortRank: 4 },
-      { id: 'img-5', url: '/almonds-pouch.jpg', altText: `${productName} Packaging`, isPrimary: false, sortRank: 5 },
+      {
+        id: 'img-1',
+        url: '/product-almonds.jpg',
+        altText: productName,
+        isPrimary: true,
+        sortRank: 1,
+      },
+      {
+        id: 'img-2',
+        url: '/almonds-macro.jpg',
+        altText: `${productName} Closeup`,
+        isPrimary: false,
+        sortRank: 2,
+      },
+      {
+        id: 'img-3',
+        url: '/almonds-split.jpg',
+        altText: `${productName} Kernel`,
+        isPrimary: false,
+        sortRank: 3,
+      },
+      {
+        id: 'img-4',
+        url: '/almonds-roasted.jpg',
+        altText: `${productName} Grade`,
+        isPrimary: false,
+        sortRank: 4,
+      },
+      {
+        id: 'img-5',
+        url: '/almonds-pouch.jpg',
+        altText: `${productName} Packaging`,
+        isPrimary: false,
+        sortRank: 5,
+      },
     ];
     let catSlug = 'almonds';
     let catName = 'Almonds';
 
     if (s.includes('cashew') || s.includes('kaju')) {
-      productImages = [{ id: 'img-1', url: '/product-cashews.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+      productImages = [
+        {
+          id: 'img-1',
+          url: '/product-cashews.jpg',
+          altText: productName,
+          isPrimary: true,
+          sortRank: 1,
+        },
+      ];
       catSlug = 'cashews';
       catName = 'Cashews (Kaju)';
     } else if (s.includes('pista') || s.includes('pistachio')) {
-      productImages = [{ id: 'img-1', url: '/product-pistachios.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+      productImages = [
+        {
+          id: 'img-1',
+          url: '/product-pistachios.jpg',
+          altText: productName,
+          isPrimary: true,
+          sortRank: 1,
+        },
+      ];
       catSlug = 'pistachios';
       catName = 'Pistachios (Pista)';
     } else if (s.includes('walnut') || s.includes('akhrot')) {
-      productImages = [{ id: 'img-1', url: '/product-walnuts.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+      productImages = [
+        {
+          id: 'img-1',
+          url: '/product-walnuts.jpg',
+          altText: productName,
+          isPrimary: true,
+          sortRank: 1,
+        },
+      ];
       catSlug = 'walnuts';
       catName = 'Walnuts (Akhrot)';
     } else if (s.includes('raisin') || s.includes('kishmish')) {
-      productImages = [{ id: 'img-1', url: '/product-raisins.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+      productImages = [
+        {
+          id: 'img-1',
+          url: '/product-raisins.jpg',
+          altText: productName,
+          isPrimary: true,
+          sortRank: 1,
+        },
+      ];
       catSlug = 'raisins';
       catName = 'Raisins (Kishmish)';
     } else if (s.includes('date') || s.includes('khajur') || s.includes('khajoor')) {
-      productImages = [{ id: 'img-1', url: '/product-dates.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+      productImages = [
+        {
+          id: 'img-1',
+          url: '/product-dates.jpg',
+          altText: productName,
+          isPrimary: true,
+          sortRank: 1,
+        },
+      ];
       catSlug = 'dates';
       catName = 'Dates (Khajoor)';
     } else if (s.includes('fig') || s.includes('anjeer')) {
-      productImages = [{ id: 'img-1', url: '/product-figs.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+      productImages = [
+        {
+          id: 'img-1',
+          url: '/product-figs.jpg',
+          altText: productName,
+          isPrimary: true,
+          sortRank: 1,
+        },
+      ];
       catSlug = 'figs';
       catName = 'Figs (Anjeer)';
     } else if (s.includes('mix')) {
-      productImages = [{ id: 'img-1', url: '/product-mix.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+      productImages = [
+        {
+          id: 'img-1',
+          url: '/product-mix.jpg',
+          altText: productName,
+          isPrimary: true,
+          sortRank: 1,
+        },
+      ];
       catSlug = 'dry-fruit-mix';
       catName = 'Dry Fruit Mix';
     } else if (s.includes('seed')) {
-      productImages = [{ id: 'img-1', url: '/product-seeds.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+      productImages = [
+        {
+          id: 'img-1',
+          url: '/product-seeds.jpg',
+          altText: productName,
+          isPrimary: true,
+          sortRank: 1,
+        },
+      ];
       catSlug = 'seeds';
       catName = 'Seeds';
-    } else if (s.includes('gift') || s.includes('hamper') || s.includes('box') || s.includes('festive') || s.includes('uphaar') || s.includes('potli') || s.includes('basket')) {
+    } else if (
+      s.includes('gift') ||
+      s.includes('hamper') ||
+      s.includes('box') ||
+      s.includes('festive') ||
+      s.includes('uphaar') ||
+      s.includes('potli') ||
+      s.includes('basket')
+    ) {
       if (s.includes('brass') || s.includes('platter')) {
-        productImages = [{ id: 'img-1', url: '/hamper-brass-tray.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+        productImages = [
+          {
+            id: 'img-1',
+            url: '/hamper-brass-tray.jpg',
+            altText: productName,
+            isPrimary: true,
+            sortRank: 1,
+          },
+        ];
       } else if (s.includes('potli')) {
-        productImages = [{ id: 'img-1', url: '/hamper-brocade-potlis.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+        productImages = [
+          {
+            id: 'img-1',
+            url: '/hamper-brocade-potlis.jpg',
+            altText: productName,
+            isPrimary: true,
+            sortRank: 1,
+          },
+        ];
       } else if (s.includes('basket')) {
-        productImages = [{ id: 'img-1', url: '/hamper-grand-basket.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+        productImages = [
+          {
+            id: 'img-1',
+            url: '/hamper-grand-basket.jpg',
+            altText: productName,
+            isPrimary: true,
+            sortRank: 1,
+          },
+        ];
       } else if (s.includes('emerald') || s.includes('corporate') || s.includes('utsav')) {
-        productImages = [{ id: 'img-1', url: '/hamper-corporate-box.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+        productImages = [
+          {
+            id: 'img-1',
+            url: '/hamper-corporate-box.jpg',
+            altText: productName,
+            isPrimary: true,
+            sortRank: 1,
+          },
+        ];
       } else if (s.includes('royaal') || s.includes('velvet') || s.includes('saffron')) {
-        productImages = [{ id: 'img-1', url: '/banner-festive.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+        productImages = [
+          {
+            id: 'img-1',
+            url: '/banner-festive.jpg',
+            altText: productName,
+            isPrimary: true,
+            sortRank: 1,
+          },
+        ];
       } else {
-        productImages = [{ id: 'img-1', url: '/product-gift-hamper.jpg', altText: productName, isPrimary: true, sortRank: 1 }];
+        productImages = [
+          {
+            id: 'img-1',
+            url: '/product-gift-hamper.jpg',
+            altText: productName,
+            isPrimary: true,
+            sortRank: 1,
+          },
+        ];
       }
       catSlug = 'gift-boxes';
       catName = 'Gift Hampers';

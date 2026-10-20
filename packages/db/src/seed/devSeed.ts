@@ -108,8 +108,22 @@ export async function runDevSeed(): Promise<void> {
       shortDescription:
         'Velvet lined royal wooden treasure box filled with California Almonds, W240 Cashews, Afghan Figs, and Pistachios.',
       variants: [
-        { label: '500 g', sku: 'GFT-VELVET-500G', weight: 500, mrp: 125000, price: 98000, stock: 25 },
-        { label: '1 kg', sku: 'GFT-VELVET-1KG', weight: 1000, mrp: 230000, price: 179900, stock: 30 },
+        {
+          label: '500 g',
+          sku: 'GFT-VELVET-500G',
+          weight: 500,
+          mrp: 125000,
+          price: 98000,
+          stock: 25,
+        },
+        {
+          label: '1 kg',
+          sku: 'GFT-VELVET-1KG',
+          weight: 1000,
+          mrp: 230000,
+          price: 179900,
+          stock: 30,
+        },
       ],
     },
     {
@@ -121,8 +135,22 @@ export async function runDevSeed(): Promise<void> {
       shortDescription:
         'Luxury emerald green magnetic box with gold embossing containing 4 air-sealed compartments of premium dry fruits.',
       variants: [
-        { label: '500 g', sku: 'GFT-EMERALD-500G', weight: 500, mrp: 115000, price: 88000, stock: 35 },
-        { label: '1 kg', sku: 'GFT-EMERALD-1KG', weight: 1000, mrp: 210000, price: 159900, stock: 40 },
+        {
+          label: '500 g',
+          sku: 'GFT-EMERALD-500G',
+          weight: 500,
+          mrp: 115000,
+          price: 88000,
+          stock: 35,
+        },
+        {
+          label: '1 kg',
+          sku: 'GFT-EMERALD-1KG',
+          weight: 1000,
+          mrp: 210000,
+          price: 159900,
+          stock: 40,
+        },
       ],
     },
     {
@@ -134,7 +162,14 @@ export async function runDevSeed(): Promise<void> {
       shortDescription:
         'Antique brass-finished ceremonial platter with handcrafted brass diya and 4 bowls of Mamra almonds, cashews, pistachios, and raisins.',
       variants: [
-        { label: '1 kg', sku: 'GFT-BRASS-1KG', weight: 1000, mrp: 278000, price: 219900, stock: 15 },
+        {
+          label: '1 kg',
+          sku: 'GFT-BRASS-1KG',
+          weight: 1000,
+          mrp: 278000,
+          price: 219900,
+          stock: 15,
+        },
       ],
     },
     {
@@ -146,7 +181,14 @@ export async function runDevSeed(): Promise<void> {
       shortDescription:
         'Grand handcrafted wicker basket with satin bow, 5 hexagonal glass jars of nuts, figs, and a bottle of pure Kashmiri saffron.',
       variants: [
-        { label: '1.5 kg', sku: 'GFT-BASKET-1.5KG', weight: 1500, mrp: 375000, price: 289900, stock: 12 },
+        {
+          label: '1.5 kg',
+          sku: 'GFT-BASKET-1.5KG',
+          weight: 1500,
+          mrp: 375000,
+          price: 289900,
+          stock: 12,
+        },
       ],
     },
     {
@@ -160,7 +202,14 @@ export async function runDevSeed(): Promise<void> {
       variants: [
         { label: '250 g', sku: 'MIX-ROYAL-250G', weight: 250, mrp: 48000, price: 38000, stock: 50 },
         { label: '500 g', sku: 'MIX-ROYAL-500G', weight: 500, mrp: 95000, price: 74000, stock: 40 },
-        { label: '1 kg', sku: 'MIX-ROYAL-1KG', weight: 1000, mrp: 185000, price: 145000, stock: 25 },
+        {
+          label: '1 kg',
+          sku: 'MIX-ROYAL-1KG',
+          weight: 1000,
+          mrp: 185000,
+          price: 145000,
+          stock: 25,
+        },
       ],
     },
   ];

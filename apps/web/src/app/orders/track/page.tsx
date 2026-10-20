@@ -102,12 +102,54 @@ const DEMO_ORDER: OrderData = {
 };
 
 const ORDER_TIMELINE_STEPS: TrackingStep[] = [
-  { id: 'placed',    label: 'Order Placed',    date: '25 Sep 2026', time: '10:15 AM', status: 'completed', sub: 'Your order is received and confirmed.' },
-  { id: 'confirmed', label: 'Order Confirmed', date: '25 Sep 2026', time: '11:30 AM', status: 'completed', sub: 'Payment verified and sent to warehouse.' },
-  { id: 'packed',    label: 'Packed',          date: '26 Sep 2026', time: '04:20 PM', status: 'completed', sub: 'Items are carefully picked and packed.' },
-  { id: 'shipped',   label: 'Shipped',         date: '26 Sep 2026', time: '08:10 PM', status: 'completed', sub: 'Your order is dispatched to courier.' },
-  { id: 'out',       label: 'Out for Delivery', date: '28 Sep 2026', time: '09:30 AM', status: 'current',   sub: 'Your order is on the way to your address.' },
-  { id: 'delivered', label: 'Delivered',       date: '',            time: 'Pending',  status: 'pending',   sub: 'Your order reaches you.' },
+  {
+    id: 'placed',
+    label: 'Order Placed',
+    date: '25 Sep 2026',
+    time: '10:15 AM',
+    status: 'completed',
+    sub: 'Your order is received and confirmed.',
+  },
+  {
+    id: 'confirmed',
+    label: 'Order Confirmed',
+    date: '25 Sep 2026',
+    time: '11:30 AM',
+    status: 'completed',
+    sub: 'Payment verified and sent to warehouse.',
+  },
+  {
+    id: 'packed',
+    label: 'Packed',
+    date: '26 Sep 2026',
+    time: '04:20 PM',
+    status: 'completed',
+    sub: 'Items are carefully picked and packed.',
+  },
+  {
+    id: 'shipped',
+    label: 'Shipped',
+    date: '26 Sep 2026',
+    time: '08:10 PM',
+    status: 'completed',
+    sub: 'Your order is dispatched to courier.',
+  },
+  {
+    id: 'out',
+    label: 'Out for Delivery',
+    date: '28 Sep 2026',
+    time: '09:30 AM',
+    status: 'current',
+    sub: 'Your order is on the way to your address.',
+  },
+  {
+    id: 'delivered',
+    label: 'Delivered',
+    date: '',
+    time: 'Pending',
+    status: 'pending',
+    sub: 'Your order reaches you.',
+  },
 ];
 
 /* ─── 5-Step Process Reference Data (Exact Match to Web Page) ── */
@@ -117,8 +159,18 @@ const HOW_IT_WORKS_STEPS = [
     label: 'Order Placed',
     sub: 'Your order is received and confirmed.',
     icon: (
-      <svg className="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
+      <svg
+        className="w-5 h-5 sm:w-6 sm:h-6"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <circle cx="9" cy="21" r="1" />
+        <circle cx="20" cy="21" r="1" />
+        <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6" />
       </svg>
     ),
   },
@@ -127,9 +179,17 @@ const HOW_IT_WORKS_STEPS = [
     label: 'Packed',
     sub: 'Items are carefully picked and packed.',
     icon: (
-      <svg className="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
-        <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+      <svg
+        className="w-5 h-5 sm:w-6 sm:h-6"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
+        <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
       </svg>
     ),
   },
@@ -138,10 +198,19 @@ const HOW_IT_WORKS_STEPS = [
     label: 'Shipped',
     sub: 'Your order is dispatched to our delivery partner.',
     icon: (
-      <svg className="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="1" y="3" width="15" height="13"/>
-        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
-        <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+      <svg
+        className="w-5 h-5 sm:w-6 sm:h-6"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <rect x="1" y="3" width="15" height="13" />
+        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+        <circle cx="5.5" cy="18.5" r="2.5" />
+        <circle cx="18.5" cy="18.5" r="2.5" />
       </svg>
     ),
   },
@@ -150,9 +219,17 @@ const HOW_IT_WORKS_STEPS = [
     label: 'Out for Delivery',
     sub: 'Your order is on the way to your address.',
     icon: (
-      <svg className="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-        <circle cx="12" cy="10" r="3"/>
+      <svg
+        className="w-5 h-5 sm:w-6 sm:h-6"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+        <circle cx="12" cy="10" r="3" />
       </svg>
     ),
   },
@@ -161,9 +238,17 @@ const HOW_IT_WORKS_STEPS = [
     label: 'Delivered',
     sub: 'Your order reaches you.',
     icon: (
-      <svg className="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-        <polyline points="9 22 9 12 15 12 15 22"/>
+      <svg
+        className="w-5 h-5 sm:w-6 sm:h-6"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+        <polyline points="9 22 9 12 15 12 15 22" />
       </svg>
     ),
   },
@@ -257,7 +342,10 @@ function TrackOrderContent() {
         if (direct) matched = JSON.parse(direct) as OrderData;
         if (!matched) {
           const recent = getStoredOrders();
-          matched = recent.find((o) => o.id?.toUpperCase() === clean || o.orderNumber?.toUpperCase() === clean) ?? null;
+          matched =
+            recent.find(
+              (o) => o.id?.toUpperCase() === clean || o.orderNumber?.toUpperCase() === clean,
+            ) ?? null;
         }
       } catch {
         matched = null;
@@ -299,7 +387,7 @@ function TrackOrderContent() {
       setInfoMessage(
         latest
           ? `No Order ID entered — automatically tracking your latest order (#${targetId}).`
-          : `No Order ID entered — showing sample tracking for demo order #${targetId}.`
+          : `No Order ID entered — showing sample tracking for demo order #${targetId}.`,
       );
       executeSearch(targetId, true);
       return;
@@ -319,7 +407,9 @@ function TrackOrderContent() {
 
     // Try finding order by phone in storage
     const stored = getStoredOrders();
-    const match = stored.find((o) => o.shippingAddress?.phone?.replace(/\D/g, '').includes(cleanPhone));
+    const match = stored.find((o) =>
+      o.shippingAddress?.phone?.replace(/\D/g, '').includes(cleanPhone),
+    );
     const target = match ?? DEMO_ORDER;
     const targetId = target.orderNumber || target.id;
 
@@ -344,7 +434,6 @@ function TrackOrderContent() {
 
   return (
     <div className="min-h-screen bg-[#FAF7F2] text-[#2C2114]">
-
       {/* ══════════════════════════════════════════════════════════
           1. HERO BANNER (Matches Reference Web Page)
       ══════════════════════════════════════════════════════════ */}
@@ -366,7 +455,9 @@ function TrackOrderContent() {
           <div className="max-w-2xl">
             {/* Breadcrumb */}
             <nav className="text-xs text-amber-200/80 flex items-center gap-1.5 mb-3 font-medium">
-              <Link href="/" className="hover:text-white transition-colors">Home</Link>
+              <Link href="/" className="hover:text-white transition-colors">
+                Home
+              </Link>
               <span className="text-white/40">&gt;</span>
               <span className="text-white font-semibold">Track Order</span>
             </nav>
@@ -397,7 +488,9 @@ function TrackOrderContent() {
                     <div className="w-4 h-4 rounded-full bg-[#52290D] flex items-center justify-center text-[9px] text-[#F3D8B0] font-black">
                       BF
                     </div>
-                    <span className="text-[10px] font-mono tracking-widest text-[#52290D]/80 uppercase font-bold">FRAGILE • DRY FRUITS</span>
+                    <span className="text-[10px] font-mono tracking-widest text-[#52290D]/80 uppercase font-bold">
+                      FRAGILE • DRY FRUITS
+                    </span>
                   </div>
                   <span className="text-[9px] text-[#52290D]/70 font-mono">100% PURE</span>
                 </div>
@@ -433,7 +526,6 @@ function TrackOrderContent() {
           2. MAIN TRACKING INPUT CARD (Matches Reference Screenshot)
       ══════════════════════════════════════════════════════════ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
-        
         {/* Informative banner when auto-populated or demo-loaded */}
         {infoMessage && (
           <div className="mb-4 flex items-center justify-between gap-3 bg-[#FAF0E8] border border-[#E5A93C]/40 text-[#8C5D17] px-4 py-3 rounded-xl text-xs sm:text-sm font-medium animate-fadeIn">
@@ -453,20 +545,29 @@ function TrackOrderContent() {
         {/* White Card: 2 columns on desktop, stacked on mobile */}
         <div className="bg-white rounded-2xl sm:rounded-3xl border border-[#EFE5D4] shadow-sm p-5 sm:p-7 lg:p-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
-            
             {/* Left Column: Enter Your Order ID (7 cols on desktop) */}
             <div className="lg:col-span-7">
               {/* Header */}
               <div className="flex items-start gap-3 sm:gap-4 mb-4">
                 <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#FAF0E8] border border-[#F0DFCD] text-[#8C5D17] flex items-center justify-center shrink-0 shadow-2xs">
-                  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
-                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-                    <line x1="12" y1="22.08" x2="12" y2="12"/>
+                  <svg
+                    className="w-6 h-6"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                    <line x1="12" y1="22.08" x2="12" y2="12" />
                   </svg>
                 </div>
                 <div>
-                  <h2 className="text-base sm:text-lg font-bold text-[#1F140D]">Enter Your Order ID</h2>
+                  <h2 className="text-base sm:text-lg font-bold text-[#1F140D]">
+                    Enter Your Order ID
+                  </h2>
                   <p className="text-xs text-gray-500 mt-0.5">
                     You can find your Order ID in the order confirmation email or SMS.
                   </p>
@@ -478,8 +579,14 @@ function TrackOrderContent() {
                 <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3">
                   <div className="relative flex-1">
                     <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
-                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                      <svg
+                        className="w-4 h-4"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
                       </svg>
                     </div>
                     <input
@@ -504,8 +611,19 @@ function TrackOrderContent() {
                     {searching ? (
                       <>
                         <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="white" strokeWidth="4"/>
-                          <path className="opacity-75" fill="white" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="white"
+                            strokeWidth="4"
+                          />
+                          <path
+                            className="opacity-75"
+                            fill="white"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                          />
                         </svg>
                         <span>Tracking…</span>
                       </>
@@ -529,7 +647,9 @@ function TrackOrderContent() {
                       ?
                     </span>
                     <span>Where can I find my Order ID?</span>
-                    <span className="text-gray-400 group-hover:translate-x-0.5 transition-transform">&gt;</span>
+                    <span className="text-gray-400 group-hover:translate-x-0.5 transition-transform">
+                      &gt;
+                    </span>
                   </button>
 
                   {/* 1-Click Demo / Sample Tracker (Guarantees functionality when no order ID is inputted) */}
@@ -549,16 +669,21 @@ function TrackOrderContent() {
                     <div className="space-y-1">
                       <p className="font-bold text-[#8C1C1C]">How to locate your Order ID:</p>
                       <p className="text-gray-600 leading-relaxed">
-                        1. Check the SMS from <strong>BANSAL</strong> received on placing your order.
+                        1. Check the SMS from <strong>BANSAL</strong> received on placing your
+                        order.
                         <br />
-                        2. Check your confirmation email with the subject <em>&ldquo;Order Confirmed - Bansal Foods&rdquo;</em>.
+                        2. Check your confirmation email with the subject{' '}
+                        <em>&ldquo;Order Confirmed - Bansal Foods&rdquo;</em>.
                         <br />
-                        3. The ID format is <strong>BF</strong> followed by numbers (e.g. <span className="font-mono font-bold text-[#8C1C1C]">BF202610016669</span>).
+                        3. The ID format is <strong>BF</strong> followed by numbers (e.g.{' '}
+                        <span className="font-mono font-bold text-[#8C1C1C]">BF202610016669</span>).
                       </p>
                     </div>
 
                     <div className="border-t border-[#EFE5D4] pt-3">
-                      <p className="font-bold mb-1.5 text-[#1F140D]">Don&apos;t have your Order ID? Track by Phone Number:</p>
+                      <p className="font-bold mb-1.5 text-[#1F140D]">
+                        Don&apos;t have your Order ID? Track by Phone Number:
+                      </p>
                       <form onSubmit={handlePhoneSearch} className="flex gap-2">
                         <input
                           type="tel"
@@ -581,14 +706,30 @@ function TrackOrderContent() {
                 {/* Not Found Alert */}
                 {notFound && (
                   <div className="flex items-start gap-2.5 text-amber-800 bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs">
-                    <svg className="w-4 h-4 shrink-0 mt-0.5 text-amber-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                    <svg
+                      className="w-4 h-4 shrink-0 mt-0.5 text-amber-600"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="12" y1="8" x2="12" y2="12" />
+                      <line x1="12" y1="16" x2="12.01" y2="16" />
                     </svg>
                     <div>
                       <p className="font-bold">Order not found</p>
                       <p className="mt-0.5 text-amber-700">
-                        No order found for <strong>&ldquo;{inputId.trim().toUpperCase()}&rdquo;</strong>.
-                        You can <button type="button" onClick={handleTrackSample} className="underline font-bold text-[#8C1C1C]">view the sample order</button> or call support at 9313321535.
+                        No order found for{' '}
+                        <strong>&ldquo;{inputId.trim().toUpperCase()}&rdquo;</strong>. You can{' '}
+                        <button
+                          type="button"
+                          onClick={handleTrackSample}
+                          className="underline font-bold text-[#8C1C1C]"
+                        >
+                          view the sample order
+                        </button>{' '}
+                        or call support at 9313321535.
                       </p>
                     </div>
                   </div>
@@ -606,23 +747,33 @@ function TrackOrderContent() {
               <div className="flex items-center gap-4">
                 {/* Receipt / Invoice Graphic (Exact Match to Web Page Screenshot) */}
                 <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-2xl bg-[#FAF0E8] border border-[#F0DFCD] flex items-center justify-center shrink-0 text-[#8C5D17] shadow-2xs">
-                  <svg className="w-9 h-9 text-[#8C5D17]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                    <polyline points="14 2 14 8 20 8"/>
-                    <line x1="16" y1="13" x2="8" y2="13"/>
-                    <line x1="16" y1="17" x2="8" y2="17"/>
-                    <circle cx="10" cy="9" r="1"/>
+                  <svg
+                    className="w-9 h-9 text-[#8C5D17]"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                    <circle cx="10" cy="9" r="1" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-bold text-sm sm:text-base text-[#1F140D]">Check your email or SMS</h3>
+                  <h3 className="font-bold text-sm sm:text-base text-[#1F140D]">
+                    Check your email or SMS
+                  </h3>
                   <p className="text-xs text-gray-500 leading-relaxed mt-1">
-                    Your Order ID is mentioned in the order confirmation message sent to your email or mobile.
+                    Your Order ID is mentioned in the order confirmation message sent to your email
+                    or mobile.
                   </p>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
 
@@ -644,8 +795,18 @@ function TrackOrderContent() {
                   </span>
                 </div>
                 <p className="text-xs text-gray-500 mt-1">
-                  Placed on {order.placedAt ? new Date(order.placedAt).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }) : '01 Oct 2026'}
-                  {' '}| Expected Delivery: <strong className="text-[#1F140D] font-semibold">{order.deliveryEstimate || '3-5 Business Days'}</strong>
+                  Placed on{' '}
+                  {order.placedAt
+                    ? new Date(order.placedAt).toLocaleDateString('en-IN', {
+                        day: '2-digit',
+                        month: 'short',
+                        year: 'numeric',
+                      })
+                    : '01 Oct 2026'}{' '}
+                  | Expected Delivery:{' '}
+                  <strong className="text-[#1F140D] font-semibold">
+                    {order.deliveryEstimate || '3-5 Business Days'}
+                  </strong>
                 </p>
               </div>
 
@@ -655,8 +816,14 @@ function TrackOrderContent() {
                   href="/contact"
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1F140D] border border-[#EFE5D4] hover:bg-[#FAF0E8] px-3.5 py-2 rounded-xl transition-colors cursor-pointer"
                 >
-                  <svg className="w-3.5 h-3.5 text-[#8C5D17]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.11 12 19.79 19.79 0 011.04 3.4a2 2 0 012-1.72h3a2 2 0 012 1.72c.153.925.36 1.835.62 2.726a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.891.26 1.8.467 2.726.62A2 2 0 0122 16.92z"/>
+                  <svg
+                    className="w-3.5 h-3.5 text-[#8C5D17]"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.11 12 19.79 19.79 0 011.04 3.4a2 2 0 012-1.72h3a2 2 0 012 1.72c.153.925.36 1.835.62 2.726a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.891.26 1.8.467 2.726.62A2 2 0 0122 16.92z" />
                   </svg>
                   <span>Contact Support</span>
                 </Link>
@@ -666,8 +833,16 @@ function TrackOrderContent() {
                   onClick={() => window.print()}
                   className="inline-flex items-center gap-1.5 bg-[#8C5D17] hover:bg-[#73430C] text-white font-bold text-xs px-4 py-2 rounded-xl transition-colors cursor-pointer shadow-2xs"
                 >
-                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                  <svg
+                    className="w-3.5 h-3.5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
                   </svg>
                   <span>Download Invoice</span>
                 </button>
@@ -702,23 +877,48 @@ function TrackOrderContent() {
                             isDone
                               ? 'bg-emerald-600 text-white'
                               : isCurrent
-                              ? 'bg-[#52290D] text-white ring-4 ring-amber-200'
-                              : 'bg-white border-2 border-gray-300 text-gray-400'
+                                ? 'bg-[#52290D] text-white ring-4 ring-amber-200'
+                                : 'bg-white border-2 border-gray-300 text-gray-400'
                           }`}
                         >
                           {isDone ? (
-                            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3"><polyline points="20 6 9 17 4 12"/></svg>
+                            <svg
+                              className="w-4 h-4"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="white"
+                              strokeWidth="3"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
                           ) : isCurrent ? (
-                            <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                            <svg
+                              className="w-4 h-4 text-white"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                            >
+                              <rect x="1" y="3" width="15" height="13" />
+                              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                              <circle cx="5.5" cy="18.5" r="2.5" />
+                              <circle cx="18.5" cy="18.5" r="2.5" />
+                            </svg>
                           ) : (
                             <span className="text-gray-400 text-xs">✕</span>
                           )}
                         </div>
-                        <p className={`text-xs font-bold mt-2 ${isDone || isCurrent ? 'text-[#1F140D]' : 'text-gray-400'}`}>
+                        <p
+                          className={`text-xs font-bold mt-2 ${isDone || isCurrent ? 'text-[#1F140D]' : 'text-gray-400'}`}
+                        >
                           {step.label}
                         </p>
-                        {step.date && <p className="text-[10px] text-gray-400 mt-0.5">{step.date}</p>}
-                        {step.time && <p className="text-[9px] text-gray-400 font-mono">{step.time}</p>}
+                        {step.date && (
+                          <p className="text-[10px] text-gray-400 mt-0.5">{step.date}</p>
+                        )}
+                        {step.time && (
+                          <p className="text-[9px] text-gray-400 font-mono">{step.time}</p>
+                        )}
                       </div>
                     );
                   })}
@@ -745,15 +945,17 @@ function TrackOrderContent() {
                           isDone
                             ? 'bg-emerald-600 text-white'
                             : isCurrent
-                            ? 'bg-[#52290D] text-white ring-2 ring-amber-200'
-                            : 'bg-white border-2 border-gray-300 text-gray-400'
+                              ? 'bg-[#52290D] text-white ring-2 ring-amber-200'
+                              : 'bg-white border-2 border-gray-300 text-gray-400'
                         }`}
                       >
                         {isDone ? '✓' : isCurrent ? '🚚' : '✕'}
                       </div>
                       <div className="pb-3 flex-1">
                         <div className="flex items-center justify-between">
-                          <p className={`text-xs font-bold ${isDone || isCurrent ? 'text-[#1F140D]' : 'text-gray-400'}`}>
+                          <p
+                            className={`text-xs font-bold ${isDone || isCurrent ? 'text-[#1F140D]' : 'text-gray-400'}`}
+                          >
                             {step.label}
                           </p>
                           <span className="text-[10px] text-gray-400">{step.time}</span>
@@ -769,17 +971,35 @@ function TrackOrderContent() {
               <div className="mt-6 bg-[#FAF0E8]/70 border border-[#EFE5D4] rounded-xl p-3.5 sm:p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-[#8C5D17] text-white flex items-center justify-center shrink-0">
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                    <svg
+                      className="w-4 h-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <rect x="1" y="3" width="15" height="13" />
+                      <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                      <circle cx="5.5" cy="18.5" r="2.5" />
+                      <circle cx="18.5" cy="18.5" r="2.5" />
+                    </svg>
                   </div>
                   <div>
-                    <p className="text-xs sm:text-sm font-bold text-[#1F140D]">Your order is out for delivery and will be delivered today.</p>
-                    <p className="text-[11px] text-gray-500">Delivery executive assigned by {order.courier || 'DTDC'}.</p>
+                    <p className="text-xs sm:text-sm font-bold text-[#1F140D]">
+                      Your order is out for delivery and will be delivered today.
+                    </p>
+                    <p className="text-[11px] text-gray-500">
+                      Delivery executive assigned by {order.courier || 'DTDC'}.
+                    </p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-2 self-start sm:self-center">
                   <span className="text-xs text-gray-600 font-mono">
-                    Tracking ID: <strong className="text-[#1F140D]">{order.trackingId || 'DTDC123456789'}</strong>
+                    Tracking ID:{' '}
+                    <strong className="text-[#1F140D]">
+                      {order.trackingId || 'DTDC123456789'}
+                    </strong>
                   </span>
                   <a
                     href="https://www.dtdc.in/tracking/shipment-tracking.asp"
@@ -801,15 +1021,19 @@ function TrackOrderContent() {
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
                       <span className="text-sm">📍</span>
-                      <h4 className="font-bold text-xs sm:text-sm text-[#1F140D]">Delivery Address</h4>
+                      <h4 className="font-bold text-xs sm:text-sm text-[#1F140D]">
+                        Delivery Address
+                      </h4>
                     </div>
                   </div>
                   <p className="font-bold text-xs sm:text-sm text-[#1F140D]">
                     {order.shippingAddress?.name || 'Siddharth Kumar'}
                   </p>
                   <p className="text-xs text-gray-600 mt-1 leading-relaxed">
-                    {order.shippingAddress?.line1 || 'A-302, Green Park Apartments'}<br />
-                    {order.shippingAddress?.city || 'Khari Baoli, Delhi'} - {order.shippingAddress?.pincode || '110006'}
+                    {order.shippingAddress?.line1 || 'A-302, Green Park Apartments'}
+                    <br />
+                    {order.shippingAddress?.city || 'Khari Baoli, Delhi'} -{' '}
+                    {order.shippingAddress?.pincode || '110006'}
                   </p>
                   <p className="text-xs text-gray-500 mt-2 font-mono">
                     {order.shippingAddress?.phone || '+91 9876543210'}
@@ -844,14 +1068,20 @@ function TrackOrderContent() {
                       Ordered Products ({order.items?.length || 3} items)
                     </h4>
                   </div>
-                  <Link href="/shop" className="text-xs text-[#8C5D17] hover:underline font-semibold">
+                  <Link
+                    href="/shop"
+                    className="text-xs text-[#8C5D17] hover:underline font-semibold"
+                  >
                     View All Products →
                   </Link>
                 </div>
 
                 <div className="space-y-3 divide-y divide-[#EFE5D4]">
                   {(order.items || DEMO_ORDER.items || []).map((item) => (
-                    <div key={item.id} className="pt-3 first:pt-0 flex items-center justify-between gap-3">
+                    <div
+                      key={item.id}
+                      className="pt-3 first:pt-0 flex items-center justify-between gap-3"
+                    >
                       <div className="flex items-center gap-3">
                         <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-gray-200 shrink-0 bg-white shadow-2xs">
                           <Image
@@ -864,7 +1094,8 @@ function TrackOrderContent() {
                         <div>
                           <p className="font-bold text-xs sm:text-sm text-[#1F140D]">{item.name}</p>
                           <p className="text-[11px] text-gray-500">
-                            {item.variantLabel || item.variant || item.weight || '500g'} | Qty: {item.quantity}
+                            {item.variantLabel || item.variant || item.weight || '500g'} | Qty:{' '}
+                            {item.quantity}
                           </p>
                         </div>
                       </div>
@@ -908,7 +1139,6 @@ function TrackOrderContent() {
             </div>
           </div>
         )}
-
       </section>
 
       {/* ══════════════════════════════════════════════════════════
@@ -916,7 +1146,6 @@ function TrackOrderContent() {
       ══════════════════════════════════════════════════════════ */}
       <section className="bg-white border-y border-[#EFE5D4] py-8 sm:py-12 my-2 sm:my-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
           {/* Section Heading */}
           <div className="mb-6 sm:mb-10 text-left">
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#8C1C1C] flex items-center gap-1.5">
@@ -937,7 +1166,6 @@ function TrackOrderContent() {
             <div className="grid grid-cols-5 gap-1 sm:gap-4 relative z-10">
               {HOW_IT_WORKS_STEPS.map((step, idx) => (
                 <div key={step.num} className="flex flex-col items-center text-center group">
-                  
                   {/* Step Number Badge (Red Circle at Top) */}
                   <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#8C1C1C] text-white text-[10px] sm:text-xs font-bold flex items-center justify-center shadow-xs mb-1.5">
                     {step.num}
@@ -964,8 +1192,14 @@ function TrackOrderContent() {
                       className="hidden lg:flex absolute items-center pointer-events-none"
                       style={{ left: `${20 * (idx + 1) - 1.5}%`, top: '1.6rem' }}
                     >
-                      <svg className="w-3.5 h-3.5 text-[#E5A93C]/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                        <polyline points="9 18 15 12 9 6"/>
+                      <svg
+                        className="w-3.5 h-3.5 text-[#E5A93C]/70"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                      >
+                        <polyline points="9 18 15 12 9 6" />
                       </svg>
                     </div>
                   )}
@@ -973,7 +1207,6 @@ function TrackOrderContent() {
               ))}
             </div>
           </div>
-
         </div>
       </section>
 
@@ -982,10 +1215,8 @@ function TrackOrderContent() {
       ══════════════════════════════════════════════════════════ */}
       <section className="py-8 sm:py-12 bg-[#FAF7F2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
           {/* Desktop: Two Columns side by side. Mobile: Clean Cards */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-            
             {/* ──── Need Help Card ──── */}
             <div className="bg-white rounded-2xl sm:rounded-3xl border border-[#EFE5D4] shadow-sm p-6 sm:p-7">
               {/* Header */}
@@ -995,15 +1226,22 @@ function TrackOrderContent() {
               >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-[#FAF0E8] border border-[#F0DFCD] text-[#8C5D17] flex items-center justify-center shrink-0">
-                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
-                      <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+                    <svg
+                      className="w-5 h-5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+                      <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
                     </svg>
                   </div>
                   <div>
                     <h3 className="font-bold text-base sm:text-lg text-[#8C1C1C]">Need Help?</h3>
                     <p className="text-xs text-gray-500 hidden sm:block mt-0.5">
-                      If you&apos;re unable to track your order or facing any issues, our support team is here to help.
+                      If you&apos;re unable to track your order or facing any issues, our support
+                      team is here to help.
                     </p>
                   </div>
                 </div>
@@ -1014,8 +1252,14 @@ function TrackOrderContent() {
                   aria-label="Toggle Need Help details"
                   className="sm:hidden text-[#8C5D17]"
                 >
-                  <svg className={`w-5 h-5 transition-transform duration-200 ${mobileHelpOpen ? 'rotate-180' : ''}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <polyline points="6 9 12 15 18 9"/>
+                  <svg
+                    className={`w-5 h-5 transition-transform duration-200 ${mobileHelpOpen ? 'rotate-180' : ''}`}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <polyline points="6 9 12 15 18 9" />
                   </svg>
                 </button>
               </div>
@@ -1023,7 +1267,8 @@ function TrackOrderContent() {
               {/* Mobile text when open */}
               <div className={`mt-3 ${mobileHelpOpen ? 'block' : 'hidden sm:block'}`}>
                 <p className="text-xs text-gray-500 sm:hidden mb-4">
-                  If you&apos;re unable to track your order or facing any issues, our support team is here to help.
+                  If you&apos;re unable to track your order or facing any issues, our support team
+                  is here to help.
                 </p>
 
                 {/* 3 Action Buttons in a Row (Matches Web Page Screenshot) */}
@@ -1045,7 +1290,7 @@ function TrackOrderContent() {
                     className="inline-flex items-center justify-center gap-2 bg-white hover:bg-[#FAF0E8] border border-[#EFE5D4] text-[#1F140D] font-bold text-xs sm:text-sm px-4 py-3 rounded-xl transition-colors shadow-2xs whitespace-nowrap"
                   >
                     <svg className="w-4 h-4 text-[#25D366] fill-current" viewBox="0 0 24 24">
-                      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/>
+                      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z" />
                     </svg>
                     <span>WhatsApp Us</span>
                   </a>
@@ -1055,8 +1300,14 @@ function TrackOrderContent() {
                     href="tel:9313321535"
                     className="inline-flex items-center justify-center gap-2.5 bg-white hover:bg-[#FAF0E8] border border-[#EFE5D4] text-[#1F140D] px-3.5 py-2.5 rounded-xl transition-colors shadow-2xs"
                   >
-                    <svg className="w-4 h-4 text-[#8C5D17] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.11 12 19.79 19.79 0 011.04 3.4a2 2 0 012-1.72h3a2 2 0 012 1.72c.153.925.36 1.835.62 2.726a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.891.26 1.8.467 2.726.62A2 2 0 0122 16.92z"/>
+                    <svg
+                      className="w-4 h-4 text-[#8C5D17] shrink-0"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.11 12 19.79 19.79 0 011.04 3.4a2 2 0 012-1.72h3a2 2 0 012 1.72c.153.925.36 1.835.62 2.726a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.891.26 1.8.467 2.726.62A2 2 0 0122 16.92z" />
                     </svg>
                     <div className="leading-tight text-left">
                       <p className="font-bold text-xs text-[#1F140D]">9313321535</p>
@@ -1078,7 +1329,9 @@ function TrackOrderContent() {
                   <div className="w-10 h-10 rounded-xl bg-[#FAF0E8] border border-[#F0DFCD] text-[#8C5D17] flex items-center justify-center shrink-0">
                     <span className="text-base font-bold">?</span>
                   </div>
-                  <h3 className="font-bold text-base sm:text-lg text-[#8C1C1C]">Frequently Asked Questions</h3>
+                  <h3 className="font-bold text-base sm:text-lg text-[#8C1C1C]">
+                    Frequently Asked Questions
+                  </h3>
                 </div>
 
                 {/* Mobile Chevron Toggle */}
@@ -1087,8 +1340,14 @@ function TrackOrderContent() {
                   aria-label="Toggle FAQs list"
                   className="sm:hidden text-[#8C5D17]"
                 >
-                  <svg className={`w-5 h-5 transition-transform duration-200 ${mobileFaqOpen ? 'rotate-180' : ''}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <polyline points="6 9 12 15 18 9"/>
+                  <svg
+                    className={`w-5 h-5 transition-transform duration-200 ${mobileFaqOpen ? 'rotate-180' : ''}`}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <polyline points="6 9 12 15 18 9" />
                   </svg>
                 </button>
               </div>
@@ -1119,7 +1378,7 @@ function TrackOrderContent() {
                         stroke="currentColor"
                         strokeWidth="2.5"
                       >
-                        <polyline points="6 9 12 15 18 9"/>
+                        <polyline points="6 9 12 15 18 9" />
                       </svg>
                     </button>
 
@@ -1132,12 +1391,9 @@ function TrackOrderContent() {
                 ))}
               </div>
             </div>
-
           </div>
-
         </div>
       </section>
-
     </div>
   );
 }
@@ -1149,9 +1405,24 @@ export default function TrackOrderPage() {
       fallback={
         <div className="min-h-screen bg-[#FAF7F2] flex items-center justify-center">
           <div className="text-center">
-            <svg className="w-8 h-8 animate-spin text-[#8C5D17] mx-auto mb-3" viewBox="0 0 24 24" fill="none">
-              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
-              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+            <svg
+              className="w-8 h-8 animate-spin text-[#8C5D17] mx-auto mb-3"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              />
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+              />
             </svg>
             <p className="text-sm text-gray-500 font-medium">Loading tracking portal…</p>
           </div>

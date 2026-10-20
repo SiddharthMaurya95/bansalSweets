@@ -149,10 +149,11 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
   }, [product]);
 
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-  const activeImage: GalleryItem = galleryImages[selectedImageIndex] ?? galleryImages[0] ?? {
-    url: product?.images?.[0]?.url || '/product-almonds.jpg',
-    altText: product?.name || 'Product Image',
-  };
+  const activeImage: GalleryItem = galleryImages[selectedImageIndex] ??
+    galleryImages[0] ?? {
+      url: product?.images?.[0]?.url || '/product-almonds.jpg',
+      altText: product?.name || 'Product Image',
+    };
   const [isZoomModalOpen, setIsZoomModalOpen] = useState(false);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [zoomScale, setZoomScale] = useState(1);
@@ -164,7 +165,15 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
         const price = Math.round(v.pricePaise / 100);
         const mrp = Math.round(v.mrpPaise / 100);
         const savePct = mrp > price ? Math.round(((mrp - price) / mrp) * 100) : 0;
-        const weightGrams = v.weightGrams || (v.label.includes('1kg') ? 1000 : v.label.includes('500g') ? 500 : v.label.includes('250g') ? 250 : 100);
+        const weightGrams =
+          v.weightGrams ||
+          (v.label.includes('1kg')
+            ? 1000
+            : v.label.includes('500g')
+              ? 500
+              : v.label.includes('250g')
+                ? 250
+                : 100);
         const perKg = Math.round((price / weightGrams) * 1000);
         return {
           weight: v.label,
@@ -178,21 +187,36 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
     }
     return [
       { weight: '100g', price: 520, mrp: 650, savePct: 20, sku: 'BF-ALM-MAMRA-100G', perKg: 5200 },
-      { weight: '250g', price: 1250, mrp: 1550, savePct: 19, sku: 'BF-ALM-MAMRA-250G', perKg: 5000 },
-      { weight: '500g', price: 2450, mrp: 3000, savePct: 18, sku: 'BF-ALM-MAMRA-500G', perKg: 4900 },
+      {
+        weight: '250g',
+        price: 1250,
+        mrp: 1550,
+        savePct: 19,
+        sku: 'BF-ALM-MAMRA-250G',
+        perKg: 5000,
+      },
+      {
+        weight: '500g',
+        price: 2450,
+        mrp: 3000,
+        savePct: 18,
+        sku: 'BF-ALM-MAMRA-500G',
+        perKg: 4900,
+      },
       { weight: '1kg', price: 4800, mrp: 5800, savePct: 17, sku: 'BF-ALM-MAMRA-1KG', perKg: 4800 },
     ];
   }, [product]);
 
   const [selectedWeightIndex, setSelectedWeightIndex] = useState(0);
-  const currentVariant: WeightVariantCard = weightOptions[selectedWeightIndex] ?? weightOptions[0] ?? {
-    weight: '100g',
-    price: 120,
-    mrp: 150,
-    savePct: 20,
-    sku: 'BF-ALM-MAMRA-100G',
-    perKg: 1200,
-  };
+  const currentVariant: WeightVariantCard = weightOptions[selectedWeightIndex] ??
+    weightOptions[0] ?? {
+      weight: '100g',
+      price: 120,
+      mrp: 150,
+      savePct: 20,
+      sku: 'BF-ALM-MAMRA-100G',
+      perKg: 1200,
+    };
 
   // ─── 3. Purchase State ──────────────────────────────────────────────────────
   const [quantity, setQuantity] = useState(1);
@@ -260,7 +284,6 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
     });
     router.push('/checkout');
   };
-
 
   // ─── 6. Reviews State ─────────────────────────────────────────────────────
   const [reviewsList, setReviewsList] = useState<CustomerReviewItem[]>([
@@ -337,11 +360,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
           </Link>
           <span className="text-gray-400">&gt;</span>
           <Link
-            href={
-              product.categories?.[0]
-                ? `/category/${product.categories[0].slug}`
-                : '/shop'
-            }
+            href={product.categories?.[0] ? `/category/${product.categories[0].slug}` : '/shop'}
             className="hover:text-[#B5712E] transition-colors"
           >
             {product.categories?.[0]?.name || 'Products'}
@@ -354,10 +373,8 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
       {/* ── Main Hero Product Section (Gallery + Product Details) ── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-2 pb-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
           {/* ── Left Column: Vertical Thumbnails + Main Image Container (7 cols) ── */}
           <div className="lg:col-span-7 flex flex-col-reverse sm:flex-row gap-3.5 items-start">
-            
             {/* Vertical Thumbnails (Shown when multiple images exist for this product) */}
             {galleryImages.length > 1 && (
               <div className="flex sm:flex-col gap-2 overflow-x-auto sm:overflow-visible w-full sm:w-[68px] shrink-0 pb-1 sm:pb-0">
@@ -422,7 +439,9 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                 <HeartIcon
                   size={17}
                   filled={isWishlisted}
-                  className={isWishlisted ? 'text-red-500 fill-red-500' : 'text-gray-400 hover:text-red-400'}
+                  className={
+                    isWishlisted ? 'text-red-500 fill-red-500' : 'text-gray-400 hover:text-red-400'
+                  }
                 />
               </button>
 
@@ -449,12 +468,10 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                 <span>Click to Zoom</span>
               </button>
             </div>
-
           </div>
 
           {/* ── Right Column: Details & Purchase Options (5 cols) ── */}
           <div className="lg:col-span-5 flex flex-col justify-start">
-            
             {/* Bestseller Badge */}
             <div>
               <span className="inline-flex items-center gap-1.5 bg-[#FEF3EB] text-[#B45309] border border-[#FDE0CC] text-[11px] font-bold px-2.5 py-0.5 rounded-full tracking-wide">
@@ -519,7 +536,13 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
               </span>
 
               <span className="flex items-center gap-1.5 text-[#8E4A18] font-semibold bg-[#FAF5EB] px-2 py-0.5 rounded-md border border-[#F0E5D0]">
-                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  className="w-3.5 h-3.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 </svg>
                 <span>Direct from Khari Baoli Mandi</span>
@@ -639,22 +662,24 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                 <span>{isWishlisted ? 'Added to Wishlist' : 'Add to Wishlist'}</span>
               </button>
             </div>
-
           </div>
-
         </div>
       </div>
 
       {/* ── Section 2: Product Details (With Right Side Almond Bowl Image) ── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-8 pb-6 border-t border-gray-100">
         <div className="flex items-center gap-2 mb-4">
-          <svg className="w-5 h-5 text-[#8E4A18]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg
+            className="w-5 h-5 text-[#8E4A18]"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
             <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
             <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
           </svg>
-          <h2 className="font-serif font-black text-xl text-[#1B1F2A]">
-            Product Details
-          </h2>
+          <h2 className="font-serif font-black text-xl text-[#1B1F2A]">Product Details</h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -669,7 +694,13 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
             <div className="bg-[#FAF5EB] border border-[#EFE4D2] rounded-xl p-3 sm:p-3.5 flex flex-wrap items-center justify-between gap-3 text-xs font-semibold text-[#6E4214]">
               {/* Badge 1 */}
               <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-[#8E4A18]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  className="w-4 h-4 text-[#8E4A18]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
                   <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
                 </svg>
@@ -678,7 +709,13 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
 
               {/* Badge 2 */}
               <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-[#8E4A18]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  className="w-4 h-4 text-[#8E4A18]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <circle cx="12" cy="12" r="10" />
                   <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
                 </svg>
@@ -687,7 +724,13 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
 
               {/* Badge 3 */}
               <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-[#8E4A18]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  className="w-4 h-4 text-[#8E4A18]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0" />
                   <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2" />
                   <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8" />
@@ -716,9 +759,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-8 pb-6 border-t border-gray-100">
         <div className="flex items-center gap-2 mb-4">
           <HeartIcon size={20} className="text-[#8E4A18]" />
-          <h2 className="font-serif font-black text-xl text-[#1B1F2A]">
-            Key Benefits
-          </h2>
+          <h2 className="font-serif font-black text-xl text-[#1B1F2A]">Key Benefits</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3.5 gap-x-8">
@@ -775,14 +816,18 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
       {/* ── Section 4: Nutrition Information (Per 100g) ── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-8 pb-6 border-t border-gray-100">
         <div className="flex items-center gap-2 mb-4">
-          <svg className="w-5 h-5 text-[#8E4A18]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg
+            className="w-5 h-5 text-[#8E4A18]"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
             <rect x="3" y="3" width="18" height="18" rx="2" />
             <line x1="3" y1="9" x2="21" y2="9" />
             <line x1="9" y1="21" x2="9" y2="9" />
           </svg>
-          <h2 className="font-serif font-black text-xl text-[#1B1F2A]">
-            Nutrition Information
-          </h2>
+          <h2 className="font-serif font-black text-xl text-[#1B1F2A]">Nutrition Information</h2>
           <span className="text-xs text-gray-500 font-normal ml-1">(Per 100g)</span>
         </div>
 
@@ -839,7 +884,13 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
           {/* Card 1: Storage & Usage */}
           <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-2xs flex items-start gap-3.5">
             <div className="w-10 h-10 rounded-xl bg-[#FAF6EE] text-[#8E4A18] flex items-center justify-center shrink-0 border border-[#F0E5D0]">
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <path d="M5 6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6z" />
                 <line x1="8" y1="2" x2="16" y2="2" />
                 <line x1="5" y1="10" x2="19" y2="10" />
@@ -866,8 +917,8 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                 Shipping Information
               </h3>
               <p className="text-xs text-gray-600 leading-relaxed font-normal">
-                We deliver across India. Orders are processed within 24 hours and delivered
-                in 2-5 business days depending on your location.
+                We deliver across India. Orders are processed within 24 hours and delivered in 2-5
+                business days depending on your location.
               </p>
             </div>
           </div>
@@ -875,18 +926,22 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
           {/* Card 3: Return Policy */}
           <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-2xs flex items-start gap-3.5">
             <div className="w-10 h-10 rounded-xl bg-[#FAF6EE] text-[#8E4A18] flex items-center justify-center shrink-0 border border-[#F0E5D0]">
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <polyline points="1 4 1 10 7 10" />
                 <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
               </svg>
             </div>
             <div>
-              <h3 className="font-serif font-black text-sm text-[#1B1F2A] mb-1">
-                Return Policy
-              </h3>
+              <h3 className="font-serif font-black text-sm text-[#1B1F2A] mb-1">Return Policy</h3>
               <p className="text-xs text-gray-600 leading-relaxed font-normal">
-                Not satisfied? We offer easy returns within 7 days of delivery for unopened
-                and unused products. T&amp;C apply.
+                Not satisfied? We offer easy returns within 7 days of delivery for unopened and
+                unused products. T&amp;C apply.
               </p>
             </div>
           </div>
@@ -894,15 +949,22 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
       </div>
 
       {/* ── Section 6: Customer Reviews ── */}
-      <div id="reviews-section" className="max-w-7xl mx-auto px-4 sm:px-6 pt-8 pb-6 border-t border-gray-100">
+      <div
+        id="reviews-section"
+        className="max-w-7xl mx-auto px-4 sm:px-6 pt-8 pb-6 border-t border-gray-100"
+      >
         <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-gray-200 gap-3">
           <div className="flex items-center gap-3">
-            <svg className="w-5 h-5 text-[#8E4A18]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              className="w-5 h-5 text-[#8E4A18]"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
             </svg>
-            <h2 className="font-serif font-black text-lg text-[#1B1F2A]">
-              Customer Reviews
-            </h2>
+            <h2 className="font-serif font-black text-lg text-[#1B1F2A]">Customer Reviews</h2>
             <div className="flex items-center gap-1.5 text-xs">
               <div className="flex items-center text-[#E5A93C] gap-0.5">
                 {Array.from({ length: 5 }, (_, i) => (
@@ -970,16 +1032,12 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
         </div>
       </div>
 
-
-
       {/* ── Zoom Modal Overlay ── */}
       {isZoomModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
           <div className="relative max-w-4xl w-full bg-white rounded-2xl overflow-hidden shadow-2xl p-6">
             <div className="flex items-center justify-between pb-3 border-b border-gray-100">
-              <h3 className="font-bold text-sm text-gray-900">
-                {product.name} - Detailed View
-              </h3>
+              <h3 className="font-bold text-sm text-gray-900">{product.name} - Detailed View</h3>
               <div className="flex items-center gap-2">
                 <button
                   type="button"
@@ -1130,7 +1188,9 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-gray-700 mb-1">Your Review</label>
+                    <label className="block text-xs font-bold text-gray-700 mb-1">
+                      Your Review
+                    </label>
                     <textarea
                       rows={3}
                       required

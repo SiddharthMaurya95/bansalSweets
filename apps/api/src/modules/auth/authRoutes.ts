@@ -412,7 +412,11 @@ export const authRoutes: FastifyPluginAsync = async (fastify: FastifyInstance) =
     }
 
     if (user.status === 'SUSPENDED') {
-      throw new AppError(ERROR_CODES.FORBIDDEN, 'Account is suspended. Please contact support.', 403);
+      throw new AppError(
+        ERROR_CODES.FORBIDDEN,
+        'Account is suspended. Please contact support.',
+        403,
+      );
     }
 
     const { role, permissions: userPerms, tokenVersion } = await getUserRoleAndPermissions(user.id);

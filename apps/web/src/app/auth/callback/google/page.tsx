@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 
-
 function BansalAlmondLogo({ className = 'w-7 h-7' }: { className?: string }) {
   return (
     <Image
@@ -44,7 +43,7 @@ function GoogleCallbackContent() {
           errorDesc ||
             (error === 'access_denied'
               ? 'Access was cancelled or denied on Google.'
-              : `Google OAuth error: ${error}`)
+              : `Google OAuth error: ${error}`),
         );
         return;
       }
@@ -85,7 +84,7 @@ function GoogleCallbackContent() {
 
         if (!exchangeRes.ok || !exchangeData.user) {
           throw new Error(
-            exchangeData.error || 'Failed to complete Google authentication exchange.'
+            exchangeData.error || 'Failed to complete Google authentication exchange.',
           );
         }
 
@@ -110,7 +109,7 @@ function GoogleCallbackContent() {
         setErrorMessage(
           err instanceof Error
             ? err.message
-            : 'Failed to complete Google authentication. Please try again.'
+            : 'Failed to complete Google authentication. Please try again.',
         );
       }
     }
@@ -158,9 +157,7 @@ function GoogleCallbackContent() {
           <div className="flex justify-center">
             <div className="w-10 h-10 border-3 border-amber-600/20 border-t-amber-700 rounded-full animate-spin" />
           </div>
-          <h2 className="text-xl font-serif font-bold text-gray-900">
-            Verifying Google Account
-          </h2>
+          <h2 className="text-xl font-serif font-bold text-gray-900">Verifying Google Account</h2>
           <p className="text-xs text-gray-500 leading-relaxed max-w-xs mx-auto">
             Completing official third-party authorization with Google. Please wait a moment...
           </p>
@@ -173,9 +170,7 @@ function GoogleCallbackContent() {
           <div className="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto text-xl shadow-xs">
             ✓
           </div>
-          <h2 className="text-xl font-serif font-bold text-gray-900">
-            Signed in Successfully!
-          </h2>
+          <h2 className="text-xl font-serif font-bold text-gray-900">Signed in Successfully!</h2>
           <p className="text-xs text-gray-500 leading-relaxed">
             Redirecting you to Bansal Foods store...
           </p>
@@ -188,9 +183,7 @@ function GoogleCallbackContent() {
           <div className="w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto text-xl shadow-xs">
             ⚠️
           </div>
-          <h2 className="text-xl font-serif font-bold text-gray-900">
-            Authentication Error
-          </h2>
+          <h2 className="text-xl font-serif font-bold text-gray-900">Authentication Error</h2>
           <p className="text-xs text-red-600 bg-red-50 p-3 rounded-xl border border-red-200/80 leading-relaxed">
             {errorMessage || 'Failed to authenticate with Google.'}
           </p>

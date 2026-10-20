@@ -213,7 +213,9 @@ export default function CheckoutPage() {
   const [selectedDelivery, setSelectedDelivery] = useState<'standard' | 'express'>('standard');
 
   // ── 4. Step 4: Payment Method ──
-  const [selectedPayment, setSelectedPayment] = useState<'UPI' | 'CARD' | 'NETBANKING' | 'COD'>('UPI');
+  const [selectedPayment, setSelectedPayment] = useState<'UPI' | 'CARD' | 'NETBANKING' | 'COD'>(
+    'UPI',
+  );
   const [upiIdInput, setUpiIdInput] = useState('');
   const [cardNumber, setCardNumber] = useState('');
   const [cardExpiry, setCardExpiry] = useState('');
@@ -260,7 +262,13 @@ export default function CheckoutPage() {
     e.preventDefault();
     if (!couponCode.trim()) return;
     const clean = couponCode.trim().toUpperCase();
-    if (clean === 'BANSAL50' || clean === 'KHARIBOOLI' || clean === 'KHARIBOLI' || clean === 'FATEHPURI' || clean === 'FESTIVE10') {
+    if (
+      clean === 'BANSAL50' ||
+      clean === 'KHARIBOOLI' ||
+      clean === 'KHARIBOLI' ||
+      clean === 'FATEHPURI' ||
+      clean === 'FESTIVE10'
+    ) {
       setAppliedCoupon(clean);
       setCouponMessage('Coupon applied! Extra ₹50 off.');
     } else {
@@ -348,7 +356,11 @@ export default function CheckoutPage() {
   // ── Step 2: Add New Address Submission ──
   const handleAddNewAddressSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newAddressForm.recipient.trim() || !newAddressForm.phone.trim() || !newAddressForm.flat.trim()) {
+    if (
+      !newAddressForm.recipient.trim() ||
+      !newAddressForm.phone.trim() ||
+      !newAddressForm.flat.trim()
+    ) {
       return;
     }
     const newId = `addr-${Date.now()}`;
@@ -441,13 +453,14 @@ export default function CheckoutPage() {
           selectedPayment === 'UPI'
             ? 'UPI (Google Pay / PhonePe)'
             : selectedPayment === 'COD'
-            ? 'Cash on Delivery (COD)'
-            : selectedPayment === 'CARD'
-            ? 'Credit / Debit Card'
-            : 'Net Banking',
+              ? 'Cash on Delivery (COD)'
+              : selectedPayment === 'CARD'
+                ? 'Credit / Debit Card'
+                : 'Net Banking',
         paymentStatus: selectedPayment === 'COD' ? 'PENDING' : 'PAID',
         deliveryMethod: selectedDelivery === 'express' ? 'EXPRESS_DELIVERY' : 'COURIER',
-        deliveryEstimate: selectedDelivery === 'express' ? 'Tomorrow, by 8 PM' : '3-5 Business Days',
+        deliveryEstimate:
+          selectedDelivery === 'express' ? 'Tomorrow, by 8 PM' : '3-5 Business Days',
         subtotalPaise: Math.round(subtotalAmount * 100),
         discountPaise: Math.round(discountAmount * 100),
         deliveryFeePaise: Math.round(deliveryCharge * 100),
@@ -494,11 +507,15 @@ export default function CheckoutPage() {
           const res = await orderApi.checkout(
             {
               customerName: user?.name || activeAddress?.recipient || 'Customer',
-              customerPhone: (user?.phone || activeAddress?.phone || '9313321535').replace(/\D/g, '').slice(-10),
+              customerPhone: (user?.phone || activeAddress?.phone || '9313321535')
+                .replace(/\D/g, '')
+                .slice(-10),
               customerEmail: user?.email || undefined,
               shippingAddress: {
                 name: activeAddress?.recipient || user?.name || 'Customer',
-                phone: (activeAddress?.phone || user?.phone || '9313321535').replace(/\D/g, '').slice(-10),
+                phone: (activeAddress?.phone || user?.phone || '9313321535')
+                  .replace(/\D/g, '')
+                  .slice(-10),
                 line1: activeAddress?.line1 || `${activeAddress?.flat}, ${activeAddress?.area}`,
                 city: activeAddress?.city || 'Delhi',
                 state: activeAddress?.state || 'Delhi',
@@ -523,7 +540,10 @@ export default function CheckoutPage() {
               id: serverOrderId,
               orderNumber: res.data?.order?.orderNumber || serverOrderId,
             };
-            localStorage.setItem(`bansal_last_order_${serverOrderId}`, JSON.stringify(updatedRecord));
+            localStorage.setItem(
+              `bansal_last_order_${serverOrderId}`,
+              JSON.stringify(updatedRecord),
+            );
             localStorage.setItem('bansal_last_placed_order', JSON.stringify(updatedRecord));
           } catch {}
           clearCart();
@@ -544,8 +564,7 @@ export default function CheckoutPage() {
     }
   };
 
-  const activeAddress =
-    savedAddresses.find((a) => a.id === selectedAddressId) || savedAddresses[0];
+  const activeAddress = savedAddresses.find((a) => a.id === selectedAddressId) || savedAddresses[0];
 
   return (
     <div className="min-h-screen bg-[#FDFBF7] text-[#2C2114]">
@@ -578,27 +597,47 @@ export default function CheckoutPage() {
               {/* Secure Checkout */}
               <div className="flex items-center gap-2.5">
                 <div className="w-7 h-7 rounded-full bg-[#F3ECE2] flex items-center justify-center text-[#7A4116]">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                     <path d="M7 11V7a5 5 0 0110 0v4" />
                   </svg>
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-[#1F140D] leading-tight">100% Secure Checkout</p>
-                  <p className="text-[10px] text-gray-500 leading-tight">Amazon &amp; Flipkart Standard Security</p>
+                  <p className="text-xs font-bold text-[#1F140D] leading-tight">
+                    100% Secure Checkout
+                  </p>
+                  <p className="text-[10px] text-gray-500 leading-tight">
+                    Amazon &amp; Flipkart Standard Security
+                  </p>
                 </div>
               </div>
 
               {/* Hotline Support */}
               <div className="flex items-center gap-2.5">
                 <div className="w-7 h-7 rounded-full bg-[#F3ECE2] flex items-center justify-center text-[#7A4116]">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                   </svg>
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-[#1F140D] leading-tight">9313321535 | 701119609</p>
-                  <p className="text-[10px] text-gray-500 leading-tight">Need help? Mandi helpline</p>
+                  <p className="text-xs font-bold text-[#1F140D] leading-tight">
+                    9313321535 | 701119609
+                  </p>
+                  <p className="text-[10px] text-gray-500 leading-tight">
+                    Need help? Mandi helpline
+                  </p>
                 </div>
               </div>
             </div>
@@ -650,7 +689,8 @@ export default function CheckoutPage() {
           <div className="flex items-center gap-2">
             <span className="text-[#8C5D17]">🛒</span>
             <span>
-              Order Summary <span className="text-gray-500 font-normal">({totalItemsCount} items)</span> •{' '}
+              Order Summary{' '}
+              <span className="text-gray-500 font-normal">({totalItemsCount} items)</span> •{' '}
               <strong className="text-[#8B1E1E]">₹{totalAmount.toLocaleString()}</strong>
             </span>
           </div>
@@ -674,7 +714,9 @@ export default function CheckoutPage() {
                 </div>
                 <div className="text-right">
                   <p className="text-xs font-bold text-[#1F140D]">₹{item.price * item.quantity}</p>
-                  <span className="text-[9px] bg-red-100 text-red-700 font-bold px-1 rounded">20% OFF</span>
+                  <span className="text-[9px] bg-red-100 text-red-700 font-bold px-1 rounded">
+                    20% OFF
+                  </span>
                 </div>
               </div>
             ))}
@@ -699,10 +741,10 @@ export default function CheckoutPage() {
                     currentStep === 1
                       ? '12%'
                       : currentStep === 2
-                      ? '42%'
-                      : currentStep === 3
-                      ? '75%'
-                      : '100%',
+                        ? '42%'
+                        : currentStep === 3
+                          ? '75%'
+                          : '100%',
                 }}
               />
             </div>
@@ -719,8 +761,8 @@ export default function CheckoutPage() {
                   isAuthenticated
                     ? 'bg-[#15803D] text-white'
                     : currentStep === 1
-                    ? 'bg-[#52331C] text-white ring-4 ring-[#E8DDD0]'
-                    : 'bg-white border border-gray-300 text-gray-400'
+                      ? 'bg-[#52331C] text-white ring-4 ring-[#E8DDD0]'
+                      : 'bg-white border border-gray-300 text-gray-400'
                 }`}
               >
                 {isAuthenticated ? '✓' : '1'}
@@ -745,8 +787,8 @@ export default function CheckoutPage() {
                   currentStep > 2
                     ? 'bg-[#15803D] text-white'
                     : currentStep === 2
-                    ? 'bg-[#52331C] text-white ring-4 ring-[#E8DDD0]'
-                    : 'bg-white border border-gray-300 text-gray-400'
+                      ? 'bg-[#52331C] text-white ring-4 ring-[#E8DDD0]'
+                      : 'bg-white border border-gray-300 text-gray-400'
                 }`}
               >
                 {currentStep > 2 ? '✓' : '2'}
@@ -761,7 +803,9 @@ export default function CheckoutPage() {
                 if (isAuthenticated && currentStep > 2) setCurrentStep(3);
               }}
               className={`relative z-10 flex flex-col items-center group ${
-                isAuthenticated && currentStep > 2 ? 'cursor-pointer' : 'cursor-not-allowed opacity-60'
+                isAuthenticated && currentStep > 2
+                  ? 'cursor-pointer'
+                  : 'cursor-not-allowed opacity-60'
               }`}
             >
               <div
@@ -769,8 +813,8 @@ export default function CheckoutPage() {
                   currentStep > 3
                     ? 'bg-[#15803D] text-white'
                     : currentStep === 3
-                    ? 'bg-[#52331C] text-white ring-4 ring-[#E8DDD0]'
-                    : 'bg-white border border-gray-300 text-gray-400'
+                      ? 'bg-[#52331C] text-white ring-4 ring-[#E8DDD0]'
+                      : 'bg-white border border-gray-300 text-gray-400'
                 }`}
               >
                 {currentStep > 3 ? '✓' : '3'}
@@ -785,7 +829,9 @@ export default function CheckoutPage() {
                 if (isAuthenticated && currentStep > 3) setCurrentStep(4);
               }}
               className={`relative z-10 flex flex-col items-center group ${
-                isAuthenticated && currentStep > 3 ? 'cursor-pointer' : 'cursor-not-allowed opacity-60'
+                isAuthenticated && currentStep > 3
+                  ? 'cursor-pointer'
+                  : 'cursor-not-allowed opacity-60'
               }`}
             >
               <div
@@ -1068,7 +1114,8 @@ export default function CheckoutPage() {
                         {/* Email Address */}
                         <div>
                           <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                            Email Address <span className="text-gray-400 font-normal">(for invoice)</span>
+                            Email Address{' '}
+                            <span className="text-gray-400 font-normal">(for invoice)</span>
                           </label>
                           <input
                             type="email"
@@ -1115,11 +1162,19 @@ export default function CheckoutPage() {
                         />
                         <span className="text-xs text-gray-600 leading-tight">
                           By continuing, I agree to Bansal Foods{' '}
-                          <Link href="/terms" target="_blank" className="text-[#7A4116] font-semibold underline">
+                          <Link
+                            href="/terms"
+                            target="_blank"
+                            className="text-[#7A4116] font-semibold underline"
+                          >
                             Terms of Service
                           </Link>{' '}
                           and{' '}
-                          <Link href="/privacy" target="_blank" className="text-[#7A4116] font-semibold underline">
+                          <Link
+                            href="/privacy"
+                            target="_blank"
+                            className="text-[#7A4116] font-semibold underline"
+                          >
                             Privacy Policy
                           </Link>
                           .
@@ -1196,8 +1251,11 @@ export default function CheckoutPage() {
                   <div className="mt-5 p-3.5 bg-[#FAF6EE] border border-[#E9DAC8] rounded-xl flex items-center gap-3">
                     <span className="text-xl">🌿</span>
                     <div className="text-xs text-[#52331C]">
-                      <strong className="block text-[#1F140D]">Genuine Khari Baoli Dry Fruits Guarantee</strong>
-                      Orders are safely recorded in your account with live order tracking &amp; instant GST invoices.
+                      <strong className="block text-[#1F140D]">
+                        Genuine Khari Baoli Dry Fruits Guarantee
+                      </strong>
+                      Orders are safely recorded in your account with live order tracking &amp;
+                      instant GST invoices.
                     </div>
                   </div>
                 </div>
@@ -1217,7 +1275,9 @@ export default function CheckoutPage() {
                       2. DELIVERY ADDRESS
                     </span>
                   </div>
-                  <span className="text-[11px] text-gray-400 italic">Sign in or register to unlock</span>
+                  <span className="text-[11px] text-gray-400 italic">
+                    Sign in or register to unlock
+                  </span>
                 </div>
               ) : currentStep > 2 ? (
                 /* Collapsed Completed Address Summary */
@@ -1239,7 +1299,8 @@ export default function CheckoutPage() {
                         </span>
                       </div>
                       <p className="text-xs text-gray-600 mt-0.5 truncate max-w-md">
-                        {activeAddress?.line1}, {activeAddress?.areaCity} • Ph: {activeAddress?.phone}
+                        {activeAddress?.line1}, {activeAddress?.areaCity} • Ph:{' '}
+                        {activeAddress?.phone}
                       </p>
                     </div>
                   </div>
@@ -1261,7 +1322,9 @@ export default function CheckoutPage() {
                         2
                       </div>
                       <div>
-                        <h2 className="text-base sm:text-lg font-bold text-[#1F140D]">Delivery Address</h2>
+                        <h2 className="text-base sm:text-lg font-bold text-[#1F140D]">
+                          Delivery Address
+                        </h2>
                         <p className="text-xs text-gray-500 mt-0.5">
                           Select the delivery address or add a new one for your account
                         </p>
@@ -1440,7 +1503,9 @@ export default function CheckoutPage() {
                             type="radio"
                             name="addressType"
                             checked={newAddressForm.type === 'Office'}
-                            onChange={() => setNewAddressForm({ ...newAddressForm, type: 'Office' })}
+                            onChange={() =>
+                              setNewAddressForm({ ...newAddressForm, type: 'Office' })
+                            }
                             className="accent-[#7A4116]"
                           />
                           <span>Office (Delivery 10 AM - 6 PM)</span>
@@ -1488,14 +1553,18 @@ export default function CheckoutPage() {
                                     isSelected ? 'border-[#7A4116]' : 'border-gray-300'
                                   }`}
                                 >
-                                  {isSelected && <div className="w-2 h-2 rounded-full bg-[#7A4116]" />}
+                                  {isSelected && (
+                                    <div className="w-2 h-2 rounded-full bg-[#7A4116]" />
+                                  )}
                                 </div>
                               </div>
 
                               {/* Details */}
                               <div>
                                 <div className="flex items-center gap-2">
-                                  <span className="font-bold text-xs text-[#1F140D]">{addr.recipient}</span>
+                                  <span className="font-bold text-xs text-[#1F140D]">
+                                    {addr.recipient}
+                                  </span>
                                   <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-gray-100 text-gray-700 uppercase">
                                     {addr.type}
                                   </span>
@@ -1505,8 +1574,12 @@ export default function CheckoutPage() {
                                     </span>
                                   )}
                                 </div>
-                                <p className="text-xs text-gray-600 mt-1 leading-snug">{addr.line1}</p>
-                                <p className="text-xs text-gray-600 leading-snug">{addr.areaCity}</p>
+                                <p className="text-xs text-gray-600 mt-1 leading-snug">
+                                  {addr.line1}
+                                </p>
+                                <p className="text-xs text-gray-600 leading-snug">
+                                  {addr.areaCity}
+                                </p>
                                 <p className="text-xs text-gray-700 font-medium mt-1">
                                   Mobile: <strong>+91 {addr.phone}</strong>
                                 </p>
@@ -1563,7 +1636,9 @@ export default function CheckoutPage() {
                       3. ORDER SUMMARY
                     </span>
                   </div>
-                  <span className="text-[11px] text-gray-400 italic">Select address to review items</span>
+                  <span className="text-[11px] text-gray-400 italic">
+                    Select address to review items
+                  </span>
                 </div>
               ) : currentStep > 3 ? (
                 /* Collapsed Summary */
@@ -1606,7 +1681,9 @@ export default function CheckoutPage() {
                         3
                       </div>
                       <div>
-                        <h2 className="text-base sm:text-lg font-bold text-[#1F140D]">Order Summary</h2>
+                        <h2 className="text-base sm:text-lg font-bold text-[#1F140D]">
+                          Order Summary
+                        </h2>
                         <p className="text-xs text-gray-500 mt-0.5">
                           Review order items and select delivery speed
                         </p>
@@ -1629,7 +1706,9 @@ export default function CheckoutPage() {
                             {item.name}
                           </h4>
                           <p className="text-[11px] text-gray-500">Pack: {item.weight}</p>
-                          <p className="text-[11px] text-gray-700 font-medium">Quantity: {item.quantity}</p>
+                          <p className="text-[11px] text-gray-700 font-medium">
+                            Quantity: {item.quantity}
+                          </p>
                         </div>
                         <div className="text-right shrink-0">
                           <p className="font-bold text-xs sm:text-sm text-[#1F140D]">
@@ -1673,7 +1752,9 @@ export default function CheckoutPage() {
                         <div>
                           <h5 className="font-bold text-xs text-[#1F140D]">Standard Delivery</h5>
                           <p className="text-[11px] text-gray-500">3 - 5 business days</p>
-                          <p className="text-[10px] text-emerald-700 font-semibold">Free Pan-India Delivery</p>
+                          <p className="text-[10px] text-emerald-700 font-semibold">
+                            Free Pan-India Delivery
+                          </p>
                         </div>
                       </div>
                       <span className="font-bold text-xs text-[#15803D]">FREE</span>
@@ -1741,7 +1822,9 @@ export default function CheckoutPage() {
                       4. PAYMENT OPTIONS
                     </span>
                   </div>
-                  <span className="text-[11px] text-gray-400 italic">Complete previous steps first</span>
+                  <span className="text-[11px] text-gray-400 italic">
+                    Complete previous steps first
+                  </span>
                 </div>
               ) : (
                 <div className="p-6 sm:p-7">
@@ -1750,7 +1833,9 @@ export default function CheckoutPage() {
                       4
                     </div>
                     <div>
-                      <h2 className="text-base sm:text-lg font-bold text-[#1F140D]">Payment Method</h2>
+                      <h2 className="text-base sm:text-lg font-bold text-[#1F140D]">
+                        Payment Method
+                      </h2>
                       <p className="text-xs text-gray-500 mt-0.5">Select how you want to pay</p>
                     </div>
                   </div>
@@ -1779,7 +1864,8 @@ export default function CheckoutPage() {
                           </div>
                           <div>
                             <h4 className="font-bold text-xs sm:text-sm text-[#1F140D]">
-                              UPI <span className="text-[#8C5D17] font-semibold">(Recommended)</span>
+                              UPI{' '}
+                              <span className="text-[#8C5D17] font-semibold">(Recommended)</span>
                             </h4>
                             <p className="text-[11px] text-gray-500">
                               Google Pay, PhonePe, Paytm, BHIM or any UPI App
@@ -1904,7 +1990,9 @@ export default function CheckoutPage() {
                         <div className="flex items-center gap-3">
                           <div
                             className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ${
-                              selectedPayment === 'NETBANKING' ? 'border-[#7A4116]' : 'border-gray-300'
+                              selectedPayment === 'NETBANKING'
+                                ? 'border-[#7A4116]'
+                                : 'border-gray-300'
                             }`}
                           >
                             {selectedPayment === 'NETBANKING' && (
@@ -1912,8 +2000,12 @@ export default function CheckoutPage() {
                             )}
                           </div>
                           <div>
-                            <h4 className="font-bold text-xs sm:text-sm text-[#1F140D]">Net Banking</h4>
-                            <p className="text-[11px] text-gray-500">All major Indian banks supported</p>
+                            <h4 className="font-bold text-xs sm:text-sm text-[#1F140D]">
+                              Net Banking
+                            </h4>
+                            <p className="text-[11px] text-gray-500">
+                              All major Indian banks supported
+                            </p>
                           </div>
                         </div>
 
@@ -1978,7 +2070,9 @@ export default function CheckoutPage() {
                             <h4 className="font-bold text-xs sm:text-sm text-[#1F140D]">
                               Cash on Delivery (COD)
                             </h4>
-                            <p className="text-[11px] text-gray-500">Pay with Cash or UPI upon delivery</p>
+                            <p className="text-[11px] text-gray-500">
+                              Pay with Cash or UPI upon delivery
+                            </p>
                           </div>
                         </div>
                         <span className="text-[11px] text-emerald-700 font-bold">Available</span>
@@ -2021,7 +2115,10 @@ export default function CheckoutPage() {
               {/* Header */}
               <div className="flex items-center justify-between pb-3 border-b border-gray-100">
                 <h3 className="font-serif font-bold text-base sm:text-lg text-[#1F140D]">
-                  Order Summary <span className="text-gray-500 text-xs font-normal">({totalItemsCount} items)</span>
+                  Order Summary{' '}
+                  <span className="text-gray-500 text-xs font-normal">
+                    ({totalItemsCount} items)
+                  </span>
                 </h3>
                 <Link href="/shop" className="text-xs font-semibold text-[#7A4116] hover:underline">
                   Edit Cart
@@ -2043,7 +2140,9 @@ export default function CheckoutPage() {
                     </div>
 
                     <div className="text-right shrink-0">
-                      <p className="font-bold text-xs text-[#1F140D]">₹{item.price * item.quantity}</p>
+                      <p className="font-bold text-xs text-[#1F140D]">
+                        ₹{item.price * item.quantity}
+                      </p>
                       <p className="text-[10px] text-gray-400 line-through">
                         ₹{item.originalPrice * item.quantity}
                       </p>
@@ -2057,7 +2156,9 @@ export default function CheckoutPage() {
 
               {/* Apply Coupon Code */}
               <div className="pt-2 border-t border-gray-100">
-                <label className="block text-xs font-bold text-gray-700 mb-1.5">Apply Coupon Code</label>
+                <label className="block text-xs font-bold text-gray-700 mb-1.5">
+                  Apply Coupon Code
+                </label>
                 <form onSubmit={handleApplyCoupon} className="flex gap-2">
                   <input
                     type="text"
@@ -2119,7 +2220,9 @@ export default function CheckoutPage() {
                 <div className="border-t border-gray-200 pt-3 flex justify-between items-baseline">
                   <span className="font-bold text-sm text-[#1F140D]">Total Amount</span>
                   <div className="text-right">
-                    <p className="font-bold text-xl text-[#8B1E1E]">₹{totalAmount.toLocaleString()}</p>
+                    <p className="font-bold text-xl text-[#8B1E1E]">
+                      ₹{totalAmount.toLocaleString()}
+                    </p>
                     <p className="text-[11px] font-semibold text-[#15803D]">
                       You save ₹{(discountAmount + couponDiscount).toLocaleString()} on this order!
                     </p>
@@ -2130,44 +2233,71 @@ export default function CheckoutPage() {
               {/* Savings Highlight Card */}
               <div className="bg-[#ECFDF3] border border-[#D1FADF] rounded-xl p-3 flex items-center gap-2 text-xs text-[#027A48] font-semibold">
                 <span>🏷</span>
-                <span>You are saving ₹{(discountAmount + couponDiscount).toLocaleString()} on this order!</span>
+                <span>
+                  You are saving ₹{(discountAmount + couponDiscount).toLocaleString()} on this
+                  order!
+                </span>
               </div>
 
               {/* 3 Trust Badges */}
               <div className="grid grid-cols-3 gap-2 pt-2 border-t border-gray-100 text-center">
                 <div className="flex flex-col items-center">
                   <div className="w-8 h-8 rounded-full bg-[#FAF5EE] text-[#7A4116] flex items-center justify-center mb-1">
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg
+                      className="w-4 h-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
                       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                       <polyline points="9 12 11 14 15 10" />
                     </svg>
                   </div>
                   <span className="text-[9.5px] font-medium text-gray-600 leading-tight">
-                    100% Original<br />Khari Baoli Quality
+                    100% Original
+                    <br />
+                    Khari Baoli Quality
                   </span>
                 </div>
 
                 <div className="flex flex-col items-center">
                   <div className="w-8 h-8 rounded-full bg-[#FAF5EE] text-[#7A4116] flex items-center justify-center mb-1">
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg
+                      className="w-4 h-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
                       <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                       <path d="M7 11V7a5 5 0 0110 0v4" />
                     </svg>
                   </div>
                   <span className="text-[9.5px] font-medium text-gray-600 leading-tight">
-                    Secure<br />Payments
+                    Secure
+                    <br />
+                    Payments
                   </span>
                 </div>
 
                 <div className="flex flex-col items-center">
                   <div className="w-8 h-8 rounded-full bg-[#FAF5EE] text-[#7A4116] flex items-center justify-center mb-1">
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg
+                      className="w-4 h-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
                       <polyline points="1 4 1 10 7 10" />
                       <path d="M3.51 15a9 9 0 102.13-9.36L1 10" />
                     </svg>
                   </div>
                   <span className="text-[9.5px] font-medium text-gray-600 leading-tight">
-                    Easy<br />Returns
+                    Easy
+                    <br />
+                    Returns
                   </span>
                 </div>
               </div>
@@ -2175,14 +2305,22 @@ export default function CheckoutPage() {
               {/* Need Help Card */}
               <div className="bg-[#FBF6ED] border border-[#EFE4D2] rounded-xl p-3.5 flex items-center gap-3">
                 <div className="w-9 h-9 rounded-full bg-[#7A4116] text-white flex items-center justify-center shrink-0">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                   </svg>
                 </div>
                 <div>
                   <h6 className="font-bold text-xs text-[#1F140D]">Need Help with Checkout?</h6>
                   <p className="text-xs font-bold text-[#7A4116]">9313321535 | 701119609</p>
-                  <p className="text-[10px] text-gray-500">Mandi Store: Khari Baoli, Delhi - 110006</p>
+                  <p className="text-[10px] text-gray-500">
+                    Mandi Store: Khari Baoli, Delhi - 110006
+                  </p>
                 </div>
               </div>
             </div>

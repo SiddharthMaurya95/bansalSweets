@@ -126,12 +126,7 @@ export default function AccountPage() {
 
   // Active section
   const [activeTab, setActiveTab] = useState<
-    | 'profile'
-    | 'orders'
-    | 'addresses'
-    | 'coupons'
-    | 'notifications'
-    | 'settings'
+    'profile' | 'orders' | 'addresses' | 'coupons' | 'notifications' | 'settings'
   >('profile');
 
   // Profile form state
@@ -179,8 +174,10 @@ export default function AccountPage() {
       if (savedPref) {
         const parsed = JSON.parse(savedPref);
         if (typeof parsed.orderUpdates === 'boolean') setOrderUpdates(parsed.orderUpdates);
-        if (typeof parsed.offersPromotions === 'boolean') setOffersPromotions(parsed.offersPromotions);
-        if (typeof parsed.productRecommendations === 'boolean') setProductRecommendations(parsed.productRecommendations);
+        if (typeof parsed.offersPromotions === 'boolean')
+          setOffersPromotions(parsed.offersPromotions);
+        if (typeof parsed.productRecommendations === 'boolean')
+          setProductRecommendations(parsed.productRecommendations);
       }
       const savedAddr = localStorage.getItem('bf_account_addresses');
       if (savedAddr) {
@@ -214,9 +211,7 @@ export default function AccountPage() {
             idx: number,
           ) => {
             const itemsStr = Array.isArray(po.items)
-              ? po.items
-                  .map((i) => `${i.name} (${i.variant || '1kg'}) × ${i.quantity}`)
-                  .join(', ')
+              ? po.items.map((i) => `${i.name} (${i.variant || '1kg'}) × ${i.quantity}`).join(', ')
               : 'Assorted Premium Dry Fruits';
             const dateStr = po.placedAt
               ? new Date(po.placedAt).toLocaleDateString('en-IN', {
@@ -231,7 +226,10 @@ export default function AccountPage() {
               date: dateStr,
               items: itemsStr,
               total: Math.round((po.totalPaise || 0) / 100) || po.totalAmount || 2150,
-              status: po.status === 'CONFIRMED' || po.status === 'Processing' ? 'Processing' : 'Delivered',
+              status:
+                po.status === 'CONFIRMED' || po.status === 'Processing'
+                  ? 'Processing'
+                  : 'Delivered',
             };
           },
         );
@@ -290,7 +288,7 @@ export default function AccountPage() {
           orderUpdates: newOrders,
           offersPromotions: newOffers,
           productRecommendations: newRecs,
-        })
+        }),
       );
     } catch {
       // ignore
@@ -382,9 +380,7 @@ export default function AccountPage() {
                     type="text"
                     required
                     value={editingAddress.tag}
-                    onChange={(e) =>
-                      setEditingAddress({ ...editingAddress, tag: e.target.value })
-                    }
+                    onChange={(e) => setEditingAddress({ ...editingAddress, tag: e.target.value })}
                     className="w-full px-3 py-2 text-xs border border-gray-300 rounded-lg focus:outline-none focus:border-[#8C4A18]"
                   />
                 </div>
@@ -396,9 +392,7 @@ export default function AccountPage() {
                     type="text"
                     required
                     value={editingAddress.name}
-                    onChange={(e) =>
-                      setEditingAddress({ ...editingAddress, name: e.target.value })
-                    }
+                    onChange={(e) => setEditingAddress({ ...editingAddress, name: e.target.value })}
                     className="w-full px-3 py-2 text-xs border border-gray-300 rounded-lg focus:outline-none focus:border-[#8C4A18]"
                   />
                 </div>
@@ -412,25 +406,19 @@ export default function AccountPage() {
                   type="text"
                   required
                   value={editingAddress.street}
-                  onChange={(e) =>
-                    setEditingAddress({ ...editingAddress, street: e.target.value })
-                  }
+                  onChange={(e) => setEditingAddress({ ...editingAddress, street: e.target.value })}
                   className="w-full px-3 py-2 text-xs border border-gray-300 rounded-lg focus:outline-none focus:border-[#8C4A18]"
                 />
               </div>
 
               <div className="grid grid-cols-3 gap-3">
                 <div>
-                  <label className="block text-[11px] font-semibold text-gray-700 mb-1">
-                    City
-                  </label>
+                  <label className="block text-[11px] font-semibold text-gray-700 mb-1">City</label>
                   <input
                     type="text"
                     required
                     value={editingAddress.city}
-                    onChange={(e) =>
-                      setEditingAddress({ ...editingAddress, city: e.target.value })
-                    }
+                    onChange={(e) => setEditingAddress({ ...editingAddress, city: e.target.value })}
                     className="w-full px-3 py-2 text-xs border border-gray-300 rounded-lg focus:outline-none focus:border-[#8C4A18]"
                   />
                 </div>
@@ -472,9 +460,7 @@ export default function AccountPage() {
                   type="text"
                   required
                   value={editingAddress.phone}
-                  onChange={(e) =>
-                    setEditingAddress({ ...editingAddress, phone: e.target.value })
-                  }
+                  onChange={(e) => setEditingAddress({ ...editingAddress, phone: e.target.value })}
                   className="w-full px-3 py-2 text-xs border border-gray-300 rounded-lg focus:outline-none focus:border-[#8C4A18]"
                 />
               </div>
@@ -505,7 +491,10 @@ export default function AccountPage() {
       {/* Main Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5">
         {/* Breadcrumb Navigation */}
-        <nav className="text-xs text-gray-500 mb-4 flex items-center gap-1.5" aria-label="Breadcrumb">
+        <nav
+          className="text-xs text-gray-500 mb-4 flex items-center gap-1.5"
+          aria-label="Breadcrumb"
+        >
           <Link href="/" className="hover:text-[#8C4A18] transition-colors">
             Home
           </Link>
@@ -574,9 +563,7 @@ export default function AccountPage() {
             {/* Navigation Card */}
             <div className="bg-white rounded-2xl border border-gray-200/80 shadow-2xs p-3.5">
               <div className="px-3 py-2 border-b border-gray-100 mb-1.5">
-                <h2 className="text-base font-serif font-bold text-[#52101B]">
-                  My Account
-                </h2>
+                <h2 className="text-base font-serif font-bold text-[#52101B]">My Account</h2>
               </div>
 
               <div className="space-y-1">
@@ -590,7 +577,13 @@ export default function AccountPage() {
                       : 'text-[#24130A] hover:bg-[#FAF0E8] hover:text-[#52101B]'
                   }`}
                 >
-                  <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4 shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                     <circle cx="12" cy="7" r="4" />
                   </svg>
@@ -607,7 +600,13 @@ export default function AccountPage() {
                       : 'text-[#24130A] hover:bg-[#FAF0E8] hover:text-[#52101B]'
                   }`}
                 >
-                  <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4 shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
                     <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
                   </svg>
@@ -619,7 +618,13 @@ export default function AccountPage() {
                   href="/orders/track"
                   className="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-xs sm:text-sm font-semibold text-[#24130A] hover:bg-[#FAF0E8] hover:text-[#52101B] transition-all"
                 >
-                  <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4 shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <rect x="1" y="3" width="15" height="13" />
                     <polygon points="16 8 20 8 23 11 23 16 16 16 8" />
                     <circle cx="5.5" cy="18.5" r="2.5" />
@@ -633,7 +638,13 @@ export default function AccountPage() {
                   href="/wishlist"
                   className="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-xs sm:text-sm font-semibold text-[#24130A] hover:bg-[#FAF0E8] hover:text-[#52101B] transition-all"
                 >
-                  <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4 shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                   </svg>
                   <span>Wishlist</span>
@@ -649,7 +660,13 @@ export default function AccountPage() {
                       : 'text-[#24130A] hover:bg-[#FAF0E8] hover:text-[#52101B]'
                   }`}
                 >
-                  <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4 shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                     <circle cx="12" cy="10" r="3" />
                   </svg>
@@ -661,7 +678,13 @@ export default function AccountPage() {
                   href="/returns"
                   className="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-xs sm:text-sm font-semibold text-[#24130A] hover:bg-[#FAF0E8] hover:text-[#52101B] transition-all"
                 >
-                  <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4 shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <polyline points="1 4 1 10 7 10" />
                     <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
                   </svg>
@@ -678,7 +701,13 @@ export default function AccountPage() {
                       : 'text-[#24130A] hover:bg-[#FAF0E8] hover:text-[#52101B]'
                   }`}
                 >
-                  <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4 shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <polyline points="20 12 20 22 4 22 4 12" />
                     <rect x="2" y="7" width="20" height="5" />
                     <line x1="12" y1="22" x2="12" y2="7" />
@@ -698,7 +727,13 @@ export default function AccountPage() {
                       : 'text-[#24130A] hover:bg-[#FAF0E8] hover:text-[#52101B]'
                   }`}
                 >
-                  <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4 shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
                     <path d="M13.73 21a2 2 0 0 1-3.46 0" />
                   </svg>
@@ -715,7 +750,13 @@ export default function AccountPage() {
                       : 'text-[#24130A] hover:bg-[#FAF0E8] hover:text-[#52101B]'
                   }`}
                 >
-                  <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4 shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <circle cx="12" cy="12" r="3" />
                     <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
                   </svg>
@@ -727,7 +768,13 @@ export default function AccountPage() {
                   href="/contact"
                   className="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-xs sm:text-sm font-semibold text-[#24130A] hover:bg-[#FAF0E8] hover:text-[#52101B] transition-all"
                 >
-                  <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4 shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <circle cx="12" cy="12" r="10" />
                     <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
                     <line x1="12" y1="17" x2="12.01" y2="17" />
@@ -741,7 +788,13 @@ export default function AccountPage() {
                   onClick={handleSignOut}
                   className="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-xs sm:text-sm font-semibold text-red-700 hover:bg-red-50 transition-all cursor-pointer pt-2 mt-2 border-t border-gray-100"
                 >
-                  <svg className="w-4 h-4 shrink-0 text-red-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4 shrink-0 text-red-600"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
                     <polyline points="16 17 21 12 16 7" />
                     <line x1="21" y1="12" x2="9" y2="12" />
@@ -789,7 +842,13 @@ export default function AccountPage() {
               {/* Stat 1: My Orders */}
               <div className="bg-white rounded-xl border border-gray-200/90 p-4 shadow-2xs hover:shadow-xs transition-all flex items-start gap-3">
                 <div className="w-10 h-10 rounded-xl bg-[#FAF0E4] text-[#A86E2B] flex items-center justify-center shrink-0">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-5 h-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <rect x="1" y="3" width="15" height="13" />
                     <polygon points="16 8 20 8 23 11 23 16 16 16 8" />
                     <circle cx="5.5" cy="18.5" r="2.5" />
@@ -803,9 +862,7 @@ export default function AccountPage() {
                   <span className="text-2xl sm:text-3xl font-extrabold text-[#1F140D] block mt-0.5 leading-tight">
                     {ordersList.length}
                   </span>
-                  <span className="text-[11px] text-gray-500 font-medium block">
-                    Total Orders
-                  </span>
+                  <span className="text-[11px] text-gray-500 font-medium block">Total Orders</span>
                   <button
                     type="button"
                     onClick={() => setActiveTab('orders')}
@@ -820,7 +877,13 @@ export default function AccountPage() {
               {/* Stat 2: Wishlist */}
               <div className="bg-white rounded-xl border border-gray-200/90 p-4 shadow-2xs hover:shadow-xs transition-all flex items-start gap-3">
                 <div className="w-10 h-10 rounded-xl bg-[#FAF0E4] text-[#A86E2B] flex items-center justify-center shrink-0">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-5 h-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                   </svg>
                 </div>
@@ -847,7 +910,13 @@ export default function AccountPage() {
               {/* Stat 3: Addresses */}
               <div className="bg-white rounded-xl border border-gray-200/90 p-4 shadow-2xs hover:shadow-xs transition-all flex items-start gap-3">
                 <div className="w-10 h-10 rounded-xl bg-[#FAF0E4] text-[#A86E2B] flex items-center justify-center shrink-0">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-5 h-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                     <circle cx="12" cy="10" r="3" />
                   </svg>
@@ -876,7 +945,13 @@ export default function AccountPage() {
               {/* Stat 4: Coupons */}
               <div className="bg-white rounded-xl border border-gray-200/90 p-4 shadow-2xs hover:shadow-xs transition-all flex items-start gap-3">
                 <div className="w-10 h-10 rounded-xl bg-[#FAF0E4] text-[#A86E2B] flex items-center justify-center shrink-0">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-5 h-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <polyline points="20 12 20 22 4 22 4 12" />
                     <rect x="2" y="7" width="20" height="5" />
                     <line x1="12" y1="22" x2="12" y2="7" />
@@ -916,7 +991,13 @@ export default function AccountPage() {
                   <div className="flex items-start justify-between pb-5 border-b border-gray-100 mb-6 gap-4">
                     <div className="flex items-center gap-3.5">
                       <div className="w-10 h-10 rounded-full bg-[#FAF0E4] text-[#8C4A18] flex items-center justify-center shrink-0">
-                        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <svg
+                          className="w-5 h-5"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
                           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                           <circle cx="12" cy="7" r="4" />
                         </svg>
@@ -936,7 +1017,13 @@ export default function AccountPage() {
                       onClick={() => setIsEditingProfile(!isEditingProfile)}
                       className="px-3.5 py-1.5 rounded-lg border border-gray-300/80 hover:border-gray-400 bg-white hover:bg-gray-50 text-gray-700 hover:text-black font-semibold text-xs transition-colors flex items-center gap-1.5 shadow-2xs cursor-pointer shrink-0"
                     >
-                      <svg className="w-3.5 h-3.5 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <svg
+                        className="w-3.5 h-3.5 text-gray-500"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
                         <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
                         <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
                       </svg>
@@ -1015,8 +1102,16 @@ export default function AccountPage() {
                             />
                           ) : (
                             <div className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-lg border border-gray-200/90 bg-white text-gray-400 flex items-center justify-between select-none">
-                              <span>{dob ? dob.split('-').reverse().join(' / ') : 'DD / MM / YYYY'}</span>
-                              <svg className="w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                              <span>
+                                {dob ? dob.split('-').reverse().join(' / ') : 'DD / MM / YYYY'}
+                              </span>
+                              <svg
+                                className="w-4 h-4 text-gray-400"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                              >
                                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
                                 <line x1="16" y1="2" x2="16" y2="6" />
                                 <line x1="8" y1="2" x2="8" y2="6" />
@@ -1047,7 +1142,8 @@ export default function AccountPage() {
                     )}
 
                     <p className="text-[11px] text-gray-400 mt-4 leading-normal">
-                      We&apos;ll use your information only to process your orders and keep you updated.
+                      We&apos;ll use your information only to process your orders and keep you
+                      updated.
                     </p>
                   </form>
                 </div>
@@ -1057,7 +1153,13 @@ export default function AccountPage() {
                   <div className="flex items-start justify-between pb-5 border-b border-gray-100 mb-5 gap-4">
                     <div className="flex items-center gap-3.5">
                       <div className="w-10 h-10 rounded-full bg-[#FAF0E4] text-[#8C4A18] flex items-center justify-center shrink-0">
-                        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <svg
+                          className="w-5 h-5"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
                           <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                           <circle cx="12" cy="10" r="3" />
                         </svg>
@@ -1093,9 +1195,7 @@ export default function AccountPage() {
                             Default
                           </span>
                         </div>
-                        <h3 className="font-bold text-sm text-[#1F140D]">
-                          {defaultAddress.name}
-                        </h3>
+                        <h3 className="font-bold text-sm text-[#1F140D]">{defaultAddress.name}</h3>
                         <p className="text-xs text-gray-600">
                           {defaultAddress.street} – {defaultAddress.pincode}
                         </p>
@@ -1116,7 +1216,13 @@ export default function AccountPage() {
                           }}
                           className="px-3 py-1.5 rounded border border-gray-200 bg-white hover:bg-gray-50 text-gray-700 text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer shadow-2xs"
                         >
-                          <svg className="w-3.5 h-3.5 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <svg
+                            className="w-3.5 h-3.5 text-gray-500"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                          >
                             <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
                             <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
                           </svg>
@@ -1127,7 +1233,13 @@ export default function AccountPage() {
                           onClick={() => handleDeleteAddress(defaultAddress.id)}
                           className="px-3 py-1.5 rounded border border-gray-200 bg-white hover:bg-red-50 text-red-600 text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer shadow-2xs"
                         >
-                          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <svg
+                            className="w-3.5 h-3.5"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                          >
                             <polyline points="3 6 5 6 21 6" />
                             <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
                           </svg>
@@ -1145,7 +1257,13 @@ export default function AccountPage() {
                   <div className="flex items-start justify-between pb-5 border-b border-gray-100 mb-5 gap-4">
                     <div className="flex items-center gap-3.5">
                       <div className="w-10 h-10 rounded-full bg-[#FAF0E4] text-[#8C4A18] flex items-center justify-center shrink-0">
-                        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <svg
+                          className="w-5 h-5"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
                           <circle cx="12" cy="12" r="3" />
                           <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
                         </svg>
@@ -1165,7 +1283,13 @@ export default function AccountPage() {
                       onClick={() => showToast('Click on any preference below to toggle.')}
                       className="px-3.5 py-1.5 rounded-lg border border-gray-300/80 hover:border-gray-400 bg-white hover:bg-gray-50 text-gray-700 hover:text-black font-semibold text-xs transition-colors flex items-center gap-1.5 shadow-2xs cursor-pointer shrink-0"
                     >
-                      <svg className="w-3.5 h-3.5 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <svg
+                        className="w-3.5 h-3.5 text-gray-500"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
                         <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
                         <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
                       </svg>
@@ -1180,19 +1304,26 @@ export default function AccountPage() {
                       onClick={() => handleTogglePreference('orders')}
                       className="p-4 rounded-xl border border-gray-200/90 bg-white hover:border-amber-300/60 transition-all cursor-pointer select-none flex items-start gap-3 shadow-2xs"
                     >
-                      <div className={`mt-0.5 w-4 h-4 rounded flex items-center justify-center shrink-0 transition-colors ${
-                        orderUpdates ? 'bg-[#1F140D] text-white' : 'border border-gray-300 bg-white'
-                      }`}>
+                      <div
+                        className={`mt-0.5 w-4 h-4 rounded flex items-center justify-center shrink-0 transition-colors ${
+                          orderUpdates
+                            ? 'bg-[#1F140D] text-white'
+                            : 'border border-gray-300 bg-white'
+                        }`}
+                      >
                         {orderUpdates && (
-                          <svg className="w-3 h-3 stroke-[3]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                          <svg
+                            className="w-3 h-3 stroke-[3]"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                          >
                             <polyline points="20 6 9 17 4 12" />
                           </svg>
                         )}
                       </div>
                       <div>
-                        <h3 className="text-xs font-bold text-[#1F140D]">
-                          Order Updates
-                        </h3>
+                        <h3 className="text-xs font-bold text-[#1F140D]">Order Updates</h3>
                         <p className="text-[11px] text-gray-500 mt-0.5 leading-snug">
                           Get notified about your orders
                         </p>
@@ -1204,11 +1335,20 @@ export default function AccountPage() {
                       onClick={() => handleTogglePreference('offers')}
                       className="p-4 rounded-xl border border-gray-200/90 bg-white hover:border-amber-300/60 transition-all cursor-pointer select-none flex items-start gap-3 shadow-2xs"
                     >
-                      <div className={`mt-0.5 w-4 h-4 rounded flex items-center justify-center shrink-0 transition-colors ${
-                        offersPromotions ? 'bg-[#1F140D] text-white' : 'border border-gray-300 bg-white'
-                      }`}>
+                      <div
+                        className={`mt-0.5 w-4 h-4 rounded flex items-center justify-center shrink-0 transition-colors ${
+                          offersPromotions
+                            ? 'bg-[#1F140D] text-white'
+                            : 'border border-gray-300 bg-white'
+                        }`}
+                      >
                         {offersPromotions && (
-                          <svg className="w-3 h-3 stroke-[3]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                          <svg
+                            className="w-3 h-3 stroke-[3]"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                          >
                             <polyline points="20 6 9 17 4 12" />
                           </svg>
                         )}
@@ -1228,11 +1368,20 @@ export default function AccountPage() {
                       onClick={() => handleTogglePreference('recs')}
                       className="p-4 rounded-xl border border-gray-200/90 bg-white hover:border-amber-300/60 transition-all cursor-pointer select-none flex items-start gap-3 shadow-2xs"
                     >
-                      <div className={`mt-0.5 w-4 h-4 rounded flex items-center justify-center shrink-0 transition-colors ${
-                        productRecommendations ? 'bg-[#1F140D] text-white' : 'border border-gray-300 bg-white'
-                      }`}>
+                      <div
+                        className={`mt-0.5 w-4 h-4 rounded flex items-center justify-center shrink-0 transition-colors ${
+                          productRecommendations
+                            ? 'bg-[#1F140D] text-white'
+                            : 'border border-gray-300 bg-white'
+                        }`}
+                      >
                         {productRecommendations && (
-                          <svg className="w-3 h-3 stroke-[3]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                          <svg
+                            className="w-3 h-3 stroke-[3]"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                          >
                             <polyline points="20 6 9 17 4 12" />
                           </svg>
                         )}
@@ -1258,26 +1407,30 @@ export default function AccountPage() {
                   <h2 className="text-lg font-serif font-bold text-[#1F140D]">
                     My Orders ({ordersList.length})
                   </h2>
-                  <Link
-                    href="/shop"
-                    className="text-xs font-bold text-[#8C4A18] hover:underline"
-                  >
+                  <Link href="/shop" className="text-xs font-bold text-[#8C4A18] hover:underline">
                     + Place New Order
                   </Link>
                 </div>
 
                 <div className="divide-y divide-gray-100">
                   {ordersList.map((order) => (
-                    <div key={order.id} className="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div
+                      key={order.id}
+                      className="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+                    >
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="font-bold text-sm text-[#1F140D]">{order.orderNumber}</span>
+                          <span className="font-bold text-sm text-[#1F140D]">
+                            {order.orderNumber}
+                          </span>
                           <span className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-green-50 text-green-700 border border-green-200">
                             {order.status}
                           </span>
                         </div>
                         <p className="text-xs text-gray-500 mt-0.5">{order.items}</p>
-                        <span className="text-[11px] text-gray-400 mt-1 block">Ordered on {order.date}</span>
+                        <span className="text-[11px] text-gray-400 mt-1 block">
+                          Ordered on {order.date}
+                        </span>
                       </div>
                       <div className="flex sm:flex-col items-center sm:items-end justify-between gap-2 shrink-0">
                         <span className="font-bold text-sm text-[#1F140D]">₹{order.total}</span>
@@ -1406,9 +1559,7 @@ export default function AccountPage() {
                           Copy Code
                         </button>
                       </div>
-                      <p className="text-xs text-gray-600 mt-3 leading-relaxed">
-                        {cpn.desc}
-                      </p>
+                      <p className="text-xs text-gray-600 mt-3 leading-relaxed">{cpn.desc}</p>
                       <span className="text-[10px] text-gray-400 mt-2 block font-medium">
                         {cpn.expiry}
                       </span>
@@ -1430,21 +1581,29 @@ export default function AccountPage() {
                   <div className="flex items-center justify-between p-3.5 rounded-xl border border-gray-200 bg-[#FCFBF9]">
                     <div>
                       <h4 className="text-xs font-bold text-[#1F140D]">SMS Dispatch Alerts</h4>
-                      <p className="text-[11px] text-gray-500">Receive tracking link via SMS when order leaves Mandi</p>
+                      <p className="text-[11px] text-gray-500">
+                        Receive tracking link via SMS when order leaves Mandi
+                      </p>
                     </div>
                     <input type="checkbox" defaultChecked className="w-4 h-4 accent-[#8C4A18]" />
                   </div>
                   <div className="flex items-center justify-between p-3.5 rounded-xl border border-gray-200 bg-[#FCFBF9]">
                     <div>
-                      <h4 className="text-xs font-bold text-[#1F140D]">WhatsApp Delivery Updates</h4>
-                      <p className="text-[11px] text-gray-500">Get instant invoice and out-for-delivery alerts</p>
+                      <h4 className="text-xs font-bold text-[#1F140D]">
+                        WhatsApp Delivery Updates
+                      </h4>
+                      <p className="text-[11px] text-gray-500">
+                        Get instant invoice and out-for-delivery alerts
+                      </p>
                     </div>
                     <input type="checkbox" defaultChecked className="w-4 h-4 accent-[#8C4A18]" />
                   </div>
                   <div className="flex items-center justify-between p-3.5 rounded-xl border border-gray-200 bg-[#FCFBF9]">
                     <div>
                       <h4 className="text-xs font-bold text-[#1F140D]">Festive Discount Emails</h4>
-                      <p className="text-[11px] text-gray-500">Early access to Diwali, Eid, and New Year offers</p>
+                      <p className="text-[11px] text-gray-500">
+                        Early access to Diwali, Eid, and New Year offers
+                      </p>
                     </div>
                     <input type="checkbox" defaultChecked className="w-4 h-4 accent-[#8C4A18]" />
                   </div>
@@ -1477,15 +1636,21 @@ export default function AccountPage() {
                       Connected Providers
                     </label>
                     <div className="flex items-center justify-between p-3 rounded-lg border border-gray-200 bg-gray-50">
-                      <span className="text-xs font-medium text-gray-800">Google Authentication</span>
-                      <span className="text-[11px] font-bold text-green-600 bg-green-100 px-2 py-0.5 rounded">Connected</span>
+                      <span className="text-xs font-medium text-gray-800">
+                        Google Authentication
+                      </span>
+                      <span className="text-[11px] font-bold text-green-600 bg-green-100 px-2 py-0.5 rounded">
+                        Connected
+                      </span>
                     </div>
                   </div>
 
                   <div className="pt-2">
                     <button
                       type="button"
-                      onClick={() => showToast('Password reset link sent to your registered email!')}
+                      onClick={() =>
+                        showToast('Password reset link sent to your registered email!')
+                      }
                       className="px-4 py-2 border border-gray-300 text-gray-700 hover:text-black font-semibold text-xs rounded-lg shadow-2xs hover:bg-gray-50"
                     >
                       Request Password Reset

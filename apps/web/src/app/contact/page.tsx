@@ -33,7 +33,7 @@ export default function ContactPage() {
   };
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     if (name === 'message' && value.length > 500) return; // 500 char limit
@@ -127,59 +127,95 @@ export default function ContactPage() {
     {
       label: 'Retailers',
       icon: (
-        <svg className="w-5 h-5 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-          <polyline points="9 22 9 12 15 12 15 22"/>
+        <svg
+          className="w-5 h-5 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+        >
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
         </svg>
       ),
     },
     {
       label: 'Restaurants',
       icon: (
-        <svg className="w-5 h-5 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-          <path d="M18 8h1a4 4 0 010 8h-1"/>
-          <path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/>
-          <line x1="6" y1="2" x2="6" y2="4"/>
-          <line x1="10" y1="2" x2="10" y2="4"/>
-          <line x1="14" y1="2" x2="14" y2="4"/>
+        <svg
+          className="w-5 h-5 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+        >
+          <path d="M18 8h1a4 4 0 010 8h-1" />
+          <path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z" />
+          <line x1="6" y1="2" x2="6" y2="4" />
+          <line x1="10" y1="2" x2="10" y2="4" />
+          <line x1="14" y1="2" x2="14" y2="4" />
         </svg>
       ),
     },
     {
       label: 'Hotels',
       icon: (
-        <svg className="w-5 h-5 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-          <rect x="2" y="7" width="20" height="14" rx="2"/>
-          <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+        <svg
+          className="w-5 h-5 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+        >
+          <rect x="2" y="7" width="20" height="14" rx="2" />
+          <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
         </svg>
       ),
     },
     {
       label: 'Caterers',
       icon: (
-        <svg className="w-5 h-5 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
-          <path d="M12 6v6l4 2"/>
+        <svg
+          className="w-5 h-5 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+        >
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+          <path d="M12 6v6l4 2" />
         </svg>
       ),
     },
     {
       label: 'Sweet Shops',
       icon: (
-        <svg className="w-5 h-5 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        <svg
+          className="w-5 h-5 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+        >
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
         </svg>
       ),
     },
     {
       label: 'Corporate Gifting',
       icon: (
-        <svg className="w-5 h-5 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-          <polyline points="20 12 20 22 4 22 4 12"/>
-          <rect x="2" y="7" width="20" height="5"/>
-          <line x1="12" y1="22" x2="12" y2="7"/>
-          <path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/>
-          <path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/>
+        <svg
+          className="w-5 h-5 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+        >
+          <polyline points="20 12 20 22 4 22 4 12" />
+          <rect x="2" y="7" width="20" height="5" />
+          <line x1="12" y1="22" x2="12" y2="7" />
+          <path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z" />
+          <path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z" />
         </svg>
       ),
     },
@@ -187,7 +223,6 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-[#FDFBF7] text-[#2C2114] font-sans pb-16">
-      
       {/* ══════════════════════════════════════════════════════════
           1. HERO BANNER
       ══════════════════════════════════════════════════════════ */}
@@ -207,7 +242,9 @@ export default function ContactPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
           {/* Breadcrumb */}
           <nav className="text-xs text-amber-200/80 flex items-center gap-1.5 mb-4 font-medium">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <Link href="/" className="hover:text-white transition-colors">
+              Home
+            </Link>
             <span className="text-white/40">&gt;</span>
             <span className="text-white font-semibold">Contact Us</span>
           </nav>
@@ -216,11 +253,13 @@ export default function ContactPage() {
             {/* Left Column: Heading and intro */}
             <div className="lg:col-span-7 space-y-3">
               <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-serif font-bold text-white tracking-tight leading-[1.15]">
-                Get in Touch with<br />
+                Get in Touch with
+                <br />
                 <span className="italic font-serif font-normal text-[#E5A93C]">Bansal Foods</span>
               </h1>
               <p className="text-sm sm:text-base text-gray-200/90 leading-relaxed max-w-xl font-normal pt-1">
-                Have a question about our products, your order or a wholesale requirement? We&apos;re here to help.
+                Have a question about our products, your order or a wholesale requirement?
+                We&apos;re here to help.
               </p>
             </div>
 
@@ -245,18 +284,25 @@ export default function ContactPage() {
       ══════════════════════════════════════════════════════════ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-8 relative z-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          
           {/* Card 1: CALL US */}
           <div className="bg-white rounded-2xl border border-[#EFE7DC] p-5 shadow-sm hover:shadow-md transition-shadow flex items-center justify-between gap-3 overflow-hidden">
             <div className="space-y-2 flex-1">
               <div className="flex items-center gap-2.5">
                 <div className="w-9 h-9 rounded-full bg-[#FAF0E2] text-[#A66224] flex items-center justify-center shrink-0">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.11 12 19.79 19.79 0 011.04 3.4a2 2 0 012-1.72h3a2 2 0 012 1.72c.153.925.36 1.835.62 2.726a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.891.26 1.8.467 2.726.62A2 2 0 0122 16.92z"/>
+                  <svg
+                    className="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.11 12 19.79 19.79 0 011.04 3.4a2 2 0 012-1.72h3a2 2 0 012 1.72c.153.925.36 1.835.62 2.726a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.891.26 1.8.467 2.726.62A2 2 0 0122 16.92z" />
                   </svg>
                 </div>
                 <div>
-                  <span className="text-[10px] font-bold text-[#8C1C1C] uppercase tracking-wider block">CALL US</span>
+                  <span className="text-[10px] font-bold text-[#8C1C1C] uppercase tracking-wider block">
+                    CALL US
+                  </span>
                   <p className="text-xs font-bold text-[#1F140D] leading-tight">9313321535</p>
                   <p className="text-xs font-bold text-[#1F140D] leading-tight">701119609</p>
                 </div>
@@ -276,7 +322,12 @@ export default function ContactPage() {
             </div>
             {/* Almonds image thumbnail */}
             <div className="relative w-16 h-16 rounded-xl overflow-hidden shrink-0 border border-[#EFE7DC]">
-              <Image src="/product-almonds.jpg" alt="Call Bansal Foods" fill className="object-cover" />
+              <Image
+                src="/product-almonds.jpg"
+                alt="Call Bansal Foods"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
 
@@ -286,12 +337,16 @@ export default function ContactPage() {
               <div className="flex items-center gap-2.5">
                 <div className="w-9 h-9 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
                   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.772.82 2.791.82 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.749 0-3.393-.454-4.832-1.248l-5.168 1.352 1.378-5.035c-.886-1.488-1.378-3.218-1.378-5.069 0-5.514 4.486-10 10-10s10 4.486 10 10z"/>
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.772.82 2.791.82 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.749 0-3.393-.454-4.832-1.248l-5.168 1.352 1.378-5.035c-.886-1.488-1.378-3.218-1.378-5.069 0-5.514 4.486-10 10-10s10 4.486 10 10z" />
                   </svg>
                 </div>
                 <div>
-                  <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider block">WHATSAPP</span>
-                  <p className="text-xs font-bold text-[#1F140D] leading-tight">Chat with Bansal Foods</p>
+                  <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider block">
+                    WHATSAPP
+                  </span>
+                  <p className="text-xs font-bold text-[#1F140D] leading-tight">
+                    Chat with Bansal Foods
+                  </p>
                 </div>
               </div>
               <p className="text-[11px] text-[#6B635B] leading-tight">
@@ -311,7 +366,12 @@ export default function ContactPage() {
             </div>
             {/* Pistachios image thumbnail */}
             <div className="relative w-16 h-16 rounded-xl overflow-hidden shrink-0 border border-[#EFE7DC]">
-              <Image src="/product-pistachios.jpg" alt="WhatsApp Bansal Foods" fill className="object-cover" />
+              <Image
+                src="/product-pistachios.jpg"
+                alt="WhatsApp Bansal Foods"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
 
@@ -320,15 +380,25 @@ export default function ContactPage() {
             <div className="space-y-2 flex-1">
               <div className="flex items-center gap-2.5">
                 <div className="w-9 h-9 rounded-full bg-[#FAF0E2] text-[#A66224] flex items-center justify-center shrink-0">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                    <polyline points="22,6 12,13 2,6"/>
+                  <svg
+                    className="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
                   </svg>
                 </div>
                 <div>
-                  <span className="text-[10px] font-bold text-[#8C5D17] uppercase tracking-wider block">EMAIL</span>
+                  <span className="text-[10px] font-bold text-[#8C5D17] uppercase tracking-wider block">
+                    EMAIL
+                  </span>
                   <p className="text-xs font-bold text-[#1F140D] leading-tight">Send us an email</p>
-                  <p className="text-[11px] font-semibold text-[#6E1A1A] leading-tight">shashwatbansal2610@gmail.com</p>
+                  <p className="text-[11px] font-semibold text-[#6E1A1A] leading-tight">
+                    shashwatbansal2610@gmail.com
+                  </p>
                 </div>
               </div>
               <p className="text-[11px] text-[#6B635B] leading-tight">
@@ -346,7 +416,12 @@ export default function ContactPage() {
             </div>
             {/* Dates image thumbnail */}
             <div className="relative w-16 h-16 rounded-xl overflow-hidden shrink-0 border border-[#EFE7DC]">
-              <Image src="/product-dates.jpg" alt="Email Bansal Foods" fill className="object-cover" />
+              <Image
+                src="/product-dates.jpg"
+                alt="Email Bansal Foods"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
 
@@ -355,14 +430,24 @@ export default function ContactPage() {
             <div className="space-y-2 flex-1">
               <div className="flex items-center gap-2.5">
                 <div className="w-9 h-9 rounded-full bg-[#FAF0E2] text-[#A66224] flex items-center justify-center shrink-0">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-                    <circle cx="12" cy="10" r="3"/>
+                  <svg
+                    className="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                    <circle cx="12" cy="10" r="3" />
                   </svg>
                 </div>
                 <div>
-                  <span className="text-[10px] font-bold text-[#6E1A1A] uppercase tracking-wider block">VISIT US</span>
-                  <p className="text-xs font-bold text-[#1F140D] leading-tight">Khari Baoli, Delhi – 110006</p>
+                  <span className="text-[10px] font-bold text-[#6E1A1A] uppercase tracking-wider block">
+                    VISIT US
+                  </span>
+                  <p className="text-xs font-bold text-[#1F140D] leading-tight">
+                    Khari Baoli, Delhi – 110006
+                  </p>
                 </div>
               </div>
               <p className="text-[11px] text-[#6B635B] leading-tight">
@@ -382,10 +467,14 @@ export default function ContactPage() {
             </div>
             {/* Storefront thumbnail */}
             <div className="relative w-16 h-16 rounded-xl overflow-hidden shrink-0 border border-[#EFE7DC]">
-              <Image src="/khari-baoli-storefront.jpg" alt="Visit Bansal Foods Store" fill className="object-cover" />
+              <Image
+                src="/khari-baoli-storefront.jpg"
+                alt="Visit Bansal Foods Store"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
-
         </div>
       </section>
 
@@ -394,7 +483,6 @@ export default function ContactPage() {
       ══════════════════════════════════════════════════════════ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
           {/* Left Column: Send Us a Message (7 cols) */}
           <div className="lg:col-span-7 bg-white rounded-2xl border border-[#EFE7DC] p-6 sm:p-8 shadow-xs">
             <h2 className="text-2xl sm:text-[26px] font-serif font-bold text-[#2C1A14]">
@@ -407,20 +495,38 @@ export default function ContactPage() {
             {isSubmitted ? (
               <div className="bg-[#FAF5EB] border border-[#E9DAC6] rounded-xl p-8 text-center space-y-3 animate-fadeIn">
                 <div className="w-14 h-14 mx-auto rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center">
-                  <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <polyline points="20 6 9 17 4 12"/>
+                  <svg
+                    className="w-7 h-7"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </div>
-                <h3 className="font-serif font-bold text-xl text-[#2C1A14]">Thank You, {formData.fullName}!</h3>
+                <h3 className="font-serif font-bold text-xl text-[#2C1A14]">
+                  Thank You, {formData.fullName}!
+                </h3>
                 <p className="text-xs sm:text-sm text-[#5C554E] max-w-md mx-auto leading-relaxed">
-                  Your message regarding <strong>&ldquo;{formData.subject}&rdquo;</strong> has been successfully received. Our Khari Baoli support team will contact you at <strong>{formData.email}</strong> or <strong>{formData.mobile}</strong> within 24 hours.
+                  Your message regarding <strong>&ldquo;{formData.subject}&rdquo;</strong> has been
+                  successfully received. Our Khari Baoli support team will contact you at{' '}
+                  <strong>{formData.email}</strong> or <strong>{formData.mobile}</strong> within 24
+                  hours.
                 </p>
                 <div className="pt-2">
                   <button
                     type="button"
                     onClick={() => {
                       setIsSubmitted(false);
-                      setFormData({ fullName: '', mobile: '', email: '', subject: '', orderId: '', message: '' });
+                      setFormData({
+                        fullName: '',
+                        mobile: '',
+                        email: '',
+                        subject: '',
+                        orderId: '',
+                        message: '',
+                      });
                     }}
                     className="bg-[#6E1A1A] hover:bg-[#581313] text-white font-semibold text-xs px-5 py-2.5 rounded-lg transition-colors cursor-pointer"
                   >
@@ -430,7 +536,6 @@ export default function ContactPage() {
               </div>
             ) : (
               <form onSubmit={handleFormSubmit} noValidate className="space-y-4">
-                
                 {/* Row 1: Full Name + Mobile Number */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
@@ -444,7 +549,9 @@ export default function ContactPage() {
                       onChange={handleInputChange}
                       placeholder="Enter your full name"
                       className={`w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-lg border bg-white text-[#2C1A14] placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-[#6E1A1A] transition-colors ${
-                        formErrors.fullName ? 'border-red-400 bg-red-50/20' : 'border-gray-300 focus:border-[#6E1A1A]'
+                        formErrors.fullName
+                          ? 'border-red-400 bg-red-50/20'
+                          : 'border-gray-300 focus:border-[#6E1A1A]'
                       }`}
                     />
                     {formErrors.fullName && (
@@ -463,7 +570,9 @@ export default function ContactPage() {
                       onChange={handleInputChange}
                       placeholder="Enter your mobile number"
                       className={`w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-lg border bg-white text-[#2C1A14] placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-[#6E1A1A] transition-colors ${
-                        formErrors.mobile ? 'border-red-400 bg-red-50/20' : 'border-gray-300 focus:border-[#6E1A1A]'
+                        formErrors.mobile
+                          ? 'border-red-400 bg-red-50/20'
+                          : 'border-gray-300 focus:border-[#6E1A1A]'
                       }`}
                     />
                     {formErrors.mobile && (
@@ -485,7 +594,9 @@ export default function ContactPage() {
                       onChange={handleInputChange}
                       placeholder="Enter your email address"
                       className={`w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-lg border bg-white text-[#2C1A14] placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-[#6E1A1A] transition-colors ${
-                        formErrors.email ? 'border-red-400 bg-red-50/20' : 'border-gray-300 focus:border-[#6E1A1A]'
+                        formErrors.email
+                          ? 'border-red-400 bg-red-50/20'
+                          : 'border-gray-300 focus:border-[#6E1A1A]'
                       }`}
                     />
                     {formErrors.email && (
@@ -502,7 +613,9 @@ export default function ContactPage() {
                       value={formData.subject}
                       onChange={handleInputChange}
                       className={`w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-lg border bg-white text-[#2C1A14] focus:outline-none focus:ring-1 focus:ring-[#6E1A1A] transition-colors cursor-pointer ${
-                        formErrors.subject ? 'border-red-400 bg-red-50/20' : 'border-gray-300 focus:border-[#6E1A1A]'
+                        formErrors.subject
+                          ? 'border-red-400 bg-red-50/20'
+                          : 'border-gray-300 focus:border-[#6E1A1A]'
                       }`}
                     >
                       <option value="">Select a subject</option>
@@ -545,7 +658,9 @@ export default function ContactPage() {
                     onChange={handleInputChange}
                     placeholder="Type your message here..."
                     className={`w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-lg border bg-white text-[#2C1A14] placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-[#6E1A1A] resize-none transition-colors ${
-                      formErrors.message ? 'border-red-400 bg-red-50/20' : 'border-gray-300 focus:border-[#6E1A1A]'
+                      formErrors.message
+                        ? 'border-red-400 bg-red-50/20'
+                        : 'border-gray-300 focus:border-[#6E1A1A]'
                     }`}
                   />
                   <div className="flex items-center justify-between text-[11px] text-gray-400 mt-1 px-1">
@@ -568,16 +683,33 @@ export default function ContactPage() {
                     {isSubmitting ? (
                       <>
                         <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="white" strokeWidth="4"/>
-                          <path className="opacity-75" fill="white" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="white"
+                            strokeWidth="4"
+                          />
+                          <path
+                            className="opacity-75"
+                            fill="white"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                          />
                         </svg>
                         <span>Sending…</span>
                       </>
                     ) : (
                       <>
-                        <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <line x1="22" y1="2" x2="11" y2="13"/>
-                          <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                        <svg
+                          className="w-3.5 h-3.5"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <line x1="22" y1="2" x2="11" y2="13" />
+                          <polygon points="22 2 15 22 11 13 2 9 22 2" />
                         </svg>
                         <span>Send Message</span>
                         <span>→</span>
@@ -586,21 +718,25 @@ export default function ContactPage() {
                   </button>
 
                   <div className="flex items-center gap-1.5 text-[11px] text-gray-500">
-                    <svg className="w-3.5 h-3.5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                      <path d="M7 11V7a5 5 0 0110 0v4"/>
+                    <svg
+                      className="w-3.5 h-3.5 text-gray-400"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                      <path d="M7 11V7a5 5 0 0110 0v4" />
                     </svg>
                     <span>We&apos;ll use your information only to respond to your inquiry.</span>
                   </div>
                 </div>
-
               </form>
             )}
           </div>
 
           {/* Right Column: Wholesale + Store Hours (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
-            
             {/* Top Card: Looking for Wholesale or Bulk Orders? */}
             <div className="bg-white rounded-2xl border border-[#EFE7DC] p-5 sm:p-6 shadow-xs">
               <div className="flex items-start justify-between gap-4 mb-4">
@@ -614,7 +750,12 @@ export default function ContactPage() {
                 </div>
                 {/* Jute sacks thumbnail */}
                 <div className="relative w-16 h-16 rounded-xl overflow-hidden shrink-0 border border-[#EFE7DC]">
-                  <Image src="/contact-wholesale-jute.jpg" alt="Wholesale Jute Sacks" fill className="object-cover" />
+                  <Image
+                    src="/contact-wholesale-jute.jpg"
+                    alt="Wholesale Jute Sacks"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </div>
 
@@ -665,9 +806,15 @@ export default function ContactPage() {
             <div className="bg-white rounded-2xl border border-[#EFE7DC] p-5 sm:p-6 shadow-xs">
               <div className="flex items-center gap-2.5 mb-1">
                 <div className="w-8 h-8 rounded-full bg-[#FAF0E2] text-[#A66224] flex items-center justify-center shrink-0">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <circle cx="12" cy="12" r="10"/>
-                    <polyline points="12 6 12 12 16 14"/>
+                  <svg
+                    className="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
                   </svg>
                 </div>
                 <h3 className="font-serif font-bold text-base text-[#2C1A14]">
@@ -682,11 +829,17 @@ export default function ContactPage() {
                 {/* Monday - Saturday */}
                 <div className="flex items-center justify-between p-2.5 rounded-lg bg-[#FAF8F5] border border-[#EFE7DC]">
                   <div className="flex items-center gap-2">
-                    <svg className="w-4 h-4 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                      <line x1="16" y1="2" x2="16" y2="6"/>
-                      <line x1="8" y1="2" x2="8" y2="6"/>
-                      <line x1="3" y1="10" x2="21" y2="10"/>
+                    <svg
+                      className="w-4 h-4 text-[#A66224]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                      <line x1="16" y1="2" x2="16" y2="6" />
+                      <line x1="8" y1="2" x2="8" y2="6" />
+                      <line x1="3" y1="10" x2="21" y2="10" />
                     </svg>
                     <span className="font-semibold text-[#2C1A14]">Monday – Saturday</span>
                   </div>
@@ -696,11 +849,17 @@ export default function ContactPage() {
                 {/* Sunday */}
                 <div className="flex items-center justify-between p-2.5 rounded-lg bg-[#FAF8F5] border border-[#EFE7DC]">
                   <div className="flex items-center gap-2">
-                    <svg className="w-4 h-4 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                      <line x1="16" y1="2" x2="16" y2="6"/>
-                      <line x1="8" y1="2" x2="8" y2="6"/>
-                      <line x1="3" y1="10" x2="21" y2="10"/>
+                    <svg
+                      className="w-4 h-4 text-[#A66224]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                      <line x1="16" y1="2" x2="16" y2="6" />
+                      <line x1="8" y1="2" x2="8" y2="6" />
+                      <line x1="3" y1="10" x2="21" y2="10" />
                     </svg>
                     <span className="font-semibold text-[#2C1A14]">Sunday</span>
                   </div>
@@ -708,9 +867,7 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
-
           </div>
-
         </div>
       </section>
 
@@ -723,20 +880,26 @@ export default function ContactPage() {
             Visit Bansal Foods
           </h2>
           <p className="text-xs sm:text-sm text-[#6B635B] mt-1">
-            We are located in the heart of Khari Baoli, Delhi, serving customers for generations with premium dry fruits and nuts.
+            We are located in the heart of Khari Baoli, Delhi, serving customers for generations
+            with premium dry fruits and nuts.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-          
           {/* Card 1: Store Details & Buttons (4 cols) */}
           <div className="lg:col-span-4 bg-white rounded-2xl border border-[#EFE7DC] p-6 shadow-xs flex flex-col justify-between">
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <div className="w-10 h-10 rounded-full bg-[#FAF0E2] text-[#A66224] flex items-center justify-center shrink-0">
-                  <svg className="w-5 h-5 text-[#8C1C1C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-                    <circle cx="12" cy="10" r="3"/>
+                  <svg
+                    className="w-5 h-5 text-[#8C1C1C]"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                    <circle cx="12" cy="10" r="3" />
                   </svg>
                 </div>
                 <div>
@@ -746,7 +909,8 @@ export default function ContactPage() {
                 </div>
               </div>
               <p className="text-xs text-[#6B635B] leading-relaxed">
-                Visit our historic store in Khari Baoli to explore our extensive range of dry fruits, nuts, saffron, and festive gift boxes.
+                Visit our historic store in Khari Baoli to explore our extensive range of dry
+                fruits, nuts, saffron, and festive gift boxes.
               </p>
             </div>
 
@@ -802,7 +966,6 @@ export default function ContactPage() {
               className="object-cover"
             />
           </div>
-
         </div>
       </section>
 
@@ -811,7 +974,6 @@ export default function ContactPage() {
       ══════════════════════════════════════════════════════════ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="bg-white rounded-2xl border border-[#EFE7DC] p-6 sm:p-8 shadow-xs">
-          
           <div className="flex items-center gap-3 mb-1">
             <div className="w-8 h-8 rounded-full bg-[#8C5D24] text-white flex items-center justify-center shrink-0 font-bold text-sm">
               ?
@@ -820,12 +982,9 @@ export default function ContactPage() {
               Frequently Asked Questions
             </h2>
           </div>
-          <p className="text-xs text-[#6B635B] mb-6 pl-11">
-            Quick answers to common queries.
-          </p>
+          <p className="text-xs text-[#6B635B] mb-6 pl-11">Quick answers to common queries.</p>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
             {/* FAQ Column 1 (4 questions) - 5 cols */}
             <div className="lg:col-span-5 divide-y divide-[#EFE7DC]">
               {faqsCol1.map((faq, index) => {
@@ -837,9 +996,11 @@ export default function ContactPage() {
                       onClick={() => toggleFaq(index)}
                       className="w-full flex items-center justify-between text-left gap-4 group cursor-pointer"
                     >
-                      <span className={`text-xs sm:text-sm font-semibold transition-colors ${
-                        isOpen ? 'text-[#6E1A1A]' : 'text-[#2C1A14] group-hover:text-[#6E1A1A]'
-                      }`}>
+                      <span
+                        className={`text-xs sm:text-sm font-semibold transition-colors ${
+                          isOpen ? 'text-[#6E1A1A]' : 'text-[#2C1A14] group-hover:text-[#6E1A1A]'
+                        }`}
+                      >
                         {faq.q}
                       </span>
                       <svg
@@ -851,7 +1012,7 @@ export default function ContactPage() {
                         stroke="currentColor"
                         strokeWidth="2"
                       >
-                        <polyline points="6 9 12 15 18 9"/>
+                        <polyline points="6 9 12 15 18 9" />
                       </svg>
                     </button>
                     {isOpen && (
@@ -876,9 +1037,11 @@ export default function ContactPage() {
                       onClick={() => toggleFaq(actualIndex)}
                       className="w-full flex items-center justify-between text-left gap-4 group cursor-pointer"
                     >
-                      <span className={`text-xs sm:text-sm font-semibold transition-colors ${
-                        isOpen ? 'text-[#6E1A1A]' : 'text-[#2C1A14] group-hover:text-[#6E1A1A]'
-                      }`}>
+                      <span
+                        className={`text-xs sm:text-sm font-semibold transition-colors ${
+                          isOpen ? 'text-[#6E1A1A]' : 'text-[#2C1A14] group-hover:text-[#6E1A1A]'
+                        }`}
+                      >
                         {faq.q}
                       </span>
                       <svg
@@ -890,7 +1053,7 @@ export default function ContactPage() {
                         stroke="currentColor"
                         strokeWidth="2"
                       >
-                        <polyline points="6 9 12 15 18 9"/>
+                        <polyline points="6 9 12 15 18 9" />
                       </svg>
                     </button>
                     {isOpen && (
@@ -914,9 +1077,7 @@ export default function ContactPage() {
                 />
               </div>
             </div>
-
           </div>
-
         </div>
       </section>
 
@@ -925,13 +1086,18 @@ export default function ContactPage() {
       ══════════════════════════════════════════════════════════ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
         <div className="bg-[#FAF5EB] border border-[#EADAC5] rounded-2xl p-5 sm:p-6 flex flex-col md:flex-row items-center justify-between gap-5 relative overflow-hidden shadow-xs">
-          
           {/* Left: Lotus / Leaf Icon + Text */}
           <div className="flex items-center gap-3.5 text-center md:text-left">
             <div className="w-10 h-10 rounded-full bg-[#FAF0E2] text-[#A66224] flex items-center justify-center shrink-0">
-              <svg className="w-6 h-6 text-[#8C5D17]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
-                <path d="M12 6v6l4 2"/>
+              <svg
+                className="w-6 h-6 text-[#8C5D17]"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                <path d="M12 6v6l4 2" />
               </svg>
             </div>
             <div>
@@ -939,7 +1105,8 @@ export default function ContactPage() {
                 Let&apos;s Talk Dry Fruits
               </h3>
               <p className="text-xs sm:text-sm text-[#6B635B]">
-                We&apos;re always happy to help with your orders, inquiries or business requirements.
+                We&apos;re always happy to help with your orders, inquiries or business
+                requirements.
               </p>
             </div>
           </div>
@@ -978,10 +1145,8 @@ export default function ContactPage() {
           <div className="hidden xl:block absolute right-0 top-0 bottom-0 w-32 pointer-events-none opacity-20">
             <Image src="/product-almonds.jpg" alt="Almonds" fill className="object-cover" />
           </div>
-
         </div>
       </section>
-
     </div>
   );
 }

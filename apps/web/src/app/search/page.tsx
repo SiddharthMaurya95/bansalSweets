@@ -6,12 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
-import {
-  StarIcon,
-  HeartIcon,
-  ShoppingCartIcon,
-  ChevronRightIcon,
-} from '@/components/ThemeIcons';
+import { StarIcon, HeartIcon, ShoppingCartIcon, ChevronRightIcon } from '@/components/ThemeIcons';
 
 interface ProductVariant {
   weight: string;
@@ -286,7 +281,10 @@ function SearchContent() {
 
       // Price filter
       const activeVariant = prod.variants[variantSelections[prod.id] ?? 0] ?? prod.variants[0];
-      if (activeVariant && (activeVariant.price < appliedMinPrice || activeVariant.price > appliedMaxPrice)) {
+      if (
+        activeVariant &&
+        (activeVariant.price < appliedMinPrice || activeVariant.price > appliedMaxPrice)
+      ) {
         return false;
       }
 
@@ -312,7 +310,15 @@ function SearchContent() {
       // Default: bestseller
       return (b.isBestseller ? 1 : 0) - (a.isBestseller ? 1 : 0);
     });
-  }, [selectedCategories, appliedMinPrice, appliedMaxPrice, selectedWeights, selectedTypes, sortBy, variantSelections]);
+  }, [
+    selectedCategories,
+    appliedMinPrice,
+    appliedMaxPrice,
+    selectedWeights,
+    selectedTypes,
+    sortBy,
+    variantSelections,
+  ]);
 
   // Paginated slice
   const totalProducts = 24; // Mockup specifies 24 products found
@@ -445,7 +451,8 @@ function SearchContent() {
               Search Results
             </h1>
             <p className="text-sm sm:text-base text-gray-600 font-medium">
-              Showing results for <span className="text-[#8C1C1C] font-serif font-bold">&ldquo;{query}&rdquo;</span>
+              Showing results for{' '}
+              <span className="text-[#8C1C1C] font-serif font-bold">&ldquo;{query}&rdquo;</span>
             </p>
             <p className="text-xs text-gray-500 font-normal pt-0.5">
               {totalProducts} products found
@@ -468,10 +475,8 @@ function SearchContent() {
       {/* ── Main Two-Column Layout ── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
           {/* ── LEFT COLUMN: Filters Sidebar (~3 cols) ── */}
           <div className="lg:col-span-3 space-y-6">
-            
             {/* Filters Box */}
             <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-2xs space-y-5">
               {/* Header */}
@@ -519,7 +524,9 @@ function SearchContent() {
                               onChange={() => handleToggleCategory(cat.label)}
                               className="w-3.5 h-3.5 rounded accent-[#8E4A18] cursor-pointer"
                             />
-                            <span className={isChecked ? 'font-bold text-[#1B1F2A]' : 'font-normal'}>
+                            <span
+                              className={isChecked ? 'font-bold text-[#1B1F2A]' : 'font-normal'}
+                            >
                               {cat.label}
                             </span>
                           </div>
@@ -620,7 +627,9 @@ function SearchContent() {
                               onChange={() => handleToggleWeight(w.label)}
                               className="w-3.5 h-3.5 rounded accent-[#8E4A18] cursor-pointer"
                             />
-                            <span className={isChecked ? 'font-bold text-[#1B1F2A]' : 'font-normal'}>
+                            <span
+                              className={isChecked ? 'font-bold text-[#1B1F2A]' : 'font-normal'}
+                            >
                               {w.label}
                             </span>
                           </div>
@@ -664,7 +673,9 @@ function SearchContent() {
                               onChange={() => handleToggleType(t.label)}
                               className="w-3.5 h-3.5 rounded accent-[#8E4A18] cursor-pointer"
                             />
-                            <span className={isChecked ? 'font-bold text-[#1B1F2A]' : 'font-normal'}>
+                            <span
+                              className={isChecked ? 'font-bold text-[#1B1F2A]' : 'font-normal'}
+                            >
                               {t.label}
                             </span>
                           </div>
@@ -690,7 +701,11 @@ function SearchContent() {
                   <div className="space-y-2 pt-3 text-xs">
                     <label className="flex items-center justify-between text-gray-700 cursor-pointer">
                       <div className="flex items-center gap-2">
-                        <input type="checkbox" defaultChecked className="w-3.5 h-3.5 rounded accent-[#8E4A18]" />
+                        <input
+                          type="checkbox"
+                          defaultChecked
+                          className="w-3.5 h-3.5 rounded accent-[#8E4A18]"
+                        />
                         <span>In Stock</span>
                       </div>
                       <span className="text-gray-400 text-[11px]">(22)</span>
@@ -742,7 +757,6 @@ function SearchContent() {
                   </div>
                 )}
               </div>
-
             </div>
 
             {/* ── Bulk Orders? Callout Card (Matching Mockup) ── */}
@@ -771,12 +785,10 @@ function SearchContent() {
                 />
               </div>
             </div>
-
           </div>
 
           {/* ── RIGHT COLUMN: Sort Toolbar, 4x2 Grid, Pagination (~9 cols) ── */}
           <div className="lg:col-span-9 space-y-5">
-            
             {/* Sort & View Mode Toolbar */}
             <div className="flex items-center justify-end gap-3 pb-1">
               <div className="flex items-center gap-2">
@@ -825,7 +837,13 @@ function SearchContent() {
                   }`}
                   aria-label="List view"
                 >
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <line x1="8" y1="6" x2="21" y2="6" />
                     <line x1="8" y1="12" x2="21" y2="12" />
                     <line x1="8" y1="18" x2="21" y2="18" />
@@ -848,7 +866,8 @@ function SearchContent() {
               {paginatedProducts.map((product) => {
                 const currentVariantIdx = variantSelections[product.id] ?? 0;
                 const activeVariant = product.variants[currentVariantIdx] ?? product.variants[0];
-                const isWishlisted = checkIsWishlisted(product.id) || checkIsWishlisted(product.slug);
+                const isWishlisted =
+                  checkIsWishlisted(product.id) || checkIsWishlisted(product.slug);
                 const isAdded = addedItemState[product.id];
 
                 if (!activeVariant) return null;
@@ -864,13 +883,22 @@ function SearchContent() {
                           href={`/products/${product.slug}`}
                           className="relative w-28 h-28 rounded-xl overflow-hidden bg-[#FAF8F5] shrink-0"
                         >
-                          <Image src={product.imageUrl} alt={product.name} fill className="object-cover" />
+                          <Image
+                            src={product.imageUrl}
+                            alt={product.name}
+                            fill
+                            className="object-cover"
+                          />
                         </Link>
                         <div>
                           <Link href={`/products/${product.slug}`} className="hover:text-[#8E4A18]">
-                            <h3 className="font-serif font-black text-base text-[#1B1F2A]">{product.name}</h3>
+                            <h3 className="font-serif font-black text-base text-[#1B1F2A]">
+                              {product.name}
+                            </h3>
                           </Link>
-                          <p className="text-xs text-gray-500 mt-0.5 line-clamp-1">{product.subtitle}</p>
+                          <p className="text-xs text-gray-500 mt-0.5 line-clamp-1">
+                            {product.subtitle}
+                          </p>
                           <div className="flex items-center gap-1 text-[#E5A93C] text-xs mt-1">
                             <StarIcon size={12} filled={true} />
                             <span className="font-bold text-gray-800">{product.rating}</span>
@@ -908,7 +936,9 @@ function SearchContent() {
                               {activeVariant.discountPct}% OFF
                             </span>
                           </div>
-                          <span className="text-[10.5px] text-gray-400">({activeVariant.unitPriceText})</span>
+                          <span className="text-[10.5px] text-gray-400">
+                            ({activeVariant.unitPriceText})
+                          </span>
                         </div>
                         <button
                           type="button"
@@ -957,12 +987,19 @@ function SearchContent() {
                           <HeartIcon
                             size={14}
                             filled={isWishlisted}
-                            className={isWishlisted ? 'text-red-500 fill-red-500' : 'text-gray-400 hover:text-red-400'}
+                            className={
+                              isWishlisted
+                                ? 'text-red-500 fill-red-500'
+                                : 'text-gray-400 hover:text-red-400'
+                            }
                           />
                         </button>
 
                         {/* Product Image */}
-                        <Link href={`/products/${product.slug}`} className="block relative w-full h-full">
+                        <Link
+                          href={`/products/${product.slug}`}
+                          className="block relative w-full h-full"
+                        >
                           <Image
                             src={product.imageUrl}
                             alt={product.name}
@@ -991,7 +1028,12 @@ function SearchContent() {
                         <div className="flex items-center gap-1 text-[11px] text-[#E5A93C] pt-0.5">
                           <div className="flex items-center">
                             {Array.from({ length: 5 }, (_, i) => (
-                              <StarIcon key={i} size={11} filled={true} className="text-[#E5A93C]" />
+                              <StarIcon
+                                key={i}
+                                size={11}
+                                filled={true}
+                                className="text-[#E5A93C]"
+                              />
                             ))}
                           </div>
                           <span className="font-bold text-gray-800 ml-0.5">{product.rating}</span>
@@ -1097,9 +1139,7 @@ function SearchContent() {
                 </button>
               </div>
             </div>
-
           </div>
-
         </div>
       </div>
     </div>

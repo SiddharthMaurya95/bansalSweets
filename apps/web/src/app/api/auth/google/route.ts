@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
     JSON.stringify({
       redirect: redirectTarget,
       timestamp: Date.now(),
-    })
+    }),
   );
 
   const googleAuthUrl = new URL('https://accounts.google.com/o/oauth2/v2/auth');

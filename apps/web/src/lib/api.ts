@@ -722,7 +722,8 @@ function getFallbackProductList(params: ListProductsParams = {}): ProductSummary
       id: 'p-013',
       slug: 'assorted-royal-dry-fruit-mix',
       name: 'Assorted Royal Dry Fruit Mix (Panchmeva)',
-      shortDescription: 'Traditional 5-in-1 royal assortment of hand-selected almonds, cashews, pista, kishmish & akhrot',
+      shortDescription:
+        'Traditional 5-in-1 royal assortment of hand-selected almonds, cashews, pista, kishmish & akhrot',
       brand: { id: 'b-1', name: 'Bansal Foods', slug: 'bansal-foods' },
       status: 'ACTIVE',
       isFeatured: true,
@@ -784,9 +785,7 @@ function getFallbackProductDetail(slug: string): ProductDetail {
     v250 = { price: 32000, mrp: 40000 };
     v500 = { price: 62000, mrp: 78000 };
     v1kg = { price: 120000, mrp: 150000 };
-    gallery = [
-      { url: '/product-cashews.jpg', altText: `${titleName} - Whole Premium Grade` },
-    ];
+    gallery = [{ url: '/product-cashews.jpg', altText: `${titleName} - Whole Premium Grade` }];
   } else if (s.includes('premium') && s.includes('pista')) {
     titleName = 'Premium Pistachios (Pista)';
     catSlug = 'pistachios';
@@ -824,9 +823,7 @@ function getFallbackProductDetail(slug: string): ProductDetail {
     v250 = { price: 19000, mrp: 24000 };
     v500 = { price: 36000, mrp: 45000 };
     v1kg = { price: 70000, mrp: 88000 };
-    gallery = [
-      { url: '/product-raisins.jpg', altText: `${titleName} - Golden Raisins` },
-    ];
+    gallery = [{ url: '/product-raisins.jpg', altText: `${titleName} - Golden Raisins` }];
   } else if (s.includes('fig') || s.includes('anjeer')) {
     titleName = 'Premium Figs (Anjeer)';
     catSlug = 'figs';
@@ -834,9 +831,7 @@ function getFallbackProductDetail(slug: string): ProductDetail {
     v250 = { price: 37000, mrp: 46000 };
     v500 = { price: 72000, mrp: 90000 };
     v1kg = { price: 140000, mrp: 175000 };
-    gallery = [
-      { url: '/product-figs.jpg', altText: `${titleName} - Dried Afghan Figs` },
-    ];
+    gallery = [{ url: '/product-figs.jpg', altText: `${titleName} - Dried Afghan Figs` }];
   } else if (s.includes('date') || s.includes('khajur') || s.includes('khajoor')) {
     titleName = 'Medjool Dates (Khajur Matjol)';
     catSlug = 'dates';
@@ -844,16 +839,12 @@ function getFallbackProductDetail(slug: string): ProductDetail {
     v250 = { price: 37000, mrp: 46000 };
     v500 = { price: 72000, mrp: 90000 };
     v1kg = { price: 140000, mrp: 175000 };
-    gallery = [
-      { url: '/product-dates.jpg', altText: `${titleName} - Medjool Dates` },
-    ];
+    gallery = [{ url: '/product-dates.jpg', altText: `${titleName} - Medjool Dates` }];
   } else if (s.includes('seed')) {
     titleName = 'Super Seeds Mix';
     catSlug = 'seeds';
     catName = 'Healthy Seeds';
-    gallery = [
-      { url: '/product-seeds.jpg', altText: `${titleName} - Healthy Seeds` },
-    ];
+    gallery = [{ url: '/product-seeds.jpg', altText: `${titleName} - Healthy Seeds` }];
   } else if (s.includes('mix') || s.includes('panchmeva') || s.includes('trail')) {
     titleName = 'Assorted Royal Dry Fruit Mix (Panchmeva)';
     catSlug = 'dry-fruit-mix';
@@ -861,10 +852,16 @@ function getFallbackProductDetail(slug: string): ProductDetail {
     v250 = { price: 38000, mrp: 48000 };
     v500 = { price: 74000, mrp: 95000 };
     v1kg = { price: 145000, mrp: 185000 };
-    gallery = [
-      { url: '/product-mix.jpg', altText: `${titleName} - Premium Assortment` },
-    ];
-  } else if (s.includes('gift') || s.includes('hamper') || s.includes('box') || s.includes('festive') || s.includes('uphaar') || s.includes('potli') || s.includes('basket')) {
+    gallery = [{ url: '/product-mix.jpg', altText: `${titleName} - Premium Assortment` }];
+  } else if (
+    s.includes('gift') ||
+    s.includes('hamper') ||
+    s.includes('box') ||
+    s.includes('festive') ||
+    s.includes('uphaar') ||
+    s.includes('potli') ||
+    s.includes('basket')
+  ) {
     catSlug = 'gift-boxes';
     catName = 'Gift Hampers & Festive Offers';
     v250 = { price: 42000, mrp: 51000 };
@@ -880,12 +877,16 @@ function getFallbackProductDetail(slug: string): ProductDetail {
       titleName = 'Mughlai Panchmeva Shahi Brocade Potli Set';
       v500 = { price: 65000, mrp: 87000 };
       v1kg = { price: 119900, mrp: 160000 };
-      gallery = [{ url: '/hamper-brocade-potlis.jpg', altText: `${titleName} - Brocade Potli Set` }];
+      gallery = [
+        { url: '/hamper-brocade-potlis.jpg', altText: `${titleName} - Brocade Potli Set` },
+      ];
     } else if (s.includes('basket')) {
       titleName = 'Bansal Heritage Grand Festive Wicker Basket';
       v500 = { price: 149900, mrp: 195000 };
       v1kg = { price: 289900, mrp: 375000 };
-      gallery = [{ url: '/hamper-grand-basket.jpg', altText: `${titleName} - Grand Festive Basket` }];
+      gallery = [
+        { url: '/hamper-grand-basket.jpg', altText: `${titleName} - Grand Festive Basket` },
+      ];
     } else if (s.includes('emerald') || s.includes('corporate') || s.includes('utsav')) {
       titleName = 'Shubh Utsav Emerald Gold Dry Fruit Box';
       v500 = { price: 88000, mrp: 115000 };
@@ -906,10 +907,14 @@ function getFallbackProductDetail(slug: string): ProductDetail {
       v250 = { price: 42000, mrp: 51000 };
       v500 = { price: 79900, mrp: 97500 };
       v1kg = { price: 149000, mrp: 182000 };
-      gallery = [{ url: '/product-gift-hamper.jpg', altText: `${titleName} - Executive Gift Pack` }];
+      gallery = [
+        { url: '/product-gift-hamper.jpg', altText: `${titleName} - Executive Gift Pack` },
+      ];
     } else {
       titleName = 'Khari Baoli Royal Festive 4-in-1 Wooden Gift Box';
-      gallery = [{ url: '/product-gift-hamper.jpg', altText: `${titleName} - Festive Royal Hamper` }];
+      gallery = [
+        { url: '/product-gift-hamper.jpg', altText: `${titleName} - Festive Royal Hamper` },
+      ];
     }
   } else if (s.includes('california') && s.includes('almond')) {
     titleName = 'California Almonds';

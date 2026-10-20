@@ -44,7 +44,13 @@ const VALUE_PROPS = [
     title: 'Direct from Mandi',
     description: 'Sourced fresh from Khari Baoli, Delhi',
     icon: (
-      <svg className="w-5 h-5 text-[#E5A93C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <svg
+        className="w-5 h-5 text-[#E5A93C]"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
         <path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10V4a2 2 0 012-2h2a2 2 0 012 2v6" />
       </svg>
     ),
@@ -53,7 +59,13 @@ const VALUE_PROPS = [
     title: 'Premium Quality',
     description: 'Carefully graded and lab tested',
     icon: (
-      <svg className="w-5 h-5 text-[#E5A93C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <svg
+        className="w-5 h-5 text-[#E5A93C]"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
       </svg>
     ),
@@ -62,7 +74,13 @@ const VALUE_PROPS = [
     title: 'Wide Variety',
     description: '100+ dry fruits and nuts',
     icon: (
-      <svg className="w-5 h-5 text-[#E5A93C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <svg
+        className="w-5 h-5 text-[#E5A93C]"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
         <rect x="3" y="3" width="7" height="7" rx="1" />
         <rect x="14" y="3" width="7" height="7" rx="1" />
         <rect x="14" y="14" width="7" height="7" rx="1" />
@@ -74,7 +92,13 @@ const VALUE_PROPS = [
     title: 'Competitive Pricing',
     description: 'Best wholesale rates for bulk orders',
     icon: (
-      <svg className="w-5 h-5 text-[#E5A93C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <svg
+        className="w-5 h-5 text-[#E5A93C]"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
         <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z" />
         <line x1="7" y1="7" x2="7.01" y2="7" />
       </svg>
@@ -84,7 +108,13 @@ const VALUE_PROPS = [
     title: 'Pan India Delivery',
     description: 'Safe and timely delivery across India',
     icon: (
-      <svg className="w-5 h-5 text-[#E5A93C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <svg
+        className="w-5 h-5 text-[#E5A93C]"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
         <rect x="1" y="3" width="15" height="13" rx="1" />
         <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
         <circle cx="5.5" cy="18.5" r="2.5" />
@@ -96,7 +126,13 @@ const VALUE_PROPS = [
     title: 'Dedicated Support',
     description: 'Relationship manager for bulk clients',
     icon: (
-      <svg className="w-5 h-5 text-[#E5A93C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <svg
+        className="w-5 h-5 text-[#E5A93C]"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
         <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
         <circle cx="9" cy="7" r="4" />
         <path d="M23 21v-2a4 4 0 00-3-3.87" />
@@ -301,44 +337,74 @@ export default function WholesalePage() {
               {/* 1. Competitive Bulk Pricing */}
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 rounded-full border border-[#E5A93C]/70 flex items-center justify-center text-[#E5A93C] shrink-0 bg-[#2A180E]/60">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <circle cx="12" cy="12" r="9" />
                     <path d="M12 7v5l3 3" />
                   </svg>
                 </div>
                 <span className="text-xs font-medium text-gray-200 leading-tight">
-                  Competitive<br />Bulk Pricing
+                  Competitive
+                  <br />
+                  Bulk Pricing
                 </span>
               </div>
 
               {/* 2. Consistent Quality */}
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 rounded-full border border-[#E5A93C]/70 flex items-center justify-center text-[#E5A93C] shrink-0 bg-[#2A180E]/60">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <path d="M6 3h12l4 6-10 12L2 9z" />
                   </svg>
                 </div>
                 <span className="text-xs font-medium text-gray-200 leading-tight">
-                  Consistent<br />Quality
+                  Consistent
+                  <br />
+                  Quality
                 </span>
               </div>
 
               {/* 3. Large Inventory */}
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 rounded-full border border-[#E5A93C]/70 flex items-center justify-center text-[#E5A93C] shrink-0 bg-[#2A180E]/60">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
                   </svg>
                 </div>
                 <span className="text-xs font-medium text-gray-200 leading-tight">
-                  Large<br />Inventory
+                  Large
+                  <br />
+                  Inventory
                 </span>
               </div>
 
               {/* 4. Pan India Delivery */}
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 rounded-full border border-[#E5A93C]/70 flex items-center justify-center text-[#E5A93C] shrink-0 bg-[#2A180E]/60">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <rect x="1" y="3" width="15" height="13" />
                     <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
                     <circle cx="5.5" cy="18.5" r="2.5" />
@@ -346,20 +412,30 @@ export default function WholesalePage() {
                   </svg>
                 </div>
                 <span className="text-xs font-medium text-gray-200 leading-tight">
-                  Pan India<br />Delivery
+                  Pan India
+                  <br />
+                  Delivery
                 </span>
               </div>
 
               {/* 5. Reliable Supply */}
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 rounded-full border border-[#E5A93C]/70 flex items-center justify-center text-[#E5A93C] shrink-0 bg-[#2A180E]/60">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                     <path d="M9 12l2 2 4-4" />
                   </svg>
                 </div>
                 <span className="text-xs font-medium text-gray-200 leading-tight">
-                  Reliable<br />Supply
+                  Reliable
+                  <br />
+                  Supply
                 </span>
               </div>
             </div>
@@ -392,7 +468,8 @@ export default function WholesalePage() {
             Trusted by Various Businesses
           </h2>
           <p className="text-xs sm:text-sm text-gray-500 max-w-2xl mx-auto mt-2 mb-10">
-            Supplying premium dry fruits to retailers, restaurants, hotels, caterers, sweet shops and corporate clients.
+            Supplying premium dry fruits to retailers, restaurants, hotels, caterers, sweet shops
+            and corporate clients.
           </p>
 
           {/* 6 Sector Cards */}
@@ -411,9 +488,7 @@ export default function WholesalePage() {
                   />
                 </div>
                 <h3 className="font-bold text-sm text-[#1F140D] mb-1">{sector.title}</h3>
-                <p className="text-[11px] text-gray-500 leading-snug px-1">
-                  {sector.description}
-                </p>
+                <p className="text-[11px] text-gray-500 leading-snug px-1">{sector.description}</p>
               </div>
             ))}
           </div>
@@ -421,7 +496,10 @@ export default function WholesalePage() {
       </section>
 
       {/* ── 3. SPLIT SECTION: WHY CHOOSE BANSAL FOODS + BOWL + REQUEST QUOTE FORM ── */}
-      <section id="quote-form" className="relative py-14 sm:py-20 bg-[#1E110A] text-white overflow-hidden">
+      <section
+        id="quote-form"
+        className="relative py-14 sm:py-20 bg-[#1E110A] text-white overflow-hidden"
+      >
         {/* Center Wooden Dry Fruit Bowl (Positioned elegantly between the left features and right form) */}
         <div className="hidden lg:block absolute left-[55%] top-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.85)] border-4 border-[#3A2315] z-10 pointer-events-none opacity-90 xl:opacity-100">
           <Image
@@ -450,7 +528,9 @@ export default function WholesalePage() {
 
               {/* Description */}
               <p className="text-xs sm:text-sm text-amber-100/80 leading-relaxed max-w-xl">
-                For generations, Bansal Foods has been a trusted source of premium dry fruits from the historic Khari Baoli Mandi, Delhi. We provide authentic quality, competitive pricing and reliable supply to businesses across India.
+                For generations, Bansal Foods has been a trusted source of premium dry fruits from
+                the historic Khari Baoli Mandi, Delhi. We provide authentic quality, competitive
+                pricing and reliable supply to businesses across India.
               </p>
 
               {/* 6 Value Points (2 columns x 3 rows) */}
@@ -462,7 +542,9 @@ export default function WholesalePage() {
                     </div>
                     <div>
                       <h4 className="font-bold text-sm text-white">{prop.title}</h4>
-                      <p className="text-xs text-amber-100/70 mt-0.5 leading-snug">{prop.description}</p>
+                      <p className="text-xs text-amber-100/70 mt-0.5 leading-snug">
+                        {prop.description}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -492,7 +574,9 @@ export default function WholesalePage() {
                     </div>
                     <h4 className="font-bold text-[#15803D] text-lg">Inquiry Received!</h4>
                     <p className="text-xs text-gray-600">
-                      Thank you, {formData.fullName || 'Valued Partner'}. Our wholesale desk will review your requirement and share competitive mandi rates within 2 business hours.
+                      Thank you, {formData.fullName || 'Valued Partner'}. Our wholesale desk will
+                      review your requirement and share competitive mandi rates within 2 business
+                      hours.
                     </p>
                     <button
                       type="button"
@@ -527,7 +611,9 @@ export default function WholesalePage() {
                           type="text"
                           required
                           value={formData.businessName}
-                          onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
+                          onChange={(e) =>
+                            setFormData({ ...formData, businessName: e.target.value })
+                          }
                           placeholder="Enter business name"
                           className="w-full px-3 py-2 text-xs rounded-lg border border-gray-200 focus:outline-none focus:border-[#8B1E1E] focus:ring-1 focus:ring-[#8B1E1E]"
                         />
@@ -544,7 +630,9 @@ export default function WholesalePage() {
                           type="tel"
                           required
                           value={formData.mobileNumber}
-                          onChange={(e) => setFormData({ ...formData, mobileNumber: e.target.value })}
+                          onChange={(e) =>
+                            setFormData({ ...formData, mobileNumber: e.target.value })
+                          }
                           placeholder="Enter 10-digit mobile number"
                           className="w-full px-3 py-2 text-xs rounded-lg border border-gray-200 focus:outline-none focus:border-[#8B1E1E] focus:ring-1 focus:ring-[#8B1E1E]"
                         />
@@ -572,7 +660,9 @@ export default function WholesalePage() {
                         <select
                           required
                           value={formData.productsRequired}
-                          onChange={(e) => setFormData({ ...formData, productsRequired: e.target.value })}
+                          onChange={(e) =>
+                            setFormData({ ...formData, productsRequired: e.target.value })
+                          }
                           className="w-full px-3 py-2 text-xs rounded-lg border border-gray-200 focus:outline-none focus:border-[#8B1E1E] focus:ring-1 focus:ring-[#8B1E1E] bg-white text-gray-700"
                         >
                           <option value="">Select products</option>
@@ -593,7 +683,9 @@ export default function WholesalePage() {
                         <select
                           required
                           value={formData.approxQuantity}
-                          onChange={(e) => setFormData({ ...formData, approxQuantity: e.target.value })}
+                          onChange={(e) =>
+                            setFormData({ ...formData, approxQuantity: e.target.value })
+                          }
                           className="w-full px-3 py-2 text-xs rounded-lg border border-gray-200 focus:outline-none focus:border-[#8B1E1E] focus:ring-1 focus:ring-[#8B1E1E] bg-white text-gray-700"
                         >
                           <option value="">Select quantity range</option>
@@ -687,7 +779,9 @@ export default function WholesalePage() {
                         <td className="py-3 px-2 text-right text-gray-600">{row.p5kg}</td>
                         <td className="py-3 px-2 text-right text-gray-600">{row.p10kg}</td>
                         <td className="py-3 px-2 text-right text-gray-600">{row.p25kg}</td>
-                        <td className="py-3 px-2 text-right font-medium text-[#1F140D]">{row.p50kg}</td>
+                        <td className="py-3 px-2 text-right font-medium text-[#1F140D]">
+                          {row.p50kg}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
@@ -696,7 +790,8 @@ export default function WholesalePage() {
 
               {/* Disclaimer */}
               <p className="text-[11px] text-gray-400 mt-4 leading-relaxed">
-                * Prices are indicative and may vary based on quantity, quality and market rates. Contact us for latest wholesale rates.
+                * Prices are indicative and may vary based on quantity, quality and market rates.
+                Contact us for latest wholesale rates.
               </p>
             </div>
 
@@ -720,7 +815,9 @@ export default function WholesalePage() {
                       {item.step}
                     </div>
                     <h5 className="font-bold text-xs text-[#1F140D]">{item.title}</h5>
-                    <p className="text-[10px] text-gray-500 mt-0.5 leading-snug">{item.description}</p>
+                    <p className="text-[10px] text-gray-500 mt-0.5 leading-snug">
+                      {item.description}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -728,7 +825,13 @@ export default function WholesalePage() {
               {/* Pan India Delivery Highlight Card */}
               <div className="bg-[#F8EFE4] border border-[#E9DAC8] rounded-2xl p-5 flex items-center gap-4 relative overflow-hidden">
                 <div className="w-12 h-12 rounded-full bg-[#E8D4BE] text-[#52331C] flex items-center justify-center shrink-0">
-                  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-6 h-6"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <rect x="1" y="3" width="15" height="13" rx="1" />
                     <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
                     <circle cx="5.5" cy="18.5" r="2.5" />
@@ -739,7 +842,8 @@ export default function WholesalePage() {
                 <div className="space-y-1 pr-14">
                   <h4 className="font-bold text-sm text-[#1F140D]">Pan India Delivery</h4>
                   <p className="text-xs text-gray-600 leading-snug">
-                    We deliver to all major cities and towns across India with secure packaging and reliable logistics partners.
+                    We deliver to all major cities and towns across India with secure packaging and
+                    reliable logistics partners.
                   </p>
                 </div>
 

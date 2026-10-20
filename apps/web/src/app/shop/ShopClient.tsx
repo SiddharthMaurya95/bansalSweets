@@ -1542,8 +1542,7 @@ function ProductCardItem({ product }: { product: ListingProduct }) {
 
   const isWishlisted = checkWishlisted(product.id) || checkWishlisted(product.slug);
 
-  const currentVariant: WeightVariant =
-    product.variants[selectedVariantIndex] ??
+  const currentVariant: WeightVariant = product.variants[selectedVariantIndex] ??
     product.variants[0] ?? { weight: '500g', price: 1000, mrp: 1200 };
   const savings = Math.max(0, currentVariant.mrp - currentVariant.price);
   const discountPct = Math.round((savings / currentVariant.mrp) * 100);
@@ -1636,7 +1635,9 @@ function ProductCardItem({ product }: { product: ListingProduct }) {
                 <StarIcon key={i} size={11} filled={true} className="text-[#E5A93C]" />
               ))}
             </div>
-            <span className="text-[10px] sm:text-[11px] font-bold text-gray-700 ml-0.5">{product.rating}</span>
+            <span className="text-[10px] sm:text-[11px] font-bold text-gray-700 ml-0.5">
+              {product.rating}
+            </span>
             <span className="text-[9px] sm:text-[10px] text-gray-400">({product.reviewCount})</span>
           </div>
 
@@ -1771,13 +1772,19 @@ export function ShopClient() {
       // Category filter
       if (activeCategory !== 'all') {
         const isGiftCat = (cat: string) =>
-          cat === 'gift-boxes' || cat === 'gift-hampers' || cat === 'festive-offers' || cat === 'gift-packs' || cat === 'festive';
+          cat === 'gift-boxes' ||
+          cat === 'gift-hampers' ||
+          cat === 'festive-offers' ||
+          cat === 'gift-packs' ||
+          cat === 'festive';
 
         const matchesCategory =
           p.category === activeCategory ||
           (isGiftCat(activeCategory) && isGiftCat(p.category)) ||
-          (activeCategory === 'dry-fruit-mix' && (p.category === 'mixed-dry-fruits' || p.category === 'mix')) ||
-          (activeCategory === 'mixed-dry-fruits' && (p.category === 'dry-fruit-mix' || p.category === 'mix'));
+          (activeCategory === 'dry-fruit-mix' &&
+            (p.category === 'mixed-dry-fruits' || p.category === 'mix')) ||
+          (activeCategory === 'mixed-dry-fruits' &&
+            (p.category === 'dry-fruit-mix' || p.category === 'mix'));
         if (!matchesCategory) {
           return false;
         }
@@ -1787,8 +1794,7 @@ export function ShopClient() {
         return false;
       }
       // Price limit
-      const defaultVar: WeightVariant =
-        p.variants[p.defaultVariantIndex] ??
+      const defaultVar: WeightVariant = p.variants[p.defaultVariantIndex] ??
         p.variants[0] ?? { weight: '500g', price: 1000, mrp: 1200 };
       const currentPrice = defaultVar.price;
       if (currentPrice > maxPrice) {
@@ -1831,7 +1837,8 @@ export function ShopClient() {
     return filteredProducts.slice(start, start + ITEMS_PER_PAGE);
   }, [filteredProducts, validCurrentPage]);
 
-  const startIndex = filteredProducts.length === 0 ? 0 : (validCurrentPage - 1) * ITEMS_PER_PAGE + 1;
+  const startIndex =
+    filteredProducts.length === 0 ? 0 : (validCurrentPage - 1) * ITEMS_PER_PAGE + 1;
   const endIndex = Math.min(validCurrentPage * ITEMS_PER_PAGE, filteredProducts.length);
 
   const handlePageChange = (newPage: number) => {
@@ -1874,7 +1881,13 @@ export function ShopClient() {
                   </div>
                   <span className={isActive ? 'font-bold' : 'font-medium'}>{cat.name}</span>
                 </div>
-                <span className={isActive ? 'text-white/95 text-[11px] font-semibold' : 'text-gray-400 text-[11px]'}>
+                <span
+                  className={
+                    isActive
+                      ? 'text-white/95 text-[11px] font-semibold'
+                      : 'text-gray-400 text-[11px]'
+                  }
+                >
                   ({cat.count})
                 </span>
               </button>
@@ -2052,8 +2065,8 @@ export function ShopClient() {
   const bannerTitle = isGiftActive
     ? 'Festive Gift Hampers & Offers'
     : activeCategory === 'all'
-    ? 'Shop Dry Fruits'
-    : `${activeCategory.charAt(0).toUpperCase() + activeCategory.slice(1).replace(/-/g, ' ')}`;
+      ? 'Shop Dry Fruits'
+      : `${activeCategory.charAt(0).toUpperCase() + activeCategory.slice(1).replace(/-/g, ' ')}`;
 
   const bannerSubtitle = isGiftActive
     ? 'Handcrafted dry fruit hampers, royal wooden gift boxes, and festive celebration platters'
@@ -2062,8 +2075,8 @@ export function ShopClient() {
   const breadcrumbLabel = isGiftActive
     ? 'Gift Hampers & Festive Offers'
     : activeCategory === 'all'
-    ? 'Dry Fruits'
-    : `${activeCategory.charAt(0).toUpperCase() + activeCategory.slice(1).replace(/-/g, ' ')}`;
+      ? 'Dry Fruits'
+      : `${activeCategory.charAt(0).toUpperCase() + activeCategory.slice(1).replace(/-/g, ' ')}`;
 
   return (
     <div className="w-full pb-16">

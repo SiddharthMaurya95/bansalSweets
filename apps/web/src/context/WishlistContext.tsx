@@ -139,7 +139,9 @@ export function WishlistProvider({ children }: { children: React.ReactNode }) {
 
   const updateItemWeight = useCallback((id: string, weight: string) => {
     setItems((prev) =>
-      prev.map((item) => (item.id === id || item.slug === id ? { ...item, selectedWeight: weight } : item)),
+      prev.map((item) =>
+        item.id === id || item.slug === id ? { ...item, selectedWeight: weight } : item,
+      ),
     );
   }, []);
 

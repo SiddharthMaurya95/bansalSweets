@@ -31,15 +31,45 @@ function BotanicalWatermark() {
       xmlns="http://www.w3.org/2000/svg"
       className="w-full h-full text-[#B88746]"
     >
-      <g stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.35">
+      <g
+        stroke="currentColor"
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        opacity="0.35"
+      >
         <path d="M200 0 C 170 30, 130 50, 100 90 C 80 115, 60 150, 40 200" />
-        <path d="M165 25 C 150 15, 135 25, 145 35 C 155 45, 165 35, 165 25 Z" fill="currentColor" fillOpacity="0.1" />
-        <path d="M140 45 C 120 40, 115 55, 130 65 C 145 70, 150 55, 140 45 Z" fill="currentColor" fillOpacity="0.08" />
-        <path d="M110 75 C 90 70, 85 88, 102 98 C 118 102, 122 88, 110 75 Z" fill="currentColor" fillOpacity="0.1" />
-        <path d="M80 120 C 65 110, 55 125, 72 138 C 88 145, 95 130, 80 120 Z" fill="currentColor" fillOpacity="0.08" />
+        <path
+          d="M165 25 C 150 15, 135 25, 145 35 C 155 45, 165 35, 165 25 Z"
+          fill="currentColor"
+          fillOpacity="0.1"
+        />
+        <path
+          d="M140 45 C 120 40, 115 55, 130 65 C 145 70, 150 55, 140 45 Z"
+          fill="currentColor"
+          fillOpacity="0.08"
+        />
+        <path
+          d="M110 75 C 90 70, 85 88, 102 98 C 118 102, 122 88, 110 75 Z"
+          fill="currentColor"
+          fillOpacity="0.1"
+        />
+        <path
+          d="M80 120 C 65 110, 55 125, 72 138 C 88 145, 95 130, 80 120 Z"
+          fill="currentColor"
+          fillOpacity="0.08"
+        />
         <path d="M150 35 C 130 15, 105 10, 85 15" />
-        <path d="M125 18 C 110 8, 100 18, 115 25 C 125 28, 132 24, 125 18 Z" fill="currentColor" fillOpacity="0.08" />
-        <path d="M95 14 C 80 8, 75 22, 90 26 C 100 28, 105 20, 95 14 Z" fill="currentColor" fillOpacity="0.1" />
+        <path
+          d="M125 18 C 110 8, 100 18, 115 25 C 125 28, 132 24, 125 18 Z"
+          fill="currentColor"
+          fillOpacity="0.08"
+        />
+        <path
+          d="M95 14 C 80 8, 75 22, 90 26 C 100 28, 105 20, 95 14 Z"
+          fill="currentColor"
+          fillOpacity="0.1"
+        />
       </g>
     </svg>
   );
@@ -74,7 +104,9 @@ function LoginFormContent() {
       router.push(redirectPath);
     } catch (err) {
       if (err instanceof ApiRequestError) {
-        setError(err.message || 'Invalid credentials. Please verify your mobile/email and password.');
+        setError(
+          err.message || 'Invalid credentials. Please verify your mobile/email and password.',
+        );
       } else {
         try {
           await login('demo@bansalfoods.in', 'Password123!');
@@ -158,7 +190,13 @@ function LoginFormContent() {
           </label>
           <div className="relative flex items-center">
             <div className="absolute left-3 text-gray-400 pointer-events-none">
-              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                className="w-3.5 h-3.5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                 <circle cx="12" cy="7" r="4" />
               </svg>
@@ -176,12 +214,16 @@ function LoginFormContent() {
 
         {/* Password */}
         <div>
-          <label className="block text-[11px] font-semibold text-gray-800 mb-0.5">
-            Password
-          </label>
+          <label className="block text-[11px] font-semibold text-gray-800 mb-0.5">Password</label>
           <div className="relative flex items-center">
             <div className="absolute left-3 text-gray-400 pointer-events-none">
-              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                className="w-3.5 h-3.5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                 <path d="M7 11V7a5 5 0 0 1 10 0v4" />
               </svg>
@@ -202,12 +244,24 @@ function LoginFormContent() {
               aria-label={showPassword ? 'Hide password' : 'Show password'}
             >
               {showPassword ? (
-                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  className="w-3.5 h-3.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                   <circle cx="12" cy="12" r="3" />
                 </svg>
               ) : (
-                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  className="w-3.5 h-3.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
                   <line x1="1" y1="1" x2="23" y2="23" />
                 </svg>
@@ -300,18 +354,32 @@ function LoginFormContent() {
         {/* Secure Payments */}
         <div className="flex flex-col items-center group/trust hover:-translate-y-0.5 transition-transform duration-200">
           <div className="w-6 h-6 rounded-full bg-[#F4EDE2] group-hover/trust:bg-[#EBDDC8] text-[#8C4A18] flex items-center justify-center mb-0.5 transition-colors">
-            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <svg
+              className="w-3.5 h-3.5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+            >
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
               <path d="M9 12l2 2 4-4" />
             </svg>
           </div>
-          <span className="text-[9px] font-medium text-gray-700 leading-tight">Secure Payments</span>
+          <span className="text-[9px] font-medium text-gray-700 leading-tight">
+            Secure Payments
+          </span>
         </div>
 
         {/* Fast Delivery */}
         <div className="flex flex-col items-center group/trust hover:-translate-y-0.5 transition-transform duration-200">
           <div className="w-6 h-6 rounded-full bg-[#F4EDE2] group-hover/trust:bg-[#EBDDC8] text-[#8C4A18] flex items-center justify-center mb-0.5 transition-colors">
-            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <svg
+              className="w-3.5 h-3.5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+            >
               <rect x="1" y="3" width="15" height="13" />
               <polygon points="16 8 20 8 23 11 23 16 16 16 8" />
               <circle cx="5.5" cy="18.5" r="2.5" />
@@ -324,17 +392,31 @@ function LoginFormContent() {
         {/* Premium Quality */}
         <div className="flex flex-col items-center group/trust hover:-translate-y-0.5 transition-transform duration-200">
           <div className="w-6 h-6 rounded-full bg-[#F4EDE2] group-hover/trust:bg-[#EBDDC8] text-[#8C4A18] flex items-center justify-center mb-0.5 transition-colors">
-            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <svg
+              className="w-3.5 h-3.5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+            >
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
             </svg>
           </div>
-          <span className="text-[9px] font-medium text-gray-700 leading-tight">Premium Quality</span>
+          <span className="text-[9px] font-medium text-gray-700 leading-tight">
+            Premium Quality
+          </span>
         </div>
 
         {/* Wide Variety */}
         <div className="flex flex-col items-center group/trust hover:-translate-y-0.5 transition-transform duration-200">
           <div className="w-6 h-6 rounded-full bg-[#F4EDE2] group-hover/trust:bg-[#EBDDC8] text-[#8C4A18] flex items-center justify-center mb-0.5 transition-colors">
-            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <svg
+              className="w-3.5 h-3.5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+            >
               <path d="M12 3C7 3 3 8 3 13C3 17 6 20 10 20C12 20 14 19 15 17C16 19 18 20 20 20C22 20 23 19 23 17C23 12 18 3 12 3Z" />
               <path d="M12 3V17" />
             </svg>
@@ -395,7 +477,10 @@ export default function LoginPage() {
           <div>
             <h2 className="text-3xl xl:text-4xl font-serif font-bold text-white tracking-tight leading-[1.15]">
               Pure Goodness <br />
-              <span className="font-serif italic font-normal text-[#E8B150]">from Old Delhi&apos;s</span> <br />
+              <span className="font-serif italic font-normal text-[#E8B150]">
+                from Old Delhi&apos;s
+              </span>{' '}
+              <br />
               Historic Mandi
             </h2>
             <p className="text-xs xl:text-sm text-gray-200/90 leading-relaxed mt-2.5 max-w-md font-sans">
@@ -408,31 +493,53 @@ export default function LoginPage() {
             {/* 1. 100% Original */}
             <div className="flex flex-col items-center text-center">
               <div className="w-8 h-8 rounded-full border border-[#E5A93C]/60 flex items-center justify-center text-[#E5A93C] mb-1.5 bg-[#23140B]/80 backdrop-blur-xs">
-                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <svg
+                  className="w-3.5 h-3.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                >
                   <path d="M6 3h12l4 6-10 12L2 9z" />
                 </svg>
               </div>
               <span className="text-[10px] font-medium text-gray-200 leading-tight">
-                100%<br />Original
+                100%
+                <br />
+                Original
               </span>
             </div>
 
             {/* 2. Direct from Mandi */}
             <div className="flex flex-col items-center text-center">
               <div className="w-8 h-8 rounded-full border border-[#E5A93C]/60 flex items-center justify-center text-[#E5A93C] mb-1.5 bg-[#23140B]/80 backdrop-blur-xs">
-                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <svg
+                  className="w-3.5 h-3.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                >
                   <path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10V4a2 2 0 012-2h2a2 2 0 012 2v6" />
                 </svg>
               </div>
               <span className="text-[10px] font-medium text-gray-200 leading-tight">
-                Direct from<br />Mandi
+                Direct from
+                <br />
+                Mandi
               </span>
             </div>
 
             {/* 3. Pan India Delivery */}
             <div className="flex flex-col items-center text-center">
               <div className="w-8 h-8 rounded-full border border-[#E5A93C]/60 flex items-center justify-center text-[#E5A93C] mb-1.5 bg-[#23140B]/80 backdrop-blur-xs">
-                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <svg
+                  className="w-3.5 h-3.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                >
                   <rect x="1" y="3" width="15" height="13" />
                   <polygon points="16 8 20 8 23 11 23 16 16 16 8" />
                   <circle cx="5.5" cy="18.5" r="2.5" />
@@ -440,20 +547,30 @@ export default function LoginPage() {
                 </svg>
               </div>
               <span className="text-[10px] font-medium text-gray-200 leading-tight">
-                Pan India<br />Delivery
+                Pan India
+                <br />
+                Delivery
               </span>
             </div>
 
             {/* 4. Trusted by Thousands */}
             <div className="flex flex-col items-center text-center">
               <div className="w-8 h-8 rounded-full border border-[#E5A93C]/60 flex items-center justify-center text-[#E5A93C] mb-1.5 bg-[#23140B]/80 backdrop-blur-xs">
-                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <svg
+                  className="w-3.5 h-3.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                >
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   <path d="M9 12l2 2 4-4" />
                 </svg>
               </div>
               <span className="text-[10px] font-medium text-gray-200 leading-tight">
-                Trusted by<br />Thousands
+                Trusted by
+                <br />
+                Thousands
               </span>
             </div>
           </div>
@@ -462,7 +579,13 @@ export default function LoginPage() {
         {/* Bottom Feature Strip on left image */}
         <div className="relative z-10 bg-[#140A05]/95 border-t border-[#331B0E] py-2.5 px-6 xl:px-8 grid grid-cols-4 gap-2 text-center">
           <div className="flex items-center gap-1.5 justify-center">
-            <svg className="w-3.5 h-3.5 text-[#E5A93C] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              className="w-3.5 h-3.5 text-[#E5A93C] shrink-0"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               <path d="M12 2C7 2 3 7 3 12C3 16 6 19 10 19C12 19 14 18 15 16C16 18 18 19 20 19C22 19 23 18 23 16C23 11 18 2 12 2Z" />
               <path d="M12 2V16" />
             </svg>
@@ -471,7 +594,13 @@ export default function LoginPage() {
             </span>
           </div>
           <div className="flex items-center gap-1.5 justify-center">
-            <svg className="w-3.5 h-3.5 text-[#E5A93C] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              className="w-3.5 h-3.5 text-[#E5A93C] shrink-0"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
               <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
               <line x1="12" y1="22.08" x2="12" y2="12" />
@@ -481,7 +610,13 @@ export default function LoginPage() {
             </span>
           </div>
           <div className="flex items-center gap-1.5 justify-center">
-            <svg className="w-3.5 h-3.5 text-[#E5A93C] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              className="w-3.5 h-3.5 text-[#E5A93C] shrink-0"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               <polyline points="20 12 20 22 4 22 4 12" />
               <rect x="2" y="7" width="20" height="5" />
               <line x1="12" y1="22" x2="12" y2="7" />
@@ -493,7 +628,13 @@ export default function LoginPage() {
             </span>
           </div>
           <div className="flex items-center gap-1.5 justify-center">
-            <svg className="w-3.5 h-3.5 text-[#E5A93C] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              className="w-3.5 h-3.5 text-[#E5A93C] shrink-0"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               <rect x="1" y="3" width="15" height="13" />
               <polygon points="16 8 20 8 23 11 23 16 16 16 8" />
               <circle cx="5.5" cy="18.5" r="2.5" />

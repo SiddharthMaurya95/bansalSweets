@@ -61,8 +61,8 @@ export default function TermsOfServicePage() {
             </li>
             <li>
               <strong>Grading Integrity:</strong> All lot grades (e.g. W240 Whole Cashews, Grade A+
-              Kashmiri Mamra, Afghan Natural-Open Pistachios) are physically inspected at our
-              Khari Baoli desk before vacuum packaging.
+              Kashmiri Mamra, Afghan Natural-Open Pistachios) are physically inspected at our Khari
+              Baoli desk before vacuum packaging.
             </li>
           </ul>
         </section>

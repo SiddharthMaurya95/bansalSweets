@@ -29,9 +29,17 @@ export default function ReturnsPage() {
       linkText: 'View Return Policy',
       targetId: 'return-process',
       icon: (
-        <svg className="w-6 h-6 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="1 4 1 10 7 10"/>
-          <path d="M3.51 15a9 9 0 102.13-9.36L1 10"/>
+        <svg
+          className="w-6 h-6 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <polyline points="1 4 1 10 7 10" />
+          <path d="M3.51 15a9 9 0 102.13-9.36L1 10" />
         </svg>
       ),
     },
@@ -41,9 +49,7 @@ export default function ReturnsPage() {
       description: 'Details about refund approval, processing and payment methods.',
       linkText: 'View Refund Policy',
       targetId: 'how-refunds-work',
-      icon: (
-        <span className="text-xl font-bold text-[#A66224] leading-none">₹</span>
-      ),
+      icon: <span className="text-xl font-bold text-[#A66224] leading-none">₹</span>,
     },
     {
       id: 'cancellation',
@@ -52,10 +58,18 @@ export default function ReturnsPage() {
       linkText: 'View Cancellation Policy',
       targetId: 'order-cancellation',
       icon: (
-        <svg className="w-6 h-6 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="10"/>
-          <line x1="15" y1="9" x2="9" y2="15"/>
-          <line x1="9" y1="9" x2="15" y2="15"/>
+        <svg
+          className="w-6 h-6 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <circle cx="12" cy="12" r="10" />
+          <line x1="15" y1="9" x2="9" y2="15" />
+          <line x1="9" y1="9" x2="15" y2="15" />
         </svg>
       ),
     },
@@ -66,10 +80,18 @@ export default function ReturnsPage() {
       linkText: 'View Guidelines',
       targetId: 'damaged-product',
       icon: (
-        <svg className="w-6 h-6 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
-          <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-          <line x1="12" y1="22.08" x2="12" y2="12"/>
+        <svg
+          className="w-6 h-6 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
+          <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+          <line x1="12" y1="22.08" x2="12" y2="12" />
         </svg>
       ),
     },
@@ -82,9 +104,17 @@ export default function ReturnsPage() {
       title: 'CONTACT SUPPORT',
       description: 'Contact Bansal Foods regarding your issue.',
       icon: (
-        <svg className="w-6 h-6 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M3 18v-6a9 9 0 0118 0v6"/>
-          <path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/>
+        <svg
+          className="w-6 h-6 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M3 18v-6a9 9 0 0118 0v6" />
+          <path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z" />
         </svg>
       ),
     },
@@ -93,11 +123,19 @@ export default function ReturnsPage() {
       title: 'SHARE ORDER DETAILS',
       description: 'Provide your order ID and relevant information.',
       icon: (
-        <svg className="w-6 h-6 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
-          <polyline points="14 2 14 8 20 8"/>
-          <line x1="16" y1="13" x2="8" y2="13"/>
-          <line x1="16" y1="17" x2="8" y2="17"/>
+        <svg
+          className="w-6 h-6 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+          <line x1="16" y1="13" x2="8" y2="13" />
+          <line x1="16" y1="17" x2="8" y2="17" />
         </svg>
       ),
     },
@@ -106,9 +144,17 @@ export default function ReturnsPage() {
       title: 'REVIEW',
       description: 'The request is reviewed according to the applicable policy.',
       icon: (
-        <svg className="w-6 h-6 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="11" cy="11" r="8"/>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        <svg
+          className="w-6 h-6 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
         </svg>
       ),
     },
@@ -117,9 +163,17 @@ export default function ReturnsPage() {
       title: 'APPROVAL',
       description: 'If eligible, the return/replacement process is initiated.',
       icon: (
-        <svg className="w-6 h-6 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          <path d="M9 12l2 2 4-4"/>
+        <svg
+          className="w-6 h-6 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          <path d="M9 12l2 2 4-4" />
         </svg>
       ),
     },
@@ -128,9 +182,17 @@ export default function ReturnsPage() {
       title: 'RESOLUTION',
       description: 'Replacement/refund is processed as applicable.',
       icon: (
-        <svg className="w-6 h-6 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-          <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+        <svg
+          className="w-6 h-6 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+          <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
         </svg>
       ),
     },
@@ -142,9 +204,15 @@ export default function ReturnsPage() {
       title: 'Damaged Product',
       image: '/product-walnuts.jpg',
       icon: (
-        <svg className="w-4 h-4 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          <path d="M9 12l2 2 4-4"/>
+        <svg
+          className="w-4 h-4 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          <path d="M9 12l2 2 4-4" />
         </svg>
       ),
       note: 'Outer carton or vacuum pouch punctured or physically broken upon transit.',
@@ -153,9 +221,15 @@ export default function ReturnsPage() {
       title: 'Incorrect Product',
       image: '/product-cashews.jpg',
       icon: (
-        <svg className="w-4 h-4 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <polyline points="1 4 1 10 7 10"/>
-          <path d="M3.51 15a9 9 0 102.13-9.36L1 10"/>
+        <svg
+          className="w-4 h-4 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <polyline points="1 4 1 10 7 10" />
+          <path d="M3.51 15a9 9 0 102.13-9.36L1 10" />
         </svg>
       ),
       note: 'Received a different variant, grade, or weight than the items ordered.',
@@ -164,10 +238,16 @@ export default function ReturnsPage() {
       title: 'Missing Item',
       image: '/product-mix.jpg',
       icon: (
-        <svg className="w-4 h-4 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <rect x="3" y="3" width="18" height="18" rx="2"/>
-          <line x1="9" y1="9" x2="15" y2="15"/>
-          <line x1="15" y1="9" x2="9" y2="15"/>
+        <svg
+          className="w-4 h-4 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <rect x="3" y="3" width="18" height="18" rx="2" />
+          <line x1="9" y1="9" x2="15" y2="15" />
+          <line x1="15" y1="9" x2="9" y2="15" />
         </svg>
       ),
       note: 'Order parcel delivered with missing packages or incorrect quantity counts.',
@@ -176,9 +256,15 @@ export default function ReturnsPage() {
       title: 'Quality-related Issue',
       image: '/product-almonds.jpg',
       icon: (
-        <svg className="w-4 h-4 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <circle cx="12" cy="8" r="7"/>
-          <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+        <svg
+          className="w-4 h-4 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <circle cx="12" cy="8" r="7" />
+          <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
         </svg>
       ),
       note: 'Taste, moisture, or freshness discrepancy reported within 48 hours.',
@@ -198,42 +284,64 @@ export default function ReturnsPage() {
     {
       label: 'Request\nInitiated',
       icon: (
-        <svg className="w-5 h-5 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
-          <polyline points="14 2 14 8 20 8"/>
+        <svg
+          className="w-5 h-5 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
         </svg>
       ),
     },
     {
       label: 'Review\n& Verification',
       icon: (
-        <svg className="w-5 h-5 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <circle cx="11" cy="11" r="8"/>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        <svg
+          className="w-5 h-5 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
         </svg>
       ),
     },
     {
       label: 'Approval',
       icon: (
-        <svg className="w-5 h-5 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          <path d="M9 12l2 2 4-4"/>
+        <svg
+          className="w-5 h-5 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          <path d="M9 12l2 2 4-4" />
         </svg>
       ),
     },
     {
       label: 'Refund\nInitiated',
-      icon: (
-        <span className="text-base font-bold text-[#A66224]">₹</span>
-      ),
+      icon: <span className="text-base font-bold text-[#A66224]">₹</span>,
     },
     {
       label: 'Payment Provider\nProcessing',
       icon: (
-        <svg className="w-5 h-5 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
-          <line x1="1" y1="10" x2="23" y2="10"/>
+        <svg
+          className="w-5 h-5 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+          <line x1="1" y1="10" x2="23" y2="10" />
         </svg>
       ),
     },
@@ -273,16 +381,16 @@ export default function ReturnsPage() {
 
   return (
     <div className="min-h-screen bg-[#FDFBF7] text-[#2C2114] font-sans pb-16">
-      
       {/* ══════════════════════════════════════════════════════════
           1. HERO BANNER
       ══════════════════════════════════════════════════════════ */}
       <section className="relative w-full border-b border-[#EFE5D4] bg-[#FAF5EB]/60 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-          
           {/* Breadcrumb */}
           <nav className="text-xs text-[#8C827A] flex items-center gap-1.5 mb-6 font-medium">
-            <Link href="/" className="hover:text-[#6E1A1A] transition-colors">Home</Link>
+            <Link href="/" className="hover:text-[#6E1A1A] transition-colors">
+              Home
+            </Link>
             <span className="text-gray-400">&gt;</span>
             <span className="text-[#332219] font-medium">Return &amp; Refund</span>
           </nav>
@@ -294,7 +402,8 @@ export default function ReturnsPage() {
                 Returns &amp; Refunds
               </h1>
               <p className="text-base sm:text-lg text-[#554D45] leading-relaxed max-w-xl font-normal">
-                Here is everything you need to know about cancellations, returns, replacements and refunds.
+                Here is everything you need to know about cancellations, returns, replacements and
+                refunds.
               </p>
             </div>
 
@@ -312,15 +421,23 @@ export default function ReturnsPage() {
                 {/* Floating Pill Badge: Quality Products | Happy Customers */}
                 <div className="absolute top-3.5 right-3.5 bg-white/95 backdrop-blur-md border border-[#E8D6BF] rounded-xl px-3.5 py-2 shadow-md flex items-center gap-2.5">
                   <div className="w-7 h-7 rounded-lg bg-[#FAF0E2] text-[#A66224] flex items-center justify-center shrink-0">
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <rect x="1" y="3" width="15" height="13"/>
-                      <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
-                      <circle cx="5.5" cy="18.5" r="2.5"/>
-                      <circle cx="18.5" cy="18.5" r="2.5"/>
+                    <svg
+                      className="w-4 h-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                    >
+                      <rect x="1" y="3" width="15" height="13" />
+                      <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                      <circle cx="5.5" cy="18.5" r="2.5" />
+                      <circle cx="18.5" cy="18.5" r="2.5" />
                     </svg>
                   </div>
                   <div className="text-left">
-                    <p className="text-[11px] font-bold text-[#1F140D] leading-tight">Quality Products</p>
+                    <p className="text-[11px] font-bold text-[#1F140D] leading-tight">
+                      Quality Products
+                    </p>
                     <p className="text-[10px] text-[#7A6455] leading-tight">Happy Customers</p>
                   </div>
                 </div>
@@ -351,12 +468,8 @@ export default function ReturnsPage() {
                 <div className="w-12 h-12 rounded-full bg-[#FAF0E2] border border-[#F1E0C9] flex items-center justify-center mb-4">
                   {card.icon}
                 </div>
-                <h3 className="font-bold text-[#2C1A14] text-base mb-1.5">
-                  {card.title}
-                </h3>
-                <p className="text-xs text-[#6B635B] leading-relaxed mb-4">
-                  {card.description}
-                </p>
+                <h3 className="font-bold text-[#2C1A14] text-base mb-1.5">{card.title}</h3>
+                <p className="text-xs text-[#6B635B] leading-relaxed mb-4">{card.description}</p>
               </div>
 
               <a
@@ -375,7 +488,10 @@ export default function ReturnsPage() {
       {/* ══════════════════════════════════════════════════════════
           3. RETURN & REFUND PROCESS (5 Steps)
       ══════════════════════════════════════════════════════════ */}
-      <section id="return-process" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 scroll-mt-6">
+      <section
+        id="return-process"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 scroll-mt-6"
+      >
         <div className="mb-8">
           <h2 className="text-2xl sm:text-[26px] font-serif font-bold text-[#6E1A1A]">
             Return &amp; Refund Process
@@ -390,7 +506,10 @@ export default function ReturnsPage() {
           {processSteps.map((step, idx) => {
             const isLast = idx === processSteps.length - 1;
             return (
-              <div key={step.step} className="flex flex-col items-center text-center relative group">
+              <div
+                key={step.step}
+                className="flex flex-col items-center text-center relative group"
+              >
                 {/* Horizontal dotted connector for desktop */}
                 {!isLast && (
                   <div className="hidden lg:flex items-center absolute top-7 left-[65%] w-[70%] z-0 pointer-events-none">
@@ -431,15 +550,20 @@ export default function ReturnsPage() {
       ══════════════════════════════════════════════════════════ */}
       <section id="return-eligibility" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          
           {/* Left Column: When Can I Request a Return? (6 cols) */}
           <div className="lg:col-span-6 bg-white rounded-2xl border border-[#EFE7DC] p-6 sm:p-7 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-8 h-8 rounded-lg bg-[#FAF0E2] text-[#A66224] flex items-center justify-center shrink-0">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
-                    <path d="M12 6v6l4 2"/>
+                  <svg
+                    className="w-5 h-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                    <path d="M12 6v6l4 2" />
                   </svg>
                 </div>
                 <h3 className="font-serif font-bold text-lg sm:text-xl text-[#2C1A14]">
@@ -448,7 +572,8 @@ export default function ReturnsPage() {
               </div>
 
               <p className="text-xs sm:text-sm text-[#6B635B] mb-5 leading-relaxed">
-                Return eligibility, applicable time limits and product-specific conditions should be configured according to Bansal Foods&apos; final business policy.
+                Return eligibility, applicable time limits and product-specific conditions should be
+                configured according to Bansal Foods&apos; final business policy.
               </p>
 
               {/* 5 Product Category Cards */}
@@ -467,12 +592,7 @@ export default function ReturnsPage() {
                       }`}
                     >
                       <div className="relative w-full aspect-square rounded-lg overflow-hidden mb-2 bg-gray-100">
-                        <Image
-                          src={cat.image}
-                          alt={cat.title}
-                          fill
-                          className="object-cover"
-                        />
+                        <Image src={cat.image} alt={cat.title} fill className="object-cover" />
                       </div>
                       <div className="w-6 h-6 rounded-full bg-white border border-[#EAE0D3] flex items-center justify-center mb-1 shrink-0">
                         {cat.icon}
@@ -496,13 +616,22 @@ export default function ReturnsPage() {
           </div>
 
           {/* Right Column: Received a Damaged or Incorrect Product? (6 cols) */}
-          <div id="damaged-product" className="lg:col-span-6 bg-[#FAF7F2] rounded-2xl border border-[#EFE7DC] p-6 sm:p-7 shadow-xs scroll-mt-6 flex flex-col justify-between">
+          <div
+            id="damaged-product"
+            className="lg:col-span-6 bg-[#FAF7F2] rounded-2xl border border-[#EFE7DC] p-6 sm:p-7 shadow-xs scroll-mt-6 flex flex-col justify-between"
+          >
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-8 h-8 rounded-lg bg-[#FAF0E2] text-[#A66224] flex items-center justify-center shrink-0">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                    <path d="M9 12l2 2 4-4"/>
+                  <svg
+                    className="w-5 h-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <path d="M9 12l2 2 4-4" />
                   </svg>
                 </div>
                 <h3 className="font-serif font-bold text-lg sm:text-xl text-[#2C1A14]">
@@ -511,7 +640,8 @@ export default function ReturnsPage() {
               </div>
 
               <p className="text-xs sm:text-sm text-[#6B635B] mb-5 leading-relaxed">
-                If you receive a damaged, defective or incorrect product, please follow the steps below:
+                If you receive a damaged, defective or incorrect product, please follow the steps
+                below:
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-12 gap-5 items-center">
@@ -528,9 +658,7 @@ export default function ReturnsPage() {
                       <div className="w-5 h-5 rounded-full bg-[#8C5D24] text-white text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">
                         {idx + 1}
                       </div>
-                      <p className="text-xs sm:text-[13px] text-[#4A4540] leading-snug">
-                        {text}
-                      </p>
+                      <p className="text-xs sm:text-[13px] text-[#4A4540] leading-snug">{text}</p>
                     </div>
                   ))}
 
@@ -559,7 +687,6 @@ export default function ReturnsPage() {
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -568,14 +695,22 @@ export default function ReturnsPage() {
       ══════════════════════════════════════════════════════════ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          
           {/* Left Column: How Refunds Work (6 cols) */}
-          <div id="how-refunds-work" className="lg:col-span-6 bg-white rounded-2xl border border-[#EFE7DC] p-6 sm:p-7 shadow-xs scroll-mt-6 flex flex-col justify-between">
+          <div
+            id="how-refunds-work"
+            className="lg:col-span-6 bg-white rounded-2xl border border-[#EFE7DC] p-6 sm:p-7 shadow-xs scroll-mt-6 flex flex-col justify-between"
+          >
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-8 h-8 rounded-lg bg-[#FAF0E2] text-[#A66224] flex items-center justify-center shrink-0">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+                  <svg
+                    className="w-5 h-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
                   </svg>
                 </div>
                 <h3 className="font-serif font-bold text-lg sm:text-xl text-[#2C1A14]">
@@ -584,7 +719,8 @@ export default function ReturnsPage() {
               </div>
 
               <p className="text-xs sm:text-sm text-[#6B635B] mb-6 leading-relaxed">
-                Once your return or cancellation is approved, the refund will be processed through your original payment method.
+                Once your return or cancellation is approved, the refund will be processed through
+                your original payment method.
               </p>
 
               {/* 5-Step Refund Flow */}
@@ -604,7 +740,9 @@ export default function ReturnsPage() {
 
                       {!isLast && (
                         <div className="flex-1 flex items-center justify-center min-w-[12px] pb-5">
-                          <span className="text-[10px] text-[#D4C3AC] tracking-widest font-mono">···&gt;</span>
+                          <span className="text-[10px] text-[#D4C3AC] tracking-widest font-mono">
+                            ···&gt;
+                          </span>
                         </div>
                       )}
                     </React.Fragment>
@@ -619,13 +757,17 @@ export default function ReturnsPage() {
                 ✓
               </span>
               <p className="text-xs text-[#5C554E] leading-relaxed">
-                Refund eligibility, processing time and timelines may vary based on your payment method and are subject to our final business policy.
+                Refund eligibility, processing time and timelines may vary based on your payment
+                method and are subject to our final business policy.
               </p>
             </div>
           </div>
 
           {/* Right Column: Order Cancellation (6 cols) */}
-          <div id="order-cancellation" className="lg:col-span-6 bg-white rounded-2xl border border-[#EFE7DC] p-6 sm:p-7 shadow-xs scroll-mt-6 flex flex-col justify-between">
+          <div
+            id="order-cancellation"
+            className="lg:col-span-6 bg-white rounded-2xl border border-[#EFE7DC] p-6 sm:p-7 shadow-xs scroll-mt-6 flex flex-col justify-between"
+          >
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-8 h-8 rounded-lg bg-[#FAF0E2] text-[#A66224] flex items-center justify-center shrink-0 font-bold text-sm">
@@ -637,7 +779,8 @@ export default function ReturnsPage() {
               </div>
 
               <p className="text-xs sm:text-sm text-[#6B635B] mb-5 leading-relaxed">
-                Cancellation is subject to your order status. Please check the status of your order before requesting a cancellation.
+                Cancellation is subject to your order status. Please check the status of your order
+                before requesting a cancellation.
               </p>
 
               {/* 3 Status Cards */}
@@ -645,10 +788,18 @@ export default function ReturnsPage() {
                 {/* Before Processing */}
                 <div className="bg-[#F2F9F4] border border-[#D1EBD9] rounded-xl p-4 space-y-1.5">
                   <div className="flex items-center gap-2">
-                    <svg className="w-4 h-4 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                    <svg
+                      className="w-4 h-4 text-emerald-700"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
                     </svg>
-                    <h4 className="text-xs sm:text-[13px] font-bold text-emerald-900">Before Processing</h4>
+                    <h4 className="text-xs sm:text-[13px] font-bold text-emerald-900">
+                      Before Processing
+                    </h4>
                   </div>
                   <p className="text-[11px] text-emerald-800/90 leading-relaxed">
                     Cancellation may be possible if the order has not been processed yet.
@@ -658,11 +809,19 @@ export default function ReturnsPage() {
                 {/* During Processing */}
                 <div className="bg-[#FCF7ED] border border-[#F1E0C9] rounded-xl p-4 space-y-1.5">
                   <div className="flex items-center gap-2">
-                    <svg className="w-4 h-4 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <circle cx="12" cy="12" r="3"/>
-                      <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
+                    <svg
+                      className="w-4 h-4 text-[#A66224]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <circle cx="12" cy="12" r="3" />
+                      <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z" />
                     </svg>
-                    <h4 className="text-xs sm:text-[13px] font-bold text-[#8C5D17]">During Processing</h4>
+                    <h4 className="text-xs sm:text-[13px] font-bold text-[#8C5D17]">
+                      During Processing
+                    </h4>
                   </div>
                   <p className="text-[11px] text-[#6B5034] leading-relaxed">
                     Cancellation may be limited or not available once the order is being prepared.
@@ -672,16 +831,25 @@ export default function ReturnsPage() {
                 {/* After Dispatch */}
                 <div className="bg-[#FDF2F2] border border-[#F7D3D3] rounded-xl p-4 space-y-1.5">
                   <div className="flex items-center gap-2">
-                    <svg className="w-4 h-4 text-red-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <rect x="1" y="3" width="15" height="13"/>
-                      <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
-                      <circle cx="5.5" cy="18.5" r="2.5"/>
-                      <circle cx="18.5" cy="18.5" r="2.5"/>
+                    <svg
+                      className="w-4 h-4 text-red-700"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <rect x="1" y="3" width="15" height="13" />
+                      <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                      <circle cx="5.5" cy="18.5" r="2.5" />
+                      <circle cx="18.5" cy="18.5" r="2.5" />
                     </svg>
-                    <h4 className="text-xs sm:text-[13px] font-bold text-red-900">After Dispatch</h4>
+                    <h4 className="text-xs sm:text-[13px] font-bold text-red-900">
+                      After Dispatch
+                    </h4>
                   </div>
                   <p className="text-[11px] text-red-800/90 leading-relaxed">
-                    Cancellation is usually not possible once the order has been dispatched for delivery.
+                    Cancellation is usually not possible once the order has been dispatched for
+                    delivery.
                   </p>
                 </div>
               </div>
@@ -697,7 +865,6 @@ export default function ReturnsPage() {
               </p>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -706,7 +873,6 @@ export default function ReturnsPage() {
       ══════════════════════════════════════════════════════════ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
           {/* Left Column: Frequently Asked Questions (6 cols) */}
           <div className="lg:col-span-6 bg-white rounded-2xl border border-[#EFE7DC] p-6 sm:p-7 shadow-xs">
             <div className="flex items-center gap-3 mb-5">
@@ -728,9 +894,11 @@ export default function ReturnsPage() {
                       onClick={() => toggleFaq(index)}
                       className="w-full flex items-center justify-between text-left gap-4 group cursor-pointer"
                     >
-                      <span className={`text-xs sm:text-sm font-semibold transition-colors ${
-                        isOpen ? 'text-[#6E1A1A]' : 'text-[#2C1A14] group-hover:text-[#6E1A1A]'
-                      }`}>
+                      <span
+                        className={`text-xs sm:text-sm font-semibold transition-colors ${
+                          isOpen ? 'text-[#6E1A1A]' : 'text-[#2C1A14] group-hover:text-[#6E1A1A]'
+                        }`}
+                      >
                         {faq.q}
                       </span>
                       <svg
@@ -742,7 +910,7 @@ export default function ReturnsPage() {
                         stroke="currentColor"
                         strokeWidth="2"
                       >
-                        <polyline points="6 9 12 15 18 9"/>
+                        <polyline points="6 9 12 15 18 9" />
                       </svg>
                     </button>
                     {isOpen && (
@@ -802,7 +970,7 @@ export default function ReturnsPage() {
                   className="bg-[#25D366] hover:bg-[#20ba59] text-white font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-lg transition-colors inline-flex items-center gap-2 cursor-pointer shadow-2xs whitespace-nowrap"
                 >
                   <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24">
-                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.772.82 2.791.82 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.749 0-3.393-.454-4.832-1.248l-5.168 1.352 1.378-5.035c-.886-1.488-1.378-3.218-1.378-5.069 0-5.514 4.486-10 10-10s10 4.486 10 10z"/>
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.772.82 2.791.82 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.749 0-3.393-.454-4.832-1.248l-5.168 1.352 1.378-5.035c-.886-1.488-1.378-3.218-1.378-5.069 0-5.514 4.486-10 10-10s10 4.486 10 10z" />
                   </svg>
                   <span>WhatsApp Us</span>
                 </a>
@@ -816,8 +984,14 @@ export default function ReturnsPage() {
                   className="inline-flex items-center gap-2 font-bold text-[#2C1A14] hover:text-[#6E1A1A] transition-colors"
                 >
                   <div className="w-7 h-7 rounded-full bg-[#FAF0E2] text-[#A66224] flex items-center justify-center shrink-0">
-                    <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.11 12 19.79 19.79 0 011.04 3.4a2 2 0 012-1.72h3a2 2 0 012 1.72c.153.925.36 1.835.62 2.726a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.891.26 1.8.467 2.726.62A2 2 0 0122 16.92z"/>
+                    <svg
+                      className="w-3.5 h-3.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.11 12 19.79 19.79 0 011.04 3.4a2 2 0 012-1.72h3a2 2 0 012 1.72c.153.925.36 1.835.62 2.726a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.891.26 1.8.467 2.726.62A2 2 0 0122 16.92z" />
                     </svg>
                   </div>
                   <span>9313321535 | 701119609</span>
@@ -826,9 +1000,15 @@ export default function ReturnsPage() {
                 {/* Operating Timings */}
                 <div className="flex items-center gap-2 text-gray-500">
                   <div className="w-7 h-7 rounded-full bg-[#FAF0E2] text-[#A66224] flex items-center justify-center shrink-0">
-                    <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <circle cx="12" cy="12" r="10"/>
-                      <polyline points="12 6 12 12 16 14"/>
+                    <svg
+                      className="w-3.5 h-3.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
                     </svg>
                   </div>
                   <div className="text-[11px] leading-tight">
@@ -837,13 +1017,10 @@ export default function ReturnsPage() {
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
-
         </div>
       </section>
-
     </div>
   );
 }

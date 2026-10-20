@@ -80,8 +80,8 @@ export default function AboutUsPage() {
                 About Bansal Foods
               </h2>
               <p className="text-xs sm:text-[13px] text-gray-200/95 leading-relaxed max-w-lg font-normal">
-                Premium dry fruits, trusted quality and the warmth of a traditional Delhi marketplace
-                — now delivered to your doorstep.
+                Premium dry fruits, trusted quality and the warmth of a traditional Delhi
+                marketplace — now delivered to your doorstep.
               </p>
             </div>
 
@@ -112,20 +112,34 @@ export default function AboutUsPage() {
           {/* 1. Premium Quality */}
           <div className="flex items-center gap-3 pr-2">
             <div className="w-8 h-8 rounded-full text-[#E5A93C] flex items-center justify-center shrink-0">
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <path d="M6 3h12l4 6-10 12L2 9z" />
               </svg>
             </div>
             <div>
               <h4 className="font-bold text-xs text-white leading-tight">Premium Quality</h4>
-              <p className="text-[11px] text-gray-400 mt-0.5 leading-tight">Handpicked Dry Fruits</p>
+              <p className="text-[11px] text-gray-400 mt-0.5 leading-tight">
+                Handpicked Dry Fruits
+              </p>
             </div>
           </div>
 
           {/* 2. Direct from Mandi */}
           <div className="flex items-center gap-3 pt-3 md:pt-0 md:pl-6 pr-2">
             <div className="w-8 h-8 rounded-full text-[#E5A93C] flex items-center justify-center shrink-0">
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <rect x="1" y="3" width="15" height="13" />
                 <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
                 <circle cx="5.5" cy="18.5" r="2.5" />
@@ -141,21 +155,35 @@ export default function AboutUsPage() {
           {/* 3. Trusted by Thousands */}
           <div className="flex items-center gap-3 pt-3 md:pt-0 md:pl-6 pr-2">
             <div className="w-8 h-8 rounded-full text-[#E5A93C] flex items-center justify-center shrink-0">
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 <path d="M9 12l2 2 4-4" />
               </svg>
             </div>
             <div>
               <h4 className="font-bold text-xs text-white leading-tight">Trusted by</h4>
-              <p className="text-[11px] text-gray-400 mt-0.5 leading-tight">Thousands of Customers</p>
+              <p className="text-[11px] text-gray-400 mt-0.5 leading-tight">
+                Thousands of Customers
+              </p>
             </div>
           </div>
 
           {/* 4. Wholesale & Retail */}
           <div className="flex items-center gap-3 pt-3 md:pt-0 md:pl-6">
             <div className="w-8 h-8 rounded-full text-[#E5A93C] flex items-center justify-center shrink-0">
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
                 <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
               </svg>
@@ -172,7 +200,6 @@ export default function AboutUsPage() {
       <section className="py-14 sm:py-18 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            
             {/* Left: Authentic Storefront Image with Floating Badge (5 cols) */}
             <div className="lg:col-span-5 relative">
               <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden border border-gray-200 shadow-md group">
@@ -188,7 +215,13 @@ export default function AboutUsPage() {
                 {/* Floating Badge at Bottom Left */}
                 <div className="absolute bottom-4 left-4 z-10 bg-white/95 backdrop-blur-xs border border-gray-200 rounded-xl p-3 shadow-lg flex items-center gap-3">
                   <div className="w-9 h-9 rounded-full bg-[#FAF5EB] border border-[#ECD9BD] text-[#8E4A18] flex items-center justify-center shrink-0">
-                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg
+                      className="w-5 h-5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
                       <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
                       <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
                     </svg>
@@ -224,17 +257,18 @@ export default function AboutUsPage() {
 
               {/* Paragraph 1 */}
               <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed font-normal">
-                Bansal Foods brings the experience of Delhi’s historic Khari Baoli market to your home.
-                For generations, we have been a trusted name in dry fruits, serving customers with
-                premium quality almonds, cashews, pistachios, walnuts, raisins, dates and a wide range
-                of nuts and seeds.
+                Bansal Foods brings the experience of Delhi’s historic Khari Baoli market to your
+                home. For generations, we have been a trusted name in dry fruits, serving customers
+                with premium quality almonds, cashews, pistachios, walnuts, raisins, dates and a
+                wide range of nuts and seeds.
               </p>
 
               {/* Paragraph 2 */}
               <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed font-normal">
-                What started as a traditional shop in the heart of Khari Baoli has grown into a trusted
-                brand for both retail customers and wholesale buyers across India. Our commitment has
-                always been the same — authentic products, honest pricing and lasting relationships.
+                What started as a traditional shop in the heart of Khari Baoli has grown into a
+                trusted brand for both retail customers and wholesale buyers across India. Our
+                commitment has always been the same — authentic products, honest pricing and lasting
+                relationships.
               </p>
 
               {/* 4 Circular Highlight Badges in a single row */}
@@ -242,7 +276,13 @@ export default function AboutUsPage() {
                 {/* Badge 1: Traditional Family Business */}
                 <div className="flex flex-col items-center text-center p-3 rounded-xl bg-white hover:bg-[#FAF7F2] transition-colors">
                   <div className="w-11 h-11 rounded-full bg-[#FAF5EB] text-[#8E4A18] flex items-center justify-center mb-2 shadow-2xs border border-[#F0E5D0]">
-                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg
+                      className="w-5 h-5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
                       <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
                       <circle cx="9" cy="7" r="4" />
                       <path d="M23 21v-2a4 4 0 00-3-3.87" />
@@ -250,50 +290,75 @@ export default function AboutUsPage() {
                     </svg>
                   </div>
                   <h5 className="font-bold text-[11px] text-[#1B1F2A] leading-tight">
-                    Traditional<br />Family Business
+                    Traditional
+                    <br />
+                    Family Business
                   </h5>
                 </div>
 
                 {/* Badge 2: Premium Quality Products */}
                 <div className="flex flex-col items-center text-center p-3 rounded-xl bg-white hover:bg-[#FAF7F2] transition-colors">
                   <div className="w-11 h-11 rounded-full bg-[#FAF5EB] text-[#8E4A18] flex items-center justify-center mb-2 shadow-2xs border border-[#F0E5D0]">
-                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg
+                      className="w-5 h-5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
                       <circle cx="12" cy="12" r="10" />
                       <polyline points="9 12 11 14 15 10" />
                     </svg>
                   </div>
                   <h5 className="font-bold text-[11px] text-[#1B1F2A] leading-tight">
-                    Premium<br />Quality Products
+                    Premium
+                    <br />
+                    Quality Products
                   </h5>
                 </div>
 
                 {/* Badge 3: From Khari Baoli Mandi, Delhi */}
                 <div className="flex flex-col items-center text-center p-3 rounded-xl bg-white hover:bg-[#FAF7F2] transition-colors">
                   <div className="w-11 h-11 rounded-full bg-[#FAF5EB] text-[#8E4A18] flex items-center justify-center mb-2 shadow-2xs border border-[#F0E5D0]">
-                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg
+                      className="w-5 h-5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
                       <path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10V4a2 2 0 012-2h2a2 2 0 012 2v6" />
                     </svg>
                   </div>
                   <h5 className="font-bold text-[11px] text-[#1B1F2A] leading-tight">
-                    From Khari Baoli<br />Mandi, Delhi
+                    From Khari Baoli
+                    <br />
+                    Mandi, Delhi
                   </h5>
                 </div>
 
                 {/* Badge 4: Serving Retail & Wholesale */}
                 <div className="flex flex-col items-center text-center p-3 rounded-xl bg-white hover:bg-[#FAF7F2] transition-colors">
                   <div className="w-11 h-11 rounded-full bg-[#FAF5EB] text-[#8E4A18] flex items-center justify-center mb-2 shadow-2xs border border-[#F0E5D0]">
-                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg
+                      className="w-5 h-5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
                       <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z" />
                       <line x1="7" y1="7" x2="7.01" y2="7" />
                     </svg>
                   </div>
                   <h5 className="font-bold text-[11px] text-[#1B1F2A] leading-tight">
-                    Serving Retail<br />&amp; Wholesale Customers
+                    Serving Retail
+                    <br />
+                    &amp; Wholesale Customers
                   </h5>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -315,7 +380,13 @@ export default function AboutUsPage() {
             {/* Stat 1: 20+ Years of Trust */}
             <div className="flex flex-col items-center">
               <div className="w-10 h-10 rounded-full bg-[#FAF2E6] text-[#8E4A18] flex items-center justify-center mb-2">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  className="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M16 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2" />
                   <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" />
                 </svg>
@@ -327,7 +398,13 @@ export default function AboutUsPage() {
             {/* Stat 2: 10,000+ Happy Customers */}
             <div className="flex flex-col items-center">
               <div className="w-10 h-10 rounded-full bg-[#FAF2E6] text-[#8E4A18] flex items-center justify-center mb-2">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  className="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
                   <circle cx="9" cy="7" r="4" />
                 </svg>
@@ -339,7 +416,13 @@ export default function AboutUsPage() {
             {/* Stat 3: 100+ Premium Products */}
             <div className="flex flex-col items-center">
               <div className="w-10 h-10 rounded-full bg-[#FAF2E6] text-[#8E4A18] flex items-center justify-center mb-2">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  className="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
                 </svg>
               </div>
@@ -350,7 +433,13 @@ export default function AboutUsPage() {
             {/* Stat 4: Pan India Delivery */}
             <div className="flex flex-col items-center">
               <div className="w-10 h-10 rounded-full bg-[#FAF2E6] text-[#8E4A18] flex items-center justify-center mb-2">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  className="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <rect x="1" y="3" width="15" height="13" />
                   <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
                   <circle cx="5.5" cy="18.5" r="2.5" />
@@ -368,7 +457,6 @@ export default function AboutUsPage() {
       <section className="py-14 sm:py-18 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
             {/* Left Header & Intro (4 cols on lg) */}
             <div className="lg:col-span-4 space-y-2">
               <h2 className="text-3xl sm:text-4xl font-serif font-black text-[#1B1F2A]">
@@ -391,7 +479,13 @@ export default function AboutUsPage() {
               {/* Value 1: Quality First */}
               <div className="p-4 rounded-xl bg-white border border-gray-200 hover:border-[#8E4A18] hover:shadow-xs transition-all flex flex-col items-center text-center">
                 <div className="w-10 h-10 rounded-full bg-[#FAF5EB] text-[#8E4A18] flex items-center justify-center mb-2.5 border border-[#F0E5D0]">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <path d="M6 3h12l4 6-10 12L2 9z" />
                   </svg>
                 </div>
@@ -404,7 +498,13 @@ export default function AboutUsPage() {
               {/* Value 2: Honest Pricing */}
               <div className="p-4 rounded-xl bg-white border border-gray-200 hover:border-[#8E4A18] hover:shadow-xs transition-all flex flex-col items-center text-center">
                 <div className="w-10 h-10 rounded-full bg-[#FAF5EB] text-[#8E4A18] flex items-center justify-center mb-2.5 border border-[#F0E5D0]">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
                     <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
                   </svg>
@@ -418,7 +518,13 @@ export default function AboutUsPage() {
               {/* Value 3: Customer Trust */}
               <div className="p-4 rounded-xl bg-white border border-gray-200 hover:border-[#8E4A18] hover:shadow-xs transition-all flex flex-col items-center text-center">
                 <div className="w-10 h-10 rounded-full bg-[#FAF5EB] text-[#8E4A18] flex items-center justify-center mb-2.5 border border-[#F0E5D0]">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
                     <circle cx="9" cy="7" r="4" />
                     <path d="M23 21v-2a4 4 0 00-3-3.87" />
@@ -434,7 +540,13 @@ export default function AboutUsPage() {
               {/* Value 4: Reliable Supply */}
               <div className="p-4 rounded-xl bg-white border border-gray-200 hover:border-[#8E4A18] hover:shadow-xs transition-all flex flex-col items-center text-center">
                 <div className="w-10 h-10 rounded-full bg-[#FAF5EB] text-[#8E4A18] flex items-center justify-center mb-2.5 border border-[#F0E5D0]">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <rect x="1" y="3" width="15" height="13" />
                     <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
                     <circle cx="5.5" cy="18.5" r="2.5" />
@@ -447,7 +559,6 @@ export default function AboutUsPage() {
                 </p>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -456,7 +567,6 @@ export default function AboutUsPage() {
       <section className="py-12 sm:py-16 bg-[#FAF7F2] border-t border-[#EFE8DC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
-            
             {/* ── Left Card: "From Our Shop in Khari Baoli to Your Home" (7 cols) ── */}
             <div className="lg:col-span-7 rounded-2xl overflow-hidden bg-[#2D0B0B] text-white border border-[#4A1515] shadow-md flex flex-col sm:flex-row">
               {/* Dry Fruits Imagery (Left side of card) */}
@@ -477,9 +587,9 @@ export default function AboutUsPage() {
                     in Khari Baoli to Your Home
                   </h3>
                   <p className="text-xs text-gray-300 mt-2.5 leading-relaxed font-normal">
-                    Experience the same quality and warmth that our customers have trusted for years,
-                    now with the convenience of online shopping. Whether you are buying for your family,
-                    business or special occasions, Bansal Foods is here to serve you.
+                    Experience the same quality and warmth that our customers have trusted for
+                    years, now with the convenience of online shopping. Whether you are buying for
+                    your family, business or special occasions, Bansal Foods is here to serve you.
                   </p>
                 </div>
 
@@ -514,7 +624,13 @@ export default function AboutUsPage() {
                 {/* Location Item */}
                 <div className="flex items-start gap-3">
                   <div className="w-9 h-9 rounded-full bg-[#6E1A1A] text-white flex items-center justify-center shrink-0">
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg
+                      className="w-4 h-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
                       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
                       <circle cx="12" cy="10" r="3" />
                     </svg>
@@ -522,7 +638,9 @@ export default function AboutUsPage() {
                   <div>
                     <h4 className="font-bold text-xs text-[#1B1F2A]">Visit Our Store</h4>
                     <p className="text-[11px] text-gray-600 mt-0.5 leading-snug">
-                      Khari Baoli, Delhi – 110006<br />India
+                      Khari Baoli, Delhi – 110006
+                      <br />
+                      India
                     </p>
                   </div>
                 </div>
@@ -530,7 +648,13 @@ export default function AboutUsPage() {
                 {/* Phone Item */}
                 <div className="flex items-start gap-3">
                   <div className="w-9 h-9 rounded-full bg-[#6E1A1A] text-white flex items-center justify-center shrink-0">
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg
+                      className="w-4 h-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
                       <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                     </svg>
                   </div>
@@ -559,7 +683,6 @@ export default function AboutUsPage() {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>

@@ -33,10 +33,18 @@ export default function ShippingPolicyPage() {
       title: 'Secure Packaging',
       description: 'Orders are carefully packed before dispatch.',
       icon: (
-        <svg className="w-6 h-6 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
-          <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-          <line x1="12" y1="22.08" x2="12" y2="12"/>
+        <svg
+          className="w-6 h-6 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
+          <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+          <line x1="12" y1="22.08" x2="12" y2="12" />
         </svg>
       ),
     },
@@ -45,11 +53,19 @@ export default function ShippingPolicyPage() {
       title: 'Reliable Delivery',
       description: 'Delivery options depend on destination and availability.',
       icon: (
-        <svg className="w-6 h-6 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="1" y="3" width="15" height="13"/>
-          <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
-          <circle cx="5.5" cy="18.5" r="2.5"/>
-          <circle cx="18.5" cy="18.5" r="2.5"/>
+        <svg
+          className="w-6 h-6 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <rect x="1" y="3" width="15" height="13" />
+          <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+          <circle cx="5.5" cy="18.5" r="2.5" />
+          <circle cx="18.5" cy="18.5" r="2.5" />
         </svg>
       ),
     },
@@ -58,9 +74,17 @@ export default function ShippingPolicyPage() {
       title: 'Order Tracking',
       description: 'Track your order from dispatch to delivery.',
       icon: (
-        <svg className="w-6 h-6 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-          <circle cx="12" cy="10" r="3"/>
+        <svg
+          className="w-6 h-6 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+          <circle cx="12" cy="10" r="3" />
         </svg>
       ),
     },
@@ -69,9 +93,17 @@ export default function ShippingPolicyPage() {
       title: 'Secure Ordering',
       description: 'Your order and payment information is handled securely.',
       icon: (
-        <svg className="w-6 h-6 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          <polyline points="9 12 11 14 15 10"/>
+        <svg
+          className="w-6 h-6 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          <polyline points="9 12 11 14 15 10" />
         </svg>
       ),
     },
@@ -84,10 +116,18 @@ export default function ShippingPolicyPage() {
       title: 'ORDER PLACED',
       description: 'Your order is received and payment/order details are confirmed.',
       icon: (
-        <svg className="w-6 h-6 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="9" cy="21" r="1"/>
-          <circle cx="20" cy="21" r="1"/>
-          <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
+        <svg
+          className="w-6 h-6 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <circle cx="9" cy="21" r="1" />
+          <circle cx="20" cy="21" r="1" />
+          <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6" />
         </svg>
       ),
     },
@@ -96,10 +136,18 @@ export default function ShippingPolicyPage() {
       title: 'ORDER PROCESSING',
       description: 'Products are picked and prepared for packing.',
       icon: (
-        <svg className="w-6 h-6 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
-          <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-          <line x1="12" y1="22.08" x2="12" y2="12"/>
+        <svg
+          className="w-6 h-6 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
+          <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+          <line x1="12" y1="22.08" x2="12" y2="12" />
         </svg>
       ),
     },
@@ -108,9 +156,17 @@ export default function ShippingPolicyPage() {
       title: 'QUALITY & PACKING',
       description: 'Items are checked and securely packed.',
       icon: (
-        <svg className="w-6 h-6 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          <path d="M9 12l2 2 4-4"/>
+        <svg
+          className="w-6 h-6 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          <path d="M9 12l2 2 4-4" />
         </svg>
       ),
     },
@@ -119,11 +175,19 @@ export default function ShippingPolicyPage() {
       title: 'DISPATCHED',
       description: 'Your order is handed over for delivery.',
       icon: (
-        <svg className="w-6 h-6 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="1" y="3" width="15" height="13"/>
-          <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
-          <circle cx="5.5" cy="18.5" r="2.5"/>
-          <circle cx="18.5" cy="18.5" r="2.5"/>
+        <svg
+          className="w-6 h-6 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <rect x="1" y="3" width="15" height="13" />
+          <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+          <circle cx="5.5" cy="18.5" r="2.5" />
+          <circle cx="18.5" cy="18.5" r="2.5" />
         </svg>
       ),
     },
@@ -132,9 +196,17 @@ export default function ShippingPolicyPage() {
       title: 'OUT FOR DELIVERY',
       description: 'The delivery partner brings your order to the provided address.',
       icon: (
-        <svg className="w-6 h-6 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-          <circle cx="12" cy="10" r="3"/>
+        <svg
+          className="w-6 h-6 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+          <circle cx="12" cy="10" r="3" />
         </svg>
       ),
     },
@@ -143,9 +215,17 @@ export default function ShippingPolicyPage() {
       title: 'DELIVERED',
       description: 'Your order reaches you.',
       icon: (
-        <svg className="w-6 h-6 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-          <polyline points="9 22 9 12 15 12 15 22"/>
+        <svg
+          className="w-6 h-6 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
         </svg>
       ),
     },
@@ -155,89 +235,144 @@ export default function ShippingPolicyPage() {
   const infoCards = [
     {
       title: 'Delivery Areas',
-      description: 'We currently deliver across India. Delivery options are shown during checkout based on your location.',
+      description:
+        'We currently deliver across India. Delivery options are shown during checkout based on your location.',
       icon: (
-        <svg className="w-5 h-5 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-          <circle cx="12" cy="10" r="3"/>
+        <svg
+          className="w-5 h-5 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+          <circle cx="12" cy="10" r="3" />
         </svg>
       ),
     },
     {
       title: 'Delivery Timelines',
-      description: 'Estimated delivery time is shown during checkout based on your delivery location and order.',
+      description:
+        'Estimated delivery time is shown during checkout based on your delivery location and order.',
       icon: (
-        <svg className="w-5 h-5 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <circle cx="12" cy="12" r="10"/>
-          <polyline points="12 6 12 12 16 14"/>
+        <svg
+          className="w-5 h-5 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <circle cx="12" cy="12" r="10" />
+          <polyline points="12 6 12 12 16 14" />
         </svg>
       ),
     },
     {
       title: 'Shipping Charges',
-      description: 'Applicable shipping charges (if any) are shown at checkout based on your delivery address, weight and order.',
-      icon: (
-        <span className="text-base font-bold text-[#A66224] leading-none">₹</span>
-      ),
+      description:
+        'Applicable shipping charges (if any) are shown at checkout based on your delivery address, weight and order.',
+      icon: <span className="text-base font-bold text-[#A66224] leading-none">₹</span>,
     },
     {
       title: 'Order Processing',
-      description: 'Orders are first processed and packed before dispatch. Processing time may vary based on product availability, order volume and festive periods.',
+      description:
+        'Orders are first processed and packed before dispatch. Processing time may vary based on product availability, order volume and festive periods.',
       icon: (
-        <svg className="w-5 h-5 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <circle cx="12" cy="12" r="3"/>
-          <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
+        <svg
+          className="w-5 h-5 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <circle cx="12" cy="12" r="3" />
+          <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z" />
         </svg>
       ),
     },
     {
       title: 'Tracking',
-      description: 'You can track your order using the Order ID on our website. Tracking details will be updated once your order is dispatched.',
+      description:
+        'You can track your order using the Order ID on our website. Tracking details will be updated once your order is dispatched.',
       icon: (
-        <svg className="w-5 h-5 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <rect x="1" y="3" width="15" height="13"/>
-          <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
-          <circle cx="5.5" cy="18.5" r="2.5"/>
-          <circle cx="18.5" cy="18.5" r="2.5"/>
+        <svg
+          className="w-5 h-5 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <rect x="1" y="3" width="15" height="13" />
+          <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+          <circle cx="5.5" cy="18.5" r="2.5" />
+          <circle cx="18.5" cy="18.5" r="2.5" />
         </svg>
       ),
     },
     {
       title: 'Delivery Attempts',
-      description: 'Our delivery partner will attempt delivery as per their standard process. In case of failed delivery, they may re-attempt or contact you.',
+      description:
+        'Our delivery partner will attempt delivery as per their standard process. In case of failed delivery, they may re-attempt or contact you.',
       icon: (
-        <svg className="w-5 h-5 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <polyline points="1 4 1 10 7 10"/>
-          <path d="M3.51 15a9 9 0 102.13-9.36L1 10"/>
+        <svg
+          className="w-5 h-5 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <polyline points="1 4 1 10 7 10" />
+          <path d="M3.51 15a9 9 0 102.13-9.36L1 10" />
         </svg>
       ),
     },
     {
       title: 'Address Changes',
-      description: 'If you need to change your delivery address, please contact our support team as soon as possible before dispatch.',
+      description:
+        'If you need to change your delivery address, please contact our support team as soon as possible before dispatch.',
       icon: (
-        <svg className="w-5 h-5 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/>
-          <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
+        <svg
+          className="w-5 h-5 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+          <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
         </svg>
       ),
     },
     {
       title: 'Special Locations',
-      description: 'Delivery to remote or difficult-to-reach locations may take longer and is subject to courier serviceability.',
+      description:
+        'Delivery to remote or difficult-to-reach locations may take longer and is subject to courier serviceability.',
       icon: (
-        <svg className="w-5 h-5 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M8 3l4 8 5-5 5 15H2L8 3z"/>
+        <svg
+          className="w-5 h-5 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <path d="M8 3l4 8 5-5 5 15H2L8 3z" />
         </svg>
       ),
     },
     {
       title: 'Bulk/Wholesale Orders',
-      description: 'For bulk orders, delivery timelines and shipping charges may differ. Please contact us for assistance.',
+      description:
+        'For bulk orders, delivery timelines and shipping charges may differ. Please contact us for assistance.',
       icon: (
-        <svg className="w-5 h-5 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-          <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+        <svg
+          className="w-5 h-5 text-[#A66224]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+          <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
         </svg>
       ),
     },
@@ -277,16 +412,16 @@ export default function ShippingPolicyPage() {
 
   return (
     <div className="min-h-screen bg-[#FDFBF7] text-[#2C2114] font-sans pb-16">
-      
       {/* ══════════════════════════════════════════════════════════
           1. HERO BANNER
       ══════════════════════════════════════════════════════════ */}
       <section className="relative w-full border-b border-[#EFE5D4] bg-[#FAF5EB]/60 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-          
           {/* Breadcrumb */}
           <nav className="text-xs text-[#8C827A] flex items-center gap-1.5 mb-6 font-medium">
-            <Link href="/" className="hover:text-[#6E1A1A] transition-colors">Home</Link>
+            <Link href="/" className="hover:text-[#6E1A1A] transition-colors">
+              Home
+            </Link>
             <span className="text-gray-400">&gt;</span>
             <span className="text-[#332219] font-medium">Shipping Policy</span>
           </nav>
@@ -298,7 +433,8 @@ export default function ShippingPolicyPage() {
                 Shipping Policy
               </h1>
               <p className="text-base sm:text-lg text-[#554D45] leading-relaxed max-w-xl font-normal">
-                Everything you need to know about how we pack, process and deliver your Bansal Foods order.
+                Everything you need to know about how we pack, process and deliver your Bansal Foods
+                order.
               </p>
             </div>
 
@@ -339,9 +475,7 @@ export default function ShippingPolicyPage() {
                 <h3 className="font-bold text-[#2C1A14] text-sm sm:text-base leading-snug">
                   {card.title}
                 </h3>
-                <p className="text-xs text-[#6B635B] leading-relaxed">
-                  {card.description}
-                </p>
+                <p className="text-xs text-[#6B635B] leading-relaxed">{card.description}</p>
               </div>
             </div>
           ))}
@@ -357,7 +491,8 @@ export default function ShippingPolicyPage() {
             Our Shipping Process
           </h2>
           <p className="text-xs sm:text-sm text-[#6B635B] mt-1">
-            From our store in Khari Baoli to your doorstep, we ensure your dry fruits are packed with care and delivered safely.
+            From our store in Khari Baoli to your doorstep, we ensure your dry fruits are packed
+            with care and delivered safely.
           </p>
         </div>
 
@@ -366,7 +501,10 @@ export default function ShippingPolicyPage() {
           {processSteps.map((step, idx) => {
             const isLast = idx === processSteps.length - 1;
             return (
-              <div key={step.step} className="flex flex-col items-center text-center relative group">
+              <div
+                key={step.step}
+                className="flex flex-col items-center text-center relative group"
+              >
                 {/* Horizontal dotted connector for desktop */}
                 {!isLast && (
                   <div className="hidden lg:flex items-center absolute top-7 left-[65%] w-[70%] z-0 pointer-events-none">
@@ -425,9 +563,7 @@ export default function ShippingPolicyPage() {
                 {card.icon}
               </div>
               <div className="space-y-1.5 flex-1">
-                <h3 className="font-bold text-[#2C1A14] text-sm sm:text-base">
-                  {card.title}
-                </h3>
+                <h3 className="font-bold text-[#2C1A14] text-sm sm:text-base">{card.title}</h3>
                 <p className="text-xs sm:text-[13px] text-[#6B635B] leading-relaxed">
                   {card.description}
                 </p>
@@ -442,24 +578,28 @@ export default function ShippingPolicyPage() {
       ══════════════════════════════════════════════════════════ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
-          
           {/* Box 1: When does my order ship? */}
           <div className="bg-white rounded-xl border border-[#EFE7DC] p-6 flex flex-col justify-between shadow-xs">
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-[#FAF0E2] border border-[#F1E0C9] flex items-center justify-center shrink-0">
-                  <svg className="w-5 h-5 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
-                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                  <svg
+                    className="w-5 h-5 text-[#A66224]"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
                   </svg>
                 </div>
-                <h3 className="font-bold text-base text-[#2C1A14]">
-                  When does my order ship?
-                </h3>
+                <h3 className="font-bold text-base text-[#2C1A14]">When does my order ship?</h3>
               </div>
-              
+
               <p className="text-xs text-[#6B635B] leading-relaxed pt-1">
-                Your order is first processed and packed carefully before it is handed over to our delivery partner. Processing time may vary depending on:
+                Your order is first processed and packed carefully before it is handed over to our
+                delivery partner. Processing time may vary depending on:
               </p>
 
               <ul className="space-y-2 text-xs text-[#4A4540] pl-1 pt-1">
@@ -486,9 +626,7 @@ export default function ShippingPolicyPage() {
           {/* Box 2: Track Your Order (Interactive) */}
           <div className="bg-white rounded-xl border border-[#EFE7DC] p-6 flex flex-col justify-center shadow-xs">
             <div className="text-center sm:text-left space-y-1 mb-4">
-              <h3 className="font-bold text-xl text-[#2C1A14]">
-                Track Your Order
-              </h3>
+              <h3 className="font-bold text-xl text-[#2C1A14]">Track Your Order</h3>
               <p className="text-xs text-[#6B635B]">
                 Enter your Order ID to check the latest status.
               </p>
@@ -536,15 +674,19 @@ export default function ShippingPolicyPage() {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-[#FAF0E2] border border-[#F1E0C9] flex items-center justify-center shrink-0">
-                  <svg className="w-5 h-5 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
-                    <line x1="12" y1="9" x2="12" y2="13"/>
-                    <line x1="12" y1="17" x2="12.01" y2="17"/>
+                  <svg
+                    className="w-5 h-5 text-[#A66224]"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                    <line x1="12" y1="9" x2="12" y2="13" />
+                    <line x1="12" y1="17" x2="12.01" y2="17" />
                   </svg>
                 </div>
-                <h3 className="font-bold text-base text-[#2C1A14]">
-                  Unexpected Delays
-                </h3>
+                <h3 className="font-bold text-base text-[#2C1A14]">Unexpected Delays</h3>
               </div>
 
               <p className="text-xs text-[#6B635B] leading-relaxed pt-1">
@@ -579,7 +721,6 @@ export default function ShippingPolicyPage() {
               </p>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -588,20 +729,25 @@ export default function ShippingPolicyPage() {
       ══════════════════════════════════════════════════════════ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
           {/* Left Column: Important Delivery Notes (5 cols) */}
           <div className="lg:col-span-5 bg-white rounded-xl border border-[#EFE7DC] p-6 sm:p-7 shadow-xs">
             <div className="flex items-center gap-3 mb-2">
               <div className="w-8 h-8 rounded-lg bg-[#8C5D24] text-white flex items-center justify-center shrink-0">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <polyline points="20 6 9 17 4 12"/>
+                <svg
+                  className="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                >
+                  <polyline points="20 6 9 17 4 12" />
                 </svg>
               </div>
               <h3 className="font-bold text-lg sm:text-xl text-[#2C1A14]">
                 Important Delivery Notes
               </h3>
             </div>
-            
+
             <p className="text-xs text-[#6B635B] mb-5 leading-relaxed">
               To ensure a smooth delivery experience, please keep the following in mind:
             </p>
@@ -618,9 +764,7 @@ export default function ShippingPolicyPage() {
                   <span className="w-5 h-5 rounded-full bg-[#FAF0E2] text-[#A66224] flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">
                     ✓
                   </span>
-                  <span className="text-xs sm:text-[13px] text-[#4A4540] leading-snug">
-                    {note}
-                  </span>
+                  <span className="text-xs sm:text-[13px] text-[#4A4540] leading-snug">{note}</span>
                 </li>
               ))}
             </ul>
@@ -647,9 +791,11 @@ export default function ShippingPolicyPage() {
                       onClick={() => toggleFaq(index)}
                       className="w-full flex items-center justify-between text-left gap-4 group cursor-pointer"
                     >
-                      <span className={`text-xs sm:text-sm font-semibold transition-colors ${
-                        isOpen ? 'text-[#6E1A1A]' : 'text-[#2C1A14] group-hover:text-[#6E1A1A]'
-                      }`}>
+                      <span
+                        className={`text-xs sm:text-sm font-semibold transition-colors ${
+                          isOpen ? 'text-[#6E1A1A]' : 'text-[#2C1A14] group-hover:text-[#6E1A1A]'
+                        }`}
+                      >
                         {faq.q}
                       </span>
                       <svg
@@ -661,7 +807,7 @@ export default function ShippingPolicyPage() {
                         stroke="currentColor"
                         strokeWidth="2"
                       >
-                        <polyline points="6 9 12 15 18 9"/>
+                        <polyline points="6 9 12 15 18 9" />
                       </svg>
                     </button>
                     {isOpen && (
@@ -674,7 +820,6 @@ export default function ShippingPolicyPage() {
               })}
             </div>
           </div>
-
         </div>
       </section>
 
@@ -683,7 +828,6 @@ export default function ShippingPolicyPage() {
       ══════════════════════════════════════════════════════════ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         <div className="bg-[#FAF4EB] border border-[#EADAC5] rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-5 shadow-xs">
-          
           {/* Left: Thumbnail & Text */}
           <div className="flex items-center gap-4 text-center md:text-left w-full md:w-auto justify-center md:justify-start">
             <div className="relative w-16 h-16 sm:w-18 sm:h-18 rounded-full overflow-hidden shrink-0 border-2 border-white shadow-xs">
@@ -698,9 +842,7 @@ export default function ShippingPolicyPage() {
               <h3 className="font-serif font-bold text-lg sm:text-xl text-[#331C10]">
                 Need Help With Your Delivery?
               </h3>
-              <p className="text-xs sm:text-sm text-[#6B635B]">
-                Our support team is here to help.
-              </p>
+              <p className="text-xs sm:text-sm text-[#6B635B]">Our support team is here to help.</p>
             </div>
           </div>
 
@@ -730,7 +872,7 @@ export default function ShippingPolicyPage() {
               className="bg-[#25D366] hover:bg-[#20ba59] text-white font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-lg transition-colors inline-flex items-center gap-2 cursor-pointer shadow-2xs whitespace-nowrap"
             >
               <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24">
-                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.772.82 2.791.82 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.749 0-3.393-.454-4.832-1.248l-5.168 1.352 1.378-5.035c-.886-1.488-1.378-3.218-1.378-5.069 0-5.514 4.486-10 10-10s10 4.486 10 10z"/>
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.772.82 2.791.82 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.749 0-3.393-.454-4.832-1.248l-5.168 1.352 1.378-5.035c-.886-1.488-1.378-3.218-1.378-5.069 0-5.514 4.486-10 10-10s10 4.486 10 10z" />
               </svg>
               <span>WhatsApp Us</span>
             </a>
@@ -740,16 +882,20 @@ export default function ShippingPolicyPage() {
               href="tel:9313321535"
               className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#331C10] hover:text-[#6E1A1A] transition-colors ml-1 whitespace-nowrap"
             >
-              <svg className="w-4 h-4 text-[#A66224]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.11 12 19.79 19.79 0 011.04 3.4a2 2 0 012-1.72h3a2 2 0 012 1.72c.153.925.36 1.835.62 2.726a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.891.26 1.8.467 2.726.62A2 2 0 0122 16.92z"/>
+              <svg
+                className="w-4 h-4 text-[#A66224]"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.11 12 19.79 19.79 0 011.04 3.4a2 2 0 012-1.72h3a2 2 0 012 1.72c.153.925.36 1.835.62 2.726a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.891.26 1.8.467 2.726.62A2 2 0 0122 16.92z" />
               </svg>
               <span>9313321535 | 701119609</span>
             </a>
           </div>
-
         </div>
       </section>
-
     </div>
   );
 }

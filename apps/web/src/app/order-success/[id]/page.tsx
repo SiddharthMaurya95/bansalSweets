@@ -59,7 +59,8 @@ export default function OrderSuccessPage({ params }: PageProps) {
   const [items, setItems] = useState<OrderItemDisplay[]>(DEFAULT_MOCK_ITEMS);
 
   // Default fallback order number matching the mockup exactly
-  const mockOrderNumber = orderId && orderId !== 'mock' && orderId.length > 5 ? orderId : 'BF2026100100123';
+  const mockOrderNumber =
+    orderId && orderId !== 'mock' && orderId.length > 5 ? orderId : 'BF2026100100123';
 
   useEffect(() => {
     // 1. First check if this order or last placed order exists in localStorage
@@ -198,9 +199,22 @@ export default function OrderSuccessPage({ params }: PageProps) {
           {/* Badge: Golden Laurel Leaves + Checkmark Circle */}
           <div className="inline-flex items-center justify-center gap-3 sm:gap-5 mb-3.5">
             {/* Left Laurel */}
-            <svg className="w-10 h-10 sm:w-12 sm:h-12 text-[#C88C3C]" viewBox="0 0 40 40" fill="currentColor">
-              <path d="M30 35 C20 30, 15 20, 18 10 C19 15, 23 18, 25 18 C20 22, 22 28, 26 28 C22 30, 24 33, 30 35 Z" opacity="0.9" />
-              <path d="M22 8 C16 12, 14 18, 17 22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+            <svg
+              className="w-10 h-10 sm:w-12 sm:h-12 text-[#C88C3C]"
+              viewBox="0 0 40 40"
+              fill="currentColor"
+            >
+              <path
+                d="M30 35 C20 30, 15 20, 18 10 C19 15, 23 18, 25 18 C20 22, 22 28, 26 28 C22 30, 24 33, 30 35 Z"
+                opacity="0.9"
+              />
+              <path
+                d="M22 8 C16 12, 14 18, 17 22"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                fill="none"
+              />
               <circle cx="15" cy="14" r="2.2" />
               <circle cx="18" cy="24" r="2.2" />
               <circle cx="24" cy="31" r="2.2" />
@@ -208,15 +222,31 @@ export default function OrderSuccessPage({ params }: PageProps) {
 
             {/* Center Checkmark Circle */}
             <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#8C4A18] text-white flex items-center justify-center shadow-lg border-2 border-white">
-              <svg className="w-7 h-7 sm:w-8 sm:h-8 stroke-current stroke-[3] fill-none" viewBox="0 0 24 24">
+              <svg
+                className="w-7 h-7 sm:w-8 sm:h-8 stroke-current stroke-[3] fill-none"
+                viewBox="0 0 24 24"
+              >
                 <polyline points="20 6 9 17 4 12" />
               </svg>
             </div>
 
             {/* Right Laurel */}
-            <svg className="w-10 h-10 sm:w-12 sm:h-12 text-[#C88C3C] -scale-x-100" viewBox="0 0 40 40" fill="currentColor">
-              <path d="M30 35 C20 30, 15 20, 18 10 C19 15, 23 18, 25 18 C20 22, 22 28, 26 28 C22 30, 24 33, 30 35 Z" opacity="0.9" />
-              <path d="M22 8 C16 12, 14 18, 17 22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+            <svg
+              className="w-10 h-10 sm:w-12 sm:h-12 text-[#C88C3C] -scale-x-100"
+              viewBox="0 0 40 40"
+              fill="currentColor"
+            >
+              <path
+                d="M30 35 C20 30, 15 20, 18 10 C19 15, 23 18, 25 18 C20 22, 22 28, 26 28 C22 30, 24 33, 30 35 Z"
+                opacity="0.9"
+              />
+              <path
+                d="M22 8 C16 12, 14 18, 17 22"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                fill="none"
+              />
               <circle cx="15" cy="14" r="2.2" />
               <circle cx="18" cy="24" r="2.2" />
               <circle cx="24" cy="31" r="2.2" />
@@ -230,7 +260,8 @@ export default function OrderSuccessPage({ params }: PageProps) {
             Your order has been successfully placed.
           </p>
           <p className="text-xs sm:text-sm text-gray-600 mt-1 max-w-xl mx-auto leading-relaxed">
-            We appreciate your trust in Bansal Foods. Your premium dry fruits are on their way to you.
+            We appreciate your trust in Bansal Foods. Your premium dry fruits are on their way to
+            you.
           </p>
         </div>
       </div>
@@ -241,7 +272,13 @@ export default function OrderSuccessPage({ params }: PageProps) {
           {/* Card 1: Order ID */}
           <div className="bg-white rounded-2xl p-4 border border-gray-200/70 shadow-sm flex items-center gap-3.5">
             <div className="w-11 h-11 rounded-xl bg-[#FAF4EB] text-[#8C4A18] flex items-center justify-center shrink-0">
-              <svg className="w-5 h-5 text-[#8C4A18]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                className="w-5 h-5 text-[#8C4A18]"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                 <polyline points="14 2 14 8 20 8" />
                 <line x1="16" y1="13" x2="8" y2="13" />
@@ -263,7 +300,13 @@ export default function OrderSuccessPage({ params }: PageProps) {
           {/* Card 2: Estimated Delivery */}
           <div className="bg-white rounded-2xl p-4 border border-gray-200/70 shadow-sm flex items-center gap-3.5">
             <div className="w-11 h-11 rounded-xl bg-[#FAF4EB] text-[#8C4A18] flex items-center justify-center shrink-0">
-              <svg className="w-5 h-5 text-[#8C4A18]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                className="w-5 h-5 text-[#8C4A18]"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <rect x="1" y="3" width="15" height="13" />
                 <polygon points="16 8 20 8 23 11 23 16 16 16 8" />
                 <circle cx="5.5" cy="18.5" r="2.5" />
@@ -280,7 +323,13 @@ export default function OrderSuccessPage({ params }: PageProps) {
           {/* Card 3: Payment Status */}
           <div className="bg-white rounded-2xl p-4 border border-gray-200/70 shadow-sm flex items-center gap-3.5">
             <div className="w-11 h-11 rounded-xl bg-[#FAF4EB] text-[#8C4A18] flex items-center justify-center shrink-0">
-              <svg className="w-5 h-5 text-[#8C4A18]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                className="w-5 h-5 text-[#8C4A18]"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
                 <line x1="1" y1="10" x2="23" y2="10" />
               </svg>
@@ -299,7 +348,13 @@ export default function OrderSuccessPage({ params }: PageProps) {
           {/* Card 4: Order Status */}
           <div className="bg-white rounded-2xl p-4 border border-gray-200/70 shadow-sm flex items-center gap-3.5">
             <div className="w-11 h-11 rounded-xl bg-[#FAF4EB] text-[#8C4A18] flex items-center justify-center shrink-0">
-              <svg className="w-5 h-5 text-[#8C4A18]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                className="w-5 h-5 text-[#8C4A18]"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
                 <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
                 <line x1="12" y1="22.08" x2="12" y2="12" />
@@ -308,7 +363,9 @@ export default function OrderSuccessPage({ params }: PageProps) {
             <div className="min-w-0">
               <span className="text-xs text-gray-500 font-medium block">Order Status</span>
               <span className="text-sm font-bold text-[#1E120B] block">Confirmed</span>
-              <span className="text-[11px] text-gray-400 block mt-0.5">Your order is being processed</span>
+              <span className="text-[11px] text-gray-400 block mt-0.5">
+                Your order is being processed
+              </span>
             </div>
           </div>
         </div>
@@ -324,12 +381,20 @@ export default function OrderSuccessPage({ params }: PageProps) {
               <div className="flex items-center justify-between border-b border-gray-100 pb-3">
                 <div className="flex items-center gap-2.5">
                   <div className="w-8 h-8 rounded-full bg-[#FAF4EB] text-[#8C4A18] flex items-center justify-center">
-                    <svg className="w-4 h-4 text-[#8C4A18]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg
+                      className="w-4 h-4 text-[#8C4A18]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
                       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                       <circle cx="12" cy="10" r="3" />
                     </svg>
                   </div>
-                  <h3 className="font-bold text-sm sm:text-base text-[#1E120B]">Delivery Address</h3>
+                  <h3 className="font-bold text-sm sm:text-base text-[#1E120B]">
+                    Delivery Address
+                  </h3>
                 </div>
                 <Link
                   href="/checkout"
@@ -348,7 +413,8 @@ export default function OrderSuccessPage({ params }: PageProps) {
                   {order?.shippingAddress?.line1 || 'A-302, Green Park Apartments'}
                 </p>
                 <p className="text-xs text-gray-600 leading-relaxed">
-                  {order?.shippingAddress?.city || 'Khari Baoli, Delhi'} - {order?.shippingAddress?.pincode || '110006'}
+                  {order?.shippingAddress?.city || 'Khari Baoli, Delhi'} -{' '}
+                  {order?.shippingAddress?.pincode || '110006'}
                 </p>
                 <p className="text-xs text-gray-600 mt-2 font-medium">
                   {order?.shippingAddress?.phone || '+91 9876543210'}
@@ -360,7 +426,13 @@ export default function OrderSuccessPage({ params }: PageProps) {
             <div className="bg-white rounded-2xl p-5 sm:p-6 border border-gray-200/70 shadow-sm">
               <div className="flex items-center gap-2.5 border-b border-gray-100 pb-3">
                 <div className="w-8 h-8 rounded-full bg-[#FAF4EB] text-[#8C4A18] flex items-center justify-center">
-                  <svg className="w-4 h-4 text-[#8C4A18]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4 text-[#8C4A18]"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
                     <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
                   </svg>
@@ -404,7 +476,13 @@ export default function OrderSuccessPage({ params }: PageProps) {
               <div className="flex items-center justify-between border-b border-gray-100 pb-3">
                 <div className="flex items-center gap-2.5">
                   <div className="w-8 h-8 rounded-full bg-[#FAF4EB] text-[#8C4A18] flex items-center justify-center">
-                    <svg className="w-4 h-4 text-[#8C4A18]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg
+                      className="w-4 h-4 text-[#8C4A18]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
                       <path d="M9 11l3 3L22 4" />
                       <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
                     </svg>
@@ -428,17 +506,10 @@ export default function OrderSuccessPage({ params }: PageProps) {
                   <div key={item.id} className="py-3.5 flex items-center justify-between gap-3">
                     <div className="flex items-center gap-3 min-w-0">
                       <div className="relative w-14 h-14 rounded-xl overflow-hidden bg-[#FAF7F2] border border-gray-100 shrink-0">
-                        <Image
-                          src={item.imageUrl}
-                          alt={item.name}
-                          fill
-                          className="object-cover"
-                        />
+                        <Image src={item.imageUrl} alt={item.name} fill className="object-cover" />
                       </div>
                       <div className="min-w-0">
-                        <h4 className="font-bold text-sm text-[#1E120B] truncate">
-                          {item.name}
-                        </h4>
+                        <h4 className="font-bold text-sm text-[#1E120B] truncate">{item.name}</h4>
                         <p className="text-xs text-gray-500 mt-0.5">
                           {item.variant} | Qty: {item.quantity}
                         </p>
@@ -463,13 +534,18 @@ export default function OrderSuccessPage({ params }: PageProps) {
                 <div className="flex justify-between text-gray-600">
                   <span>Subtotal ({items.length} items)</span>
                   <span className="font-semibold text-[#1E120B]">
-                    ₹{(order?.subtotalPaise ? order.subtotalPaise / 100 : 1730).toLocaleString('en-IN')}
+                    ₹
+                    {(order?.subtotalPaise ? order.subtotalPaise / 100 : 1730).toLocaleString(
+                      'en-IN',
+                    )}
                   </span>
                 </div>
                 {order && order.discountPaise > 0 ? (
                   <div className="flex justify-between text-[#2E7D32]">
                     <span>Discount</span>
-                    <span className="font-semibold">- ₹{Math.round(order.discountPaise / 100).toLocaleString('en-IN')}</span>
+                    <span className="font-semibold">
+                      - ₹{Math.round(order.discountPaise / 100).toLocaleString('en-IN')}
+                    </span>
                   </div>
                 ) : null}
                 <div className="flex justify-between text-gray-600">
@@ -485,11 +561,16 @@ export default function OrderSuccessPage({ params }: PageProps) {
               {/* Total Amount Box */}
               <div className="mt-4 pt-3.5 border-t border-gray-200/80 bg-[#FAF7F2] -mx-5 -mb-5 sm:-mx-6 sm:-mb-6 p-5 sm:p-6 rounded-b-2xl flex items-center justify-between">
                 <div>
-                  <span className="text-sm sm:text-base font-bold text-[#1E120B] block">Total Amount</span>
+                  <span className="text-sm sm:text-base font-bold text-[#1E120B] block">
+                    Total Amount
+                  </span>
                 </div>
                 <div className="text-right">
                   <span className="text-2xl sm:text-3xl font-extrabold text-[#D32F2F] tracking-tight block">
-                    ₹{(order?.totalPaise ? Math.round(order.totalPaise / 100) : 1365).toLocaleString('en-IN')}
+                    ₹
+                    {(order?.totalPaise ? Math.round(order.totalPaise / 100) : 1365).toLocaleString(
+                      'en-IN',
+                    )}
                   </span>
                   {order && order.discountPaise > 0 && (
                     <span className="text-xs font-semibold text-[#2E7D32] block mt-0.5">
@@ -508,7 +589,13 @@ export default function OrderSuccessPage({ params }: PageProps) {
             href={`/orders/track?orderId=${order?.orderNumber || order?.id || orderId}`}
             className="w-full sm:w-auto px-8 py-3 bg-[#8C4A18] hover:bg-[#733B12] text-white font-semibold text-sm rounded-lg shadow-sm hover:shadow transition-all flex items-center justify-center gap-2.5 active:scale-[0.99]"
           >
-            <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              className="w-4 h-4 text-white"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               <rect x="1" y="3" width="15" height="13" />
               <polygon points="16 8 20 8 23 11 23 16 16 16 8" />
               <circle cx="5.5" cy="18.5" r="2.5" />
@@ -522,7 +609,13 @@ export default function OrderSuccessPage({ params }: PageProps) {
             href="/shop"
             className="w-full sm:w-auto px-8 py-3 bg-white hover:bg-gray-50 border border-gray-200 text-[#8C4A18] hover:border-gray-300 font-semibold text-sm rounded-lg shadow-2xs transition-all flex items-center justify-center gap-2.5 active:scale-[0.99]"
           >
-            <svg className="w-4 h-4 text-[#8C4A18]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              className="w-4 h-4 text-[#8C4A18]"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
               <line x1="3" y1="6" x2="21" y2="6" />
               <path d="M16 10a4 4 0 0 1-8 0" />
@@ -538,7 +631,13 @@ export default function OrderSuccessPage({ params }: PageProps) {
             {/* 1. 100% Original Quality */}
             <div className="flex flex-col items-center">
               <div className="w-11 h-11 rounded-full bg-[#EFE3D3] text-[#8C4A18] flex items-center justify-center mb-2 shadow-2xs">
-                <svg className="w-5 h-5 text-[#8C4A18]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  className="w-5 h-5 text-[#8C4A18]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M12 2C7 2 3 7 3 12C3 16 6 19 10 19C12 19 14 18 15 16C16 18 18 19 20 19C22 19 23 18 23 16C23 11 18 2 12 2Z" />
                   <path d="M12 2V16" />
                 </svg>
@@ -550,21 +649,35 @@ export default function OrderSuccessPage({ params }: PageProps) {
             {/* 2. Fast & Safe Delivery */}
             <div className="flex flex-col items-center">
               <div className="w-11 h-11 rounded-full bg-[#EFE3D3] text-[#8C4A18] flex items-center justify-center mb-2 shadow-2xs">
-                <svg className="w-5 h-5 text-[#8C4A18]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  className="w-5 h-5 text-[#8C4A18]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <rect x="1" y="3" width="15" height="13" />
                   <polygon points="16 8 20 8 23 11 23 16 16 16 8" />
                   <circle cx="5.5" cy="18.5" r="2.5" />
                   <circle cx="18.5" cy="18.5" r="2.5" />
                 </svg>
               </div>
-              <h4 className="font-bold text-xs sm:text-sm text-[#1E120B]">Fast &amp; Safe Delivery</h4>
+              <h4 className="font-bold text-xs sm:text-sm text-[#1E120B]">
+                Fast &amp; Safe Delivery
+              </h4>
               <p className="text-[11px] text-gray-600 mt-0.5">Pan India delivery</p>
             </div>
 
             {/* 3. Secure Payments */}
             <div className="flex flex-col items-center">
               <div className="w-11 h-11 rounded-full bg-[#EFE3D3] text-[#8C4A18] flex items-center justify-center mb-2 shadow-2xs">
-                <svg className="w-5 h-5 text-[#8C4A18]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  className="w-5 h-5 text-[#8C4A18]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   <path d="M9 12l2 2 4-4" />
                 </svg>
@@ -576,7 +689,13 @@ export default function OrderSuccessPage({ params }: PageProps) {
             {/* 4. Easy Returns */}
             <div className="flex flex-col items-center">
               <div className="w-11 h-11 rounded-full bg-[#EFE3D3] text-[#8C4A18] flex items-center justify-center mb-2 shadow-2xs">
-                <svg className="w-5 h-5 text-[#8C4A18]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  className="w-5 h-5 text-[#8C4A18]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
                   <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
                   <line x1="12" y1="22.08" x2="12" y2="12" />
