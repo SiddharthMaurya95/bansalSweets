@@ -134,8 +134,8 @@ export default function DryFruitGiftingArticle() {
               Custom Wedding &amp; Corporate Gift Hampers
             </h3>
             <p className="text-xs text-gray-600 max-w-lg mx-auto">
-              Need custom gift boxes for Diwali, weddings, or corporate festivities? Contact our Khari
-              Baoli team for wholesale pricing and personalized packaging.
+              Need custom gift boxes for Diwali, weddings, or corporate festivities? Contact our
+              Khari Baoli team for wholesale pricing and personalized packaging.
             </p>
             <div className="pt-2 flex flex-wrap justify-center gap-3">
               <Link

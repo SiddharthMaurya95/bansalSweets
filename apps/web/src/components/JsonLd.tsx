@@ -33,14 +33,7 @@ export function OrganizationJsonLd() {
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
-        dayOfWeek: [
-          'Monday',
-          'Tuesday',
-          'Wednesday',
-          'Thursday',
-          'Friday',
-          'Saturday',
-        ],
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
         opens: '09:30',
         closes: '19:30',
       },
@@ -147,7 +140,7 @@ export function ProductJsonLd({
   const url = `https://bansalfoods.in/products/${slug}`;
   const priceRupees = (pricePaise / 100).toFixed(2);
   const formattedImages = images.map((img) =>
-    img.startsWith('http') ? img : `https://bansalfoods.in${img}`
+    img.startsWith('http') ? img : `https://bansalfoods.in${img}`,
   );
 
   const schema = {
@@ -169,9 +162,7 @@ export function ProductJsonLd({
       price: priceRupees,
       priceValidUntil: '2027-12-31',
       itemCondition: 'https://schema.org/NewCondition',
-      availability: inStock
-        ? 'https://schema.org/InStock'
-        : 'https://schema.org/OutOfStock',
+      availability: inStock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
       seller: {
         '@type': 'Organization',
         name: 'Bansal Foods',
@@ -241,9 +232,7 @@ export function ArticleJsonLd({
   authorName = 'Bansal Foods Nutrition Team',
 }: ArticleJsonLdProps) {
   const url = `https://bansalfoods.in/blog/${slug}`;
-  const img = imageUrl.startsWith('http')
-    ? imageUrl
-    : `https://bansalfoods.in${imageUrl}`;
+  const img = imageUrl.startsWith('http') ? imageUrl : `https://bansalfoods.in${imageUrl}`;
 
   const schema = {
     '@context': 'https://schema.org',

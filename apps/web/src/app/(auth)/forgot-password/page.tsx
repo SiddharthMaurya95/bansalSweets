@@ -31,7 +31,8 @@ export default function ForgotPasswordPage() {
           </Link>
           <h1 className="font-serif text-2xl font-bold text-[#1F140D]">Reset Your Password</h1>
           <p className="text-xs text-gray-500">
-            Enter your registered email address or phone number to receive password recovery instructions.
+            Enter your registered email address or phone number to receive password recovery
+            instructions.
           </p>
         </div>
 

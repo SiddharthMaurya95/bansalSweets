@@ -13,8 +13,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Privacy Policy | Bansal Foods',
-    description:
-      'Learn how Bansal Foods protects your personal and payment data during purchases.',
+    description: 'Learn how Bansal Foods protects your personal and payment data during purchases.',
     url: 'https://bansalfoods.in/privacy',
   },
 };

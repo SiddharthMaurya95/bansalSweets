@@ -124,7 +124,8 @@ export default function BlogIndexPage() {
             Looking for authentic Khari Baoli dry fruits?
           </h2>
           <p className="text-xs text-gray-500 mb-5">
-            Order premium almonds, cashews, pistachios, walnuts, and gift hampers delivered across India.
+            Order premium almonds, cashews, pistachios, walnuts, and gift hampers delivered across
+            India.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Link

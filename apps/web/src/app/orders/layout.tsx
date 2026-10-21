@@ -11,8 +11,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Track Your Order | Bansal Foods',
-    description:
-      'Real-time shipment and parcel tracking for Bansal Foods dry fruits orders.',
+    description: 'Real-time shipment and parcel tracking for Bansal Foods dry fruits orders.',
     url: 'https://bansalfoods.in/orders/track',
   },
 };

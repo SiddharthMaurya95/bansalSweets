@@ -52,12 +52,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-button, a {
+button,
+a {
   touch-action: manipulation;
 }
 
 @media (max-width: 640px) {
-  input, select, textarea {
+  input,
+  select,
+  textarea {
     font-size: 16px !important; /* Prevents auto-zoom on iOS Safari */
   }
 }

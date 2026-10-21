@@ -116,8 +116,8 @@ export default function HealthyDryFruitsArticle() {
                 Walnut Kernels
               </Link>{' '}
               contain higher amounts of Alpha-Linolenic Acid (ALA)—a plant-based Omega-3—than any
-              other common tree nut. Regular consumption supports cognitive performance, regulates blood
-              pressure, and lowers bad LDL cholesterol.
+              other common tree nut. Regular consumption supports cognitive performance, regulates
+              blood pressure, and lowers bad LDL cholesterol.
             </p>
           </section>
 
@@ -133,8 +133,8 @@ export default function HealthyDryFruitsArticle() {
               >
                 Afghan Green Pistachios
               </Link>{' '}
-              promote eye health and blood sugar stability. Being low in calories yet high in protein,
-              they make the ideal afternoon guilt-free snack.
+              promote eye health and blood sugar stability. Being low in calories yet high in
+              protein, they make the ideal afternoon guilt-free snack.
             </p>
           </section>
 
@@ -160,8 +160,8 @@ export default function HealthyDryFruitsArticle() {
               5. Ajwa &amp; Medjool Dates (Khajoor): Natural Sustained Energy
             </h2>
             <p>
-              Instead of refined sugar snacks, dates offer quick natural fructose balanced with soluble
-              fiber, iron, and potassium.{' '}
+              Instead of refined sugar snacks, dates offer quick natural fructose balanced with
+              soluble fiber, iron, and potassium.{' '}
               <Link
                 href="/category/dates"
                 className="text-[#8C5D17] font-bold underline hover:text-[#5B3708]"
@@ -178,8 +178,8 @@ export default function HealthyDryFruitsArticle() {
               Order Pure Khari Baoli Dry Fruits Online
             </h3>
             <p className="text-xs text-gray-600 max-w-lg mx-auto">
-              Get genuine Kashmiri Mamra almonds, cashews, pistachios, and curated gift boxes shipped
-              fresh directly to your home anywhere in India.
+              Get genuine Kashmiri Mamra almonds, cashews, pistachios, and curated gift boxes
+              shipped fresh directly to your home anywhere in India.
             </p>
             <div className="pt-2">
               <Link

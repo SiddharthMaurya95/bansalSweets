@@ -50,4 +50,3 @@ export default function ReturnsLayout({ children }: { children: ReactNode }) {
     </>
   );
 }
-
