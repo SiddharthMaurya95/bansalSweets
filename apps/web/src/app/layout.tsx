@@ -5,6 +5,7 @@ import { Footer } from '@/components/Footer';
 import { CartProvider } from '@/context/CartContext';
 import { AuthProvider } from '@/context/AuthContext';
 import { WishlistProvider } from '@/context/WishlistContext';
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   title: {
@@ -43,6 +44,7 @@ export default function RootLayout({
             </WishlistProvider>
           </CartProvider>
         </AuthProvider>
+        <Analytics />
       </body>
     </html>
   );
