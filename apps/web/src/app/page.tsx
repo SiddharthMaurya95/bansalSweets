@@ -21,7 +21,17 @@ import {
 export const metadata: Metadata = {
   title: 'Bansal Foods | Premium Dry Fruits & Nuts – Khari Baoli, Old Delhi',
   description:
-    'Buy authentic dry fruits, almonds, cashews, pistachios, walnuts, raisins, dates, seeds and festive gift hampers from Khari Baoli, Old Delhi. Wholesale and retail rates.',
+    'Buy authentic dry fruits, Kashmiri Mamra almonds, W320 cashews, Afghan pistachios, walnuts, raisins, dates, seeds and festive gift hampers directly from Khari Baoli, Old Delhi. Wholesale and retail rates.',
+  alternates: {
+    canonical: 'https://bansalfoods.in',
+  },
+  openGraph: {
+    title: 'Bansal Foods | Premium Dry Fruits & Nuts – Khari Baoli, Old Delhi',
+    description:
+      'Direct from Asia’s largest dry fruits market: Kashmiri almonds, cashews, pistachios, dates and gift boxes.',
+    url: 'https://bansalfoods.in',
+    images: ['/og-image.jpg'],
+  },
 };
 
 // ─── Data ──────────────────────────────────────────────────────────────────────
@@ -300,7 +310,7 @@ function HeroSection() {
             </p>
             <div className="space-y-0.5">
               <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.08] drop-shadow-md">
-                Dry Fruits &amp; Nuts
+                Bansal Foods – Dry Fruits &amp; Nuts
               </h1>
               <p className="font-serif italic text-xl sm:text-3xl lg:text-4xl text-[#E5A93C] font-normal leading-tight drop-shadow-sm">
                 from Old Delhi&apos;s Historic Mandi
@@ -473,7 +483,7 @@ function WhyChooseSection() {
         <div className="relative w-full h-full">
           <Image
             src="/product-almonds.jpg"
-            alt=""
+            alt="Hand-selected Kashmiri Mamra almonds display"
             fill
             sizes="200px"
             className="object-cover rounded-r-full"
@@ -485,7 +495,7 @@ function WhyChooseSection() {
         <div className="relative w-full h-full">
           <Image
             src="/product-dates.jpg"
-            alt=""
+            alt="Royal Medjool and Ajwa dates selection"
             fill
             sizes="200px"
             className="object-cover rounded-l-full"

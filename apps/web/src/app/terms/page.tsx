@@ -2,15 +2,32 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
+import { BreadcrumbsJsonLd } from '@/components/JsonLd';
+
 export const metadata: Metadata = {
-  title: 'Terms of Service | Bansal Foods Khari Baoli Mandi',
+  title: 'Terms of Service & Mandi Guidelines | Bansal Foods',
   description:
     'Commercial terms, dry-fruit quality grades, natural weight tolerances, and return guidelines for retail and wholesale buyers.',
+  alternates: {
+    canonical: 'https://bansalfoods.in/terms',
+  },
+  openGraph: {
+    title: 'Terms of Service | Bansal Foods',
+    description:
+      'Commercial terms, invoicing rules, and warranty details for Bansal Foods purchases.',
+    url: 'https://bansalfoods.in/terms',
+  },
 };
 
 export default function TermsOfServicePage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 sm:py-12 space-y-8">
+      <BreadcrumbsJsonLd
+        items={[
+          { name: 'Home', item: '/' },
+          { name: 'Terms of Service', item: '/terms' },
+        ]}
+      />
       <div>
         <span className="text-xs font-bold uppercase tracking-widest text-[#D9A521] block mb-1">
           Legal &amp; Mandi Regulations • Bansal Foods Khari Baoli

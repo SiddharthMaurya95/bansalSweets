@@ -663,8 +663,8 @@ export default function AboutUsPage() {
                       <a href="tel:9313321535" className="hover:text-[#6E1A1A] transition-colors">
                         9313321535
                       </a>
-                      <a href="tel:701119609" className="hover:text-[#6E1A1A] transition-colors">
-                        701119609
+                      <a href="tel:7011196209" className="hover:text-[#6E1A1A] transition-colors">
+                        7011196209
                       </a>
                     </div>
                   </div>

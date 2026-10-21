@@ -460,7 +460,7 @@ export default function OrderSuccessPage({ params }: PageProps) {
 
               <p className="text-xs text-gray-600 mt-3 text-center sm:text-left">
                 Or call us at{' '}
-                <span className="font-semibold text-gray-900">9313321535 | 701119609</span>
+                <span className="font-semibold text-gray-900">9313321535 | 7011196209</span>
               </p>
               <p className="text-[11px] text-gray-500 mt-1 flex items-center justify-center sm:justify-start gap-1">
                 <span>🕒</span>

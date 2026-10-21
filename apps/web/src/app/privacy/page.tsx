@@ -2,15 +2,32 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
+import { BreadcrumbsJsonLd } from '@/components/JsonLd';
+
 export const metadata: Metadata = {
-  title: 'Privacy Policy & DPDP Act 2023 Compliance | Bansal Foods Khari Baoli',
+  title: 'Privacy Policy & Data Protection | Bansal Foods',
   description:
-    'Our commitment to privacy, personal data security, and rights under the Digital Personal Data Protection Act 2023.',
+    'Our commitment to privacy, personal data security, and compliance with the Digital Personal Data Protection (DPDP) Act 2023.',
+  alternates: {
+    canonical: 'https://bansalfoods.in/privacy',
+  },
+  openGraph: {
+    title: 'Privacy Policy | Bansal Foods',
+    description:
+      'Learn how Bansal Foods protects your personal and payment data during purchases.',
+    url: 'https://bansalfoods.in/privacy',
+  },
 };
 
 export default function PrivacyPolicyPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 sm:py-12 space-y-8">
+      <BreadcrumbsJsonLd
+        items={[
+          { name: 'Home', item: '/' },
+          { name: 'Privacy Policy', item: '/privacy' },
+        ]}
+      />
       <div>
         <span className="text-xs font-bold uppercase tracking-widest text-[#D9A521] block mb-1">
           Legal &amp; Compliance • Bansal Foods Khari Baoli

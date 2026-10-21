@@ -2,15 +2,33 @@ import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import { ShopClient } from './ShopClient';
 
+import { BreadcrumbsJsonLd } from '@/components/JsonLd';
+
 export const metadata: Metadata = {
   title: 'Shop Dry Fruits & Nuts | Bansal Foods – Khari Baoli, Old Delhi',
   description:
     'Browse our full range of authentic dry fruits from Old Delhi historic mandi: Mamra almonds, W320 cashews, Iranian pistachios, California walnuts, raisins, dates, figs, seeds and festive gift hampers.',
+  alternates: {
+    canonical: 'https://bansalfoods.in/shop',
+  },
+  openGraph: {
+    title: 'Shop Dry Fruits & Nuts | Bansal Foods – Khari Baoli, Old Delhi',
+    description:
+      'Buy wholesale & retail dry fruits online directly from Khari Baoli, Delhi: Almonds, Cashews, Pistachios, Walnuts, Dates and Gift Boxes.',
+    url: 'https://bansalfoods.in/shop',
+    images: ['/og-image.jpg'],
+  },
 };
 
 export default function ShopPage() {
   return (
     <div className="min-h-screen bg-[#FAF9F6]">
+      <BreadcrumbsJsonLd
+        items={[
+          { name: 'Home', item: '/' },
+          { name: 'Shop Dry Fruits', item: '/shop' },
+        ]}
+      />
       <Suspense fallback={<ShopSkeleton />}>
         <ShopClient />
       </Suspense>

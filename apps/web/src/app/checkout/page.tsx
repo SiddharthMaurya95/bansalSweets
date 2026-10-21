@@ -633,7 +633,7 @@ export default function CheckoutPage() {
                 </div>
                 <div>
                   <p className="text-xs font-bold text-[#1F140D] leading-tight">
-                    9313321535 | 701119609
+                    9313321535 | 7011196209
                   </p>
                   <p className="text-[10px] text-gray-500 leading-tight">
                     Need help? Mandi helpline
@@ -2317,7 +2317,7 @@ export default function CheckoutPage() {
                 </div>
                 <div>
                   <h6 className="font-bold text-xs text-[#1F140D]">Need Help with Checkout?</h6>
-                  <p className="text-xs font-bold text-[#7A4116]">9313321535 | 701119609</p>
+                  <p className="text-xs font-bold text-[#7A4116]">9313321535 | 7011196209</p>
                   <p className="text-[10px] text-gray-500">
                     Mandi Store: Khari Baoli, Delhi - 110006
                   </p>

@@ -2,24 +2,66 @@ import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import { ShopClient } from '@/app/shop/ShopClient';
 
+import { BreadcrumbsJsonLd } from '@/components/JsonLd';
+
 interface CategoryPageProps {
   params: Promise<{ slug: string }>;
 }
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const title = slug
-    ? `${slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, ' ')} | Bansal Foods`
-    : 'Shop Dry Fruits | Bansal Foods';
+  const formattedCategory = slug
+    ? slug
+        .split('-')
+        .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+        .join(' ')
+    : 'Dry Fruits';
+
+  const title = `${formattedCategory} – Premium Khari Baoli Selection | Bansal Foods`;
+  const description = `Buy authentic ${formattedCategory} directly from Old Delhi Khari Baoli Mandi. 100% pure quality, wholesale & retail rates, fast pan-India delivery.`;
+  const canonicalUrl = `https://bansalfoods.in/category/${slug}`;
+
   return {
-    title,
-    description: `Buy premium quality ${slug.replace(/-/g, ' ')} directly from Old Delhi Khari Baoli Mandi at wholesale and retail rates.`,
+    title: {
+      absolute: title,
+    },
+    description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonicalUrl,
+      images: ['/og-image.jpg'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ['/og-image.jpg'],
+    },
   };
 }
 
-export default function CategoryPage() {
+export default async function CategoryPage({ params }: CategoryPageProps) {
+  const { slug } = await params;
+  const formattedCategory = slug
+    ? slug
+        .split('-')
+        .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+        .join(' ')
+    : 'Dry Fruits';
+
   return (
     <div className="min-h-screen bg-[#FAF9F6]">
+      <BreadcrumbsJsonLd
+        items={[
+          { name: 'Home', item: '/' },
+          { name: 'Shop', item: '/shop' },
+          { name: formattedCategory, item: `/category/${slug}` },
+        ]}
+      />
       <Suspense fallback={<CategorySkeleton />}>
         <ShopClient />
       </Suspense>

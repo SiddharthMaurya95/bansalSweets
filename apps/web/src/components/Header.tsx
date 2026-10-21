@@ -112,7 +112,7 @@ export const Header: React.FC = () => {
                 >
                   <Image
                     src="/logo.png"
-                    alt="Company Logo"
+                    alt="Bansal Foods Khari Baoli Logo"
                     width={36}
                     height={36}
                     className="w-9 h-9 rounded-full object-cover shrink-0 shadow-xs"
@@ -276,7 +276,10 @@ export const Header: React.FC = () => {
                               user?.name || 'User',
                             )}&background=1a73e8&color=ffffff&size=128&bold=true&rounded=true`
                           }
-                          alt={user?.name || 'Profile'}
+                          alt={user?.name || 'User Profile Avatar'}
+                          width={24}
+                          height={24}
+                          loading="lazy"
                           className="w-full h-full object-cover rounded-full"
                           referrerPolicy="no-referrer"
                         />
@@ -339,7 +342,7 @@ export const Header: React.FC = () => {
           <Link href="/" className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0 group">
             <Image
               src="/logo.png"
-              alt="Company Logo"
+              alt="Bansal Foods Khari Baoli Logo"
               width={48}
               height={48}
               priority
@@ -468,7 +471,10 @@ export const Header: React.FC = () => {
                         user?.name || 'User',
                       )}&background=1a73e8&color=ffffff&size=128&bold=true&rounded=true`
                     }
-                    alt={user?.name || 'Profile'}
+                    alt={user?.name || 'User Profile Avatar'}
+                    width={20}
+                    height={20}
+                    loading="lazy"
                     className="w-full h-full object-cover rounded-full"
                     referrerPolicy="no-referrer"
                     onError={(e) => {

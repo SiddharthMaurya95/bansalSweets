@@ -375,7 +375,7 @@ export default function ReturnsPage() {
     },
     {
       q: 'Who should I contact about a return?',
-      a: 'You can contact our dedicated support team via phone at 9313321535 or 701119609, via WhatsApp, or email us at shashwatbansal2610@gmail.com. We are available Monday to Saturday (9:30 AM – 7:30 PM) and Sunday (9:30 AM – 4:00 PM).',
+      a: 'You can contact our dedicated support team via phone at 9313321535 or 7011196209, via WhatsApp, or email us at shashwatbansal2610@gmail.com. We are available Monday to Saturday (9:30 AM – 7:30 PM) and Sunday (9:30 AM – 4:00 PM).',
     },
   ];
 
@@ -994,7 +994,7 @@ export default function ReturnsPage() {
                       <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.11 12 19.79 19.79 0 011.04 3.4a2 2 0 012-1.72h3a2 2 0 012 1.72c.153.925.36 1.835.62 2.726a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.891.26 1.8.467 2.726.62A2 2 0 0122 16.92z" />
                     </svg>
                   </div>
-                  <span>9313321535 | 701119609</span>
+                  <span>9313321535 | 7011196209</span>
                 </a>
 
                 {/* Operating Timings */}

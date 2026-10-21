@@ -34,9 +34,13 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
+  overflow-x: hidden;
   color: var(--ink-900);
   background-color: var(--surface);
   font-family:
@@ -46,6 +50,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+button, a {
+  touch-action: manipulation;
+}
+
+@media (max-width: 640px) {
+  input, select, textarea {
+    font-size: 16px !important; /* Prevents auto-zoom on iOS Safari */
+  }
 }
 
 /* ─── Scrollbar ──────────────────────────────────────────── */

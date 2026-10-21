@@ -91,7 +91,7 @@ export default function ContactPage() {
     },
     {
       q: 'How can I contact the store?',
-      a: 'You can call us directly at 9313321535 or 701119609, email shashwatbansal2610@gmail.com, or WhatsApp us at +91-9313321535 during store operating hours.',
+      a: 'You can call us directly at 9313321535 or 7011196209, email shashwatbansal2610@gmail.com, or WhatsApp us at +91-9313321535 during store operating hours.',
     },
     {
       q: 'Do you accept wholesale orders?',
@@ -304,7 +304,7 @@ export default function ContactPage() {
                     CALL US
                   </span>
                   <p className="text-xs font-bold text-[#1F140D] leading-tight">9313321535</p>
-                  <p className="text-xs font-bold text-[#1F140D] leading-tight">701119609</p>
+                  <p className="text-xs font-bold text-[#1F140D] leading-tight">7011196209</p>
                 </div>
               </div>
               <p className="text-[11px] text-[#6B635B] leading-tight">

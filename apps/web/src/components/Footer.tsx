@@ -53,7 +53,7 @@ export function Footer() {
           <Link href="/" className="flex items-center gap-3 group">
             <Image
               src="/logo.png"
-              alt="Company Logo"
+              alt="Bansal Foods Khari Baoli Logo"
               width={40}
               height={40}
               className="w-9 h-9 rounded-full object-cover flex-shrink-0 transition-transform group-hover:scale-105 shadow-xs"
@@ -162,7 +162,7 @@ export function Footer() {
             <p className="flex items-center gap-2">
               <PhoneIcon size={14} className="text-[#C88C3C] flex-shrink-0" />
               <a href="tel:+919313321535" className="hover:text-[#C88C3C] transition-colors">
-                9313321535 | 701119609
+                9313321535 | 7011196209
               </a>
             </p>
             <p className="flex items-center gap-2">

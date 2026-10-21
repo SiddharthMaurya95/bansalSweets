@@ -99,7 +99,7 @@ const DEFAULT_ADDRESSES: Address[] = [
     city: 'Old Delhi',
     state: 'Delhi',
     pincode: '110006',
-    phone: '701119609',
+    phone: '7011196209',
     isDefault: false,
   },
 ];
