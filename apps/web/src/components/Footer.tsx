@@ -157,7 +157,14 @@ export function Footer() {
           <div className="space-y-2.5 text-xs text-white/70">
             <p className="flex items-center gap-2">
               <MapPinIcon size={14} className="text-[#C88C3C] flex-shrink-0" />
-              <span>Khari Baoli, Delhi 110006</span>
+              <a
+                href="https://google.com/maps/place/Bansal+dairy+%26+dry+fruits/data=!4m2!3m1!1s0x0:0x89de043e19cbb404?sa=X&ved=1t:2428&ictx=111"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#C88C3C] transition-colors"
+              >
+                Khari Baoli, Delhi 110006
+              </a>
             </p>
             <p className="flex items-center gap-2">
               <PhoneIcon size={14} className="text-[#C88C3C] flex-shrink-0" />

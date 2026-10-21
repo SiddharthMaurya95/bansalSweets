@@ -455,7 +455,7 @@ export default function ContactPage() {
               </p>
               <div>
                 <a
-                  href="https://maps.google.com/?q=Khari+Baoli+Chandni+Chowk+Delhi+110006"
+                  href="https://google.com/maps/place/Bansal+dairy+%26+dry+fruits/data=!4m2!3m1!1s0x0:0x89de043e19cbb404?sa=X&ved=1t:2428&ictx=111"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-[#6E1A1A] hover:bg-[#581313] text-white font-semibold text-[11px] px-3.5 py-1.5 rounded-lg inline-flex items-center gap-1 transition-colors cursor-pointer shadow-2xs"
@@ -916,7 +916,7 @@ export default function ContactPage() {
 
             <div className="flex flex-wrap items-center gap-3 pt-6">
               <a
-                href="https://maps.google.com/?q=Khari+Baoli+Chandni+Chowk+Delhi+110006"
+                href="https://google.com/maps/place/Bansal+dairy+%26+dry+fruits/data=!4m2!3m1!1s0x0:0x89de043e19cbb404?sa=X&ved=1t:2428&ictx=111"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#6E1A1A] hover:bg-[#581313] text-white font-semibold text-xs px-4 py-2.5 rounded-lg transition-colors cursor-pointer shadow-xs inline-flex items-center gap-1"
@@ -938,7 +938,7 @@ export default function ContactPage() {
           {/* Card 2: Stylized Map Card (4 cols) */}
           <div className="lg:col-span-4 bg-white rounded-2xl border border-[#EFE7DC] overflow-hidden shadow-xs relative aspect-[4/3] lg:aspect-auto">
             <a
-              href="https://maps.google.com/?q=Khari+Baoli+Chandni+Chowk+Delhi+110006"
+              href="https://google.com/maps/place/Bansal+dairy+%26+dry+fruits/data=!4m2!3m1!1s0x0:0x89de043e19cbb404?sa=X&ved=1t:2428&ictx=111"
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full h-full relative group cursor-pointer"

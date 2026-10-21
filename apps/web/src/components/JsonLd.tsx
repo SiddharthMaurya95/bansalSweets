@@ -47,7 +47,7 @@ export function OrganizationJsonLd() {
     sameAs: [
       'https://instagram.com/bansal_dryfruits',
       'https://wa.me/919313321535',
-      'https://www.google.com/maps/search/?api=1&query=Khari+Baoli+Delhi+110006',
+      'https://google.com/maps/place/Bansal+dairy+%26+dry+fruits/data=!4m2!3m1!1s0x0:0x89de043e19cbb404?sa=X&ved=1t:2428&ictx=111',
     ],
   };
 

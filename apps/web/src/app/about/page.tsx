@@ -20,9 +20,9 @@ export default function AboutUsPage() {
   };
 
   const handleGetDirections = () => {
-    showToast('Opening Google Maps directions for Khari Baoli store...');
+    showToast('Opening Google Maps directions for Bansal store...');
     window.open(
-      'https://www.google.com/maps/search/?api=1&query=Khari+Baoli+Delhi+110006',
+      'https://google.com/maps/place/Bansal+dairy+%26+dry+fruits/data=!4m2!3m1!1s0x0:0x89de043e19cbb404?sa=X&ved=1t:2428&ictx=111',
       '_blank',
       'noopener,noreferrer',
     );
